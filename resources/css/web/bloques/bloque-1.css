@@ -1,16 +1,16 @@
-.partials_contenedor_bloque_1 {
+.bloque_1 {
     width: 100%;
     position: relative;
 }
 
-.partials_contenedor_bloque_1 .swiper {
+.bloque_1 .swiper {
     width: 100%;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
-.partials_contenedor_bloque_1 .swiper-slide {
+.bloque_1 .swiper-slide {
     text-align: center;
     font-size: 18px;
     display: flex;
@@ -19,19 +19,19 @@
 }
 
 /* IMAGEN */
-.partials_contenedor_bloque_1 .swiper-slide img {
+.bloque_1 .swiper-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.partials_contenedor_bloque_1 .imagen_movil {
+.bloque_1 .imagen_movil {
     display: none;
 }
 
 /* CCONTROLES */
-.partials_contenedor_bloque_1 .swiper-button-next,
-.partials_contenedor_bloque_1 .swiper-button-prev {
+.bloque_1 .swiper-button-next,
+.bloque_1 .swiper-button-prev {
     background: transparent;
     border-radius: 50%;
     width: 40px;
@@ -39,33 +39,33 @@
     color: var(--color-negro);
 }
 
-.partials_contenedor_bloque_1 .swiper-button-next:hover,
-.partials_contenedor_bloque_1 .swiper-button-prev:hover {
+.bloque_1 .swiper-button-next:hover,
+.bloque_1 .swiper-button-prev:hover {
     background: var(--color-verde);
     color: var(--color-blanco);
 }
 
-.partials_contenedor_bloque_1 .swiper-button-next:after,
-.partials_contenedor_bloque_1 .swiper-button-prev:after {
+.bloque_1 .swiper-button-next:after,
+.bloque_1 .swiper-button-prev:after {
     font-size: 16px;
 }
 
-.partials_contenedor_bloque_1 .swiper-button-prev {
+.bloque_1 .swiper-button-prev {
     left: 10px;
     box-shadow: var(--sombra-secundario-izquierda);
 }
 
-.partials_contenedor_bloque_1 .swiper-button-next {
+.bloque_1 .swiper-button-next {
     right: 10px;
     box-shadow: var(--sombra-secundario-derecha);
 }
 
 /* SLIDER THUMBNAILS */
-.partials_contenedor_bloque_1 .swiper-pagination {
+.bloque_1 .swiper-pagination {
     position: initial;
 }
 
-.partials_contenedor_bloque_1 .swiper-pagination-bullet {
+.bloque_1 .swiper-pagination-bullet {
     background-color: var(--color-negro);
     width: 8px;
     height: 8px;
@@ -73,16 +73,16 @@
     border-radius: 50%;
 }
 
-.partials_contenedor_bloque_1 .swiper-pagination-bullet-active {
+.bloque_1 .swiper-pagination-bullet-active {
     background-color: var(--color-verde);
 }
 
 @media (max-width: 768px) {
-    .partials_contenedor_bloque_1 .imagen_computadora {
+    .bloque_1 .imagen_computadora {
         display: none;
     }
 
-    .partials_contenedor_bloque_1 .imagen_movil {
+    .bloque_1 .imagen_movil {
         display: block;
     }
 }

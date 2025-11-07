@@ -4,6 +4,7 @@
 
 @section('contenido')
 
+@include('bloques.bloque-1', ['p_elemento' => $bloque1_1])
 
 <div class="g_centrar_pagina">
     <h2>Assss</h2><br><br><br>

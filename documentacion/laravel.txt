@@ -4,3 +4,4 @@ php artisan migrate:fresh --seed
 php artisan make:controller InicioController
 php artisan make:model Pagina -mfsc
 php artisan make:model Menu -mfsc
+php artisan make:model Seccion -mfsc

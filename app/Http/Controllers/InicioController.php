@@ -8,6 +8,8 @@ class InicioController extends Controller
 {
     public function index()
     {
-        return view('web.inicio');
+        $bloque1_1 = app(SeccionController::class)->getSeccionPorTipo(1, 'bloque-1');
+
+        return view('web.inicio', compact('bloque1_1'));
     }
 }
