@@ -1,15 +1,15 @@
-.partials_contenedor_bloque_5 {
+.bloque_5 {
     position: relative;
     text-align: center;
 }
 
-.partials_contenedor_bloque_5 img {
+.bloque_5 img {
     width: 100%;
     height: 300px;
     object-fit: cover;
 }
 
-.partials_contenedor_bloque_5::after {
+.bloque_5::after {
     content: "";
     position: absolute;
     top: 0;
@@ -21,7 +21,7 @@
     z-index: 1;
 }
 
-.partials_contenedor_bloque_5 h3 {
+.bloque_5 h3 {
     position: absolute;
     bottom: 50%;
     left: 50%;
