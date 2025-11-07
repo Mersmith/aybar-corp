@@ -1,0 +1,70 @@
+
+.g_formulario .form_grupo {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.g_formulario input,
+.g_formulario textarea,
+.g_formulario select {
+    width: 100%;
+    padding: 14px 15px;
+    border: var(--borde-card);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    background: var(--color-blanco);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.g_formulario input::placeholder,
+.g_formulario textarea::placeholder {
+    color: var(--color-placeholder);
+    font-size: 0.95rem;
+}
+
+.g_formulario input:focus,
+.g_formulario textarea:focus,
+.g_formulario select:focus {
+    border-color: var(--color-verde);
+}
+
+.g_formulario textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.g_formulario button {
+    background: var(--color-verde);
+    color: var(--color-blanco);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 14px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 200px;
+}
+
+.g_formulario .error {
+    color: var(--color-error);
+    font-size: 13px;
+    margin-top: -6px;
+    text-align: start;
+}
+
+.g_formulario button:hover {
+    background: var(--color-celeste);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+
+    .g_formulario button {
+        width: 100%;
+    }
+
+}

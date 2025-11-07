@@ -1,0 +1,27 @@
+@import "../generales/reset.css";
+@import "../generales/variables.css";
+@import "../generales/alertas.css";
+@import "../generales/paginacion.css";
+@import "../generales/formulario.css";
+@import "../generales/code.css";
+
+@import "./partials/redes.css";
+@import "./layout.css";
+@import "./components/header.css";
+@import "./components/footer.css";
+@import "./partials/back-to-top.css";
+@import "./partials/titulo-encabezado.css";
+@import "./partials/bloque-1.css";
+@import "./partials/bloque-2.css";
+@import "./partials/bloque-3.css";
+@import "./partials/bloque-4.css";
+@import "./partials/bloque-5.css";
+@import "./partials/bloque-6.css";
+@import "./partials/bloque-7.css";
+@import "./partials/bloque-8.css";
+@import "./partials/slider-post.css";
+@import "./paginas/nosotros.css";
+@import "./paginas/contacto.css";
+@import "./paginas/post.css";
+@import "./paginas/noticias.css";
+@import "./paginas/landing.css";

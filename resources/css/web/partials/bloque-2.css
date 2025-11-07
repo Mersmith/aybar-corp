@@ -1,0 +1,98 @@
+.partials_contenedor_bloque_2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+    margin: auto;
+}
+
+.partials_contenedor_bloque_2.invertir .bloque_imagen {
+    order: 2;
+}
+
+.partials_contenedor_bloque_2.invertir .bloque_cuerpo {
+    order: 1;
+}
+
+.partials_contenedor_bloque_2 .bloque_imagen img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+}
+
+.partials_contenedor_bloque_2 .bloque_cuerpo h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--color-negro);
+}
+
+.partials_contenedor_bloque_2 .bloque_cuerpo h3 span {
+    color: var(--color-verde);
+    font-weight: 500;
+}
+
+.partials_contenedor_bloque_2 .bloque_cuerpo p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--color-negro);
+}
+
+.partials_contenedor_bloque_2 .bloque_cuerpo p span {
+    color: var(--color-verde);
+    font-weight: 500;
+}
+
+.partials_contenedor_bloque_2 .bloque_cuerpo ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.partials_contenedor_bloque_2 .bloque_cuerpo ul li {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: var(--color-negro);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.partials_contenedor_bloque_2 .bloque_cuerpo ul li i {
+    color: var(--color-verde);
+}
+
+.partials_contenedor_bloque_2 .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    background: var(--color-whatsapp);
+    color: var(--color-blanco);
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.partials_contenedor_bloque_2 .btn-whatsapp:hover {
+    transform: translateY(-2px);
+}
+
+.partials_contenedor_bloque_2 .btn-whatsapp i {
+    color: var(--color-blanco);
+    font-size: 25px;
+}
+
+@media (max-width: 1024px) {
+    .partials_contenedor_bloque_2 {
+        grid-template-columns: 1fr;
+    }
+
+    .partials_contenedor_bloque_2.invertir .bloque_imagen,
+    .partials_contenedor_bloque_2.invertir .bloque_cuerpo {
+        order: initial;
+    }
+}

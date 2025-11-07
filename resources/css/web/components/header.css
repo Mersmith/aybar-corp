@@ -1,0 +1,231 @@
+.web_header {
+    background-color: var(--color-blanco);
+    box-shadow: var(--sombra);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.web_header .web_header_cuerpo {
+    height: var(--alto-header-web);
+    max-width: var(--ancho-centrar-pagina);
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.web_header .logo {
+    height: 50px;
+}
+
+.web_header .web_nav_menu {
+    display: flex;
+    gap: 24px;
+}
+
+.menu_principal {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu_item {
+    position: relative;
+}
+
+.nav_link {
+    text-decoration: none;
+    color: var(--color-negro);
+    font-weight: 500;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 8px 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav_link:hover {
+    color: var(--color-verde);
+}
+
+/* Icono desplegable */
+.icono_flecha {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--color-blanco);
+    min-width: 180px;
+    list-style: none;
+    padding: 8px 0px;
+    margin: 0;
+    box-shadow: var(--sombra);
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+}
+
+.submenu li {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 16px;
+    color: var(--color-negro);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.submenu li i {
+    color: var(--color-negro);
+    font-size: 5px;
+}
+
+.submenu li:hover {
+    background-color: var(--color-gris);
+}
+
+/* Mostrar submenú */
+.menu_item.submenu_abierto>.submenu {
+    display: flex;
+}
+
+.menu_item.submenu_abierto .icono_flecha {
+    transform: rotate(180deg);
+}
+
+/* ----------- MÓVIL ----------- */
+.web_menu_toggle {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--color-negro);
+    display: none;
+}
+
+.web_nav_overlay {
+    display: none;
+}
+
+.cabecera_sidebar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .cabecera_sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+
+    .web_menu_toggle {
+        display: block;
+    }
+
+    /* Fondo oscuro detrás del menú */
+    .web_nav_overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .web_nav_overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Sidebar del menú */
+    .web_nav_menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: var(--color-blanco);
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .web_nav_menu.active {
+        right: 0;
+    }
+
+    .menu_principal {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .submenu {
+        position: static;
+        background: var(--color-blanco);
+        box-shadow: none;
+        padding-left: 20px;
+        display: none;
+    }
+
+    .menu_item.submenu_abierto {
+        border: 1px solid var(--color-gris);
+    }
+
+    .menu_item.submenu_abierto button {
+        background-color: var(--color-verde);
+        color: var(--color-blanco);
+    }
+
+    .menu_item.submenu_abierto>.submenu {
+        display: flex;
+    }
+
+    .nav_link {
+        display: flex;
+        justify-content: space-between;
+        padding: 12px 10px;
+        width: 100%;
+        border-bottom: 1px solid var(--color-gris);
+    }
+
+    /* Logo dentro del sidebar */
+    .sidebar_logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .sidebar_logo img {
+        height: 50px;
+    }
+}
