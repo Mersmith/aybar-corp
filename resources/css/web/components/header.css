@@ -1,12 +1,36 @@
+.web_header_banner {
+    height: var(--alto-header-web-banner);
+    background: var(--color-verde);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+}
+
+.web_header_banner.oculto {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
 .web_header {
     background-color: var(--color-blanco);
     box-shadow: var(--sombra);
     position: fixed;
-    width: 100%;
-    top: 0;
+    top: var(--alto-header-web-banner);
     left: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
+    width: 100%;
+    z-index: 998;
+    transition: transform 0.3s ease;
+}
+
+.web_header_contenedor .web_header {
+    transform: translateY(calc(-1 * var(--alto-header-web-banner)));
 }
 
 .web_header .web_header_cuerpo {
