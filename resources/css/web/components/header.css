@@ -1,6 +1,6 @@
 .web_header_banner {
     height: var(--alto-header-web-banner);
-    background: var(--color-verde);
+    background: #02424e;
     color: white;
     display: flex;
     align-items: center;
@@ -80,7 +80,44 @@
 }
 
 .web_header .menu_principal .menu_item .nav_link:hover {
-    color: var(--color-verde);
+    color: #02424e;
+}
+
+.web_header .menu_principal .menu_item .boton_personalizado {
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 25px;
+}
+
+.web_header .menu_principal .menu_item .boton_personalizado_blanco {
+    background: #f0f0f0;
+    border: 1px solid #d1d1d1;
+    color: #02424e;
+}
+
+.web_header .menu_principal .menu_item .boton_personalizado_blanco:hover {
+    background: #02424e;
+    border: 1px solid #02424e;
+    color: #ffffff;
+}
+
+.web_header .menu_principal .menu_item .boton_personalizado_amarillo {
+    background: #ffcd02;
+    border: 1px solid #ffcd02;
+    color: #02424e;
+}
+
+.web_header .menu_principal .menu_item .boton_personalizado_amarillo:hover {
+    background: #02424e;
+    border: 1px solid #ffcd02;
+    color: #ffffff;
 }
 
 /* Icono desplegable */
@@ -218,12 +255,7 @@ body.no-scroll {
     }
 
     .web_header .menu_principal .menu_item.submenu_abierto {
-        border: 1px solid var(--color-gris);
-    }
-
-    .web_header .menu_principal .menu_item.submenu_abierto button {
-        background-color: var(--color-verde);
-        color: var(--color-blanco);
+        border-bottom: 1px solid var(--color-gris);
     }
 
     .web_header .menu_principal .menu_item.submenu_abierto > .submenu {
@@ -236,5 +268,13 @@ body.no-scroll {
         padding: 12px 10px;
         width: 100%;
         border-bottom: 1px solid var(--color-gris);
+    }
+
+    .web_header .menu_principal .menu_item .boton_personalizado {
+        justify-content: center;
+    }
+
+    .web_header .menu_principal .menu_item .boton_personalizado:first-of-type {
+        margin-top: 20px;
     }
 }
