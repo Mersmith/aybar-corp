@@ -10,7 +10,7 @@ $lista = $p['lista'] ?? [];
 $slidesCount = count($lista);
 @endphp
 
-@include('partials.encabezado', [
+@include('partials.titulo-encabezado', [
 'titulo' => $titulo,
 'descripcion' => $titulo_descripcion,
 ])

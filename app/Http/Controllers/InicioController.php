@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
 
 class InicioController extends Controller
 {
@@ -10,7 +11,23 @@ class InicioController extends Controller
     {
         $bloque1_1 = app(SeccionController::class)->getSeccionPorTipo(1, 'bloque-1');
         $bloque8_1 = app(SeccionController::class)->getSeccionPorTipo(15, 'bloque-8');
+        $posts = $this->getBlog();
 
-        return view('web.inicio', compact('bloque1_1', 'bloque8_1'));
+        return view('web.inicio', compact('bloque1_1', 'bloque8_1', 'posts'));
+    }
+
+    public function getBlog()
+    {
+        $consulta_id = 1;
+
+        $titulo = 'Blog';
+
+        $data = Blog::where('estado', true)->latest()->take(6)->get();
+
+        return [
+            'id' => $consulta_id,
+            'titulo' => $titulo,
+            'posts' => $data,
+        ];
     }
 }

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             PaginaSeeder::class,
             MenuSeeder::class,
             SeccionSeeder::class,
+            BlogSeeder::class,
         ]);
     }
 }

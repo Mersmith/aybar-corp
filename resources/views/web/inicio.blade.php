@@ -22,6 +22,13 @@
     <h2>1</h2><br><br><br>
 
     @include('bloques.bloque-8', ['p_elemento' => $bloque8_1])
+
+    @include('partials.titulo-encabezado', [
+    'titulo' => 'Noticias',
+    'alineacion' => 'left',
+    ])
+
+    @include('partials.slider-post', ['p_elemento' => $posts])
 </div>
 
 @endsection

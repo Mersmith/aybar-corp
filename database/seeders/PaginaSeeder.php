@@ -30,15 +30,15 @@ class PaginaSeeder extends Seeder
             ],
             [
                 'tipo' => 'personalizado',
-                'titulo' => 'Noticias',
-                'slug' => 'noticias',
+                'titulo' => 'Blog',
+                'slug' => 'blog',
                 'contenido' => [],
                 'activo' => true,
             ],
             [
                 'tipo' => 'personalizado',
-                'titulo' => 'Noticias - Item',
-                'slug' => 'noticias/',
+                'titulo' => 'Blog - Item',
+                'slug' => 'blog/',
                 'contenido' => [],
                 'activo' => true,
             ],
@@ -60,14 +60,30 @@ class PaginaSeeder extends Seeder
                 'tipo' => 'secciones',
                 'titulo' => 'Terminos y Condiciones',
                 'slug' => 'terminos-y-condiciones',
-                'contenido' => [],
+                'contenido' => [
+                    'lista' => [
+                        [
+                            'id' => 1,
+                            'seccion_id' => 18,
+                            'tipo' => 'bloque-9',
+                        ],
+                    ],
+                ],
                 'activo' => true,
             ],
             [
                 'tipo' => 'secciones',
                 'titulo' => 'Políticas de Privacidad',
                 'slug' => 'politicas-de-privacidad',
-                'contenido' => [],
+                'contenido' => [
+                    'lista' => [
+                        [
+                            'id' => 1,
+                            'seccion_id' => 19,
+                            'tipo' => 'bloque-9',
+                        ],
+                    ],
+                ],
                 'activo' => true,
             ],
         ];
