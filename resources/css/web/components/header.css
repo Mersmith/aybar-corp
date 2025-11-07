@@ -19,7 +19,7 @@
     align-items: center;
 }
 
-.web_header .logo {
+.web_header .web_header_cuerpo .logo {
     height: 50px;
 }
 
@@ -28,7 +28,7 @@
     gap: 24px;
 }
 
-.menu_principal {
+.web_header .menu_principal {
     list-style: none;
     display: flex;
     gap: 24px;
@@ -36,11 +36,11 @@
     padding: 0;
 }
 
-.menu_item {
+.web_header .menu_principal .menu_item {
     position: relative;
 }
 
-.nav_link {
+.web_header .menu_principal .menu_item .nav_link {
     text-decoration: none;
     color: var(--color-negro);
     font-weight: 500;
@@ -55,17 +55,17 @@
     gap: 6px;
 }
 
-.nav_link:hover {
+.web_header .menu_principal .menu_item .nav_link:hover {
     color: var(--color-verde);
 }
 
 /* Icono desplegable */
-.icono_flecha {
+.web_header .menu_principal .menu_item .icono_flecha {
     font-size: 0.8em;
     transition: transform 0.3s ease;
 }
 
-.submenu {
+.web_header .menu_principal .menu_item .submenu {
     position: absolute;
     top: 100%;
     left: 0;
@@ -80,13 +80,13 @@
     flex-direction: column;
 }
 
-.submenu li {
+.web_header .menu_principal .menu_item .submenu li {
     display: flex;
     align-items: center;
     padding: 0px 10px;
 }
 
-.submenu li a {
+.web_header .menu_principal .menu_item .submenu li a {
     display: block;
     padding: 10px 16px;
     color: var(--color-negro);
@@ -94,26 +94,26 @@
     transition: background-color 0.3s ease;
 }
 
-.submenu li i {
+.web_header .menu_principal .menu_item .submenu li i {
     color: var(--color-negro);
     font-size: 5px;
 }
 
-.submenu li:hover {
+.web_header .menu_principal .menu_item .submenu li:hover {
     background-color: var(--color-gris);
 }
 
 /* Mostrar submenú */
-.menu_item.submenu_abierto>.submenu {
+.web_header .menu_principal .menu_item.submenu_abierto > .submenu {
     display: flex;
 }
 
-.menu_item.submenu_abierto .icono_flecha {
+.web_header .menu_principal .menu_item.submenu_abierto .icono_flecha {
     transform: rotate(180deg);
 }
 
 /* ----------- MÓVIL ----------- */
-.web_menu_toggle {
+.web_header .web_menu_toggle {
     background: none;
     border: none;
     font-size: 22px;
@@ -122,28 +122,27 @@
     display: none;
 }
 
-.web_nav_overlay {
+.web_header .web_nav_overlay {
     display: none;
 }
 
-.cabecera_sidebar {
+.web_header .web_nav_menu .cabecera_sidebar {
     display: none;
 }
 
 @media (max-width: 768px) {
-    .cabecera_sidebar {
+    .web_header .web_nav_menu .cabecera_sidebar {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
     }
 
-
-    .web_menu_toggle {
+    .web_header .web_menu_toggle {
         display: block;
     }
 
     /* Fondo oscuro detrás del menú */
-    .web_nav_overlay {
+    .web_header .web_nav_overlay {
         display: block;
         position: fixed;
         top: 0;
@@ -157,13 +156,13 @@
         transition: all 0.3s ease;
     }
 
-    .web_nav_overlay.active {
+    .web_header.web_nav_overlay.active {
         opacity: 1;
         visibility: visible;
     }
 
     /* Sidebar del menú */
-    .web_nav_menu {
+    .web_header .web_nav_menu {
         position: fixed;
         top: 0;
         right: -100%;
@@ -179,16 +178,16 @@
         z-index: 1000;
     }
 
-    .web_nav_menu.active {
+    .web_header .web_nav_menu.active {
         right: 0;
     }
 
-    .menu_principal {
+    .web_header .menu_principal {
         flex-direction: column;
         gap: 0;
     }
 
-    .submenu {
+    .web_header .menu_principal .menu_item .submenu {
         position: static;
         background: var(--color-blanco);
         box-shadow: none;
@@ -196,36 +195,24 @@
         display: none;
     }
 
-    .menu_item.submenu_abierto {
+    .web_header .menu_principal .menu_item.submenu_abierto {
         border: 1px solid var(--color-gris);
     }
 
-    .menu_item.submenu_abierto button {
+    .web_header .menu_principal .menu_item.submenu_abierto button {
         background-color: var(--color-verde);
         color: var(--color-blanco);
     }
 
-    .menu_item.submenu_abierto>.submenu {
+    .web_header .menu_principal .menu_item.submenu_abierto > .submenu {
         display: flex;
     }
 
-    .nav_link {
+    .web_header .menu_principal .menu_item .nav_link {
         display: flex;
         justify-content: space-between;
         padding: 12px 10px;
         width: 100%;
         border-bottom: 1px solid var(--color-gris);
-    }
-
-    /* Logo dentro del sidebar */
-    .sidebar_logo {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-
-    .sidebar_logo img {
-        height: 50px;
     }
 }
