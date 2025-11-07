@@ -11,9 +11,10 @@ class InicioController extends Controller
     {
         $bloque1_1 = app(SeccionController::class)->getSeccionPorTipo(1, 'bloque-1');
         $bloque8_1 = app(SeccionController::class)->getSeccionPorTipo(15, 'bloque-8');
+        $bloque4_1 = app(SeccionController::class)->getSeccionPorTipo(4, 'bloque-4');
         $posts = $this->getBlog();
 
-        return view('web.inicio', compact('bloque1_1', 'bloque8_1', 'posts'));
+        return view('web.inicio', compact('bloque1_1', 'bloque8_1', 'posts', 'bloque4_1',));
     }
 
     public function getBlog()

@@ -23,6 +23,8 @@
 
     @include('bloques.bloque-8', ['p_elemento' => $bloque8_1])
 
+    @include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
+
     @include('partials.titulo-encabezado', [
     'titulo' => 'Noticias',
     'alineacion' => 'left',
