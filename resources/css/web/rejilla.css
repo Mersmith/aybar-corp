@@ -1,0 +1,36 @@
+.r_centrar_pagina {
+    margin: 0 auto;
+    max-width: var(--ancho-centrar-pagina);
+    width: 100%;
+}
+
+.r_padinr_pagina {
+    padding: 20px;
+}
+
+.r_gap_pagina {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.r_margin_top_70 {
+    margin-top: 70px;
+}
+
+.r_contenedor_columna {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+@media (max-width: 768px) {
+    .r_gap_pagina {
+        gap: 20px;
+    }
+
+    .r_margin_top_70 {
+        margin-top: 40px;
+    }
+}

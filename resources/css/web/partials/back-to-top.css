@@ -1,4 +1,4 @@
-.back-to-top {
+.partials_back_to_top {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -15,6 +15,6 @@
     z-index: 999;
 }
 
-.back-to-top:hover {
+.partials_back_to_top:hover {
     background: var(--color-negro);
 }

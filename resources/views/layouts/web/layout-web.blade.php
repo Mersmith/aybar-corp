@@ -25,11 +25,11 @@
     @livewireStyles
 </head>
 
-<body class="layout-web">
+<body class="layout_web">
 
     @include('components.web-header')
 
-    <main class="layout-contenido">
+    <main class="layout_web_contenido">
         @include('partials.back-to-top')
         @yield('contenido')
     </main>

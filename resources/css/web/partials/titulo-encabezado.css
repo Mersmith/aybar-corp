@@ -1,39 +1,33 @@
-.partials_contenedor_encabezado {
+.partials_titulo_encabezado {
     max-width: 800px;
     margin: auto;
     text-align: center;
 }
 
-.partials_contenedor_encabezado h2 {
+.partials_titulo_encabezado h2 {
     font-size: 32px;
     margin-bottom: 15px;
     color: var(--color-negro);
 }
 
-.partials_contenedor_encabezado h2 span {
+.partials_titulo_encabezado h2 span {
     color: var(--color-verde);
     font-weight: 500;
 }
 
-.partials_contenedor_encabezado p {
+.partials_titulo_encabezado p {
     font-size: 18px;
     color: var(--color-negro);
     line-height: 1.6;
 }
 
-.partials_contenedor_encabezado p span {
+.partials_titulo_encabezado p span {
     color: var(--color-verde);
     font-weight: 500;
 }
 
-.titulo_simple {
-    font-size: 32px;
-    margin-bottom: 15px;
-    color: var(--color-negro);
-}
-
 @media (max-width: 1024px) {
-    .partials_contenedor_encabezado h2 {
+    .partials_titulo_encabezado h2 {
         line-height: 35px;
     }
 }
