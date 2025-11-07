@@ -20,48 +20,55 @@ class MenuSeeder extends Seeder
             'orden' => 1,
         ]);
 
-        $nosotros = Menu::create([
-            'nombre' => 'Nosotros',
+        $proyectos = Menu::create([
+            'nombre' => 'Proyectos',
             'slug' => '',
             'url' => '',
             'orden' => 2,
         ]);
 
-        // Submenús de "Nosotros"
+        // Submenús de "Proyectos"
         Menu::create([
-            'nombre' => 'Martin Caicho',
+            'nombre' => 'Proyecto 1',
             'slug' => 'martin-caicho',
             'url' => '/martin-caicho',
-            'parent_id' => $nosotros->id,
+            'parent_id' => $proyectos->id,
             'orden' => 1,
         ]);
 
         Menu::create([
-            'nombre' => 'Empresario',
+            'nombre' => 'Proyecto 2',
             'slug' => 'empresario',
             'url' => '/empresario',
-            'parent_id' => $nosotros->id,
+            'parent_id' => $proyectos->id,
             'orden' => 2,
         ]);
 
         Menu::create([
-            'nombre' => 'Autor',
+            'nombre' => 'Proyecto 3',
             'slug' => 'autor',
             'url' => '/autor',
-            'parent_id' => $nosotros->id,
+            'parent_id' => $proyectos->id,
             'orden' => 3,
         ]);
 
         Menu::create([
-            'nombre' => 'Líder',
+            'nombre' => 'Proyecto 4',
             'slug' => 'lider',
             'url' => '/lider',
-            'parent_id' => $nosotros->id,
+            'parent_id' => $proyectos->id,
             'orden' => 3,
         ]);
 
-        $posts = Menu::create([
-            'nombre' => 'Posts',
+        $nosotros = Menu::create([
+            'nombre' => 'Nosotros',
+            'slug' => 'contacto',
+            'url' => '/contacto',
+            'orden' => 4,
+        ]);
+
+        $publicaciones = Menu::create([
+            'nombre' => 'Publicaciones',
             'slug' => '',
             'url' => '',
             'orden' => 3,
@@ -71,23 +78,16 @@ class MenuSeeder extends Seeder
             'nombre' => 'Blog',
             'slug' => 'blog',
             'url' => '/blog',
-            'parent_id' => $posts->id,
+            'parent_id' => $publicaciones->id,
             'orden' => 1,
         ]);
 
         Menu::create([
-            'nombre' => 'Noticias',
+            'nombre' => 'Comunicados',
             'slug' => 'noticias',
             'url' => '/noticias',
-            'parent_id' => $posts->id,
+            'parent_id' => $publicaciones->id,
             'orden' => 1,
-        ]);
-
-        $contacto = Menu::create([
-            'nombre' => 'Contacto',
-            'slug' => 'contacto',
-            'url' => '/contacto',
-            'orden' => 4,
         ]);
     }
 }
