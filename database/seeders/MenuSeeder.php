@@ -14,14 +14,14 @@ class MenuSeeder extends Seeder
     public function run(): void
     {
         $inicio = Menu::create([
-            'nombre' => 'Inicio',
+            'nombre' => 'INICIO',
             'slug' => 'inicio',
             'url' => '/',
             'orden' => 1,
         ]);
 
         $proyectos = Menu::create([
-            'nombre' => 'Proyectos',
+            'nombre' => 'PROYECTOS',
             'slug' => '',
             'url' => '',
             'orden' => 2,
@@ -61,14 +61,14 @@ class MenuSeeder extends Seeder
         ]);
 
         $nosotros = Menu::create([
-            'nombre' => 'Nosotros',
+            'nombre' => 'NOSOTROS',
             'slug' => 'contacto',
             'url' => '/contacto',
             'orden' => 4,
         ]);
 
         $publicaciones = Menu::create([
-            'nombre' => 'Publicaciones',
+            'nombre' => 'PUBLICACIONES',
             'slug' => '',
             'url' => '',
             'orden' => 3,
