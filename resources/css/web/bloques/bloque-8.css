@@ -11,6 +11,7 @@
 .bloque_8 .swiper-wrapper {
     display: flex;
     padding: 20px 0px;
+    min-height: 400px;
 }
 
 .bloque_8 .testimonio_card {
@@ -20,6 +21,7 @@
     gap: 20px;
     padding: 25px;
     transition: transform 0.3s ease;
+    min-height: 400px;
 }
 
 .bloque_8 .testimonio_card:hover {
@@ -27,7 +29,7 @@
 }
 
 .bloque_8 .testimonio_foto img {
-    width: 100%;
+    /*width: 100%;*/
     object-fit: cover;
     margin: 0 auto;
 }

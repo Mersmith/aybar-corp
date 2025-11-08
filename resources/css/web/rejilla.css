@@ -57,8 +57,15 @@
 }
 
 .r_parrafo span {
-    color: var(--color-verde);
     font-weight: 500;
+}
+
+.r_parrafo.color_1 span {
+    color: var(--color-verde);
+}
+
+.r_parrafo.color_2 span {
+    color: var(--color-amarillo);
 }
 
 @media (max-width: 768px) {
@@ -76,7 +83,7 @@
     }
 
     .r_parrafo {
-        font-size: 80px;
+        font-size: 16px;
         line-height: 1.5;
     }
 }

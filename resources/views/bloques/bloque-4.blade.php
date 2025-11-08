@@ -6,6 +6,7 @@ $p = $p_elemento->contenido;
 $titulo = $p['titulo'];
 $subtitulo = $p['subtitulo'];
 
+$imagen_fondo = $p['imagen_fondo'];
 $imagen = $p['imagen'];
 $imagen_seo = $p['imagen_seo'];
 
@@ -19,7 +20,7 @@ $boton_link = $boton['link'];
 
 <div class="bloque_4">
     @if (!empty($imagen))
-    <img class="imagen" src="{{ asset($imagen) }}" alt="{{ $imagen_seo }}">
+    <img class="imagen" src="{{ asset($imagen_fondo) }}" alt="{{ $imagen_seo }}">
     @endif
 
     <div class="cuerpo">
@@ -35,11 +36,11 @@ $boton_link = $boton['link'];
 
             <div class="contenido">
                 <div class="contenedor_imagen">
-                    <img src="http://127.0.0.1:8000/assets/imagen/default.jpg">
+                    <img src="{{ asset($imagen) }}" alt="{{ $imagen_seo }}">
                 </div>
-                <div>
+                <div class="contenedor_datos">
                     @if (!empty($subtitulo))
-                    <p>{{ $subtitulo }}</p>
+                    <p class="r_parrafo color_2">{!! $subtitulo !!}</p>
                     @endif
 
                     @if (!empty($boton_texto))
