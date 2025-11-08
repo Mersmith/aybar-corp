@@ -9,12 +9,17 @@
                 <a href="{{ route('blog.show', $post->slug) }}">
                     <div class="post_imagen_contenedor">
                         <img src="{{ $post->imagen }}">
+                        <div class="precio">
+                            <span>CUOTAS <br> DESDE:</span>
+                            <p><small>S/</small> 895.90</p>
+                        </div>
                         <p class="titulo">{{ $post->meta_title }}</p>
                         <div class="pie">
-                            <p class="descripcion"> <i class="fa-solid fa-arrow-up"></i> {{ $post->meta_description }}
+                            <p class="descripcion"> <i class="fa-solid fa-location-dot"></i> {{ $post->meta_description
+                                }}
                             </p>
 
-                            <p class="descripcion"> <i class="fa-solid fa-arrow-up"></i> {{ $post->meta_description }}
+                            <p class="descripcion"> <i class="fa-regular fa-map"></i> {{ $post->meta_description }}
                             </p>
                         </div>
                     </div>

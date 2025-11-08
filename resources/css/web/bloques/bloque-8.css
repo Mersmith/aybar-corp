@@ -1,7 +1,6 @@
 .bloque_8 {
     position: relative;
     width: 100%;
-    text-align: center;
 }
 
 .bloque_8 .swiper {
@@ -14,26 +13,13 @@
     padding: 20px 0px;
 }
 
-.bloque_8 .swiper-slide {
-    width: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    box-sizing: border-box;
-}
-
 .bloque_8 .testimonio_card {
-    background: var(--color-blanco);
-    border: var(--borde-card);
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: var(--sombra);
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    text-align: center;
+    gap: 20px;
+    padding: 25px;
     transition: transform 0.3s ease;
-    min-height: 300px;
 }
 
 .bloque_8 .testimonio_card:hover {
@@ -41,42 +27,44 @@
 }
 
 .bloque_8 .testimonio_foto img {
-    width: 90px;
-    height: 90px;
+    width: 100%;
     object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid var(--color-primario);
-    margin-bottom: 15px;
+    margin: 0 auto;
+}
+
+.bloque_8 .testimonio_datos blockquote {
+    font-size: 120px;
+    line-height: 0px;
 }
 
 .bloque_8 .testimonio_comentario {
-    font-style: italic;
-    font-size: 15px;
-    color: var(--color-negro);
-    margin-bottom: 10px;
-    line-height: 1.5;
+    font-size: 25px;
+    line-height: 30px;
+    padding-bottom: 20px !important;
 }
 
 .bloque_8 .testimonio_nombre {
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--color-primario);
-    margin-top: 10px;
+    font-size: 40px;
+    line-height: 1.3;
+    font-weight: 600;
 }
 
 .bloque_8 .testimonio_cargo {
     font-size: 13px;
-    color: var(--color-gris);
 }
 
 @media (max-width: 768px) {
-    .bloque_8 .swiper-slide {
-        width: 50%;
+    .bloque_8 .testimonio_card {
+        grid-template-columns: 1fr;
     }
-}
 
-@media (max-width: 500px) {
-    .bloque_8 .swiper-slide {
-        width: 80%;
+    .bloque_8 .testimonio_datos blockquote {
+        margin-top: 30px;
+        font-size: 90px;
+        line-height: 0px;
+    }
+
+    .bloque_8 .testimonio_foto img {
+        margin-bottom: 15px;
     }
 }

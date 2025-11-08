@@ -17,7 +17,11 @@
 
     @include('bloques.bloque-8', ['p_elemento' => $bloque8_1])
 
-    @include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
+</div>
+
+@include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
+
+<div class="r_centrar_pagina">
 
     @include('partials.titulo-encabezado', [
     'titulo' => 'Noticias',
@@ -25,6 +29,7 @@
     ])
 
     @include('partials.slider-post', ['p_elemento' => $posts])
+
 </div>
 
 @endsection

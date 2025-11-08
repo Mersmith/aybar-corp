@@ -55,6 +55,39 @@
     transform: translateY(-4px);
 }
 
+.partials_contenedor_slider_proyectos .post_imagen_contenedor .precio {
+    background: #ffcd02;
+    width: 267px;
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-radius: 35px;
+    margin-top: -45px;
+    margin-left: 10px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.partials_contenedor_slider_proyectos .post_imagen_contenedor .precio span {
+    font-size: 14px;
+    padding: 0 !important;
+    line-height: 15px;
+}
+
+.partials_contenedor_slider_proyectos .post_imagen_contenedor .precio p {
+    font-size: 30px;
+    padding: 0 !important;
+    line-height: 40px;
+    color: #0069b3;
+    font-weight: 600;
+}
+
+.partials_contenedor_slider_proyectos .post_imagen_contenedor .precio p small {
+    font-size: 16px;
+}
+
 /* Título: máximo 2 líneas */
 .partials_contenedor_slider_proyectos .post_imagen_contenedor p.titulo {
     margin-top: 20px;

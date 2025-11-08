@@ -5,14 +5,15 @@
 }
 
 .partials_titulo_encabezado h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
+    font-size: 50px;
+    line-height: 55px;
+    padding-bottom: 30px;
     color: var(--color-negro);
+    font-weight: 700;
 }
 
 .partials_titulo_encabezado h2 span {
     color: var(--color-verde);
-    font-weight: 500;
 }
 
 .partials_titulo_encabezado p {
@@ -28,6 +29,8 @@
 
 @media (max-width: 1024px) {
     .partials_titulo_encabezado h2 {
-        line-height: 35px;
+        font-size: 35px;
+        line-height: 38px;
+        padding-bottom: 10px;
     }
 }

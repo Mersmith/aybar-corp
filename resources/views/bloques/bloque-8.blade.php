@@ -28,17 +28,20 @@ $slidesCount = count($lista);
                     </div>
                     @endif
 
-                    @if (!empty($item['descripcion']))
-                    <p class="testimonio_comentario">"{{ $item['descripcion'] }}"</p>
-                    @endif
+                    <div class="testimonio_datos">
+                        @if (!empty($item['descripcion']))
+                        <blockquote>"</blockquote>
+                        <p class="testimonio_comentario">{{ $item['descripcion'] }}"</p>
+                        @endif
 
-                    @if (!empty($item['titulo']))
-                    <p class="testimonio_nombre">{{ $item['titulo']}}</p>
-                    @endif
+                        @if (!empty($item['titulo']))
+                        <p class="testimonio_nombre">{{ $item['titulo']}}</p>
+                        @endif
 
-                    @if (!empty($item['subtitulo']))
-                    <p class="testimonio_cargo">{{ $item['subtitulo'] }}</p>
-                    @endif
+                        @if (!empty($item['subtitulo']))
+                        <p class="testimonio_cargo">{{ $item['subtitulo'] }}</p>
+                        @endif
+                    </div>
                 </div>
             </div>
             @endforeach
@@ -48,35 +51,23 @@ $slidesCount = count($lista);
 
 <script>
     (function() {
-            const slidesCount = {{ $slidesCount }};
-            const selector = '.SwiperSliderTestimonios-{{ $p->id ?? 'default' }}';
+    const slidesCount = {{ $slidesCount }};
+    const selector = '.SwiperSliderTestimonios-{{ $p->id ?? 'default' }}';
 
-            new Swiper(selector, {
-                slidesPerView: 3.5,
-                spaceBetween: 20,
-                autoplay: slidesCount > 1 ? {
-                    delay: 3500,
-                    disableOnInteraction: false,
-                } : false,
-                loop: slidesCount > 4, // 👈 solo hace loop si hay más de 4 slides
-                grabCursor: slidesCount > 1,
+    new Swiper(selector, {
+        slidesPerView: 1,        // 👈 solo un slide visible
+        slidesPerGroup: 1,       // 👈 avanza de uno en uno
+        spaceBetween: 20,
+        /*autoplay: slidesCount > 1 ? {
+            delay: 3500,
+            disableOnInteraction: false,
+        } : false,
+        loop: slidesCount > 1, */  // 👈 activa loop solo si hay más de un slide
+        grabCursor: slidesCount > 1,
 
-                breakpoints: {
-                    1024: {
-                        slidesPerView: Math.min(3.5, slidesCount),
-                        spaceBetween: 20,
-                    },
-                    768: {
-                        slidesPerView: Math.min(2.5, slidesCount),
-                        spaceBetween: 20,
-                    },
-                    0: {
-                        slidesPerView: Math.min(1.2, slidesCount),
-                        spaceBetween: 20,
-                    },
-                }
-            });
-        })();
+        // 👇 ya no necesitas breakpoints porque siempre es 1
+    });
+})();
 </script>
 
 @endif
