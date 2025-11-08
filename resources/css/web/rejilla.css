@@ -25,6 +25,42 @@
     gap: 70px;
 }
 
+.r_titulo_1 h2 {
+    font-size: 50px;
+    line-height: 55px;
+    font-weight: 700;
+}
+
+.r_titulo_1 h2.color_1 {
+    color: var(--color-verde);
+}
+
+.r_titulo_1 h2.color_2 {
+    color: var(--color-blanco);
+}
+
+.r_titulo_1 h2 span {
+    color: var(--color-amarillo);
+}
+
+.r_titulo_1 p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.r_titulo_1 p.color_1 {
+    color: var(--color-verde);
+}
+
+.r_titulo_1 p.color_2 {
+    color: var(--color-blanco);
+}
+
+.r_titulo_1 p span {
+    color: var(--color-verde);
+    font-weight: 500;
+}
+
 @media (max-width: 768px) {
     .r_gap_pagina {
         gap: 20px;
@@ -32,5 +68,10 @@
 
     .r_margin_top_70 {
         margin-top: 40px;
+    }
+
+    .r_titulo_1 h2 {
+        font-size: 35px;
+        line-height: 38px;
     }
 }

@@ -11,6 +11,7 @@
     @include('partials.titulo-encabezado', [
     'titulo' => 'Nuestros proyectos',
     'alineacion' => 'left',
+    'color' => 'color_1',
     ])
 
     @include('partials.slider-proyectos', ['p_elemento' => $posts])
@@ -26,6 +27,7 @@
     @include('partials.titulo-encabezado', [
     'titulo' => 'Noticias',
     'alineacion' => 'left',
+    'color' => 'color_1',
     ])
 
     @include('partials.slider-post', ['p_elemento' => $posts])

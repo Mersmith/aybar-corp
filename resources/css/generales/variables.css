@@ -11,8 +11,9 @@
     --ancho-sidebar-admin-item: 80px; /**/
     --ancho-sidebar-admin-menu: 240px; /**/
 
-    --color-negro: #01274c; /**/
-    --color-verde: #00ac08; /**/
+    --color-negro: #333; /**/
+    --color-amarillo: #ffcd02; /**/
+    --color-verde: #02424e; /**/
     --color-whatsapp: #25d366;
     --color-blanco: #fff; /**/
     --color-plomo: #f8f8fa; /**/

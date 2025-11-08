@@ -25,7 +25,12 @@ $boton_link = $boton['link'];
     <div class="cuerpo">
         <div class="r_centrar_pagina" @if (!empty($align)) style="text-align: {{ $align }};" @endif>
             @if (!empty($titulo))
-            <h2>{{ $titulo }}</h2>
+            @include('partials.titulo-encabezado', [
+            'titulo' => $titulo,
+            'descripcion' => 'Terrenos seguros, legales y con excelente ubicación para ti y tu familia.',
+            'alineacion' => 'center',
+            'color' => 'color_2',
+            ])
             @endif
 
             <div class="contenido">

@@ -10,6 +10,7 @@
         <div class="g_contenedor_columna">
             @include('partials.titulo-encabezado', [
             'titulo' => 'Noticias',
+            'color' => 'color_2',
             ])
 
             <div class="partials_contenedor_grid_post">

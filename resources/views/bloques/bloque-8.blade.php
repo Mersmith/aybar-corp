@@ -13,6 +13,8 @@ $slidesCount = count($lista);
 @include('partials.titulo-encabezado', [
 'titulo' => $titulo,
 'descripcion' => $titulo_descripcion,
+'alineacion' => 'center',
+'color' => 'color_1',
 ])
 
 @if (!empty($lista) && is_array($lista))
