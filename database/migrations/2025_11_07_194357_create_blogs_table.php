@@ -24,6 +24,7 @@ return new class extends Migration
             // SEO opcional
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
+            $table->string('meta_image')->nullable();
             $table->unsignedBigInteger('views')->default(0);
 
             $table->timestamps();

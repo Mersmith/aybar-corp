@@ -30,6 +30,7 @@ class BlogFactory extends Factory
             'estado' => true,
             'meta_title' => $titulo,
             'meta_description' => $this->faker->sentence(1),
+            'meta_image' => 'http://127.0.0.1:8000/assets/imagen/default.jpg',
         ];
     }
 }

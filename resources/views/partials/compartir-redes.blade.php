@@ -1,15 +1,15 @@
 @php
-    $url = $url ?? url()->current();
-    $title = $title ?? 'VotaXmi';
-    $description = $description ?? 'Participa y apoya a tu candidato favorito.';
-    $image = $image ?? asset('default-image.jpg');
+$url = $url ?? url()->current();
+$title = $title ?? '';
+$description = $description ?? '';
+$image = $image ?? asset('default-image.jpg');
 
-    $text = urlencode("{$title} - {$description}");
-    $encodedUrl = urlencode($url);
-    $encodedImage = urlencode($image);
+$text = urlencode("{$title} - {$description}");
+$encodedUrl = urlencode($url);
+$encodedImage = urlencode($image);
 @endphp
 
-<div class="compartir_redes">
+<div class="partials_compartir_redes">
 
     <p>📢 Comparte con tus amigos:</p>
 
@@ -25,8 +25,8 @@
             <i class="fa-brands fa-x-twitter"></i> Twitter
         </a>
 
-        <a href="https://wa.me/?text={{ $text }}%20{{ $encodedUrl }}" target="_blank"
-            rel="noopener noreferrer" aria-label="Compartir en WhatsApp" class="btn-compartir whatsapp">
+        <a href="https://wa.me/?text={{ $text }}%20{{ $encodedUrl }}" target="_blank" rel="noopener noreferrer"
+            aria-label="Compartir en WhatsApp" class="btn-compartir whatsapp">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
     </div>

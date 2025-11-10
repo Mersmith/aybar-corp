@@ -20,6 +20,7 @@ class Blog extends Model
         'estado',
         'meta_title',
         'meta_description',
+        'meta_image',
         'views'
     ];
 }

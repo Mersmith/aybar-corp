@@ -22,9 +22,7 @@
     </div>
 </div>
 
-<div class="r_gap_pagina">
-    @include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
-</div>
+@include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
 
 <div class="r_centrar_pagina">
     <div class="r_pading_pagina">

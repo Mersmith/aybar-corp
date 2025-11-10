@@ -5,28 +5,38 @@
 @section('contenido')
 
 <div class="r_centrar_pagina">
-    <div class="r_pading_pagina r_gap_pagina">
+    <div class="r_pading_pagina">
 
         <div class="r_contenedor_columna">
             @include('partials.titulo-encabezado', [
-            'titulo' => 'Noticias',
+            'titulo' => 'Blog',
             'color' => 'color_1',
             'alineacion' => 'center',
             ])
 
             <div class="partials_contenedor_grid_post">
-                <div class="grid_noticias">
-                    @foreach ($posts as $noticia)
-                    <a href="{{ route('blog.show', $noticia->slug) }}" class="post_imagen_contenedor">
-                        <img src="{{ $noticia->imagen }}" alt="{{ $noticia->titulo }}">
-                        <p class="titulo">{{ $noticia->titulo }}</p>
-                        <p class="descripcion">{{ Str::limit(strip_tags($noticia->contenido), 100) }}</p>
-                        <p class="fecha">{{ $noticia->created_at->format('d M Y') }}</p>
+                <div class="grid_post">
+                    @foreach ($posts as $post)
+                    <a href="{{ route('blog.show', $post->slug) }}">
+                        <div class="post_card_contenedor">
+                            <img src="{{ $post->imagen }}">
+                            <div class="post_datos">
+                                <div class="fecha">
+                                    <b>{{ $post->created_at->format('d') }}</b>
+                                    <p>{{ $post->created_at->format('M') }}</p>
+                                    <p>{{ $post->created_at->format('Y') }}</p>
+                                </div>
+                                <div class="datos">
+                                    <p class="titulo">{{ $post->meta_title }}</p>
+                                    <p class="descripcion">{{ $post->meta_description }}</p>
+                                </div>
+                            </div>
+                        </div>
                     </a>
                     @endforeach
                 </div>
 
-                <div class="g_paginacion">
+                <div class="g_paginacion r_margin_top_40">
                     {{ $posts->links('vendor.pagination.default') }}
                 </div>
             </div>
