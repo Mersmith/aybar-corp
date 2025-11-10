@@ -13,86 +13,141 @@
             'color' => 'color_1',
             ])
 
-            <div class="contacto_grid">
-                <!-- INFORMACIÓN -->
-                <div class="contacto_info">
-                    <p><i class="fa-solid fa-phone"></i> <strong>Celular:</strong><br> +51 924218321</p>
-                    <p>
-                        <i class="fa-solid fa-envelope"></i>
-                        <strong>Email:</strong><br>
-                        libro@martin.com<br>
-                        sumate@martin.com
-                    </p>
-                    <p><i class="fa-solid fa-location-dot"></i> <strong>Dirección del Local:</strong><br> El Agustino
-                    </p>
-
-                    <div class="contacto_mapa">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9716.288138101843!2d-77.0062851973512!3d-11.977228351345385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c56a978fd8bf%3A0x3d67f37d51e1d7c0!2sSan%20Juan%20de%20Lurigancho!5e1!3m2!1ses!2spe!4v1757009478938!5m2!1ses!2spe"
-                            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
+            <div class="contacto_formulario">
+                {{-- Mensajes --}}
+                @if (session('success'))
+                <div class="alert alert-success">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <div>{{ session('success') }}</div>
                 </div>
+                @endif
 
-                <!-- FORMULARIO -->
-                <div class="contacto_formulario">
-                    @if (session('success'))
-                    <div class="alert alert-success">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <div>{{ session('success') }}</div>
-                    </div>
-                    @endif
-
-                    @if ($errors->any())
-                    <div class="alert alert-error">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        <div>
-                            <strong>Por favor corrige los siguientes errores:</strong>
-                        </div>
-                    </div>
-                    @endif
-
-                    <form action="{{ route('reclamaciones.enviar') }}" method="POST" class="g_formulario">
-                        @csrf
-
-                        <div class="form_grupo">
-                            <input type="text" name="nombre" placeholder="Nombre" value="{{ old('nombre') }}" required>
-                            @error('nombre')
-                            <div class="error-text">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="form_grupo">
-                            <input type="email" name="email" placeholder="Correo" value="{{ old('email') }}" required>
-                            @error('email')
-                            <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="form_grupo">
-                            <input type="text" name="telefono" placeholder="Celular" value="{{ old('telefono') }}">
-                            @error('telefono')
-                            <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="form_grupo">
-                            <input type="text" name="asunto" placeholder="Asunto" value="{{ old('asunto') }}">
-                            @error('asunto')
-                            <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="form_grupo">
-                            <textarea name="mensaje" placeholder="Detalle" required>{{ old('mensaje') }}</textarea>
-                            @error('mensaje')
-                            <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <button type="submit"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
-                    </form>
+                @if ($errors->any())
+                <div class="alert alert-error">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <strong>Por favor corrige los siguientes errores:</strong>
                 </div>
+                @endif
+
+                {{-- Formulario --}}
+                <form action="{{ route('reclamaciones.enviar') }}" method="POST">
+                    @csrf
+
+                    <div class="form_grupo">
+                        <input type="text" name="nombre" placeholder="Nombre" value="{{ old('nombre') }}" required>
+                        @error('nombre') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <input type="text" name="apellido_paterno" placeholder="Apellido Paterno"
+                            value="{{ old('apellido_paterno') }}" required>
+                        @error('apellido_paterno') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <input type="text" name="apellido_materno" placeholder="Apellido Materno"
+                            value="{{ old('apellido_materno') }}" required>
+                        @error('apellido_materno') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <input type="text" name="domicilio" placeholder="Domicilio" value="{{ old('domicilio') }}"
+                            required>
+                        @error('domicilio') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <input type="text" name="telefono" placeholder="Teléfono (opcional)"
+                            value="{{ old('telefono') }}">
+                        @error('telefono') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <input type="email" name="email" placeholder="Correo electrónico (opcional)"
+                            value="{{ old('email') }}">
+                        @error('email') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <select name="tipo_documento" required>
+                            <option value="">-- Tipo de Documento --</option>
+                            <option value="dni" {{ old('tipo_documento')=='dni' ? 'selected' : '' }}>DNI</option>
+                            <option value="ruc" {{ old('tipo_documento')=='ruc' ? 'selected' : '' }}>RUC</option>
+                            <option value="ce" {{ old('tipo_documento')=='ce' ? 'selected' : '' }}>Carné de Extranjería
+                            </option>
+                        </select>
+                        @error('tipo_documento') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <input type="text" name="numero_documento" placeholder="Número de Documento"
+                            value="{{ old('numero_documento') }}" required>
+                        @error('numero_documento') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <label><strong>Tipo de bien contratado:</strong></label>
+                        <div class="radio_group">
+                            <label>
+                                <input type="radio" name="tipo_bien_contratado" value="producto" {{
+                                    old('tipo_bien_contratado', 'producto' )=='producto' ? 'checked' : '' }} required>
+                                Producto
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo_bien_contratado" value="servicio" {{
+                                    old('tipo_bien_contratado')=='servicio' ? 'checked' : '' }} required>
+                                Servicio
+                            </label>
+                        </div>
+                        @error('tipo_bien_contratado') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <input type="number" step="0.01" name="monto_reclamado" placeholder="Monto Reclamado (opcional)"
+                            value="{{ old('monto_reclamado') }}">
+                        @error('monto_reclamado') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <textarea name="descripcion" placeholder="Descripción del producto o servicio"
+                            required>{{ old('descripcion') }}</textarea>
+                        @error('descripcion') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <label><strong>Tipo de solicitud:</strong></label>
+                        <div class="radio_group">
+                            <label>
+                                <input type="radio" name="tipo_pedido" value="reclamo" {{ old('tipo_pedido', 'reclamo'
+                                    )=='reclamo' ? 'checked' : '' }} required>
+                                Reclamo
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo_pedido" value="queja" {{ old('tipo_pedido')=='queja'
+                                    ? 'checked' : '' }} required>
+                                Queja
+                            </label>
+                        </div>
+                        @error('tipo_pedido') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <textarea name="detalle" placeholder="Detalle del reclamo o queja"
+                            required>{{ old('detalle') }}</textarea>
+                        @error('detalle') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <textarea name="pedido" placeholder="Pedido del consumidor"
+                            required>{{ old('pedido') }}</textarea>
+                        @error('pedido') <div class="error-text">{{ $message }}</div> @enderror
+                    </div>
+
+                    <button type="submit">
+                        <i class="fa-solid fa-paper-plane"></i> Enviar Reclamo
+                    </button>
+                </form>
+
             </div>
         </div>
 

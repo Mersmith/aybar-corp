@@ -12,18 +12,33 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('formulario_libro_reclamacions', function (Blueprint $table) {
-            $table->id();
 
+            $table->bigIncrements('ticket');
             $table->foreignId('tipo_formulario_id')->constrained('tipo_formularios')->onDelete('cascade');
 
+            $table->string('serie')->default('TCK');
             $table->string('nombre');
-            $table->string('apellido')->nullable();
-            $table->string('email')->nullable();
+            $table->string('apellido_paterno');
+            $table->string('apellido_materno');
+            $table->string('domicilio');
             $table->string('telefono')->nullable();
-            $table->string('asunto')->nullable();
-            $table->text('mensaje')->nullable();
+            $table->string('email')->nullable();
+            $table->enum('tipo_documento', ['dni', 'ruc', 'ce'])->default('dni');
+            $table->string('numero_documento');
+
+            $table->enum('tipo_bien_contratado', ['producto', 'servicio'])->default('producto');
+            $table->decimal('monto_reclamado', 10, 2)->nullable();
+            $table->text('descripcion')->nullable();
+
+            $table->enum('tipo_pedido', ['reclamo', 'queja'])->default('reclamo');
+            $table->text('detalle')->nullable();
+            $table->text('pedido')->nullable();
+
+            $table->text('observaciones')->nullable();
+            $table->dateTime('fecha_respuesta')->nullable()->comment('Fecha de respuesta al usuario.');
+
             $table->boolean('leido')->default(false);
-            $table->enum('estado', ['nuevo', 'en_revision', 'resuelto', 'cerrado'])->default('nuevo');
+            $table->enum('estado', ['nuevo', 'revision', 'resuelto', 'cerrado'])->default('nuevo');
 
             $table->timestamps();
             $table->softDeletes();

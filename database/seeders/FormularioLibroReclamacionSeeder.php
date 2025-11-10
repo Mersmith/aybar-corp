@@ -13,6 +13,6 @@ class FormularioLibroReclamacionSeeder extends Seeder
      */
     public function run(): void
     {
-        FormularioLibroReclamacion::factory(3)->create();
+        FormularioLibroReclamacion::factory()->count(50)->create();
     }
 }

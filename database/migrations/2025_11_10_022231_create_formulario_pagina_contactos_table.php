@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('asunto')->nullable();
             $table->text('mensaje')->nullable();
             $table->boolean('leido')->default(false);
-            $table->enum('estado', ['nuevo', 'en_revision', 'resuelto', 'cerrado'])->default('nuevo');
+            $table->enum('estado', ['nuevo', 'revision', 'resuelto', 'cerrado'])->default('nuevo');
 
             $table->timestamps();
             $table->softDeletes();
