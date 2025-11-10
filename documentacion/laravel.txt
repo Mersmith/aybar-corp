@@ -11,3 +11,4 @@ php artisan make:model Seccion -mfsc
 php artisan make:model Blog -mfsc
 php artisan make:model TipoFormulario -mfsc
 php artisan make:model FormularioPaginaContacto -mfsc
+php artisan make:model FormularioLibroReclamacion -mfsc

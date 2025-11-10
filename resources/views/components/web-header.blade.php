@@ -64,10 +64,12 @@
                     </li>
                     @endforeach
 
-                    <li class="menu_item"><a href="" class="boton_personalizado boton_personalizado_blanco">INICIAR
-                            SESIÓN</a></li>
+                    <li class="menu_item"><a href="" class="boton_personalizado boton_personalizado_blanco">INGRESAR</a>
+                    </li>
+                    <li class="menu_item"><a href=""
+                            class="boton_personalizado boton_personalizado_blanco">CONTÁCTANOS</a></li>
                     <li class="menu_item"><a href="/contacto"
-                            class="boton_personalizado boton_personalizado_amarillo">CONTÁCTANOS</a></li>
+                            class="boton_personalizado boton_personalizado_amarillo">REFIERE AQUÍ</a></li>
                 </ul>
             </nav>
 

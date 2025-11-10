@@ -13,12 +13,12 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
-        $inicio = Menu::create([
+        /*$inicio = Menu::create([
             'nombre' => 'INICIO',
             'slug' => 'inicio',
             'url' => '/',
             'orden' => 1,
-        ]);
+        ]);*/
 
         $proyectos = Menu::create([
             'nombre' => 'PROYECTOS',

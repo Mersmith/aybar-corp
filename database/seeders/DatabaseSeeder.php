@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             BlogSeeder::class,
             TipoFormularioSeeder::class,
             FormularioPaginaContactoSeeder::class,
+            FormularioLibroReclamacionSeeder::class,
         ]);
     }
 }
