@@ -3,31 +3,3 @@
     margin: auto;
     text-align: center;
 }
-
-.bloque_6 h2 {
-    font-size: 32px;
-    margin-bottom: 15px;
-    color: var(--color-negro);
-}
-
-.bloque_6 h2 span {
-    color: var(--color-verde);
-    font-weight: 500;
-}
-
-.bloque_6 p {
-    font-size: 18px;
-    color: var(--color-negro);
-    line-height: 1.6;
-}
-
-.bloque_6 p span {
-    color: var(--color-verde);
-    font-weight: 500;
-}
-
-@media (max-width: 1024px) {
-    .bloque_6 h2 {
-        line-height: 35px;
-    }
-}

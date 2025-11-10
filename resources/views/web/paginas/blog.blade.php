@@ -4,13 +4,14 @@
 
 @section('contenido')
 
-<div class="g_centrar_pagina">
-    <div class="g_pading_pagina g_gap_pagina">
+<div class="r_centrar_pagina">
+    <div class="r_pading_pagina r_gap_pagina">
 
-        <div class="g_contenedor_columna">
+        <div class="r_contenedor_columna">
             @include('partials.titulo-encabezado', [
             'titulo' => 'Noticias',
-            'color' => 'color_2',
+            'color' => 'color_1',
+            'alineacion' => 'center',
             ])
 
             <div class="partials_contenedor_grid_post">

@@ -6,29 +6,28 @@
 }
 
 .bloque_7 .card {
-    background: var(--color-blanco);
+    background: var(--color-verde);
     border-radius: 14px;
     box-shadow: var(--sombra);
     border: var(--borde-card);
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
 }
 
 .bloque_7 .card:hover {
     transform: translateY(-5px);
 }
 
-.bloque_7 .card h2 {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--color-celeste);
-    margin: 15px 0;
+.bloque_7 .card h3{
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .bloque_7 .card i {
     font-size: 50px;
-    color: var(--color-celeste);
+    color: var(--color-blanco);
     margin-top: 20px;
 }
 
@@ -41,9 +40,6 @@
 
 .bloque_7 .card p {
     padding: 0 15px 15px;
-    font-size: 1rem;
-    color: var(--color-negro);
-    line-height: 1.6;
 }
 
 @media (max-width: 1024px) {

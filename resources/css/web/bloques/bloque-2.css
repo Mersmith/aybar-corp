@@ -21,45 +21,7 @@
 }
 
 .bloque_2 .bloque_cuerpo h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: var(--color-negro);
-}
-
-.bloque_2 .bloque_cuerpo h3 span {
-    color: var(--color-verde);
-    font-weight: 500;
-}
-
-.bloque_2 .bloque_cuerpo p {
-    font-size: 16px;
-    margin-bottom: 15px;
-    line-height: 1.6;
-    color: var(--color-negro);
-}
-
-.bloque_2 .bloque_cuerpo p span {
-    color: var(--color-verde);
-    font-weight: 500;
-}
-
-.bloque_2 .bloque_cuerpo ul {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.bloque_2 .bloque_cuerpo ul li {
-    margin-bottom: 12px;
-    font-size: 18px;
-    color: var(--color-negro);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.bloque_2 .bloque_cuerpo ul li i {
-    color: var(--color-verde);
+    margin-bottom: 10px;
 }
 
 .bloque_2 .btn-whatsapp {

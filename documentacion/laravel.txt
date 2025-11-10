@@ -2,6 +2,7 @@ laravel new aybar-corp
 
 php artisan migrate:fresh --seed
 php artisan make:controller InicioController
+php artisan make:controller NosotrosController
 php artisan make:controller PaginaController
 
 php artisan make:model Pagina -mfsc

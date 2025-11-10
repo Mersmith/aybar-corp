@@ -62,8 +62,8 @@ class MenuSeeder extends Seeder
 
         $nosotros = Menu::create([
             'nombre' => 'NOSOTROS',
-            'slug' => 'contacto',
-            'url' => '/contacto',
+            'slug' => 'nosotros',
+            'url' => '/nosotros',
             'orden' => 4,
         ]);
 

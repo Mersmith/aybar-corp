@@ -1,9 +1,9 @@
 @extends('layouts.web.layout-web')
 
 @section('contenido')
-<div class="g_contenedor_pagina">
-    <div class="g_centrar_pagina">
-        <div class="g_pading_pagina g_gap_pagina contenedor_post">
+<div class="r_contenedor_pagina">
+    <div class="r_centrar_pagina">
+        <div class="r_pading_pagina r_gap_pagina contenedor_post">
 
             <div class="grid">
 
