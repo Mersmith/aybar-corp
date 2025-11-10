@@ -7,8 +7,8 @@
 @include('bloques.bloque-1', ['p_elemento' => $bloque1_1])
 
 <div class="r_centrar_pagina">
-    <div class="r_pading_pagina r_gap_pagina">
-        <div class="r_contenedor_columna">
+    <div class="r_pading_pagina">
+        <div class="r_gap_pagina r_margin_top_40 r_margin_bottom_40">
 
             @include('partials.titulo-encabezado', [
             'titulo' => 'Nuestros proyectos',
@@ -22,21 +22,27 @@
     </div>
 </div>
 
-@include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
+<div class="r_gap_pagina">
+    @include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
+</div>
 
 <div class="r_centrar_pagina">
-    <div class="r_pading_pagina r_gap_pagina">
-        <div class="r_contenedor_columna">
+    <div class="r_pading_pagina">
+        <div class="r_gap_pagina">
 
-            @include('bloques.bloque-8', ['p_elemento' => $bloque8_1])
+            <div class="r_margin_top_40">
+                @include('bloques.bloque-8', ['p_elemento' => $bloque8_1])
+            </div>
 
-            @include('partials.titulo-encabezado', [
-            'titulo' => 'Noticias',
-            'alineacion' => 'left',
-            'color' => 'color_1',
-            ])
+            <div class="r_margin_bottom_40">
+                @include('partials.titulo-encabezado', [
+                'titulo' => 'Noticias',
+                'alineacion' => 'left',
+                'color' => 'color_1',
+                ])
 
-            @include('partials.slider-post', ['p_elemento' => $posts])
+                @include('partials.slider-post', ['p_elemento' => $posts])
+            </div>
 
         </div>
     </div>

@@ -1,7 +1,7 @@
 .web_header_banner {
     height: var(--alto-header-web-banner);
-    background: #02424e;
-    color: white;
+    background: var(--color-verde);
+    color: var(--color-blanco);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +37,7 @@
     height: var(--alto-header-web);
     max-width: var(--ancho-centrar-pagina);
     margin: 0 auto;
-    padding: 14px 20px;
+    padding: 14px var(--padding-costados);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -80,7 +80,7 @@
 }
 
 .web_header .menu_principal .menu_item .nav_link:hover {
-    color: #02424e;
+    color: var(--color-verde);
 }
 
 .web_header .menu_principal .menu_item .boton_personalizado {
@@ -97,27 +97,27 @@
 }
 
 .web_header .menu_principal .menu_item .boton_personalizado_blanco {
-    background: #f0f0f0;
-    border: 1px solid #d1d1d1;
-    color: #02424e;
+    background: var(--color-plomo);
+    border: 1px solid var(--color-gris);
+    color: var(--color-verde);
 }
 
 .web_header .menu_principal .menu_item .boton_personalizado_blanco:hover {
-    background: #02424e;
-    border: 1px solid #02424e;
-    color: #ffffff;
+    background: var(--color-verde);
+    border: 1px solid var(--color-verde);
+    color: var(--color-blanco);
 }
 
 .web_header .menu_principal .menu_item .boton_personalizado_amarillo {
-    background: #ffcd02;
-    border: 1px solid #ffcd02;
-    color: #02424e;
+    background: var(--color-amarillo);
+    border: 1px solid var(--color-amarillo);
+    color: var(--color-verde);
 }
 
 .web_header .menu_principal .menu_item .boton_personalizado_amarillo:hover {
-    background: #02424e;
-    border: 1px solid #ffcd02;
-    color: #ffffff;
+    background: var(--color-verde);
+    border: 1px solid var(--color-amarillo);
+    color: var(--color-blanco);
 }
 
 /* Icono desplegable */
@@ -193,7 +193,7 @@ body.no-scroll {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
+    background: var(--color-overlay);
     z-index: 999;
     opacity: 0;
     visibility: hidden;
@@ -230,9 +230,9 @@ body.no-scroll {
         height: 100vh;
         background-color: var(--color-blanco);
         flex-direction: column;
-        padding: 20px;
+        padding: 20px var(--padding-costados);
         gap: 16px;
-        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+        box-shadow: var(--sombra);
         transition: right 0.3s ease;
         z-index: 1000;
     }

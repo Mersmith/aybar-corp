@@ -70,7 +70,7 @@
 /* Fecha */
 .partials_contenedor_slider_post .post_imagen_contenedor .fecha {
     width: 50px;
-    border-right: 1px solid #BDC0C4;
+    border-right: 1px solid #bdc0c4;
     font-size: 16px;
     text-align: center;
     padding-right: 10px;
@@ -114,7 +114,7 @@
 /* Imagen con altura fija y que ocupe todo el ancho */
 .partials_contenedor_slider_post .post_imagen_contenedor img {
     width: 100%;
-    height: 250px;
+    height: 300px;
     object-fit: cover;
     border-radius: 4px;
     flex-shrink: 0;
@@ -124,18 +124,10 @@
     .partials_contenedor_slider_post .swiper-slide {
         width: 50%;
     }
-
-    .partials_contenedor_slider_post .post_imagen_contenedor img {
-        height: 130px;
-    }
 }
 
 @media (max-width: 500px) {
     .partials_contenedor_slider_post .swiper-slide {
         width: 80%;
-    }
-
-    .partials_contenedor_slider_post .post_imagen_contenedor img {
-        height: 120px;
     }
 }

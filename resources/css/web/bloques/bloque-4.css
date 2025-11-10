@@ -36,6 +36,7 @@
     z-index: 1;
     width: 100%;
     text-align: left;
+    margin-top: var(--gap-computadora);
 }
 
 .bloque_4 .cuerpo .contenido {
@@ -74,7 +75,9 @@
     }
 
     .bloque_4 .cuerpo {
-        padding-bottom: 30px;
+        padding: 30px var(--padding-costados);
+        margin-bottom: var(--gap-movil);
+        margin-top: var(--gap-movil);
     }
 
     .bloque_4 .cuerpo .contenido {

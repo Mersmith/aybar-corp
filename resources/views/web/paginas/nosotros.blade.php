@@ -22,7 +22,7 @@
     </div>
 </div>
 
-<div class="r_margin_top_70">
+<div class="r_margin_top_40">
     @include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
 </div>
 
