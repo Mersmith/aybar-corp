@@ -8,6 +8,7 @@
 @import "./layout.css";
 @import "./rejilla.css";
 @import "./components/header.css";
+@import "./components/header-banner.css";
 @import "./components/footer.css";
 @import "./partials/compartir-redes.css";
 @import "./partials/back-to-top.css";

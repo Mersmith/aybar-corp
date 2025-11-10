@@ -6,7 +6,7 @@
 
     <!-- Banner -->
     <div class="web_header_banner" :class="{ 'oculto': ocultarBanner }">
-        <h1>Publicidad o Anuncio</h1>
+        @include('components.web-header-banner')
     </div>
 
     <!-- Header -->

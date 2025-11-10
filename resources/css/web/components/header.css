@@ -83,7 +83,7 @@
     color: var(--color-verde);
 }
 
-.web_header .menu_principal .menu_item .boton_personalizado {
+.boton_personalizado {
     text-decoration: none;
     font-weight: 700;
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -96,25 +96,25 @@
     border-radius: 25px;
 }
 
-.web_header .menu_principal .menu_item .boton_personalizado_blanco {
+.boton_personalizado_blanco {
     background: var(--color-plomo);
     border: 1px solid var(--color-gris);
     color: var(--color-verde);
 }
 
-.web_header .menu_principal .menu_item .boton_personalizado_blanco:hover {
+.boton_personalizado_blanco:hover {
     background: var(--color-verde);
     border: 1px solid var(--color-verde);
     color: var(--color-blanco);
 }
 
-.web_header .menu_principal .menu_item .boton_personalizado_amarillo {
+.boton_personalizado_amarillo {
     background: var(--color-amarillo);
     border: 1px solid var(--color-amarillo);
     color: var(--color-verde);
 }
 
-.web_header .menu_principal .menu_item .boton_personalizado_amarillo:hover {
+.boton_personalizado_amarillo:hover {
     background: var(--color-verde);
     border: 1px solid var(--color-amarillo);
     color: var(--color-blanco);
