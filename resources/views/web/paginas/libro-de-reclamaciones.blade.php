@@ -30,59 +30,66 @@
                 @endif
 
                 {{-- Formulario --}}
-                <form action="{{ route('reclamaciones.enviar') }}" method="POST">
+                <form action="{{ route('reclamaciones.enviar') }}" method="POST" class="g_formulario">
                     @csrf
 
-                    <div class="form_grupo">
-                        <input type="text" name="nombre" placeholder="Nombre" value="{{ old('nombre') }}" required>
-                        @error('nombre') <div class="error-text">{{ $message }}</div> @enderror
+                    <div class="r_fila">
+                        <div class="form_grupo r_columna_4">
+                            <input type="text" name="nombre" placeholder="Nombre" value="{{ old('nombre') }}" required>
+                            @error('nombre') <div class="error-text">{{ $message }}</div> @enderror
+                        </div>
+
+                        <div class="form_grupo r_columna_4">
+                            <input type="text" name="apellido_paterno" placeholder="Apellido Paterno"
+                                value="{{ old('apellido_paterno') }}" required>
+                            @error('apellido_paterno') <div class="error-text">{{ $message }}</div> @enderror
+                        </div>
+
+                        <div class="form_grupo r_columna_4">
+                            <input type="text" name="apellido_materno" placeholder="Apellido Materno"
+                                value="{{ old('apellido_materno') }}" required>
+                            @error('apellido_materno') <div class="error-text">{{ $message }}</div> @enderror
+                        </div>
                     </div>
 
-                    <div class="form_grupo">
-                        <input type="text" name="apellido_paterno" placeholder="Apellido Paterno"
-                            value="{{ old('apellido_paterno') }}" required>
-                        @error('apellido_paterno') <div class="error-text">{{ $message }}</div> @enderror
+                    <div class="r_fila">
+                        <div class="form_grupo r_columna_4">
+                            <input type="text" name="domicilio" placeholder="Domicilio" value="{{ old('domicilio') }}"
+                                required>
+                            @error('domicilio') <div class="error-text">{{ $message }}</div> @enderror
+                        </div>
+
+                        <div class="form_grupo r_columna_4">
+                            <input type="text" name="telefono" placeholder="Teléfono (opcional)"
+                                value="{{ old('telefono') }}">
+                            @error('telefono') <div class="error-text">{{ $message }}</div> @enderror
+                        </div>
+
+                        <div class="form_grupo r_columna_4">
+                            <input type="email" name="email" placeholder="Correo electrónico (opcional)"
+                                value="{{ old('email') }}">
+                            @error('email') <div class="error-text">{{ $message }}</div> @enderror
+                        </div>
                     </div>
 
-                    <div class="form_grupo">
-                        <input type="text" name="apellido_materno" placeholder="Apellido Materno"
-                            value="{{ old('apellido_materno') }}" required>
-                        @error('apellido_materno') <div class="error-text">{{ $message }}</div> @enderror
-                    </div>
+                    <div class="r_fila">
+                        <div class="form_grupo r_columna_4">
+                            <select name="tipo_documento" required>
+                                <option value="">-- Tipo de Documento --</option>
+                                <option value="dni" {{ old('tipo_documento')=='dni' ? 'selected' : '' }}>DNI</option>
+                                <option value="ruc" {{ old('tipo_documento')=='ruc' ? 'selected' : '' }}>RUC</option>
+                                <option value="ce" {{ old('tipo_documento')=='ce' ? 'selected' : '' }}>Carné de
+                                    Extranjería
+                                </option>
+                            </select>
+                            @error('tipo_documento') <div class="error-text">{{ $message }}</div> @enderror
+                        </div>
 
-                    <div class="form_grupo">
-                        <input type="text" name="domicilio" placeholder="Domicilio" value="{{ old('domicilio') }}"
-                            required>
-                        @error('domicilio') <div class="error-text">{{ $message }}</div> @enderror
-                    </div>
-
-                    <div class="form_grupo">
-                        <input type="text" name="telefono" placeholder="Teléfono (opcional)"
-                            value="{{ old('telefono') }}">
-                        @error('telefono') <div class="error-text">{{ $message }}</div> @enderror
-                    </div>
-
-                    <div class="form_grupo">
-                        <input type="email" name="email" placeholder="Correo electrónico (opcional)"
-                            value="{{ old('email') }}">
-                        @error('email') <div class="error-text">{{ $message }}</div> @enderror
-                    </div>
-
-                    <div class="form_grupo">
-                        <select name="tipo_documento" required>
-                            <option value="">-- Tipo de Documento --</option>
-                            <option value="dni" {{ old('tipo_documento')=='dni' ? 'selected' : '' }}>DNI</option>
-                            <option value="ruc" {{ old('tipo_documento')=='ruc' ? 'selected' : '' }}>RUC</option>
-                            <option value="ce" {{ old('tipo_documento')=='ce' ? 'selected' : '' }}>Carné de Extranjería
-                            </option>
-                        </select>
-                        @error('tipo_documento') <div class="error-text">{{ $message }}</div> @enderror
-                    </div>
-
-                    <div class="form_grupo">
-                        <input type="text" name="numero_documento" placeholder="Número de Documento"
-                            value="{{ old('numero_documento') }}" required>
-                        @error('numero_documento') <div class="error-text">{{ $message }}</div> @enderror
+                        <div class="form_grupo r_columna_4">
+                            <input type="text" name="numero_documento" placeholder="Número de Documento"
+                                value="{{ old('numero_documento') }}" required>
+                            @error('numero_documento') <div class="error-text">{{ $message }}</div> @enderror
+                        </div>
                     </div>
 
                     <div class="form_grupo">
