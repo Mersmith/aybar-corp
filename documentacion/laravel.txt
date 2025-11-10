@@ -9,3 +9,5 @@ php artisan make:model Pagina -mfsc
 php artisan make:model Menu -mfsc
 php artisan make:model Seccion -mfsc
 php artisan make:model Blog -mfsc
+php artisan make:model TipoFormulario -mfsc
+php artisan make:model FormularioPaginaContacto -mfsc

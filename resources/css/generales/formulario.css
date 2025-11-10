@@ -57,8 +57,9 @@
 }
 
 .g_formulario button:hover {
-    background: var(--color-celeste);
+    background: var(--color-amarillo);
     transform: translateY(-2px);
+    color: var(--color-verde);
 }
 
 @media (max-width: 1024px) {

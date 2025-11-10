@@ -26,7 +26,7 @@
                     @endforeach
                 </div>
 
-                <div class="paginacion">
+                <div class="g_paginacion">
                     {{ $posts->links('vendor.pagination.default') }}
                 </div>
             </div>
