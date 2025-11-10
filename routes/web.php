@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\NosotrosController;
+use App\Http\Controllers\ConsultaCodigoClienteController;
 use App\Http\Controllers\PaginaController;
 use App\Http\Controllers\FormularioPaginaContactoController;
 use App\Http\Controllers\FormularioLibroReclamacionController;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [InicioController::class, 'index'])->name('home'); //pagina personalizada //ok
 
 Route::get('/nosotros', [NosotrosController::class, 'index'])->name('nosotros.index'); //pagina personalizada //ok
+Route::get('/consulta-codigo-cliente', [ConsultaCodigoClienteController::class, 'index'])->name('consulta-codigo-cliente.index'); //pagina personalizada //ok
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index'); //pagina personalizada
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show'); //pagina personalizada

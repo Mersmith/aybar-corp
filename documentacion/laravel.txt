@@ -4,6 +4,7 @@ php artisan migrate:fresh --seed
 php artisan make:controller InicioController
 php artisan make:controller NosotrosController
 php artisan make:controller PaginaController
+php artisan make:controller CodigoClienteController
 
 php artisan make:model Pagina -mfsc
 php artisan make:model Menu -mfsc
