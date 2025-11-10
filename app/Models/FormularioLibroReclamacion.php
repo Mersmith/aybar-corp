@@ -16,6 +16,29 @@ class FormularioLibroReclamacion extends Model
     protected $keyType = 'int';
     protected $appends = ['codigo'];
 
+    protected $fillable = [
+        'tipo_formulario_id',
+        'serie',
+        'nombre',
+        'apellido_paterno',
+        'apellido_materno',
+        'domicilio',
+        'telefono',
+        'email',
+        'tipo_documento',
+        'numero_documento',
+        'tipo_bien_contratado',
+        'monto_reclamado',
+        'descripcion',
+        'tipo_pedido',
+        'detalle',
+        'pedido',
+        'observaciones',
+        'fecha_respuesta',
+        'leido',
+        'estado',
+    ];
+
     public function tipoFormulario()
     {
         return $this->belongsTo(TipoFormulario::class, 'tipo_formulario_id');

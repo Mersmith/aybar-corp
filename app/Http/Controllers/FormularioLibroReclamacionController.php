@@ -14,7 +14,6 @@ class FormularioLibroReclamacionController extends Controller
 
     public function enviar(Request $request)
     {
-        dd("GA");
 
         $request->validate([
             'nombre' => 'required|string|max:255',
