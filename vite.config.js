@@ -10,6 +10,8 @@ export default defineConfig({
                 //'resources/js/app.js'
                 "resources/css/web/web.css",
                 "resources/js/web/web.js",
+                "resources/css/cliente/cliente.css",
+                "resources/js/cliente/cliente.js",
                 "resources/css/admin/admin.css",
                 "resources/js/admin/admin.js",
             ],

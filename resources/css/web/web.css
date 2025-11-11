@@ -29,3 +29,5 @@
 @import "./paginas/posts.css";
 @import "./paginas/post.css";
 @import "./paginas/landing.css";
+
+@import "./../cliente/cliente.css";
