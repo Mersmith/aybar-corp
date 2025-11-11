@@ -7,6 +7,8 @@ use App\Http\Controllers\ConsultaCodigoClienteController;
 use App\Http\Controllers\PaginaController;
 use App\Http\Controllers\FormularioPaginaContactoController;
 use App\Http\Controllers\FormularioLibroReclamacionController;
+use App\Livewire\Web\OpenAi\ProcesarImagenLivewire;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [InicioController::class, 'index'])->name('home'); //pagina personalizada //ok
@@ -22,5 +24,7 @@ Route::post('/contacto/enviar', [FormularioPaginaContactoController::class, 'env
 
 Route::get('/libro-de-reclamaciones', [FormularioLibroReclamacionController::class, 'index'])->name('reclamaciones.index'); //pagina personalizada
 Route::post('/libro-de-reclamaciones/enviar', [FormularioLibroReclamacionController::class, 'enviar'])->name('reclamaciones.enviar');
+
+Route::get('/procesar-imagen', ProcesarImagenLivewire::class)->name('procesar-imagen.vista.todo');
 
 Route::get('/{slug?}', [PaginaController::class, 'show'])->name('pagina.mostrar');

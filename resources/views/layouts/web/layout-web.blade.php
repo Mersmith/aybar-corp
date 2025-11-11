@@ -32,6 +32,9 @@
     <main class="layout_web_contenido">
         @include('partials.back-to-top')
         @yield('contenido')
+        @if (isset($slot))
+            {{ $slot }}
+        @endif
     </main>
 
     @include('components.web-footer')

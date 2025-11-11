@@ -14,3 +14,11 @@ php artisan make:model TipoFormulario -mfsc
 php artisan make:model FormularioPaginaContacto -mfsc
 php artisan make:model FormularioLibroReclamacion -mfsc
 php artisan make:model Proyecto -mfsc
+
+composer require openai-php/laravel
+php artisan vendor:publish --provider="OpenAI\Laravel\ServiceProvider"
+php artisan make:command TestOpenAI
+php artisan app:test-open-a-i
+
+php artisan make:livewire Web/OpenAi/ProcesarImagenLivewire
+php artisan storage:link
