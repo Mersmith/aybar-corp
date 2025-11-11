@@ -16,7 +16,7 @@
             'color' => 'color_1',
             ])
 
-            @include('partials.slider-proyectos', ['p_elemento' => $posts])
+            @include('partials.slider-proyectos', ['p_elemento' => $proyectos])
 
         </div>
     </div>
@@ -34,7 +34,7 @@
 
             <div class="r_margin_bottom_40">
                 @include('partials.titulo-encabezado', [
-                'titulo' => 'Noticias',
+                'titulo' => 'Comunicados',
                 'alineacion' => 'left',
                 'color' => 'color_1',
                 ])

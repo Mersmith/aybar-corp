@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
 
             $table->string('titulo');
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->longText('contenido');
             $table->string('imagen')->nullable();
             $table->dateTime('publicado_en')->nullable();
-            $table->boolean('activo')->default(true);
+            $table->boolean('activo')->default(false);
 
             // SEO opcional
             $table->string('meta_title')->nullable();
@@ -37,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('proyectos');
     }
 };

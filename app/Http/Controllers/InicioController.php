@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Proyecto;
 
 class InicioController extends Controller
 {
@@ -13,8 +13,9 @@ class InicioController extends Controller
         $bloque8_1 = app(SeccionController::class)->getSeccionPorTipo(15, 'bloque-8');
         $bloque4_1 = app(SeccionController::class)->getSeccionPorTipo(4, 'bloque-4');
         $posts = $this->getBlog();
+        $proyectos = $this->getProyectos();
 
-        return view('web.inicio', compact('bloque1_1', 'bloque8_1', 'posts', 'bloque4_1',));
+        return view('web.inicio', compact('bloque1_1', 'bloque8_1', 'posts', 'proyectos', 'bloque4_1', ));
     }
 
     public function getBlog()
@@ -23,12 +24,27 @@ class InicioController extends Controller
 
         $titulo = 'Blog';
 
-        $data = Blog::where('estado', true)->latest()->take(6)->get();
+        $data = Blog::where('activo', true)->latest()->take(6)->get();
 
         return [
             'id' => $consulta_id,
             'titulo' => $titulo,
             'posts' => $data,
+        ];
+    }
+
+    public function getProyectos()
+    {
+        $consulta_id = 2;
+
+        $titulo = 'Proyectos';
+
+        $data = Proyecto::where('activo', true)->latest()->take(6)->get();
+
+        return [
+            'id' => $consulta_id,
+            'titulo' => $titulo,
+            'proyectos' => $data,
         ];
     }
 }

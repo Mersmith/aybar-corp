@@ -17,4 +17,8 @@
     .contenido_web_header_banner span {
         display: none;
     }
+
+    .contenido_web_header_banner img {
+        display: none;
+    }
 }

@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             TipoFormularioSeeder::class,
             FormularioPaginaContactoSeeder::class,
             FormularioLibroReclamacionSeeder::class,
+            ProyectoSeeder::class,
         ]);
     }
 }

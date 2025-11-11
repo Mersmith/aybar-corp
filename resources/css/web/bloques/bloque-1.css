@@ -32,17 +32,17 @@
 /* CCONTROLES */
 .bloque_1 .swiper-button-next,
 .bloque_1 .swiper-button-prev {
-    background: transparent;
+    background: var(--color-verde);
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    color: var(--color-negro);
+    color: var(--color-blanco);
 }
 
 .bloque_1 .swiper-button-next:hover,
 .bloque_1 .swiper-button-prev:hover {
-    background: var(--color-verde);
-    color: var(--color-blanco);
+    background: var(--color-amarillo);
+    color: var(--color-verde);
 }
 
 .bloque_1 .swiper-button-next:after,
@@ -84,5 +84,10 @@
 
     .bloque_1 .imagen_movil {
         display: block;
+    }
+
+    .bloque_1 .swiper-button-next,
+    .bloque_1 .swiper-button-prev {
+        display: none;
     }
 }

@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Seccion;
+use Illuminate\Database\Seeder;
 
 class SeccionSeeder extends Seeder
 {
@@ -22,14 +21,14 @@ class SeccionSeeder extends Seeder
                         [
                             'id' => 1,
                             'link' => '',
-                            'imagen_movil' => 'http://127.0.0.1:8000/assets/imagen/sliders-movil-1.jpg',
-                            'imagen_computadora' => 'http://127.0.0.1:8000/assets/imagen/sliders-computadora-1.jpg',
+                            'imagen_movil' => 'http://127.0.0.1:8000/assets/imagenes/slider/sliders-movil-1.jpg',
+                            'imagen_computadora' => 'http://127.0.0.1:8000/assets/imagenes/slider/sliders-computadora-1.jpg',
                         ],
                         [
                             'id' => 2,
                             'link' => '',
-                            'imagen_movil' => 'http://127.0.0.1:8000/assets/imagen/sliders-movil-2.jpg',
-                            'imagen_computadora' => 'http://127.0.0.1:8000/assets/imagen/sliders-computadora-2.jpg',
+                            'imagen_movil' => 'http://127.0.0.1:8000/assets/imagenes/slider/sliders-movil-2.jpg',
+                            'imagen_computadora' => 'http://127.0.0.1:8000/assets/imagenes/slider/sliders-computadora-2.jpg',
                         ],
                     ],
                 ],
@@ -153,8 +152,8 @@ class SeccionSeeder extends Seeder
                         'fondo_color' => '#ffcd02',
                         'texto_color' => '#02424e',
                     ],
-                    'imagen_fondo' => 'assets/imagen/sliders-computadora-1.jpg',
-                    'imagen' => 'https://www.terratech.net.pe/sitios/shebrad/img/iconos/familia2.png',
+                    'imagen_fondo' => 'http://127.0.0.1:8000/assets/imagenes/call-to-action/fondo.jpg',
+                    'imagen' => 'http://127.0.0.1:8000/assets/imagenes/call-to-action/familia.png',
                     'titulo' => 'Ten tu <span>lote propio</span>',
                     'subtitulo' => 'Terrenos <span>seguros</span>, LEGALES y con excelente ubicación para ti y tu familia.',
                     'imagen_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',
@@ -172,10 +171,10 @@ class SeccionSeeder extends Seeder
                         'fondo_color' => '',
                         'texto_color' => '',
                     ],
-                    'imagen' => 'http://127.0.0.1:8000/assets/imagen/sliders-computadora-1.jpg',
-                    'titulo' => '¿Quién soy y que pienso?',
+                    'imagen' => 'http://127.0.0.1:8000/assets/imagenes/banner/banner-1.jpg',
+                    'titulo' => '¿Quiénes somos?',
                     'subtitulo' => '',
-                    'imagen_seo' => '¿Quién soy y que pienso?',
+                    'imagen_seo' => '¿Quiénes somos?',
                 ],
                 'activo' => true,
             ],
@@ -236,7 +235,7 @@ class SeccionSeeder extends Seeder
                             'texto_color' => '#333',
                         ],
                     ],
-                    'imagen' => 'http://127.0.0.1:8000/assets/imagen/default.jpg',
+                    'imagen' => 'http://127.0.0.1:8000/assets/imagenes/nosotros/nosotros-1.jpg',
                     'titulo' => '',
                     'invertir' => false,
                     'subtitulo' => 'Desarrollo económico con rostro humano',
@@ -294,7 +293,7 @@ class SeccionSeeder extends Seeder
                             'texto_color' => '#333',
                         ],
                     ],
-                    'imagen' => 'http://127.0.0.1:8000/assets/imagen/default.jpg',
+                    'imagen' => 'http://127.0.0.1:8000/assets/imagenes/nosotros/nosotros-2.jpg',
                     'titulo' => '',
                     'invertir' => true,
                     'subtitulo' => 'Gestión pública moderna y transparente',
@@ -352,7 +351,7 @@ class SeccionSeeder extends Seeder
                             'texto_color' => '#333',
                         ],
                     ],
-                    'imagen' => 'http://127.0.0.1:8000/assets/imagen/default.jpg',
+                    'imagen' => 'http://127.0.0.1:8000/assets/imagenes/nosotros/nosotros-3.jpg',
                     'titulo' => '',
                     'invertir' => false,
                     'subtitulo' => 'Valores y educación cívica para un nuevo Perú',
@@ -397,16 +396,16 @@ class SeccionSeeder extends Seeder
                 'contenido' => [
                     'boton' => [
                         'link' => 'http://127.0.0.1:8000/peru-tierra-de-incautos',
-                        'icono' => 'fa-solid fa-book',
-                        'texto' => 'Descargar mi Libro',
-                        'fondo_color' => '#02424e',
-                        'texto_color' => '#ffffff',
+                        'icono' => 'fa-solid fa-map-location-dot',
+                        'texto' => 'Explora nuestros proyectos',
+                        'fondo_color' => '#ffcd02',
+                        'texto_color' => '#02424e',
                     ],
-                    'imagen_fondo' => 'assets/imagen/sliders-computadora-1.jpg',
-                    'imagen' => 'https://www.terratech.net.pe/sitios/shebrad/img/iconos/familia2.png',
-                    'titulo' => 'Mis propuestas para transformar el Perú',
-                    'subtitulo' => 'En mi libro “Perú, Tierra de Incautos”, comparto mi visión sobre cómo construir un país.',
-                    'imagen_seo' => '“Perú, Tierra de Incautos”, una mirada crítica y constructiva.',
+                    'imagen_fondo' => 'http://127.0.0.1:8000/assets/imagenes/call-to-action/fondo.jpg',
+                    'imagen' => 'http://127.0.0.1:8000/assets/imagenes/call-to-action/familia-2.png',
+                    'titulo' => 'Ten tu <span>lote propio</span>',
+                    'subtitulo' => 'Terrenos <span>seguros</span>, LEGALES y con excelente ubicación para ti y tu familia.',
+                    'imagen_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',
                 ],
                 'activo' => true,
             ],
@@ -510,35 +509,37 @@ class SeccionSeeder extends Seeder
                     'lista' => [
                         [
                             'id' => 1,
-                            'imagen' => 'https://www.terratech.net.pe/sitios/shebrad/files/images/testimonio/RZL930.jpg',
-                            'imagen_seo' => 'Ana Torres',
-                            'titulo' => 'Ana Torres',
-                            'subtitulo' => 'Propietaria en Aybar Village',
-                            'descripcion' => 'Gracias a Aybar pude adquirir mi primer lote con todas las facilidades. El proceso fue claro y rápido, y hoy ya estoy construyendo mi casa.',
-                        ],
-                        [
-                            'id' => 2,
-                            'imagen' => 'https://www.terratech.net.pe/sitios/shebrad/files/images/testimonio/RZL930.jpg',
+                            'imagen' => 'http://127.0.0.1:8000/assets/imagenes/testimonios/testimonio-1.jpg',
                             'imagen_seo' => 'Carlos Méndez',
                             'titulo' => 'Carlos Méndez',
                             'subtitulo' => 'Inversionista',
                             'descripcion' => 'Invertí en un terreno con Aybar y quedé muy satisfecho. Cumplieron con todo lo prometido y el valor de mi lote ha aumentado en poco tiempo.',
+
+                        ],
+                        [
+                            'id' => 2,
+                            'imagen' => 'http://127.0.0.1:8000/assets/imagenes/testimonios/testimonio-2.jpg',
+                            'imagen_seo' => 'Ana Torres',
+                            'titulo' => 'Ana Torres',
+                            'subtitulo' => 'Propietaria en Aybar Village',
+                            'descripcion' => 'Gracias a Aybar pude adquirir mi primer lote con todas las facilidades. El proceso fue claro y rápido, y hoy ya estoy construyendo mi casa.',
+
                         ],
                         [
                             'id' => 3,
-                            'imagen' => 'http://127.0.0.1:8000/assets/imagen/default.jpg',
-                            'imagen_seo' => 'Lucía Rojas',
-                            'titulo' => 'Lucía Rojas',
-                            'subtitulo' => 'Cliente en Aybar Park',
-                            'descripcion' => 'El equipo de Aybar me asesoró en todo momento. Encontré el lote ideal para mi familia, en una zona segura y con excelente proyección.',
-                        ],
-                        [
-                            'id' => 4,
-                            'imagen' => 'http://127.0.0.1:8000/assets/imagen/default.jpg',
+                            'imagen' => 'http://127.0.0.1:8000/assets/imagenes/testimonios/testimonio-3.jpg',
                             'imagen_seo' => 'Jorge Salazar',
                             'titulo' => 'Jorge Salazar',
                             'subtitulo' => 'Joven profesional',
                             'descripcion' => 'Aybar me brindó la confianza que buscaba para comprar mi terreno. Las facilidades de pago fueron perfectas para empezar a invertir.',
+                        ],
+                        [
+                            'id' => 4,
+                            'imagen' => 'http://127.0.0.1:8000/assets/imagenes/testimonios/testimonio-4.jpg',
+                            'imagen_seo' => 'Lucía Rojas',
+                            'titulo' => 'Lucía Rojas',
+                            'subtitulo' => 'Cliente en Aybar Park',
+                            'descripcion' => 'El equipo de Aybar me asesoró en todo momento. Encontré el lote ideal para mi familia, en una zona segura y con excelente proyección.',
                         ],
                     ],
                 ],

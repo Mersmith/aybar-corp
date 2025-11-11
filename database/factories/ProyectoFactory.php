@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Blog>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Proyecto>
  */
-class BlogFactory extends Factory
+class ProyectoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -25,7 +25,7 @@ class BlogFactory extends Factory
             'titulo' => $titulo,
             'slug' => Str::slug($titulo),
             'contenido' => $contenido,
-            'imagen' => 'http://127.0.0.1:8000/assets/imagenes/comunicados/comunicado-1.jpg',
+            'imagen' => 'http://127.0.0.1:8000/assets/imagenes/proyectos/proyecto-1.jpg',
             'publicado_en' => now(),
             'activo' => true,
             'meta_title' => $titulo,

@@ -1,10 +1,10 @@
-@if (!empty($p_elemento) && $p_elemento['posts']->isNotEmpty())
+@if (!empty($p_elemento) && $p_elemento['proyectos']->isNotEmpty())
 
 <div class="partials_contenedor_slider_proyectos">
     <!-- Swiper -->
     <div class="swiper SwiperSliderProyectos-{{ $p_elemento['id'] }}">
         <div class="swiper-wrapper">
-            @foreach ($p_elemento['posts'] as $post)
+            @foreach ($p_elemento['proyectos'] as $post)
             <div class="swiper-slide">
                 <a href="{{ route('blog.show', $post->slug) }}">
                     <div class="post_imagen_contenedor">
