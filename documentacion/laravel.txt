@@ -25,3 +25,4 @@ php artisan make:livewire Web/OpenAi/ProcesarImagenLivewire
 php artisan storage:link
 
 php artisan make:controller Cliente/InicioController
+php artisan make:livewire Admin/Inicio/InicioLivewire

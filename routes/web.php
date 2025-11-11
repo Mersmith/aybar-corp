@@ -16,6 +16,10 @@ Route::get('/ingresar', [LoginController::class, 'indexIngresarCliente'])->name(
 Route::post('/ingresar', [LoginController::class, 'ingresarCliente'])->name('ingresar.cliente');
 Route::post('/logout', [LoginController::class, 'logoutCliente'])->name('logout.cliente');
 
+Route::get('/ingresar/admin', [LoginController::class, 'indexIngresarAdmin'])->name('ingresar.admin');
+Route::post('/ingresar/admin', [LoginController::class, 'ingresarAdmin'])->name('ingresar.admin');
+Route::post('/logout/admin', [LoginController::class, 'logoutAdmin'])->name('logout.admin');
+
 Route::get('/', [InicioController::class, 'index'])->name('home'); //pagina personalizada //ok
 
 Route::get('/nosotros', [NosotrosController::class, 'index'])->name('nosotros.index'); //pagina personalizada //ok
