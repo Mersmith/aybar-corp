@@ -5,6 +5,7 @@ php artisan make:controller InicioController
 php artisan make:controller NosotrosController
 php artisan make:controller PaginaController
 php artisan make:controller CodigoClienteController
+php artisan make:controller LoginController
 
 php artisan make:model Pagina -mfsc
 php artisan make:model Menu -mfsc
@@ -22,3 +23,5 @@ php artisan app:test-open-a-i
 
 php artisan make:livewire Web/OpenAi/ProcesarImagenLivewire
 php artisan storage:link
+
+php artisan make:controller Cliente/InicioController

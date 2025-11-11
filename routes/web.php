@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\NosotrosController;
@@ -10,6 +11,10 @@ use App\Http\Controllers\FormularioLibroReclamacionController;
 use App\Livewire\Web\OpenAi\ProcesarImagenLivewire;
 
 use Illuminate\Support\Facades\Route;
+
+Route::get('/ingresar', [LoginController::class, 'indexIngresarCliente'])->name('ingresar.cliente');
+Route::post('/ingresar', [LoginController::class, 'ingresarCliente'])->name('ingresar.cliente');
+Route::post('/logout', [LoginController::class, 'logoutCliente'])->name('logout.cliente');
 
 Route::get('/', [InicioController::class, 'index'])->name('home'); //pagina personalizada //ok
 
