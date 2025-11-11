@@ -5,7 +5,9 @@
     gap: 10px;
 }
 
-.g_formulario input,
+.g_formulario input[type="text"],
+.g_formulario input[type="number"],
+.g_formulario input[type="email"],
 .g_formulario textarea,
 .g_formulario select {
     width: 100%;
@@ -37,6 +39,7 @@
 }
 
 .g_formulario .radio_group,
+.g_formulario .check_group,
 .g_formulario .radio_group label {
     display: flex;
     align-items: center;

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\FormularioLibroReclamacion;
+use Illuminate\Http\Request;
 
 class FormularioLibroReclamacionController extends Controller
 {
@@ -30,8 +30,10 @@ class FormularioLibroReclamacionController extends Controller
             'tipo_pedido' => 'required|in:reclamo,queja',
             'detalle' => 'required|string',
             'pedido' => 'required|string',
+            'conformidad' => 'accepted',
         ], [
             'nombre.required' => 'El nombre es obligatorio.',
+            'conformidad.accepted' => 'Debe aceptar los términos para enviar el reclamo.', 'nombre.max' => 'El nombre no debe ser largo.',
             'apellido_paterno.required' => 'El apellido paterno es obligatorio.',
             'apellido_materno.required' => 'El apellido materno es obligatorio.',
             'domicilio.required' => 'El domicilio es obligatorio.',
@@ -57,8 +59,12 @@ class FormularioLibroReclamacionController extends Controller
             'tipo_pedido' => $request->tipo_pedido,
             'detalle' => $request->detalle,
             'pedido' => $request->pedido,
+            'conformidad' => $request->has('conformidad'),
         ]);
 
-        return back()->with('success', 'Tu reclamo fue enviado correctamente. Código: ' . $formulario->codigo);
+        return redirect()
+            ->back()
+            ->with('success', 'Tu reclamo fue enviado correctamente.')
+            ->with('formulario', $formulario);
     }
 }
