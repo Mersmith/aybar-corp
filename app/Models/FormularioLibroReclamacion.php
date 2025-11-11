@@ -33,6 +33,7 @@ class FormularioLibroReclamacion extends Model
         'tipo_pedido',
         'detalle',
         'pedido',
+        'conformidad',
         'observaciones',
         'fecha_respuesta',
         'leido',

@@ -66,6 +66,10 @@
     color: var(--color-amarillo);
 }
 
+.r_negrita {
+    font-weight: 600;
+}
+
 .r_parrafo {
     font-size: 20px;
     line-height: 1.6;

@@ -33,6 +33,7 @@ return new class extends Migration
             $table->enum('tipo_pedido', ['reclamo', 'queja'])->default('reclamo');
             $table->text('detalle')->nullable();
             $table->text('pedido')->nullable();
+            $table->boolean('conformidad')->default(false);
 
             $table->text('observaciones')->nullable();
             $table->dateTime('fecha_respuesta')->nullable()->comment('Fecha de respuesta al usuario.');
