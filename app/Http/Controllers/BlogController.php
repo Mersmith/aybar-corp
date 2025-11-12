@@ -9,15 +9,15 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Blog::where('estado', true)->latest()->paginate(6);
+        $posts = Blog::where('activo', true)->latest()->paginate(6);
         return view('web.paginas.blog', compact('posts'));
     }
 
     public function show($slug)
     {
-        $post = Blog::where('slug', $slug)->where('estado', true)->firstOrFail();
+        $post = Blog::where('slug', $slug)->where('activo', true)->firstOrFail();
 
-        $otrosPosts = Blog::where('estado', true)->latest()
+        $otrosPosts = Blog::where('activo', true)->latest()
             ->paginate(5);
 
         return view('web.paginas.blog-item', compact('post', 'otrosPosts'));

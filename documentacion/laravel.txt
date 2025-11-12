@@ -75,3 +75,8 @@ php artisan make:livewire Admin/Pagina/PaginaEditarLivewire
 php artisan make:livewire Admin/Menu/MenuTodoLivewire
 php artisan make:livewire Admin/Menu/MenuCrearLivewire
 php artisan make:livewire Admin/Menu/MenuEditarLivewire
+
+php artisan make:livewire Admin/Blog/BlogTodoLivewire
+php artisan make:livewire Admin/Blog/BlogCrearLivewire
+php artisan make:livewire Admin/Blog/BlogEditarLivewire
+

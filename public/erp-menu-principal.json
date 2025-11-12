@@ -1,4 +1,39 @@
-[
+[   {
+        "id": 6,
+        "nombre": "6",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-file-pen",
+        "nivel": 1,
+        "submenus": [
+            {
+                "id": 41,
+                "nombre": "Blog",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-blog",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.blog.vista.todo",
+                        "url": "/admin/blog",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.blog.vista.crear",
+                        "url": "/admin/blog/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            }
+        ]
+    },
     {
         "id": 5,
         "nombre": "5",
@@ -23,7 +58,7 @@
         "nombre": "4",
         "ruta": "#",
         "url": "#",
-        "icono": "fa-solid fa-file-pen",
+        "icono": "fa-solid fa-file-code",
         "nivel": 1,
         "submenus": [
             {
@@ -31,7 +66,7 @@
                 "nombre": "Secciones",
                 "ruta": "#",
                 "url": "#",
-                "icono": "fa-solid fa-comment",
+                "icono": "fa-solid fa-layer-group",
                 "nivel": 2,
                 "submenus": [
                     {
@@ -121,7 +156,7 @@
                 "nombre": "Páginas",
                 "ruta": "#",
                 "url": "#",
-                "icono": "fa-solid fa-comment",
+                "icono": "fa-solid fa-file-lines",
                 "nivel": 2,
                 "submenus": [
                     {
@@ -147,7 +182,7 @@
                 "nombre": "Menús",
                 "ruta": "#",
                 "url": "#",
-                "icono": "fa-solid fa-comment",
+                "icono": "fa-solid fa-bars",
                 "nivel": 2,
                 "submenus": [
                     {
