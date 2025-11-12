@@ -16,6 +16,7 @@ php artisan make:model FormularioPaginaContacto -mfsc
 php artisan make:model FormularioLibroReclamacion -mfsc
 php artisan make:model Proyecto -mfsc
 php artisan make:model Imagen -mfsc
+php artisan make:model Archivo -mfsc
 
 php artisan vendor:publish --tag=laravel-pagination
 
@@ -28,6 +29,17 @@ php artisan make:livewire Web/OpenAi/ProcesarImagenLivewire
 php artisan storage:link
 
 php artisan make:controller Cliente/InicioController
+
+php artisan make:livewire Admin/Imagen/ImagenTodoLivewire
+php artisan make:livewire Admin/Imagen/ImagenFormularioLivewire
+php artisan make:livewire Admin/Imagen/ImagenListaLivewire
+php artisan make:livewire Admin/Imagen/ImagenEditarLivewire
+
+php artisan make:livewire Admin/Archivo/ArchivoTodoLivewire
+php artisan make:livewire Admin/Archivo/ArchivoFormularioLivewire
+php artisan make:livewire Admin/Archivo/ArchivoListaLivewire
+php artisan make:livewire Admin/Archivo/ArchivoEditarLivewire
+
 php artisan make:livewire Admin/Inicio/InicioLivewire
 
 php artisan make:livewire Admin/Seccion/SeccionTodoLivewire

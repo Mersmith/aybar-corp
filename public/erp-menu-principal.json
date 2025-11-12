@@ -50,6 +50,15 @@
                 "icono": "fa-regular fa-image",
                 "nivel": 2,
                 "submenus": []
+            },
+            {
+                "id": 42,
+                "nombre": "Archivo",
+                "ruta": "admin.archivo.vista.todo",
+                "url": "/admin/archivo",
+                "icono": "fa-solid fa-file-lines text-gray-600",
+                "nivel": 2,
+                "submenus": []
             }
         ]
     },

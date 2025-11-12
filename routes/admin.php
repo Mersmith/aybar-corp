@@ -3,6 +3,7 @@
 
 use App\Livewire\Admin\Inicio\InicioLivewire;
 use App\Livewire\Admin\Imagen\ImagenTodoLivewire;
+use App\Livewire\Admin\Archivo\ArchivoTodoLivewire;
 use App\Http\Controllers\ImagenController;
 
 use App\Livewire\Admin\Pagina\{
@@ -61,6 +62,8 @@ Route::get('/dashboard', InicioLivewire::class)->name('home');
 
 Route::get('/imagen', ImagenTodoLivewire::class)->name('imagen.vista.todo');
 Route::post('/upload-local-imagen', [ImagenController::class, 'uploadLocalImagen'])->name('imagen.upload-local');
+
+Route::get('/archivo', ArchivoTodoLivewire::class)->name('archivo.vista.todo');
 
 Route::prefix('pagina')->name('pagina.vista.')->group(function () {
     Route::get('/', PaginaTodoLivewire::class)->name('todo');
