@@ -12,10 +12,12 @@ class InicioController extends Controller
         $bloque1_1 = app(SeccionController::class)->getSeccionPorTipo(1, 'bloque-1');
         $bloque8_1 = app(SeccionController::class)->getSeccionPorTipo(15, 'bloque-8');
         $bloque4_1 = app(SeccionController::class)->getSeccionPorTipo(4, 'bloque-4');
+        $bloque3_1 = app(SeccionController::class)->getSeccionPorTipo(3, 'bloque-3');
+
         $posts = $this->getBlog();
         $proyectos = $this->getProyectos();
 
-        return view('web.inicio', compact('bloque1_1', 'bloque8_1', 'posts', 'proyectos', 'bloque4_1', ));
+        return view('web.inicio', compact('bloque1_1', 'bloque3_1', 'bloque8_1', 'posts', 'proyectos', 'bloque4_1',));
     }
 
     public function getBlog()

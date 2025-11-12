@@ -101,14 +101,14 @@
 
                                     <div class="g_margin_bottom_10">
                                         <label>Cargo</label>
-                                        <input type="text" wire:model="lista.{{ $index }}.descripcion" @pointerdown.stop
+                                        <input type="text" wire:model="lista.{{ $index }}.subtitulo" @pointerdown.stop
                                             @mousedown.stop @touchstart.stop draggable="false">
                                     </div>
                                 </div>
 
                                 <div class="g_margin_bottom_10">
                                     <label>Comentario</label>
-                                    <textarea wire:model="lista.{{ $index }}.subtitulo" rows="3" @pointerdown.stop
+                                    <textarea wire:model="lista.{{ $index }}.descripcion" rows="3" @pointerdown.stop
                                         @mousedown.stop @touchstart.stop draggable="false"></textarea>
                                 </div>
 

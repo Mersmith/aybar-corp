@@ -4,11 +4,14 @@
 $p = $p_elemento->contenido;
 
 $titulo = $p['titulo'];
+$titulo_descripcion = $p['titulo_descripcion'];
 $subtitulo = $p['subtitulo'];
+$subtitulo_descripcion = $p['subtitulo_descripcion'];
 
-$imagen_fondo = $p['imagen_fondo'];
 $imagen = $p['imagen'];
 $imagen_seo = $p['imagen_seo'];
+$imagen_fondo = $p['imagen_fondo'];
+$imagen_fondo_seo = $p['imagen_fondo_seo'];
 
 $boton = $p['boton'] ?? [];
 $boton_icono = $boton['icono'];
@@ -20,7 +23,7 @@ $boton_link = $boton['link'];
 
 <div class="bloque_4">
     @if (!empty($imagen))
-    <img class="imagen" src="{{ asset($imagen_fondo) }}" alt="{{ $imagen_seo }}">
+    <img class="imagen" src="{{ asset($imagen_fondo) }}" alt="{{ $imagen_fondo_seo }}">
     @endif
 
     <div class="cuerpo">
@@ -28,7 +31,7 @@ $boton_link = $boton['link'];
             @if (!empty($titulo))
             @include('partials.titulo-encabezado', [
             'titulo' => $titulo,
-            'descripcion' => 'Terrenos seguros, legales y con excelente ubicación para ti y tu familia.',
+            'descripcion' => $titulo_descripcion,
             'alineacion' => 'center',
             'color' => 'color_2',
             ])

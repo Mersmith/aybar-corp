@@ -55,9 +55,29 @@
                     </div>
 
                     <div>
+                        <label for="titulo_descripcion">Descripción</label>
+                        <textarea id="titulo_descripcion" wire:model.live="titulo_descripcion" rows="3"></textarea>
+                        @error('titulo_descripcion')
+                        <p class="mensaje_error">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <!-- SUBTITULO -->
+                <div class="g_panel">
+                    <div class="g_margin_bottom_10">
                         <label for="subtitulo">Subtítulo</label>
                         <input type="text" id="subtitulo" wire:model.live="subtitulo">
                         @error('subtitulo')
+                        <p class="mensaje_error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="subtitulo_descripcion">Descripción</label>
+                        <textarea id="subtitulo_descripcion" wire:model.live="subtitulo_descripcion"
+                            rows="3"></textarea>
+                        @error('subtitulo_descripcion')
                         <p class="mensaje_error">{{ $message }}</p>
                         @enderror
                     </div>
@@ -80,6 +100,28 @@
                         <textarea id="imagen_seo" wire:model.live="imagen_seo" rows="3"></textarea>
                         <p class="leyenda">Se mostrará en el SEO.</p>
                         @error('imagen_seo')
+                        <p class="mensaje_error">{{ $message }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <!-- IMAGEN -->
+                <div class="g_panel">
+                    <div class="g_margin_bottom_10">
+                        <label for="imagen_fondo">Imagen fondo <span class="obligatorio"><i
+                                    class="fa-solid fa-asterisk"></i></span></label>
+                        <input type="text" id="imagen_fondo" wire:model.live="imagen_fondo">
+                        @error('imagen_fondo')
+                        <p class="mensaje_error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="imagen_fondo_seo">Descripción SEO <span class="obligatorio"><i
+                                    class="fa-solid fa-asterisk"></i></span></label>
+                        <textarea id="imagen_fondo_seo" wire:model.live="imagen_fondo_seo" rows="3"></textarea>
+                        <p class="leyenda">Se mostrará en el SEO.</p>
+                        @error('imagen_fondo_seo')
                         <p class="mensaje_error">{{ $message }}</p>
                         @enderror
                     </div>

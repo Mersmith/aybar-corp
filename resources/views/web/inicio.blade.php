@@ -18,9 +18,11 @@
 
             @include('partials.slider-proyectos', ['p_elemento' => $proyectos])
 
+            @include('bloques.bloque-3', ['p_elemento' => $bloque3_1])
         </div>
     </div>
 </div>
+
 
 @include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
 
@@ -28,7 +30,7 @@
     <div class="r_pading_pagina">
         <div class="r_gap_pagina">
 
-            <div class="r_margin_top_40">
+            <div>
                 @include('bloques.bloque-8', ['p_elemento' => $bloque8_1])
             </div>
 
