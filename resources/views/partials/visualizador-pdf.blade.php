@@ -8,6 +8,7 @@
     @keydown.escape.window="if (abierto) abierto = false" class="partials_visualizador_pdf">
 
     <button @click="abierto = true" class="boton_abrir">
+        <i class="fa-solid fa-file-pdf"></i>
         {{ $textoBoton }}
     </button>
 
