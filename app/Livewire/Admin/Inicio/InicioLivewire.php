@@ -5,7 +5,7 @@ namespace App\Livewire\Admin\Inicio;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 
-#[Layout('layouts.web.layout-web')]
+#[Layout('layouts.admin.layout-admin')]
 class InicioLivewire extends Component
 {
     public function render()

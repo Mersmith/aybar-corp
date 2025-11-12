@@ -1,0 +1,173 @@
+[
+    {
+        "id": 5,
+        "nombre": "5",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-photo-film",
+        "nivel": 1,
+        "submenus": [
+            {
+                "id": 41,
+                "nombre": "Imagen",
+                "ruta": "admin.imagen.vista.todo",
+                "url": "/admin/imagen",
+                "icono": "fa-regular fa-image",
+                "nivel": 2,
+                "submenus": []
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "4",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-file-pen",
+        "nivel": 1,
+        "submenus": [
+            {
+                "id": 42,
+                "nombre": "Secciones",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-comment",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.seccion.vista.todo",
+                        "url": "/admin/seccion",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Bloque 1",
+                        "ruta": "admin.seccion.bloque-uno.vista.todo",
+                        "url": "/admin/seccion/bloque-uno",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 113,
+                        "nombre": "Bloque 2",
+                        "ruta": "admin.seccion.bloque-dos.vista.todo",
+                        "url": "/admin/seccion/bloque-dos",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 114,
+                        "nombre": "Bloque 3",
+                        "ruta": "admin.seccion.bloque-tres.vista.todo",
+                        "url": "/admin/seccion/bloque-tres",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 115,
+                        "nombre": "Bloque 4",
+                        "ruta": "admin.seccion.bloque-cuatro.vista.todo",
+                        "url": "/admin/seccion/bloque-cuatro",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 116,
+                        "nombre": "Bloque 5",
+                        "ruta": "admin.seccion.bloque-cinco.vista.todo",
+                        "url": "/admin/seccion/bloque-cinco",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 117,
+                        "nombre": "Bloque 6",
+                        "ruta": "admin.seccion.bloque-seis.vista.todo",
+                        "url": "/admin/seccion/bloque-seis",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 118,
+                        "nombre": "Bloque 7",
+                        "ruta": "admin.seccion.bloque-siete.vista.todo",
+                        "url": "/admin/seccion/bloque-siete",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 119,
+                        "nombre": "Bloque 8",
+                        "ruta": "admin.seccion.bloque-ocho.vista.todo",
+                        "url": "/admin/seccion/bloque-ocho",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 120,
+                        "nombre": "Bloque 9",
+                        "ruta": "admin.seccion.bloque-nueve.vista.todo",
+                        "url": "/admin/seccion/bloque-nueve",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 50,
+                "nombre": "Páginas",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-comment",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.pagina.vista.todo",
+                        "url": "/admin/pagina",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.pagina.vista.crear",
+                        "url": "/admin/pagina/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 51,
+                "nombre": "Menús",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-comment",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.menu.vista.todo",
+                        "url": "/admin/menu",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.menu.vista.crear",
+                        "url": "/admin/menu/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            }
+        ]
+    }
+]

@@ -15,6 +15,9 @@ php artisan make:model TipoFormulario -mfsc
 php artisan make:model FormularioPaginaContacto -mfsc
 php artisan make:model FormularioLibroReclamacion -mfsc
 php artisan make:model Proyecto -mfsc
+php artisan make:model Imagen -mfsc
+
+php artisan vendor:publish --tag=laravel-pagination
 
 composer require openai-php/laravel
 php artisan vendor:publish --provider="OpenAI\Laravel\ServiceProvider"
@@ -26,3 +29,49 @@ php artisan storage:link
 
 php artisan make:controller Cliente/InicioController
 php artisan make:livewire Admin/Inicio/InicioLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionTodoLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionBloqueUnoTodoLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueUnoCrearLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueUnoEditarLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionBloqueDosTodoLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueDosCrearLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueDosEditarLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionBloqueTresTodoLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueTresCrearLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueTresEditarLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionBloqueCuatroTodoLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueCuatroCrearLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueCuatroEditarLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionBloqueCincoTodoLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueCincoCrearLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueCincoEditarLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionBloqueSeisTodoLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueSeisCrearLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueSeisEditarLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionBloqueSieteTodoLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueSieteCrearLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueSieteEditarLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionBloqueOchoTodoLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueOchoCrearLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueOchoEditarLivewire
+
+php artisan make:livewire Admin/Seccion/SeccionBloqueNueveTodoLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueNueveCrearLivewire
+php artisan make:livewire Admin/Seccion/SeccionBloqueNueveEditarLivewire
+
+php artisan make:livewire Admin/Pagina/PaginaTodoLivewire
+php artisan make:livewire Admin/Pagina/PaginaCrearLivewire
+php artisan make:livewire Admin/Pagina/PaginaEditarLivewire
+
+php artisan make:livewire Admin/Menu/MenuTodoLivewire
+php artisan make:livewire Admin/Menu/MenuCrearLivewire
+php artisan make:livewire Admin/Menu/MenuEditarLivewire

@@ -15,6 +15,7 @@
 .g_paginacion a,
 .g_paginacion button,
 .g_paginacion span {
+    cursor: pointer;
     display: inline-block;
     padding: 8px 14px;
     border-radius: 6px;

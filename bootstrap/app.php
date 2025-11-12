@@ -5,6 +5,7 @@ use App\Http\Middleware\CheckCliente;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Support\Facades\Route;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -12,7 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__ . '/../routes/console.php',
         health: '/up',
         then: function () {
-            Route::middleware(['web', 'check.admin'])
+            //Route::middleware(['web', 'check.admin'])
+            Route::middleware(['web'])
                 ->prefix('admin')
                 ->name('admin.')
                 ->group(base_path('routes/admin.php'));
