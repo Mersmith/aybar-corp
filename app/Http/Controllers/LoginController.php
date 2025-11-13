@@ -73,8 +73,8 @@ class LoginController extends Controller
 
     public function indexIngresarAdmin()
     {
-        if (Auth::check() && Auth::user()->role === 'cliente') {
-            return redirect()->route('cliente.home');
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            return redirect()->route('admin.home');
         }
 
         return view('web.login.ingresar-admin');
@@ -94,7 +94,7 @@ class LoginController extends Controller
 
             Auth::logout();
             return back()->withErrors([
-                'email' => 'Acceso denegado. Solo administradores pueden ingresar aquí.',
+                'email' => 'Acceso denegado. Solo cliente pueden ingresar aquí.',
             ]);
         }
 
