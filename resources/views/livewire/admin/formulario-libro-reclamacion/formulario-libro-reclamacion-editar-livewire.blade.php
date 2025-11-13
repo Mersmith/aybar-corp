@@ -17,7 +17,7 @@
     </div>
 
     <!-- FORMULARIO -->
-    <form wire:submit.prevent="update" class="formulario">
+    <div class="formulario">
         <div class="g_fila">
             <!-- IZQUIERDA -->
             <div class="g_columna_8 g_gap_pagina">
@@ -119,15 +119,20 @@
                     </div>
                 </div>
 
-                <div class="g_panel">
-                    <h4 class="g_panel_titulo">4.- Observaciones y acciones adoptadas por el proveedor</h4>
+                <form wire:submit.prevent="actualizarObservaciones">
+                    <div class="g_panel">
+                        <h4 class="g_panel_titulo">4.- Observaciones y acciones adoptadas</h4>
+                        <textarea wire:model.live="observaciones" rows="6" @if ($formulario->estado === 'cerrado' || !empty($formulario->observaciones)) readonly disabled @endif
+                            class="g_margin_bottom_10"></textarea>
 
-                    <div class="g_fila">
-                        <div class="g_margin_bottom_10 g_columna_12">
-                            <textarea id="observaciones" wire:model.live="observaciones" rows="6"></textarea>
+                        <div class="formulario_botones">
+                            <button type="submit" class="guardar"
+                            @if ($formulario->estado === 'cerrado' || !empty($formulario->observaciones)) disabled @endif>
+                            Guardar observaciones
+                        </button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
 
             <!-- DERECHA -->
@@ -154,30 +159,31 @@
                     @endif
                 </div>
 
-                <div class="g_panel">
-                    <h4 class="g_panel_titulo">Estado</h4>
-                    <select wire:model.live="estado" {{ empty($estadosDisponibles) ? 'disabled' : '' }}>
-                        <option value="{{ $formulario->estado }}" selected>
-                            Actual: {{ ucfirst($formulario->estado) }}
-                        </option>
+                <form wire:submit.prevent="actualizarEstado">
+                    <div class="g_panel">
+                        <h4 class="g_panel_titulo">Estado</h4>
+                        <select wire:model.live="estado" {{ empty($estadosDisponibles) ? 'disabled' : '' }}
+                            class="g_margin_bottom_10">
+                            <option value="{{ $formulario->estado }}" selected>
+                                Actual: {{ ucfirst($formulario->estado) }}
+                            </option>
+                            @foreach ($estadosDisponibles as $estadoDisponible)
+                                <option value="{{ $estadoDisponible }}">{{ ucfirst($estadoDisponible) }}</option>
+                            @endforeach
+                        </select>
 
-                        @foreach ($estadosDisponibles as $estadoDisponible)
-                            <option value="{{ $estadoDisponible }}">{{ ucfirst($estadoDisponible) }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                        <div class="formulario_botones">
+                            <button type="submit" class="guardar"
+                                {{ $formulario->estado === 'cerrado' ? 'disabled' : '' }}>
+                                Cambiar estado
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
 
-        <!-- BOTONES -->
-        <div class="g_margin_top_20">
-            <div class="formulario_botones">
-                <button type="submit" class="guardar" wire:loading.attr="disabled" wire:target="update">
-                    <span wire:loading.remove wire:target="update">Actualizar</span>
-                    <span wire:loading wire:target="update">Actualizando...</span>
-                </button>
-                <a href="{{ route('admin.formulario-libro-reclamacion.vista.todo') }}" class="cancelar">Cancelar</a>
-            </div>
-        </div>
-    </form>
+
+    </div>
 </div>

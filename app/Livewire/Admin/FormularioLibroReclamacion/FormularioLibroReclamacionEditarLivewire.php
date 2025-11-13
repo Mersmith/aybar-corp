@@ -26,6 +26,7 @@ class FormularioLibroReclamacionEditarLivewire extends Component
         $this->formulario = $this->formulario->fresh();
         $this->leido = $this->formulario->leido;
         $this->estado = $this->formulario->estado;
+        $this->observaciones = $this->formulario->observaciones;
 
         $this->definirEstadosDisponibles();
     }
@@ -42,23 +43,57 @@ class FormularioLibroReclamacionEditarLivewire extends Component
         $this->estadosDisponibles = $mapa[$this->formulario->estado] ?? [];
     }
 
-    public function update()
+    public function actualizarObservaciones()
     {
+        // Si el formulario está cerrado, no se puede modificar
+        if ($this->formulario->estado === 'cerrado') {
+            // $this->dispatch('alertaLivewire', "❌ No se puede modificar un formulario cerrado.");
+            return;
+        }
+
+        // Si ya tiene observaciones, no permitir volver a editarlas
+        if (!empty($this->formulario->observaciones)) {
+            // $this->dispatch('alertaLivewire', "⚠️ Las observaciones ya fueron registradas y no se pueden modificar.");
+            return;
+        }
+
+        // Validar el campo
         $this->validate([
-            'estado' => 'in:nuevo,revision,resuelto,cerrado',
+            'observaciones' => 'nullable|string',
         ]);
 
-        if (!in_array($this->estado, $this->estadosDisponibles)) {
+        // Si observaciones está vacía y el estado es cerrado, también prohibir
+        if (empty($this->observaciones) && $this->formulario->estado === 'cerrado') {
+            //$this->dispatch('alertaLivewire', "⚠️ No se puede modificar porque el formulario está cerrado y sin observaciones.");
+            return;
+        }
+
+        // Actualizar observaciones y fecha de respuesta solo si hay texto nuevo
+        $data = [
+            'observaciones' => $this->observaciones,
+            'fecha_respuesta' => now(),
+        ];
+
+        $this->formulario->update($data);
+        $this->formulario = $this->formulario->fresh();
+
+        $this->dispatch('alertaLivewire', "Actualizado");
+    }
+
+    public function actualizarEstado()
+    {
+        if ($this->formulario->estado === 'cerrado') {
             $this->dispatch('alertaLivewire', "Error");
             return;
         }
 
-        $this->formulario->update(['estado' => $this->estado]);
+        $this->validate([
+            'estado' => 'in:nuevo,revision,resuelto,cerrado',
+        ]);
 
+        $this->formulario->update(['estado' => $this->estado]);
         $this->formulario = $this->formulario->fresh();
         $this->definirEstadosDisponibles();
-
-        $this->estado = $this->formulario->estado;
 
         $this->dispatch('alertaLivewire', "Actualizado");
     }
