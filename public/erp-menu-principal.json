@@ -41,6 +41,15 @@
                 "icono": "fa-solid fa-file-lines",
                 "nivel": 2,
                 "submenus": []
+            },
+            {
+                "id": 43,
+                "nombre": "Libro Reclamación",
+                "ruta": "admin.formulario-libro-reclamacion.vista.todo",
+                "url": "/admin/formulario-libro-reclamacion",
+                "icono": "fa-solid fa-triangle-exclamation",
+                "nivel": 2,
+                "submenus": []
             }
         ]
     },

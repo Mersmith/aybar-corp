@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Livewire\Admin\FormularioPaginaContacto;
+namespace App\Livewire\Admin\FormularioLibroReclamacion;
 
-use App\Models\FormularioPaginaContacto;
+use App\Models\FormularioLibroReclamacion;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
 #[Layout('layouts.admin.layout-admin')]
-class FormularioPaginaContactoEditarLivewire extends Component
+class FormularioLibroReclamacionEditarLivewire extends Component
 {
     public $formulario;
     public $leido;
@@ -16,7 +16,7 @@ class FormularioPaginaContactoEditarLivewire extends Component
 
     public function mount($id)
     {
-        $this->formulario = FormularioPaginaContacto::findOrFail($id);
+        $this->formulario = FormularioLibroReclamacion::findOrFail($id);
 
         if (!$this->formulario->leido) {
             $this->formulario->update(['leido' => true]);
@@ -64,6 +64,6 @@ class FormularioPaginaContactoEditarLivewire extends Component
 
     public function render()
     {
-        return view('livewire.admin.formulario-pagina-contacto.formulario-pagina-contacto-editar-livewire');
+        return view('livewire.admin.formulario-libro-reclamacion.formulario-libro-reclamacion-editar-livewire');
     }
 }

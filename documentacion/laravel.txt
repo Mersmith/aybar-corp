@@ -106,9 +106,7 @@ php artisan make:livewire Admin/TipoFormulario/TipoFormularioCrearLivewire
 php artisan make:livewire Admin/TipoFormulario/TipoFormularioEditarLivewire
 
 php artisan make:livewire Admin/FormularioPaginaContacto/FormularioPaginaContactoTodoLivewire
-php artisan make:livewire Admin/FormularioPaginaContacto/FormularioPaginaContactoCrearLivewire
 php artisan make:livewire Admin/FormularioPaginaContacto/FormularioPaginaContactoEditarLivewire
 
 php artisan make:livewire Admin/FormularioLibroReclamacion/FormularioLibroReclamacionTodoLivewire
-php artisan make:livewire Admin/FormularioLibroReclamacion/FormularioLibroReclamacionCrearLivewire
 php artisan make:livewire Admin/FormularioLibroReclamacion/FormularioLibroReclamacionEditarLivewire

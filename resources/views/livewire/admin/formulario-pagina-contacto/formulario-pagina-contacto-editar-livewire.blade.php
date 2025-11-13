@@ -24,32 +24,32 @@
                 <div class="g_panel">
                     <div class="g_margin_bottom_10">
                         <label>Nombre</label>
-                        <input type="text" value="{{ $formulario->nombre }}" readonly>
+                        <input type="text" value="{{ $formulario->nombre }}" readonly disabled>
                     </div>
 
                     <div class="g_margin_bottom_10">
                         <label>Apellido</label>
-                        <input type="text" value="{{ $formulario->apellido }}" readonly>
+                        <input type="text" value="{{ $formulario->apellido }}" readonly disabled>
                     </div>
 
                     <div class="g_margin_bottom_10">
                         <label>Email</label>
-                        <input type="text" value="{{ $formulario->email }}" readonly>
+                        <input type="text" value="{{ $formulario->email }}" readonly disabled>
                     </div>
 
                     <div class="g_margin_bottom_10">
                         <label>Teléfono</label>
-                        <input type="text" value="{{ $formulario->telefono }}" readonly>
+                        <input type="text" value="{{ $formulario->telefono }}" readonly disabled>
                     </div>
 
                     <div class="g_margin_bottom_10">
                         <label>Asunto</label>
-                        <input type="text" value="{{ $formulario->asunto }}" readonly>
+                        <input type="text" value="{{ $formulario->asunto }}" readonly disabled>
                     </div>
 
                     <div class="g_margin_bottom_10">
                         <label>Mensaje</label>
-                        <textarea rows="5" readonly>{{ $formulario->mensaje }}</textarea>
+                        <textarea rows="5" readonly disabled>{{ $formulario->mensaje }}</textarea>
                     </div>
                 </div>
             </div>

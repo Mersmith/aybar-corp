@@ -88,6 +88,10 @@
     max-width: 200px;
 }
 
+.g_mayuscula {
+    text-transform: uppercase;
+}
+
 .g_vacio {
     width: 100%;
     display: flex;
