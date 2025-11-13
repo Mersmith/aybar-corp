@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('descripcion')">
 
-    <title> @yield('titulo') </title>
+    <title>@yield('titulo', config('app.name'))</title>
 
     <!-- Estilos generales -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
