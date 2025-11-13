@@ -24,6 +24,7 @@ Route::post('/logout/admin', [LoginController::class, 'logoutAdmin'])->name('log
 Route::get('/', [InicioController::class, 'index'])->name('home'); //pagina personalizada //ok
 
 Route::get('/nosotros', [NosotrosController::class, 'index'])->name('nosotros.index'); //pagina personalizada //ok
+
 Route::get('/consulta-codigo-cliente', [ConsultaCodigoClienteController::class, 'index'])->name('consulta-codigo-cliente.index'); //pagina personalizada //ok
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index'); //pagina personalizada

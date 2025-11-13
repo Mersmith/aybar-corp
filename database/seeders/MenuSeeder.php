@@ -84,8 +84,8 @@ class MenuSeeder extends Seeder
 
         Menu::create([
             'nombre' => 'Comunicados',
-            'slug' => 'noticias',
-            'url' => '/noticias',
+            'slug' => 'comunicado',
+            'url' => '/comunicado',
             'parent_id' => $publicaciones->id,
             'orden' => 1,
         ]);
