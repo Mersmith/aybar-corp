@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -23,7 +25,28 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($request->only('email', 'password'))) {
+        // Buscar si el email existe
+        $usuario = User::where('email', $request->email)->first();
+
+        if (!$usuario) {
+            return back()
+                ->withErrors(['email' => 'Este correo no está registrado.'])
+                ->withInput();
+        }
+
+        // Verificar contraseña
+        if (!Hash::check($request->password, $usuario->password)) {
+            return back()
+                ->withErrors(['password' => 'La contraseña es incorrecta.'])
+                ->withInput();
+        }
+
+        // Recordarme (checkbox)
+        $remember = $request->has('recordarme');
+
+        // Intentar login con recordar
+        if (Auth::attempt($request->only('email', 'password'), $remember)) {
+
             if (Auth::user()->role === 'cliente') {
                 return redirect()->route('cliente.home');
             }
@@ -35,8 +58,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Correo incorrecta.',
-            'password' => 'Contraseña incorrecta.',
+            'email' => 'No se pudo iniciar sesión. Inténtalo de nuevo.',
         ]);
     }
 

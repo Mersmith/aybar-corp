@@ -61,7 +61,7 @@
 
                     <div class="form_grupo">
                         <label for="recordarme">
-                            <input type="checkbox" wire:model="recordarme" name="recordarme" id="recordarme" />
+                            <input type="checkbox" name="recordarme" id="recordarme" />
                             Recordarme
                         </label>
                     </div>
