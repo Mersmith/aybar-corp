@@ -12,7 +12,7 @@ class LayoutWebServiceProvider extends ServiceProvider
     {
         View::composer('layouts.web.layout-web', function ($view) {
             $menus = Menu::whereNull('parent_id')
-                ->where('estado', true)
+                ->where('activo', true)
                 ->with('children')
                 ->orderBy('orden')
                 ->get();

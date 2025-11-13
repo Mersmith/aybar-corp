@@ -1,9 +1,91 @@
-[   {
+[
+    {
+        "id": 8,
+        "nombre": "8",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-clipboard-list",
+        "nivel": 1,
+        "submenus": [
+            {
+                "id": 41,
+                "nombre": "Tipo Formulario",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-shapes",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.tipo-formulario.vista.todo",
+                        "url": "/admin/tipo-formulario",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.tipo-formulario.vista.crear",
+                        "url": "/admin/tipo-formulario/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 42,
+                "nombre": "Página Contacto",
+                "ruta": "admin.formulario-pagina-contacto.vista.todo",
+                "url": "/admin/formulario-pagina-contacto",
+                "icono": "fa-solid fa-file-lines",
+                "nivel": 2,
+                "submenus": []
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "nombre": "7",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-user-shield",
+        "nivel": 1,
+        "submenus": [
+            {
+                "id": 41,
+                "nombre": "Usuario",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-user-tie",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.usuario.vista.todo",
+                        "url": "/admin/usuario",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.usuario.vista.crear",
+                        "url": "/admin/usuario/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": 6,
         "nombre": "6",
         "ruta": "#",
         "url": "#",
-        "icono": "fa-solid fa-file-pen",
+        "icono": "fa-solid fa-blog",
         "nivel": 1,
         "submenus": [
             {
@@ -11,7 +93,7 @@
                 "nombre": "Blog",
                 "ruta": "#",
                 "url": "#",
-                "icono": "fa-solid fa-blog",
+                "icono": "fa-solid fa-file-pen",
                 "nivel": 2,
                 "submenus": [
                     {

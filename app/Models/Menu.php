@@ -18,7 +18,7 @@ class Menu extends Model
         'pagina_id',
         'parent_id',
         'orden',
-        'estado'
+        'activo'
     ];
 
     public function pagina()

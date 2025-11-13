@@ -96,3 +96,19 @@ php artisan make:livewire Admin/Blog/BlogEditarLivewire
 php artisan make:livewire Admin/Comunicado/ComunicadoTodoLivewire
 php artisan make:livewire Admin/Comunicado/ComunicadoCrearLivewire
 php artisan make:livewire Admin/Comunicado/ComunicadoEditarLivewire
+
+php artisan make:livewire Admin/User/UserTodoLivewire
+php artisan make:livewire Admin/User/UserCrearLivewire
+php artisan make:livewire Admin/User/UserEditarLivewire
+
+php artisan make:livewire Admin/TipoFormulario/TipoFormularioTodoLivewire
+php artisan make:livewire Admin/TipoFormulario/TipoFormularioCrearLivewire
+php artisan make:livewire Admin/TipoFormulario/TipoFormularioEditarLivewire
+
+php artisan make:livewire Admin/FormularioPaginaContacto/FormularioPaginaContactoTodoLivewire
+php artisan make:livewire Admin/FormularioPaginaContacto/FormularioPaginaContactoCrearLivewire
+php artisan make:livewire Admin/FormularioPaginaContacto/FormularioPaginaContactoEditarLivewire
+
+php artisan make:livewire Admin/FormularioLibroReclamacion/FormularioLibroReclamacionTodoLivewire
+php artisan make:livewire Admin/FormularioLibroReclamacion/FormularioLibroReclamacionCrearLivewire
+php artisan make:livewire Admin/FormularioLibroReclamacion/FormularioLibroReclamacionEditarLivewire

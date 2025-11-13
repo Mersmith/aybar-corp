@@ -12,6 +12,6 @@ class FormularioPaginaContactoSeeder extends Seeder
      */
     public function run(): void
     {
-        FormularioPaginaContacto::factory(3)->create();
+        FormularioPaginaContacto::factory(13)->create();
     }
 }

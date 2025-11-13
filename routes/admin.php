@@ -6,6 +6,23 @@ use App\Livewire\Admin\Imagen\ImagenTodoLivewire;
 use App\Livewire\Admin\Archivo\ArchivoTodoLivewire;
 use App\Http\Controllers\ImagenController;
 
+use App\Livewire\Admin\User\{
+    UserTodoLivewire,
+    UserCrearLivewire,
+    UserEditarLivewire
+};
+
+use App\Livewire\Admin\TipoFormulario\{
+    TipoFormularioTodoLivewire,
+    TipoFormularioCrearLivewire,
+    TipoFormularioEditarLivewire
+};
+
+use App\Livewire\Admin\FormularioPaginaContacto\{
+    FormularioPaginaContactoTodoLivewire,
+    FormularioPaginaContactoEditarLivewire
+};
+
 use App\Livewire\Admin\Pagina\{
     PaginaTodoLivewire,
     PaginaCrearLivewire,
@@ -63,6 +80,22 @@ use App\Livewire\Admin\Seccion\{
 
 use Illuminate\Support\Facades\Route;
 
+Route::prefix('usuario')->name('usuario.vista.')->group(function () {
+    Route::get('/', UserTodoLivewire::class)->name('todo');
+    Route::get('/crear', UserCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', UserEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('tipo-formulario')->name('tipo-formulario.vista.')->group(function () {
+    Route::get('/', TipoFormularioTodoLivewire::class)->name('todo');
+    Route::get('/crear', TipoFormularioCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', TipoFormularioEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('formulario-pagina-contacto')->name('formulario-pagina-contacto.vista.')->group(function () {
+    Route::get('/', FormularioPaginaContactoTodoLivewire::class)->name('todo');
+    Route::get('/editar/{id}', FormularioPaginaContactoEditarLivewire::class)->name('editar');
+});
 
 Route::get('/dashboard', InicioLivewire::class)->name('home');
 

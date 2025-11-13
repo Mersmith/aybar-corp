@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('pagina_id')->nullable()->constrained('paginas')->nullOnDelete();
             $table->foreignId('parent_id')->nullable()->constrained('menus')->nullOnDelete(); // relación recursiva
             $table->integer('orden')->default(0);
-            $table->boolean('estado')->default(true);
+            $table->boolean('activo')->default(true);
 
             $table->timestamps();
             $table->softDeletes();
