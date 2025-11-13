@@ -1,52 +1,78 @@
 @extends('layouts.web.layout-web')
 
 @section('contenido')
-    <div class="r_centrar_pagina">
-        <div class="r_pading_pagina">
-
+    <div class="contenedor_login">
+        <div class="contenedor_login_imagen">
+            <!--IMAGEN-->
+            <img src="{{ asset('assets/imagenes/nosotros/nosotros-2.jpg') }}" alt="" />
+            <!--TEXTO-->
             <div>
-                <div class="container mt-5">
-                    <div class="row justify-content-center">
-                        <div class="col-md-4">
-                            <div class="card shadow">
-                                <div class="card-header text-center">
-                                    <h4>Iniciar sesión</h4>
-                                </div>
-                                <div class="card-body">
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <ul class="mb-0">
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif
+                <h2>"Sorteamos cada mes miles de productos"</h2>
+                <h3>Nickol Sinchi </h3>
+                <p>Propietaria de Aybar Las</p>
+            </div>
+        </div>
 
-                                    <form action="{{ route('ingresar.cliente') }}" method="POST">
-                                        @csrf
+        <div class="contenedor_login_formulario">
+            <!--FORMULARIO CENTRAR-->
+            <div class="login_formulario_centrar">
 
-                                        <div class="mb-3">
-                                            <label for="email" class="form-label">Correo electrónico</label>
-                                            <input type="email" name="email" id="email" class="form-control"
-                                                value="{{ old('email') }}" required autofocus>
-                                        </div>
+                <!--LOGO-->
+                <div class="login_formulario_logo">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('assets/imagen/logo.png') }}" alt="" />
+                    </a>
+                </div>
 
-                                        <div class="mb-3">
-                                            <label for="password" class="form-label">Contraseña</label>
-                                            <input type="password" name="password" id="password" class="form-control"
-                                                required>
-                                        </div>
+                <!--TITULO-->
+                <h1 class="titulo_formulario">¡HOLA! BIENVENIDO DE NUEVO </h1>
 
-                                        <button type="submit" class="btn btn-primary w-100">
-                                            Ingresar
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
+                <!--PÁRRAFO-->
+                <p class="descripcion_formulario">Inicie sesión con los datos que ingresó durante su registro.
+                </p>
+
+                @if ($errors->any())
+                    <div class="g_alerta_error">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div>
+                            <strong>Por favor corrige los siguientes errores:</strong>
                         </div>
                     </div>
-                </div>
+                @endif
+
+                <form action="{{ route('ingresar.cliente') }}" method="POST" class="g_formulario">
+                    @csrf
+
+                    <div class="form_grupo">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" name="email" id="email" value="{{ old('email') }}" required autofocus>
+                        @error('email')
+                            <div class="error">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" id="password" required>
+                        @error('password')
+                            <div class="error">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <label for="recordarme">
+                            <input type="checkbox" wire:model="recordarme" name="recordarme" id="recordarme" />
+                            Recordarme
+                        </label>
+                    </div>
+
+                    <button type="submit">
+                        Ingresar
+                    </button>
+
+                    <a href="" class="recuperar_clave">¿Olvidaste tu
+                        contraseña?</a>
+                </form>
             </div>
         </div>
     </div>

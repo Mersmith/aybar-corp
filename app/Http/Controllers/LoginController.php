@@ -35,7 +35,8 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Credenciales incorrectas.',
+            'email' => 'Correo incorrecta.',
+            'password' => 'Contraseña incorrecta.',
         ]);
     }
 

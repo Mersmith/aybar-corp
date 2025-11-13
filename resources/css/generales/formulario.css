@@ -1,3 +1,9 @@
+.g_formulario  {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .g_formulario .form_grupo {
     margin-bottom: 20px;
     display: flex;
@@ -5,9 +11,20 @@
     gap: 10px;
 }
 
+.g_formulario .form_grupo label{
+    font-size: .9rem;
+    line-height: 20px;
+    margin-bottom: 5;
+    /*font-weight: 500;*/
+}
+
 .g_formulario input[type="text"],
 .g_formulario input[type="number"],
 .g_formulario input[type="email"],
+.g_formulario input[type="password"],
+.formulario input[type="date"],
+.formulario input[type="tel"],
+.formulario input[type="color"],
 .g_formulario textarea,
 .g_formulario select {
     width: 100%;
@@ -24,13 +41,13 @@
     /*background-color: rgb(245, 245, 245);*/
     border: 1px solid #ccc;
     border-radius: 5px;
-    color: #635bff;
+    color: var(--color-verde);
     font-size: 0.9rem;
     line-height: 1.5;
 }
 
 .g_formulario input[type="checkbox"]:checked {
-    background-color: #635bff;
+    background-color: var(--color-verde);
 }
 
 .g_formulario *:disabled {
@@ -89,6 +106,8 @@
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
     width: 200px;
+    text-align: center;
+    margin: auto;
 }
 
 .g_formulario .error {
