@@ -7,7 +7,7 @@
 
     <a href=""
         class="">
-        <span><i class="fa-solid fa-basket-shopping"></i> Mis compras</span>
+        <span><i class="fa-solid fa-basket-shopping"></i> Mis Lotes</span>
         <i class="fa-solid fa-chevron-right"></i>
     </a>
 
@@ -19,13 +19,13 @@
 
     <a href=""
         class="">
-        <span><i class="fa-solid fa-arrow-rotate-left"></i> Reembolso</span>
+        <span><i class="fa-solid fa-arrow-rotate-left"></i> Cronograma</span>
         <i class="fa-solid fa-chevron-right"></i>
     </a>
 
     <a href=""
         class="">
-        <span><i class="fa-solid fa-heart"></i> Favoritos</span>
+        <span><i class="fa-solid fa-heart"></i> Comprobantes</span>
         <i class="fa-solid fa-chevron-right"></i>
     </a>
 
