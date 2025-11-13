@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ComunicadoController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\ConsultaCodigoClienteController;
@@ -27,6 +28,9 @@ Route::get('/consulta-codigo-cliente', [ConsultaCodigoClienteController::class, 
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index'); //pagina personalizada
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show'); //pagina personalizada
+
+Route::get('/comunicado', [ComunicadoController::class, 'index'])->name('comunicado.index'); //pagina personalizada
+Route::get('/comunicado/{slug}', [ComunicadoController::class, 'show'])->name('comunicado.show'); //pagina personalizada
 
 Route::get('/contacto', [FormularioPaginaContactoController::class, 'index'])->name('contacto.index'); //pagina personalizada
 Route::post('/contacto/enviar', [FormularioPaginaContactoController::class, 'enviar'])->name('contacto.enviar');

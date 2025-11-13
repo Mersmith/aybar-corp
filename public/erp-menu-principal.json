@@ -31,6 +31,32 @@
                         "submenus": []
                     }
                 ]
+            },
+            {
+                "id": 42,
+                "nombre": "Comunicado",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-bullhorn",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.comunicado.vista.todo",
+                        "url": "/admin/comunicado",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.comunicado.vista.crear",
+                        "url": "/admin/comunicado/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
             }
         ]
     },

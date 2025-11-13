@@ -24,6 +24,12 @@ use App\Livewire\Admin\Blog\{
     BlogEditarLivewire
 };
 
+use App\Livewire\Admin\Comunicado\{
+    ComunicadoTodoLivewire,
+    ComunicadoCrearLivewire,
+    ComunicadoEditarLivewire
+};
+
 use App\Livewire\Admin\Seccion\{
     SeccionTodoLivewire,
     SeccionBloqueUnoTodoLivewire,
@@ -81,6 +87,12 @@ Route::prefix('blog')->name('blog.vista.')->group(function () {
     Route::get('/', BlogTodoLivewire::class)->name('todo');
     Route::get('/crear', BlogCrearLivewire::class)->name('crear');
     Route::get('/editar/{id}', BlogEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('comunicado')->name('comunicado.vista.')->group(function () {
+    Route::get('/', ComunicadoTodoLivewire::class)->name('todo');
+    Route::get('/crear', ComunicadoCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', ComunicadoEditarLivewire::class)->name('editar');
 });
 
 Route::prefix('seccion')->name('seccion.')->group(function () {

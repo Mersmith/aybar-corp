@@ -11,6 +11,7 @@ php artisan make:model Pagina -mfsc
 php artisan make:model Menu -mfsc
 php artisan make:model Seccion -mfsc
 php artisan make:model Blog -mfsc
+php artisan make:model Comunicado -mfsc
 php artisan make:model TipoFormulario -mfsc
 php artisan make:model FormularioPaginaContacto -mfsc
 php artisan make:model FormularioLibroReclamacion -mfsc
@@ -92,3 +93,6 @@ php artisan make:livewire Admin/Blog/BlogTodoLivewire
 php artisan make:livewire Admin/Blog/BlogCrearLivewire
 php artisan make:livewire Admin/Blog/BlogEditarLivewire
 
+php artisan make:livewire Admin/Comunicado/ComunicadoTodoLivewire
+php artisan make:livewire Admin/Comunicado/ComunicadoCrearLivewire
+php artisan make:livewire Admin/Comunicado/ComunicadoEditarLivewire

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
+use App\Models\Comunicado;
 use App\Models\Proyecto;
 
 class InicioController extends Controller
@@ -14,19 +14,19 @@ class InicioController extends Controller
         $bloque4_1 = app(SeccionController::class)->getSeccionPorTipo(4, 'bloque-4');
         $bloque3_1 = app(SeccionController::class)->getSeccionPorTipo(3, 'bloque-3');
 
-        $posts = $this->getBlog();
+        $posts = $this->getComunicados();
         $proyectos = $this->getProyectos();
 
         return view('web.inicio', compact('bloque1_1', 'bloque3_1', 'bloque8_1', 'posts', 'proyectos', 'bloque4_1',));
     }
 
-    public function getBlog()
+    public function getComunicados()
     {
         $consulta_id = 1;
 
-        $titulo = 'Blog';
+        $titulo = 'Comunicados';
 
-        $data = Blog::where('activo', true)->latest()->take(6)->get();
+        $data = Comunicado::where('activo', true)->latest()->take(6)->get();
 
         return [
             'id' => $consulta_id,

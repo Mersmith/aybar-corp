@@ -1,4 +1,4 @@
-@section('tituloPagina', 'Blog')
+@section('tituloPagina', 'Comunicados')
 
 @section('anchoPantalla', '100%')
 
@@ -6,14 +6,14 @@
     <!--CABECERA TITULO PAGINA-->
     <div class="g_panel cabecera_titulo_pagina">
         <!--TITULO-->
-        <h2>Blog</h2>
+        <h2>Comunicados</h2>
 
         <!--BOTONES-->
         <div class="cabecera_titulo_botones">
-            <a href="{{ route('admin.blog.vista.todo') }}" class="g_boton g_boton_light">
+            <a href="{{ route('admin.comunicado.vista.todo') }}" class="g_boton g_boton_light">
                 Inicio <i class="fa-solid fa-house"></i></a>
 
-            <a href="{{ route('admin.blog.vista.crear') }}" class="g_boton g_boton_primary">
+            <a href="{{ route('admin.comunicado.vista.crear') }}" class="g_boton g_boton_primary">
                 Crear <i class="fa-solid fa-square-plus"></i></a>
         </div>
     </div>
@@ -52,7 +52,7 @@
                             <td><img src="{{ $item->imagen }}"></td>
                             <td class="g_resaltar">ID: {{ $item->id }} - {{ $item->titulo }}</td>
                             <td class="g_inferior g_resumir">
-                                <a href="{{ route('blog.show', ['id' => $item->id, 'slug' => $item->slug]) }}"
+                                <a href="{{ route('comunicado.show', ['id' => $item->id, 'slug' => $item->slug]) }}"
                                     target="_blank" rel="noopener noreferrer">
                                     <span><i class="fa-solid fa-book"></i></span>
                                     {{ $item->slug }}
@@ -67,7 +67,7 @@
                             </td>
 
                             <td class="centrar_iconos">
-                                <a href="{{ route('admin.blog.vista.editar', $item->id) }}" class="g_accion_editar">
+                                <a href="{{ route('admin.comunicado.vista.editar', $item->id) }}" class="g_accion_editar">
                                     <span><i class="fa-solid fa-pencil"></i></span>
                                 </a>
                             </td>
