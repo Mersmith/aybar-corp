@@ -21,6 +21,10 @@ class FormularioLanding extends Model
         'mensaje',
         'leido',
         'estado',
+        'whatsapp_enviado',
+        'whatsapp_message_id',
+        'whatsapp_status',
+        'whatsapp_response',
     ];
 
     public function tipoFormulario()

@@ -25,6 +25,11 @@ return new class extends Migration
             $table->boolean('leido')->default(false);
             $table->enum('estado', ['nuevo', 'revision', 'resuelto', 'cerrado'])->default('nuevo');
 
+            $table->boolean('whatsapp_enviado')->default(false);
+            $table->string('whatsapp_message_id')->nullable();
+            $table->string('whatsapp_status')->nullable();
+            $table->text('whatsapp_response')->nullable();
+
             $table->timestamps();
             $table->softDeletes();
         });

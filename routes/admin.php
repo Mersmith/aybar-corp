@@ -23,6 +23,11 @@ use App\Livewire\Admin\FormularioPaginaContacto\{
     FormularioPaginaContactoEditarLivewire
 };
 
+use App\Livewire\Admin\FormularioLanding\{
+    FormularioLandingTodoLivewire,
+    FormularioLandingEditarLivewire
+};
+
 use App\Livewire\Admin\FormularioLibroReclamacion\{
     FormularioLibroReclamacionTodoLivewire,
     FormularioLibroReclamacionEditarLivewire
@@ -100,6 +105,11 @@ Route::prefix('tipo-formulario')->name('tipo-formulario.vista.')->group(function
 Route::prefix('formulario-pagina-contacto')->name('formulario-pagina-contacto.vista.')->group(function () {
     Route::get('/', FormularioPaginaContactoTodoLivewire::class)->name('todo');
     Route::get('/editar/{id}', FormularioPaginaContactoEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('formulario-landing')->name('formulario-landing.vista.')->group(function () {
+    Route::get('/', FormularioLandingTodoLivewire::class)->name('todo');
+    Route::get('/editar/{id}', FormularioLandingEditarLivewire::class)->name('editar');
 });
 
 Route::prefix('formulario-libro-reclamacion')->name('formulario-libro-reclamacion.vista.')->group(function () {

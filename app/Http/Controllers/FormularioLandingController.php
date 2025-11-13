@@ -63,6 +63,13 @@ class FormularioLandingController extends Controller
 
         $response = $whatsapp->sendTemplateLibro($telefono);
 
+        $contacto->update([
+            'whatsapp_response' => json_encode($response),
+            'whatsapp_message_id' => $response['messages'][0]['id'] ?? null,
+            'whatsapp_status' => isset($response['messages']) ? 'success' : 'failed',
+            'whatsapp_enviado' => isset($response['messages']),
+        ]);
+
         if (isset($response['messages']) && count($response['messages']) > 0) {
             $mensaje = 'Gracias, te hemos enviado el libro a tu WhatsApp 📘.';
         } else {

@@ -115,3 +115,6 @@ php artisan make:livewire Admin/FormularioPaginaContacto/FormularioPaginaContact
 
 php artisan make:livewire Admin/FormularioLibroReclamacion/FormularioLibroReclamacionTodoLivewire
 php artisan make:livewire Admin/FormularioLibroReclamacion/FormularioLibroReclamacionEditarLivewire
+
+php artisan make:livewire Admin/FormularioLanding/FormularioLandingTodoLivewire
+php artisan make:livewire Admin/FormularioLanding/FormularioLandingEditarLivewire

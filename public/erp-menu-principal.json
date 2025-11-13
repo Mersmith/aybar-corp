@@ -50,6 +50,15 @@
                 "icono": "fa-solid fa-triangle-exclamation",
                 "nivel": 2,
                 "submenus": []
+            },
+            {
+                "id": 44,
+                "nombre": "Landing",
+                "ruta": "admin.formulario-landing.vista.todo",
+                "url": "/admin/formulario-landing",
+                "icono": "fa-solid fa-triangle-exclamation",
+                "nivel": 2,
+                "submenus": []
             }
         ]
     },
