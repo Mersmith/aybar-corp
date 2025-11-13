@@ -34,8 +34,8 @@ class FormularioLibroReclamacionFactory extends Factory
             'tipo_pedido' => $this->faker->randomElement(['reclamo', 'queja']),
             'detalle' => $this->faker->paragraph(),
             'pedido' => $this->faker->sentence(),
-            'observaciones' => $this->faker->optional()->sentence(),
-            'fecha_respuesta' => $this->faker->optional()->dateTimeBetween('-1 month', 'now'),
+            //'observaciones' => $this->faker->optional()->sentence(),
+            //'fecha_respuesta' => $this->faker->optional()->dateTimeBetween('-1 month', 'now'),
             'leido' => $this->faker->boolean(30),
             'estado' => $this->faker->randomElement(['nuevo', 'revision', 'resuelto', 'cerrado']),
         ];

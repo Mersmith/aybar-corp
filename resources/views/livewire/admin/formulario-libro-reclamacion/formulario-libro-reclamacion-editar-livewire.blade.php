@@ -118,10 +118,34 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">4.- Observaciones y acciones adoptadas por el proveedor</h4>
+
+                    <div class="g_fila">
+                        <div class="g_margin_bottom_10 g_columna_12">
+                            <textarea id="observaciones" wire:model.live="observaciones" rows="6"></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- DERECHA -->
             <div class="g_columna_4 g_gap_pagina g_columna_invertir">
+                <div class="g_panel">
+                    <div class="g_margin_bottom_10">
+                        <label>Fecha envio</label>
+                        <input type="text" value="{{ $formulario->created_at->format('Y-m-d H:i:s') }}" readonly
+                            disabled>
+                    </div>
+
+                    <div class="g_margin_bottom_10">
+                        <label>Fecha respuesta</label>
+                        <input type="text" value="{{ $formulario->fecha_respuesta?->format('Y-m-d H:i:s') }}"
+                            readonly disabled>
+                    </div>
+                </div>
+
                 <div class="g_panel">
                     @if ($leido)
                         <span class="estado g_desactivado"><i class="fa-solid fa-circle"></i> </span>Leído

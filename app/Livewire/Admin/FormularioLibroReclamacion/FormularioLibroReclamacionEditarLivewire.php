@@ -10,6 +10,7 @@ use Livewire\Component;
 class FormularioLibroReclamacionEditarLivewire extends Component
 {
     public $formulario;
+    public $observaciones;
     public $leido;
     public $estado;
     public $estadosDisponibles = [];
@@ -48,7 +49,7 @@ class FormularioLibroReclamacionEditarLivewire extends Component
         ]);
 
         if (!in_array($this->estado, $this->estadosDisponibles)) {
-            $this->dispatch('alertaLivewire', "No puedes retroceder el estado");
+            $this->dispatch('alertaLivewire', "Error");
             return;
         }
 

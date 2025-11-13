@@ -40,6 +40,10 @@ class FormularioLibroReclamacion extends Model
         'estado',
     ];
 
+    protected $casts = [
+        'fecha_respuesta' => 'datetime',
+    ];
+
     public function tipoFormulario()
     {
         return $this->belongsTo(TipoFormulario::class, 'tipo_formulario_id');
