@@ -18,6 +18,11 @@ php artisan make:model FormularioLibroReclamacion -mfsc
 php artisan make:model Proyecto -mfsc
 php artisan make:model Imagen -mfsc
 php artisan make:model Archivo -mfsc
+php artisan make:model Pais -mfs
+php artisan make:model Region -mfs
+php artisan make:model Provincia -mfs
+php artisan make:model Distrito -mfs
+php artisan make:model FormularioLanding -mfsc
 
 php artisan vendor:publish --tag=laravel-pagination
 

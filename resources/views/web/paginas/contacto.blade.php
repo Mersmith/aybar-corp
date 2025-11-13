@@ -37,14 +37,14 @@
                     <!-- FORMULARIO -->
                     <div class="contacto_formulario">
                         @if (session('success'))
-                            <div class="alert alert-success">
+                            <div class="g_alerta_succes">
                                 <i class="fa-solid fa-circle-check"></i>
                                 <div>{{ session('success') }}</div>
                             </div>
                         @endif
 
                         @if ($errors->any())
-                            <div class="alert alert-error">
+                            <div class="g_alerta_error">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
                                 <div>
                                     <strong>Por favor corrige los siguientes errores:</strong>
