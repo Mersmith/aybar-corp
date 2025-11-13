@@ -82,6 +82,22 @@
     gap: 20px;
 }
 
+.pagina_post_grid .documentos_adjuntos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pagina_post_grid .documentos_adjuntos a {
+    border-radius: 50px;
+    padding: 4px 10px;
+    width: fit-content;
+}
+
+.pagina_post_grid .documentos_adjuntos a:hover {
+    transform: translateY(-2px);
+}
+
 @media (max-width: 1024px) {
     .pagina_post_grid {
         grid-template-areas:
