@@ -57,20 +57,23 @@
             <!-- DERECHA -->
             <div class="g_columna_4 g_gap_pagina g_columna_invertir">
                 <div class="g_panel">
-                    <h4 class="g_panel_titulo">Leído</h4>
-                    <select wire:model.live="leido">
-                        <option value="0">No leído</option>
-                        <option value="1">Leído</option>
-                    </select>
+                    @if ($leido)
+                        <span class="estado g_desactivado"><i class="fa-solid fa-circle"></i> </span>Leído
+                    @else
+                        <span class="estado g_activo"><i class="fa-solid fa-circle"></i> </span>No leído
+                    @endif
                 </div>
 
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">Estado</h4>
-                    <select wire:model.live="estado">
-                        <option value="nuevo">Nuevo</option>
-                        <option value="revision">En revisión</option>
-                        <option value="resuelto">Resuelto</option>
-                        <option value="cerrado">Cerrado</option>
+                    <select wire:model.live="estado" {{ empty($estadosDisponibles) ? 'disabled' : '' }}>
+                        <option value="{{ $formulario->estado }}" selected>
+                            Actual: {{ ucfirst($formulario->estado) }}
+                        </option>
+                
+                        @foreach ($estadosDisponibles as $estadoDisponible)
+                            <option value="{{ $estadoDisponible }}">{{ ucfirst($estadoDisponible) }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
