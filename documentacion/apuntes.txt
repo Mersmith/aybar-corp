@@ -1,0 +1,208 @@
+*******************************************
+Tabla: UnidadNegocio
+
+-nombre:
+AYBAR
+PONTEVEDRA
+VIDANORTE
+
+-razon_social:
+AYBAR CORP. S.A.C
+VIVANORTE S.A.C
+
+*******************************************
+Tabla: Proyecto
+-nombre
+ALTOS DEL PRADO
+ALTOS DEL VALLE
+CIUDAD DIAGONAL
+GREEN VIEW
+JUMEIRAH LAKE
+LA CALERA
+LA RESERVA DE HUARAL
+LACHAY VIEW
+LAGOON CENTER
+LAGOON VILLAGE
+LUGO
+ORENSE
+PLANICIE DE HUARAL
+PRAGA VILLAGE
+RIVERA DEL CAMPO
+SAN ANDRES
+URBAN RESIDENCIAL
+VILLA DEL PALMAR
+VILLA ENCANTADA
+VILLA PORTON
+VILLA PRIVADA COSTA VERDE
+VILLA PRIVADA VIDANTA
+
+*******************************************
+Tabla: Cliente
+-cuc
+-codigo_cliente
+-nombre_completo
+-dni
+-telefono_principal
+-telefono_alternativo
+-correo_electronico
+
+*******************************************
+numero_lote
+fecha_vencimiento
+valor_cuota
+numero_cuota
+monto_cuota_vencida
+dias_vencimiento
+penalidad
+estado
+codigo_banco
+nombre_banco
+medio_pago
+
+**************************
+Tabla: unidad_negocios
+Campo	Tipo
+id	PK
+nombre	string
+razon_social	string (nullable)
+created_at	timestamp
+updated_at
+
+**************************
+Tabla: proyectos
+Campo	Tipo
+id	PK
+unidad_negocio_id	FK → unidad_negocios.id
+nombre	string
+created_at	timestamp
+updated_at	timestamp
+
+**************************
+Tabla: lotes
+Campo	Tipo
+id	PK
+proyecto_id	FK → proyectos.id
+numero_lote	string
+manzana (opcional)	string
+area (opcional)	decimal
+created_at	timestamp
+updated_at	timestamp
+
+**************************
+Tabla: clientes
+Campo	Tipo
+id	PK
+cuc	string
+codigo_cliente	string
+nombre_completo	string
+dni	string
+telefono_principal	string
+telefono_alternativo	string (nullable)
+correo_electronico	string
+created_at	timestamp
+updated_at	timestamp
+
+**************************
+Tabla: ventas
+Campo	Tipo
+id                  BIGINT PK
+cliente_id          BIGINT FK → clientes.id
+lote_id             BIGINT FK → lotes.id
+
+fecha_venta         DATE
+precio_total        DECIMAL(12,2)
+inicial             DECIMAL(12,2)
+
+saldo_inicial       DECIMAL(12,2)   -- precio_total - inicial
+saldo_pendiente     DECIMAL(12,2)   -- actualizable
+
+estado              ENUM('activa','cancelada','reprogramada','anulada')
+
+created_at          TIMESTAMP
+updated_at          TIMESTAMP
+
+**************************
+Tabla: cronograma_pagos (cuotas)
+Campo	Tipo
+id                  BIGINT PK
+venta_id            BIGINT FK → ventas.id
+
+numero_cuota        INT
+fecha_vencimiento   DATE
+valor_cuota         DECIMAL(12,2)
+
+monto_cuota_vencida DECIMAL(12,2) DEFAULT 0   -- deuda acumulada
+dias_vencimiento    INT DEFAULT 0
+penalidad           DECIMAL(12,2) DEFAULT 0
+
+estado              ENUM('pendiente','pagado','vencido','reprogramado')
+
+-- Si deseas: información del medio de cobro programado (no del pago real)
+codigo_banco        VARCHAR(100) NULL
+nombre_banco        VARCHAR(150) NULL
+medio_pago          VARCHAR(100) NULL
+
+monto_pagado_acumulado    DECIMAL(12,2) DEFAULT 0  -- suma pagos_cuotas
+
+created_at          TIMESTAMP
+updated_at          TIMESTAMP
+
+**************************
+Tabla: pagos_cuotas (pago real del cliente)
+Campo	Tipo
+id                  BIGINT PK
+cronograma_id       BIGINT FK → cronograma_pagos.id
+
+fecha_pago          DATE
+monto_pagado        DECIMAL(12,2)
+
+medio_pago          VARCHAR(100)
+banco               VARCHAR(150) NULL
+codigo_operacion    VARCHAR(150) NULL
+observacion         TEXT NULL
+
+usuario_id          BIGINT FK → users.id   -- quién registró el pago, el admin o encargado
+
+created_at          TIMESTAMP
+updated_at          TIMESTAMP
+
+**************************
+Tabla: reprogramaciones
+Campo	Tipo
+id                  BIGINT PK
+cronograma_id       BIGINT FK → cronograma_pagos.id
+
+fecha_anterior      DATE
+fecha_nueva         DATE
+
+monto_anterior      DECIMAL(12,2)
+monto_nuevo         DECIMAL(12,2)
+
+motivo              TEXT
+
+usuario_id          BIGINT FK → users.id
+
+created_at          TIMESTAMP
+**************************
+Tabla: reprogramaciones_generales
+Campo	Tipo
+id                      BIGINT PK
+venta_id                BIGINT FK → ventas.id
+
+saldo_anterior          DECIMAL(12,2)
+nuevo_total             DECIMAL(12,2)
+nueva_cantidad_cuotas   INT
+
+motivo                  TEXT
+usuario_id              BIGINT FK → users.id
+
+created_at              TIMESTAMP
+
+**************************
+
+unidad_negocios
+    └── proyectos
+            └── lotes
+                    └── ventas
+                            └── cronograma_pagos
+clientes ─────────────────────┘
