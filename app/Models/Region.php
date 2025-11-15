@@ -19,14 +19,4 @@ class Region extends Model
     {
         return $this->hasMany(Provincia::class, 'region_id');
     }
-
-    public function encuestas() //ok
-    {
-        return $this->hasMany(Encuesta::class);
-    }
-
-    public function candidatos()
-    {
-        return $this->hasMany(Candidato::class);
-    }
 }

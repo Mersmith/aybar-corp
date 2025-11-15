@@ -14,14 +14,4 @@ class Distrito extends Model
     {
         return $this->belongsTo(Provincia::class, 'provincia_id');
     }
-
-    public function encuestas() //ok
-    {
-        return $this->hasMany(Encuesta::class);
-    }
-
-    public function candidatos()
-    {
-        return $this->hasMany(Candidato::class);
-    }
 }

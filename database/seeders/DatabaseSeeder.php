@@ -15,6 +15,14 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            UnidadNegocioSeeder::class,
+            ProyectoSeeder::class,
+            LoteSeeder::class,
+            VentaSeeder::class,
+            CronogramaPagoSeeder::class,
+            PagoCuotaSeeder::class,
+            ReprogramacionSeeder::class,
+            ReprogramacionGeneralSeeder::class,
             ImagenSeeder::class,
             ArchivoSeeder::class,
             PaginaSeeder::class,
@@ -25,7 +33,6 @@ class DatabaseSeeder extends Seeder
             TipoFormularioSeeder::class,
             FormularioPaginaContactoSeeder::class,
             FormularioLibroReclamacionSeeder::class,
-            ProyectoSeeder::class,
         ]);
     }
 }

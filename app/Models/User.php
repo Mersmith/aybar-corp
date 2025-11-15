@@ -40,6 +40,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function cliente()
+    {
+        return $this->hasOne(Cliente::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -61,7 +66,7 @@ class User extends Authenticatable
         return Str::of($this->name)
             ->explode(' ')
             ->take(2)
-            ->map(fn ($word) => Str::substr($word, 0, 1))
+            ->map(fn($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
 }

@@ -12,7 +12,8 @@ class Proyecto extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'titulo',
+        'unidad_negocio_id',
+        'nombre',
         'slug',
         'contenido',
         'imagen',
@@ -23,4 +24,14 @@ class Proyecto extends Model
         'meta_image',
         'views'
     ];
+
+    public function unidadNegocio()
+    {
+        return $this->belongsTo(UnidadNegocio::class);
+    }
+
+    public function lotes()
+    {
+        return $this->hasMany(Lote::class);
+    }
 }

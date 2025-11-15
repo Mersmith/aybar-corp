@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
 
-            $table->string('titulo')->unique();
+            $table->foreignId('unidad_negocio_id')->constrained('unidad_negocios')->onDelete('cascade');
+            $table->string('nombre')->unique();
             $table->string('slug')->unique();
-            $table->longText('contenido');
+            $table->longText('contenido')->nullable();
             $table->string('imagen')->nullable();
             $table->dateTime('publicado_en')->nullable();
             $table->boolean('activo')->default(false);
