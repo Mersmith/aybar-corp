@@ -58,6 +58,32 @@
                         "submenus": []
                     }
                 ]
+            },
+            {
+                "id": 43,
+                "nombre": "Lote",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-shapes",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.lote.vista.todo",
+                        "url": "/admin/lote",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.lote.vista.crear",
+                        "url": "/admin/lote/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
             }
         ]
     },

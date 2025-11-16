@@ -24,6 +24,12 @@ use App\Livewire\Admin\Proyecto\{
     ProyectoEditarLivewire
 };
 
+use App\Livewire\Admin\Lote\{
+    LoteTodoLivewire,
+    LoteCrearLivewire,
+    LoteEditarLivewire
+};
+
 use App\Livewire\Admin\TipoFormulario\{
     TipoFormularioTodoLivewire,
     TipoFormularioCrearLivewire,
@@ -118,6 +124,12 @@ Route::prefix('proyecto')->name('proyecto.vista.')->group(function () {
     Route::get('/', ProyectoTodoLivewire::class)->name('todo');
     Route::get('/crear', ProyectoCrearLivewire::class)->name('crear');
     Route::get('/editar/{id}', ProyectoEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('lote')->name('lote.vista.')->group(function () {
+    Route::get('/', LoteTodoLivewire::class)->name('todo');
+    Route::get('/crear', LoteCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', LoteEditarLivewire::class)->name('editar');
 });
 
 Route::prefix('tipo-formulario')->name('tipo-formulario.vista.')->group(function () {

@@ -21,6 +21,8 @@ return new class extends Migration
 
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['proyecto_id', 'numero_lote', 'manzana'], 'unique_lote_por_proyecto');
         });
     }
 
