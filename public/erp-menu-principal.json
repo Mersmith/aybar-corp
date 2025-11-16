@@ -32,6 +32,32 @@
                         "submenus": []
                     }
                 ]
+            },
+            {
+                "id": 42,
+                "nombre": "Proyecto",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-shapes",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.proyecto.vista.todo",
+                        "url": "/admin/proyecto",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.proyecto.vista.crear",
+                        "url": "/admin/proyecto/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
             }
         ]
     },

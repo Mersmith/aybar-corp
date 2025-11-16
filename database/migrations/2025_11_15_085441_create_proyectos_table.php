@@ -22,6 +22,8 @@ return new class extends Migration
             $table->dateTime('publicado_en')->nullable();
             $table->boolean('activo')->default(false);
 
+            $table->json('documento')->nullable();
+
             // SEO opcional
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
