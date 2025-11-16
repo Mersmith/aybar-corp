@@ -84,6 +84,32 @@
                         "submenus": []
                     }
                 ]
+            },
+            {
+                "id": 44,
+                "nombre": "Separación Lote",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-shapes",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.separacion-lote.vista.todo",
+                        "url": "/admin/separacion-lote",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.separacion-lote.vista.crear",
+                        "url": "/admin/separacion-lote/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
             }
         ]
     },

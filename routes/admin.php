@@ -30,6 +30,12 @@ use App\Livewire\Admin\Lote\{
     LoteEditarLivewire
 };
 
+use App\Livewire\Admin\SeparacionLote\{
+    SeparacionLoteTodoLivewire,
+    SeparacionLoteCrearLivewire,
+    SeparacionLoteEditarLivewire
+};
+
 use App\Livewire\Admin\TipoFormulario\{
     TipoFormularioTodoLivewire,
     TipoFormularioCrearLivewire,
@@ -130,6 +136,12 @@ Route::prefix('lote')->name('lote.vista.')->group(function () {
     Route::get('/', LoteTodoLivewire::class)->name('todo');
     Route::get('/crear', LoteCrearLivewire::class)->name('crear');
     Route::get('/editar/{id}', LoteEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('separacion-lote')->name('separacion-lote.vista.')->group(function () {
+    Route::get('/', SeparacionLoteTodoLivewire::class)->name('todo');
+    Route::get('/crear', SeparacionLoteCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', SeparacionLoteEditarLivewire::class)->name('editar');
 });
 
 Route::prefix('tipo-formulario')->name('tipo-formulario.vista.')->group(function () {

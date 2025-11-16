@@ -140,6 +140,10 @@ php artisan make:livewire Admin/Lote/LoteTodoLivewire
 php artisan make:livewire Admin/Lote/LoteCrearLivewire
 php artisan make:livewire Admin/Lote/LoteEditarLivewire
 
+php artisan make:livewire Admin/SeparacionLote/SeparacionLoteTodoLivewire
+php artisan make:livewire Admin/SeparacionLote/SeparacionLoteCrearLivewire
+php artisan make:livewire Admin/SeparacionLote/SeparacionLoteEditarLivewire
+
 php artisan make:livewire Admin/Venta/VentaTodoLivewire
 php artisan make:livewire Admin/Venta/VentaCrearLivewire
 php artisan make:livewire Admin/Venta/VentaEditarLivewire
