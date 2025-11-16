@@ -22,10 +22,11 @@ php artisan make:model Region -mfs
 php artisan make:model Provincia -mfs
 php artisan make:model Distrito -mfs
 php artisan make:model FormularioLanding -mfsc
+php artisan make:model Cliente -mfsc
 php artisan make:model UnidadNegocio -mfsc
 php artisan make:model Proyecto -mfsc
 php artisan make:model Lote -mfsc
-php artisan make:model Cliente -mfsc
+php artisan make:model SeparacionLote -mfsc
 php artisan make:model Venta -mfsc
 php artisan make:model CronogramaPago -mfsc
 php artisan make:model PagoCuota -mfsc

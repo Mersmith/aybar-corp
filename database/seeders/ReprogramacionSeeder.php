@@ -29,6 +29,7 @@ class ReprogramacionSeeder extends Seeder
                 // ------- GUARDAR HISTORIAL -------
                 Reprogramacion::create([
                     'cronograma_id'  => $cuota->id,
+                    'numero_cuota'   => $cuota->numero_cuota,
                     'fecha_anterior' => $cuota->fecha_vencimiento,
                     'fecha_nueva'    => $nueva_fecha,
                     'monto_anterior' => $cuota->valor_cuota,

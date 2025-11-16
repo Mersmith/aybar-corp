@@ -23,7 +23,8 @@ return new class extends Migration
             $table->decimal('monto_cuota_vencida', 12, 2)->default(0);
             $table->integer('dias_vencimiento')->default(0);
             $table->decimal('penalidad', 12, 2)->default(0);
-
+            $table->decimal('monto_restante', 12, 2)->default(0);
+            
             $table->enum('estado', ['pendiente', 'pagado', 'vencido', 'reprogramado'])->default('pendiente');
 
             $table->string('codigo_banco')->nullable();

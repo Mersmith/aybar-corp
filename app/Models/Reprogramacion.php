@@ -15,6 +15,7 @@ class Reprogramacion extends Model
 
     protected $fillable = [
         'cronograma_id',
+        'numero_cuota',
         'fecha_anterior',
         'fecha_nueva',
         'monto_anterior',

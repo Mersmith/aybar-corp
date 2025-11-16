@@ -18,6 +18,7 @@ class ReprogramacionGeneral extends Model
         'saldo_anterior',
         'nuevo_total',
         'nueva_cantidad_cuotas',
+        'tasa_interes',
         'motivo',
         'usuario_id'
     ];

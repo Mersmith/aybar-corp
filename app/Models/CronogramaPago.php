@@ -21,6 +21,7 @@ class CronogramaPago extends Model
         'monto_cuota_vencida',
         'dias_vencimiento',
         'penalidad',
+        'monto_restante',
         'estado',
         'codigo_banco',
         'nombre_banco',

@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('manzana')->nullable();
             $table->decimal('area', 10, 2)->nullable();
 
+            $table->enum('estado', ['disponible', 'reservado', 'vendido'])->default('disponible');
+
             $table->timestamps();
             $table->softDeletes();
 

@@ -14,11 +14,13 @@ class Venta extends Model
     protected $fillable = [
         'cliente_id',
         'lote_id',
+        'separacion_id',
         'fecha_venta',
         'precio_total',
         'inicial',
         'saldo_inicial',
         'saldo_pendiente',
+        'tipo_pago',
         'estado'
     ];
 
@@ -30,6 +32,11 @@ class Venta extends Model
     public function lote()
     {
         return $this->belongsTo(Lote::class);
+    }
+
+    public function separacionLote()
+    {
+        return $this->belongsTo(SeparacionLote::class);
     }
 
     public function cuotas()

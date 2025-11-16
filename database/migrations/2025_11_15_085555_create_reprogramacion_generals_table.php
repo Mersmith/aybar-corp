@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('saldo_anterior', 12, 2);
             $table->decimal('nuevo_total', 12, 2);
             $table->integer('nueva_cantidad_cuotas');
+            $table->decimal('tasa_interes', 5, 2)->nullable();
 
             $table->text('motivo');
 

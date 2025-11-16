@@ -16,6 +16,7 @@ return new class extends Migration
 
             $table->foreignId('cronograma_id')->constrained('cronograma_pagos')->onDelete('cascade');
 
+            $table->integer('numero_cuota');
             $table->date('fecha_anterior');
             $table->date('fecha_nueva');
 
