@@ -126,3 +126,35 @@ php artisan make:livewire Admin/FormularioLibroReclamacion/FormularioLibroReclam
 
 php artisan make:livewire Admin/FormularioLanding/FormularioLandingTodoLivewire
 php artisan make:livewire Admin/FormularioLanding/FormularioLandingEditarLivewire
+
+php artisan make:livewire Admin/UnidadNegocio/UnidadNegocioTodoLivewire
+php artisan make:livewire Admin/UnidadNegocio/UnidadNegocioCrearLivewire
+php artisan make:livewire Admin/UnidadNegocio/UnidadNegocioEditarLivewire
+
+php artisan make:livewire Admin/Proyecto/ProyectoTodoLivewire
+php artisan make:livewire Admin/Proyecto/ProyectoCrearLivewire
+php artisan make:livewire Admin/Proyecto/ProyectoEditarLivewire
+
+php artisan make:livewire Admin/Lote/LoteTodoLivewire
+php artisan make:livewire Admin/Lote/LoteCrearLivewire
+php artisan make:livewire Admin/Lote/LoteEditarLivewire
+
+php artisan make:livewire Admin/Venta/VentaTodoLivewire
+php artisan make:livewire Admin/Venta/VentaCrearLivewire
+php artisan make:livewire Admin/Venta/VentaEditarLivewire
+
+php artisan make:livewire Admin/CronogramaPago/CronogramaPagoTodoLivewire
+php artisan make:livewire Admin/CronogramaPago/CronogramaPagoCrearLivewire
+php artisan make:livewire Admin/CronogramaPago/CronogramaPagoEditarLivewire
+
+php artisan make:livewire Admin/PagoCuota/PagoCuotaTodoLivewire
+php artisan make:livewire Admin/PagoCuota/PagoCuotaCrearLivewire
+php artisan make:livewire Admin/PagoCuota/PagoCuotaEditarLivewire
+
+php artisan make:livewire Admin/Reprogramacion/ReprogramacionTodoLivewire
+php artisan make:livewire Admin/Reprogramacion/ReprogramacionCrearLivewire
+php artisan make:livewire Admin/Reprogramacion/ReprogramacionEditarLivewire
+
+php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralTodoLivewire
+php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralCrearLivewire
+php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralEditarLivewire

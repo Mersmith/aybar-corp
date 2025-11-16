@@ -12,6 +12,13 @@ use App\Livewire\Admin\User\{
     UserEditarLivewire
 };
 
+
+use App\Livewire\Admin\UnidadNegocio\{
+    UnidadNegocioTodoLivewire,
+    UnidadNegocioCrearLivewire,
+    UnidadNegocioEditarLivewire
+};
+
 use App\Livewire\Admin\TipoFormulario\{
     TipoFormularioTodoLivewire,
     TipoFormularioCrearLivewire,
@@ -95,6 +102,13 @@ Route::prefix('usuario')->name('usuario.vista.')->group(function () {
     Route::get('/crear', UserCrearLivewire::class)->name('crear');
     Route::get('/editar/{id}', UserEditarLivewire::class)->name('editar');
 });
+
+Route::prefix('unidad-negocio')->name('unidad-negocio.vista.')->group(function () {
+    Route::get('/', UnidadNegocioTodoLivewire::class)->name('todo');
+    Route::get('/crear', UnidadNegocioCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', UnidadNegocioEditarLivewire::class)->name('editar');
+});
+
 
 Route::prefix('tipo-formulario')->name('tipo-formulario.vista.')->group(function () {
     Route::get('/', TipoFormularioTodoLivewire::class)->name('todo');
