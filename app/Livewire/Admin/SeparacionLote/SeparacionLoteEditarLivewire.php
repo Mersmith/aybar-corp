@@ -59,7 +59,7 @@ class SeparacionLoteEditarLivewire extends Component
             'lote_id' => 'required|exists:lotes,id',
             'monto' => 'required|numeric|min:1',
             'fecha_separacion' => 'required|date',
-            'estado' => 'required|in:activa,cancelada',
+            'estado' => 'required|in:usada_en_venta,activa,cancelada',
         ];
     }
 
