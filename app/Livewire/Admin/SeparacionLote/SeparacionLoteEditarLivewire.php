@@ -31,10 +31,10 @@ class SeparacionLoteEditarLivewire extends Component
         $this->separacion = SeparacionLote::findOrFail($id);
 
         // Si está usada en venta → no se puede editar
-        if ($this->separacion->estado === 'usada_en_venta') {
+        /*if ($this->separacion->estado === 'usada_en_venta') {
             $this->dispatch('alertaLivewire', "Esta separación está vinculada a una venta. No se puede editar.");
             return;
-        }
+        }*/
 
         $this->clientes = Cliente::all();
         $this->proyectos = Proyecto::all();
