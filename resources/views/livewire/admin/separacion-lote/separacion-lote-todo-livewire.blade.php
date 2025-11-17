@@ -40,7 +40,8 @@
                             <th>Cliente</th>
                             <th>Proyecto</th>
                             <th>Lote</th>
-                            <th>Monto</th>
+                            <th>Precio lote</th>
+                            <th>Monto separado</th>
                             <th>Fecha separación</th>
                             <th>Estado</th>
                             <th>Acción</th>
@@ -55,6 +56,7 @@
                             <td class="g_resaltar">ID: {{ $item->lote->proyecto->id }} - {{
                                 $item->lote->proyecto->nombre }}</td>
                             <td class="g_resaltar">{{ $item->lote->numero_lote }} - {{ $item->lote->manzana }}</td>
+                            <td class="g_inferior g_resumir">{{ $item->lote->precio_lista }}</td>
                             <td class="g_inferior g_resumir">{{ $item->monto }}</td>
                             <td class="g_resaltar">{{ $item->fecha_separacion }}</td>
                             <td class="g_resaltar">{{ $item->estado }}</td>

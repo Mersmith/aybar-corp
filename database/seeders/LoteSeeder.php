@@ -17,7 +17,7 @@ class LoteSeeder extends Seeder
         $proyectos = Proyecto::all();
 
         foreach ($proyectos as $proyecto) {
-            for ($i = 1; $i <= 20; $i++) {
+            for ($i = 1; $i <= 1; $i++) {
                 Lote::create([
                     'proyecto_id' => $proyecto->id,
                     'numero_lote' => $i,
