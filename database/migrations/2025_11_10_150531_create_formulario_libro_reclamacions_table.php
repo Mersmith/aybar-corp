@@ -38,6 +38,11 @@ return new class extends Migration
             $table->text('observaciones')->nullable();
             $table->dateTime('fecha_respuesta')->nullable()->comment('Fecha de respuesta al usuario.');
 
+            $table->string('archivo_1')->nullable();
+            $table->string('archivo_2')->nullable();
+            $table->string('archivo_3')->nullable();
+            $table->string('archivo_4')->nullable();
+
             $table->boolean('leido')->default(false);
             $table->enum('estado', ['nuevo', 'revision', 'resuelto', 'cerrado'])->default('nuevo');
 
