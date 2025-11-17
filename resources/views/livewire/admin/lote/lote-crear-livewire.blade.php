@@ -104,15 +104,13 @@
     $(document).ready(function (){
         init_select2();
         $('#proyecto_id').on("change", function (e){
-            window.Livewire.dispatch('select-updated', [$(this).val()]);
+            Livewire.dispatch('selectLoteProyectoCrear', [$(this).val()]);
         });
     });
 
-    Livewire.on("update-value", function (){
+    Livewire.on("selectActualizarLoteProyectoCrear", function (){
         setTimeout(init_select2, 0)
-        console.log("event udpated and reset select2")
     })
-
 
     </script>
     @endpush

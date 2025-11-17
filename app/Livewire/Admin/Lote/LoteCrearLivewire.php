@@ -41,12 +41,11 @@ class LoteCrearLivewire extends Component
         $this->proyectos = Proyecto::all();
     }
 
-    #[On('select-updated')]
-    public function updateValue($value)
+    #[On('selectLoteProyectoCrear')]
+    public function actualizarProyectoId($value)
     {
-
         $this->proyecto_id = $value;
-        $this->dispatch("update-value");
+        $this->dispatch("selectActualizarLoteProyectoCrear");
     }
 
     public function store()
