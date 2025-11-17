@@ -30,53 +30,57 @@
             </div>
         </div>
         @if ($items->count())
-            <!--TABLA CONTENIDO-->
-            <div class="tabla_contenido g_margin_bottom_20">
-                <div class="contenedor_tabla">
-                    <table class="tabla">
-                        <thead>
-                            <tr>
-                                <th>Nº</th>
-                                <th>Cliente</th>
-                                <th>Lote</th>
-                                <th>Monto</th>
-                                <th>Fecha separación</th>
-                                <th>Estado</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($items as $index => $item)
-                                <tr>
-                                    <td> {{ $index + 1 }} </td>
-                                    <td class="g_resaltar">ID: {{ $item->cliente->id }} - {{ $item->cliente->nombre_completo }}</td>
-                                    <td class="g_resaltar">ID: {{ $item->lote->id }} - {{ $item->lote->numero_lote }}</td>
-                                    <td class="g_inferior g_resumir">{{ $item->monto }}</td>                                  
-                                    <td class="g_resaltar">{{ $item->fecha_separacion }}</td>
-                                    <td class="g_resaltar">{{ $item->estado }}</td>
-                                    <td class="centrar_iconos">
-                                        <a href="{{ route('admin.separacion-lote.vista.editar', $item->id) }}"
-                                            class="g_accion_editar">
-                                            <span><i class="fa-solid fa-pencil"></i></span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+        <!--TABLA CONTENIDO-->
+        <div class="tabla_contenido g_margin_bottom_20">
+            <div class="contenedor_tabla">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nº</th>
+                            <th>Cliente</th>
+                            <th>Proyecto</th>
+                            <th>Lote</th>
+                            <th>Monto</th>
+                            <th>Fecha separación</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($items as $index => $item)
+                        <tr>
+                            <td> {{ $index + 1 }} </td>
+                            <td class="g_resaltar">ID: {{ $item->cliente->id }} - {{ $item->cliente->nombre_completo }}
+                            </td>
+                            <td class="g_resaltar">ID: {{ $item->lote->proyecto->id }} - {{
+                                $item->lote->proyecto->nombre }}</td>
+                            <td class="g_resaltar">{{ $item->lote->numero_lote }} - {{ $item->lote->manzana }}</td>
+                            <td class="g_inferior g_resumir">{{ $item->monto }}</td>
+                            <td class="g_resaltar">{{ $item->fecha_separacion }}</td>
+                            <td class="g_resaltar">{{ $item->estado }}</td>
+                            <td class="centrar_iconos">
+                                <a href="{{ route('admin.separacion-lote.vista.editar', $item->id) }}"
+                                    class="g_accion_editar">
+                                    <span><i class="fa-solid fa-pencil"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
+        </div>
 
-            @if ($items->hasPages())
-                <div class="g_paginacion">
-                    {{ $items->links('vendor.pagination.default-livewire') }}
-                </div>
-            @endif
+        @if ($items->hasPages())
+        <div class="g_paginacion">
+            {{ $items->links('vendor.pagination.default-livewire') }}
+        </div>
+        @endif
         @else
-            <div class="g_vacio">
-                <p>No hay items disponibles.</p>
-                <i class="fa-regular fa-face-grin-wink"></i>
-            </div>
+        <div class="g_vacio">
+            <p>No hay items disponibles.</p>
+            <i class="fa-regular fa-face-grin-wink"></i>
+        </div>
         @endif
     </div>
 </div>

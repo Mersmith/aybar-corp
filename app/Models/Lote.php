@@ -11,7 +11,7 @@ class Lote extends Model
     /** @use HasFactory<\Database\Factories\LoteFactory> */
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['proyecto_id', 'numero_lote', 'manzana', 'area', 'estado'];
+    protected $fillable = ['proyecto_id', 'numero_lote', 'manzana', 'area', 'precio_m2', 'precio_lista', 'estado'];
 
     public function proyecto()
     {

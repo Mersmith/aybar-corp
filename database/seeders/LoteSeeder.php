@@ -23,6 +23,8 @@ class LoteSeeder extends Seeder
                     'numero_lote' => $i,
                     'manzana' => 'MZ-' . rand(1, 10),
                     'area' => rand(90, 300),
+                    'precio_m2' => rand(100, 300),
+                    'precio_lista' => rand(20000, 80000),
                 ]);
             }
         }
