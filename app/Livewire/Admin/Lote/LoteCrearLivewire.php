@@ -7,6 +7,7 @@ use App\Models\Proyecto;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\On;
 
 #[Layout('layouts.admin.layout-admin')]
 class LoteCrearLivewire extends Component
@@ -40,6 +41,14 @@ class LoteCrearLivewire extends Component
         $this->proyectos = Proyecto::all();
     }
 
+    #[On('select-updated')]
+    public function updateValue($value)
+    {
+
+        $this->proyecto_id = $value;
+        $this->dispatch("update-value");
+    }
+
     public function store()
     {
         $this->validate();
@@ -49,6 +58,7 @@ class LoteCrearLivewire extends Component
             'numero_lote' => $this->numero_lote,
             'manzana' => $this->manzana,
             'area' => $this->area,
+            'precio_lista' => 0,
         ]);
 
         $this->dispatch('alertaLivewire', "Creado");
