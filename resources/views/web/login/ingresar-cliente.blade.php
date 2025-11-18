@@ -17,6 +17,11 @@
             <!--FORMULARIO CENTRAR-->
             <div class="login_formulario_centrar">
 
+                <div class="login_formulario_arriba">
+                    <span>No tienes una cuenta?</span>
+                    <a href="{{ route('registrar.cliente') }}">Registrarme</a>
+                </div>
+
                 <!--LOGO-->
                 <div class="login_formulario_logo">
                     <a href="{{ route('home') }}">

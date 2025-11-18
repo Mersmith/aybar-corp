@@ -163,3 +163,5 @@ php artisan make:livewire Admin/Reprogramacion/ReprogramacionEditarLivewire
 php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralTodoLivewire
 php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralCrearLivewire
 php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralEditarLivewire
+
+php artisan make:livewire Web/Sesion/RegistrarClienteCrearLivewire
