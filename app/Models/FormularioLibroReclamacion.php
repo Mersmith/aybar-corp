@@ -36,6 +36,10 @@ class FormularioLibroReclamacion extends Model
         'conformidad',
         'observaciones',
         'fecha_respuesta',
+        'archivo_1',
+        'archivo_2',
+        'archivo_3',
+        'archivo_4',
         'leido',
         'estado',
     ];

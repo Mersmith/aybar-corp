@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('numero_lote');
             $table->string('manzana')->nullable();
             $table->decimal('area', 10, 2)->nullable();
+            $table->decimal('precio_m2', 12, 2)->nullable();
+            $table->decimal('precio_lista', 12, 2);  // Obligatorio
 
             $table->enum('estado', ['disponible', 'reservado', 'vendido'])->default('disponible');
 

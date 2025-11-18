@@ -17,12 +17,14 @@ class LoteSeeder extends Seeder
         $proyectos = Proyecto::all();
 
         foreach ($proyectos as $proyecto) {
-            for ($i = 1; $i <= 20; $i++) {
+            for ($i = 1; $i <= 1; $i++) {
                 Lote::create([
                     'proyecto_id' => $proyecto->id,
                     'numero_lote' => $i,
                     'manzana' => 'MZ-' . rand(1, 10),
                     'area' => rand(90, 300),
+                    'precio_m2' => rand(100, 300),
+                    'precio_lista' => rand(20000, 80000),
                 ]);
             }
         }

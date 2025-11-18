@@ -25,7 +25,7 @@ class LoteEditarLivewire extends Component
     {
         return [
             'proyecto_id' => 'required',
-    
+
             'numero_lote' => [
                 'required',
                 'string',
@@ -35,12 +35,12 @@ class LoteEditarLivewire extends Component
                     ->where('proyecto_id', $this->proyecto_id)
                     ->where('manzana', $this->manzana),
             ],
-    
+
             'manzana' => 'required|string|max:255',
-    
+
             'area' => 'required|decimal:2',
         ];
-    }    
+    }
 
     protected $messages = [
         'numero_lote.unique' => 'Este número de lote ya existe en esta manzana del proyecto.',
@@ -56,6 +56,13 @@ class LoteEditarLivewire extends Component
         $this->numero_lote = $this->lote->numero_lote;
         $this->manzana = $this->lote->manzana;
         $this->area = $this->lote->area;
+    }
+
+    #[On('selectLoteProyectoEditar')]
+    public function actualizarProyectoId($value)
+    {
+        $this->proyecto_id = $value;
+        $this->dispatch("selectActualizarLoteProyectoEditar");
     }
 
     public function store()
