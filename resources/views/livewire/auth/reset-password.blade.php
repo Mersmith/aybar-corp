@@ -1,52 +1,68 @@
-<x-layouts.auth>
-    <div class="flex flex-col gap-6">
-        <x-auth-header :title="__('Reset password')" :description="__('Please enter your new password below')" />
+@extends('layouts.web.layout-web')
 
-        <!-- Session Status -->
-        <x-auth-session-status class="text-center" :status="session('status')" />
+@section('contenido')
 
-        <form method="POST" action="{{ route('password.update') }}" class="flex flex-col gap-6">
-            @csrf
-            <!-- Token -->
-            <input type="hidden" name="token" value="{{ request()->route('token') }}">
+<h2 class="text-2xl font-bold mb-4">Restablecer contraseña</h2>
+<p class="text-zinc-600 mb-6">Ingresa tu nueva contraseña para continuar.</p>
 
-            <!-- Email Address -->
-            <flux:input
-                name="email"
-                value="{{ request('email') }}"
-                :label="__('Email')"
-                type="email"
-                required
-                autocomplete="email"
-            />
+<!-- Errores -->
+@if ($errors->any())
+<div class="bg-red-100 text-red-700 p-3 rounded mb-4">
+    <ul class="list-disc ml-4">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
-            <!-- Password -->
-            <flux:input
-                name="password"
-                :label="__('Password')"
-                type="password"
-                required
-                autocomplete="new-password"
-                :placeholder="__('Password')"
-                viewable
-            />
+<!-- Mensaje de éxito -->
+@if (session('status'))
+<div class="bg-green-100 text-green-700 p-3 rounded mb-4">
+    {{ session('status') }}
+</div>
+@endif
 
-            <!-- Confirm Password -->
-            <flux:input
-                name="password_confirmation"
-                :label="__('Confirm password')"
-                type="password"
-                required
-                autocomplete="new-password"
-                :placeholder="__('Confirm password')"
-                viewable
-            />
+<form method="POST" action="{{ route('password.update') }}" class="flex flex-col gap-6">
+    @csrf
 
-            <div class="flex items-center justify-end">
-                <flux:button type="submit" variant="primary" class="w-full" data-test="reset-password-button">
-                    {{ __('Reset password') }}
-                </flux:button>
-            </div>
-        </form>
+    <!-- Token -->
+    <input type="hidden" name="token" value="{{ request()->route('token') }}">
+
+    <!-- Email -->
+    <div>
+        <label for="email" class="block text-sm font-medium text-zinc-700 mb-1">Correo electrónico</label>
+        <input id="email" name="email" type="email" value="{{ request('email') }}" required
+            class="w-full border border-zinc-300 px-4 py-2 rounded-md focus:ring focus:ring-blue-300">
+        @error('email')
+        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+        @enderror
     </div>
-</x-layouts.auth>
+
+    <!-- Password -->
+    <div>
+        <label for="password" class="block text-sm font-medium text-zinc-700 mb-1">Nueva contraseña</label>
+        <input id="password" name="password" type="password" required
+            class="w-full border border-zinc-300 px-4 py-2 rounded-md focus:ring focus:ring-blue-300">
+        @error('password')
+        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+        @enderror
+    </div>
+
+    <!-- Confirm -->
+    <div>
+        <label for="password_confirmation" class="block text-sm font-medium text-zinc-700 mb-1">Confirmar
+            contraseña</label>
+        <input id="password_confirmation" name="password_confirmation" type="password" required
+            class="w-full border border-zinc-300 px-4 py-2 rounded-md focus:ring focus:ring-blue-300">
+        @error('password_confirmation')
+        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+        @enderror
+    </div>
+
+    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+        Restablecer contraseña
+    </button>
+</form>
+
+@endsection
