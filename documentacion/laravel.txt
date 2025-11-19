@@ -168,3 +168,6 @@ php artisan make:livewire Web/Sesion/RegistrarClienteCrearLivewire
 
 php artisan make:notification VerificarEmail
 php artisan vendor:publish --tag=laravel-notifications
+
+composer require laravel-lang/lang --dev
+php artisan lang:add es
