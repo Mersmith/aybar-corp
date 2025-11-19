@@ -114,6 +114,8 @@ use App\Livewire\Admin\Seccion\{
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/home', InicioLivewire::class)->name('home');
+
 Route::prefix('usuario')->name('usuario.vista.')->group(function () {
     Route::get('/', UserTodoLivewire::class)->name('todo');
     Route::get('/crear', UserCrearLivewire::class)->name('crear');
@@ -165,7 +167,6 @@ Route::prefix('formulario-libro-reclamacion')->name('formulario-libro-reclamacio
     Route::get('/editar/{id}', FormularioLibroReclamacionEditarLivewire::class)->name('editar');
 });
 
-Route::get('/dashboard', InicioLivewire::class)->name('home');
 
 Route::get('/imagen', ImagenTodoLivewire::class)->name('imagen.vista.todo');
 Route::post('/upload-local-imagen', [ImagenController::class, 'uploadLocalImagen'])->name('imagen.upload-local');
