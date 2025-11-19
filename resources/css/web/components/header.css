@@ -102,6 +102,7 @@
     align-items: center;
     gap: 6px;
     border-radius: 25px;
+    justify-content: center;
 }
 
 .boton_personalizado_negro {
@@ -191,7 +192,7 @@
 }
 
 /* Mostrar submenú */
-.web_header .menu_principal .menu_item.submenu_abierto>.submenu {
+.web_header .menu_principal .menu_item.submenu_abierto > .submenu {
     display: flex;
 }
 
@@ -288,7 +289,7 @@ body.no-scroll {
         border-bottom: 1px solid var(--color-gris);
     }
 
-    .web_header .menu_principal .menu_item.submenu_abierto>.submenu {
+    .web_header .menu_principal .menu_item.submenu_abierto > .submenu {
         display: flex;
     }
 

@@ -43,8 +43,7 @@ $lista = $p['lista'] ?? [];
         @endphp
 
         @if (!empty($boton) && !empty($boton['texto']))
-        <a href="{{ $boton['link'] ?? '#' }}" target="_blank" class="btn-whatsapp"
-            style="background-color: {{ $boton['fondo_color'] ?? '#000' }}; color: {{ $boton['texto_color'] ?? '#fff' }}">
+        <a href="{{ $boton['link'] ?? '#' }}" target="_blank" class="boton_personalizado boton_personalizado_verde">
             @if (!empty($boton['icono']))
             <i class="{{ $boton['icono'] }}"></i>
             @endif
