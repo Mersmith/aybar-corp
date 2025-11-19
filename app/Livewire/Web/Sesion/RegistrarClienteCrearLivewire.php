@@ -6,6 +6,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Component;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 #[Layout('layouts.web.layout-web')]
 class RegistrarClienteCrearLivewire extends Component
@@ -23,12 +24,18 @@ class RegistrarClienteCrearLivewire extends Component
     {
         $this->validate();
 
-        User::create([
+        $user = User::create([
             'name' => $this->email,
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'role' => 'cliente',
         ]);
+
+        Auth::login($user);
+
+        $user->sendEmailVerificationNotification();
+
+        return redirect()->route('verification.notice');
     }
 
     public function render()
