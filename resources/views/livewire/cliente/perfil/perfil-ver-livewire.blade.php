@@ -1,12 +1,14 @@
 <div class="r_gap_pagina">
     @if (session()->has('success'))
-        <div class="g_alerta alerta_exito">
+        <div class="g_alerta_succes">
+            <i class="fa-solid fa-circle-check"></i>
             {{ session('success') }}
         </div>
     @endif
 
     @if (session()->has('error'))
-        <div class="g_alerta alerta_error">
+        <div class="g_alerta_error">
+            <i class="fa-solid fa-triangle-exclamation"></i>
             {{ session('error') }}
         </div>
     @endif
@@ -62,8 +64,8 @@
 
                 <div class="form_grupo r_columna_4">
                     <label for="email">Email</label>
-                    <input type="email" wire:model="email" name="email" id="email" autocomplete="email"
-                        readonly disabled>
+                    <input type="email" wire:model="email" name="email" id="email" autocomplete="email" readonly
+                        disabled>
                 </div>
             </div>
 

@@ -2,7 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: white;
+    background-color: var(--color-blanco);
+    border-radius: 12px;
+    box-shadow: 0 2px 2px rgba(29, 29, 29, .1);
 }
 
 .cliente_menu_pricipal a {
