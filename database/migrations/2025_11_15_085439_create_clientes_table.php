@@ -15,13 +15,18 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('nombre')->nullable();
+            $table->string('apellido_paterno')->nullable();
+            $table->string('apellido_materno')->nullable();
+            $table->string('email');
+
             $table->string('cuc');
+            $table->string('dni');
             $table->string('codigo_cliente');
             $table->string('nombre_completo');
-            $table->string('dni');
             $table->string('telefono_principal');
             $table->string('telefono_alternativo')->nullable();
-            $table->string('correo_electronico');
+            $table->string('imagen_ruta')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

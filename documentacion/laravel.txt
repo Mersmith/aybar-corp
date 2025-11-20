@@ -167,6 +167,8 @@ php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralEdita
 php artisan make:livewire Web/Sesion/RegistrarClienteCrearLivewire
 php artisan make:livewire Web/Sesion/RegistrarSocioCrearLivewire
 
+php artisan make:livewire Cliente/Perfil/PerfilVerLivewire
+
 php artisan make:notification VerificarEmail
 php artisan vendor:publish --tag=laravel-notifications
 

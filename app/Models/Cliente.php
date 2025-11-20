@@ -13,15 +13,19 @@ class Cliente extends Model
 
     protected $fillable = [
         'user_id',
+        'nombre',
+        'apellido_paterno',
+        'apellido_materno',
+        'email',
         'cuc',
+        'dni',
         'codigo_cliente',
         'nombre_completo',
-        'dni',
         'telefono_principal',
         'telefono_alternativo',
-        'correo_electronico'
+        'imagen_ruta',
     ];
-
+    
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Cliente;
 
 class UserSeeder extends Seeder
 {
@@ -24,11 +24,18 @@ class UserSeeder extends Seeder
         }
 
         for ($i = 1; $i <= 5; $i++) {
-            User::create([
+            $cliente = User::create([
                 'name' => "Cliente $i",
                 'email' => "cliente$i@example.com",
                 'password' => Hash::make('123456'),
                 'role' => 'cliente',
+            ]);
+
+            Cliente::factory()->create([
+                'user_id' => $cliente->id,
+                'email' => $cliente->email,
+                'nombre' => $cliente->name,
+                'nombre_completo' => $cliente->name,
             ]);
         }
 
