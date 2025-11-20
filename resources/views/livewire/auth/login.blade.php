@@ -1,81 +1,89 @@
 @extends('layouts.web.layout-web')
 
 @section('contenido')
+    <div class="contenedor_login">
 
-<div class="max-w-md mx-auto">
+        <div class="contenedor_login_imagen">
+            <img src="{{ asset('assets/imagenes/nosotros/nosotros-2.jpg') }}" alt="" />
 
-    {{-- TÍTULO --}}
-    <h2 class="text-2xl font-bold mb-4 text-center">Iniciar sesión</h2>
+            <div>
+                <h2>"Sorteamos cada mes miles de productos"</h2>
+                <h3>Nickol Sinchi</h3>
+                <p>Propietaria de Aybar Las</p>
+            </div>
+        </div>
 
-    {{-- ERRORES --}}
-    @if ($errors->any())
-    <div class="bg-red-100 text-red-700 p-3 rounded mb-4">
-        <ul class="list-disc ml-4">
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+        <div class="contenedor_login_formulario">
+
+            <div class="login_formulario_centrar">
+
+                <div class="login_formulario_logo">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('assets/imagen/logo.png') }}" alt="">
+                    </a>
+                </div>
+
+                <h1 class="titulo_formulario">¡Hola! Bienvenido nuevamente</h1>
+
+                <p class="descripcion_formulario">
+                    Inicie sesión con sus credenciales para continuar.
+                </p>
+
+                @if (session('status'))
+                    <div class="g_alerta_succes">
+                        <i class="fa-solid fa-circle-check"></i>
+                        {{ session('status') }}
+                    </div>
+                @endif
+
+                @if ($errors->any())
+                    <div class="g_alerta_error">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div>
+                            <strong>Por favor corrige los siguientes errores:</strong>
+                        </div>
+                    </div>
+                @endif
+
+                <form method="POST" action="{{ route('login.store') }}" class="g_formulario">
+                    @csrf
+
+                    <div class="form_grupo">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus>
+                        @error('email')
+                            <div class="error">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" required>
+
+                        @if (Route::has('password.request'))
+                            <a href="{{ route('password.request') }}" class="link-forgot-password">
+                                ¿Olvidaste tu contraseña?
+                            </a>
+                        @endif
+
+                        @error('password')
+                            <div class="error">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="form_grupo">
+                        <label for="remember">
+                            <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                            Recordarme
+                        </label>
+                    </div>
+
+                    <button type="submit">
+                        Ingresar
+                    </button>
+                </form>
+            </div>
+        </div>
+
     </div>
-    @endif
-
-    {{-- MENSAJE DE ÉXITO --}}
-    @if (session('status'))
-    <div class="bg-green-100 text-green-700 p-3 rounded mb-4">
-        {{ session('status') }}
-    </div>
-    @endif
-
-    <form method="POST" action="{{ route('login.store') }}" class="g_formulario">
-        @csrf
-
-        {{-- Email --}}
-        <div class="form-group">
-            <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" class="input-control" placeholder="email@example.com"
-                value="{{ old('email') }}" required autofocus autocomplete="email">
-            @error('email')
-            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
-
-        {{-- Password --}}
-        <div class="form-group position-relative">
-            <label for="password">Contraseña</label>
-            <input type="password" id="password" name="password" class="input-control" placeholder="********" required
-                autocomplete="current-password">
-
-            @if (Route::has('password.request'))
-            <a href="{{ route('password.request') }}" class="link-forgot-password">
-                ¿Olvidaste tu contraseña?
-            </a>
-            @endif
-
-            @error('password')
-            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
-
-        {{-- Remember me --}}
-        <div class="form-group checkbox-group">
-            <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-            <label for="remember">Recuérdame</label>
-        </div>
-
-        {{-- Submit --}}
-        <div class="form-group">
-            <button type="submit" class="btn-primary w-100">
-                Ingresar
-            </button>
-        </div>
-    </form>
-
-    {{-- Register link --}}
-    @if (Route::has('register'))
-    <div class="register-text">
-        <span>¿No tienes una cuenta?</span>
-        <a href="{{ route('register') }}" class="link-register">Regístrate</a>
-    </div>
-    @endif
-</div>
-
 @endsection
