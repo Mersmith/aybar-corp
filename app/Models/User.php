@@ -3,14 +3,14 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\VerificarEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use App\Notifications\VerificarEmail;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -47,6 +47,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Cliente::class);
     }
 
+    public function direcciones()
+    {
+        return $this->hasMany(Direccion::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -71,7 +76,6 @@ class User extends Authenticatable implements MustVerifyEmail
             ->map(fn($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
-
 
     public function sendEmailVerificationNotification()
     {

@@ -32,6 +32,7 @@ php artisan make:model CronogramaPago -mfsc
 php artisan make:model PagoCuota -mfsc
 php artisan make:model Reprogramacion -mfsc
 php artisan make:model ReprogramacionGeneral -mfsc
+php artisan make:model Direccion -mfsc
 
 php artisan vendor:publish --tag=laravel-pagination
 
@@ -44,6 +45,7 @@ php artisan make:livewire Web/OpenAi/ProcesarImagenLivewire
 php artisan storage:link
 
 php artisan make:controller Cliente/InicioController
+php artisan make:controller Cliente/DireccionController
 
 php artisan make:livewire Admin/Imagen/ImagenTodoLivewire
 php artisan make:livewire Admin/Imagen/ImagenFormularioLivewire
@@ -168,6 +170,10 @@ php artisan make:livewire Web/Sesion/RegistrarClienteCrearLivewire
 php artisan make:livewire Web/Sesion/RegistrarSocioCrearLivewire
 
 php artisan make:livewire Cliente/Perfil/PerfilVerLivewire
+
+php artisan make:livewire Cliente/Direccion/DireccionTodoLivewire
+php artisan make:livewire Cliente/Direccion/DireccionCrearLivewire
+php artisan make:livewire Cliente/Direccion/DireccionEditarLivewire
 
 php artisan make:notification VerificarEmail
 php artisan vendor:publish --tag=laravel-notifications

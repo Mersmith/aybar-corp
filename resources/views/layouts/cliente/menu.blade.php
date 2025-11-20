@@ -1,5 +1,5 @@
 <div class="cliente_menu_pricipal">
-    <a href=""
+    <a href="{{ route('cliente.home') }}"
         class="">
         <span><i class="fa-solid fa-address-card"></i>Perfil</span>
         <i class="fa-solid fa-chevron-right"></i>
@@ -11,7 +11,7 @@
         <i class="fa-solid fa-chevron-right"></i>
     </a>
 
-    <a href=""
+    <a href="{{ route('cliente.direccion') }}"
         class="">
         <span><i class="fa-solid fa-map-location"></i> Direcciones</span>
         <i class="fa-solid fa-chevron-right"></i>
