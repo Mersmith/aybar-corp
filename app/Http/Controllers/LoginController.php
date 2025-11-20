@@ -71,6 +71,68 @@ class LoginController extends Controller
         return redirect()->route('ingresar.cliente');
     }
 
+    public function indexIngresarSocio()
+    {
+        if (Auth::check() && Auth::user()->role === 'socio') {
+            return redirect()->route('socio.home');
+        }
+
+        return view('web.login.ingresar-socio');
+    }
+
+    public function ingresarSocio(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        // Buscar si el email existe
+        $usuario = User::where('email', $request->email)->first();
+
+        if (!$usuario) {
+            return back()
+                ->withErrors(['email' => 'Este correo no está registrado.'])
+                ->withInput();
+        }
+
+        // Verificar contraseña
+        if (!Hash::check($request->password, $usuario->password)) {
+            return back()
+                ->withErrors(['password' => 'La contraseña es incorrecta.'])
+                ->withInput();
+        }
+
+        // Recordarme (checkbox)
+        $remember = $request->has('recordarme');
+
+        // Intentar login con recordar
+        if (Auth::attempt($request->only('email', 'password'), $remember)) {
+
+            if (Auth::user()->role === 'socio') {
+                return redirect()->route('socio.home');
+            }
+
+            Auth::logout();
+            return back()->withErrors([
+                'email' => 'Acceso denegado. Solo socios pueden ingresar aquí.',
+            ]);
+        }
+
+        return back()->withErrors([
+            'email' => 'No se pudo iniciar sesión. Inténtalo de nuevo.',
+        ]);
+    }
+
+    public function logoutSocio(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('ingresar.socio');
+    }
+
     public function indexIngresarAdmin()
     {
         if (Auth::check() && Auth::user()->role === 'admin') {
