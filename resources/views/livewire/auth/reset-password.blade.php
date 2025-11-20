@@ -1,68 +1,95 @@
 @extends('layouts.web.layout-web')
 
+@section('titulo', 'Restablecer contraseña')
+
 @section('contenido')
 
-<h2 class="text-2xl font-bold mb-4">Restablecer contraseña</h2>
-<p class="text-zinc-600 mb-6">Ingresa tu nueva contraseña para continuar.</p>
+    <div class="contenedor_login">
 
-<!-- Errores -->
-@if ($errors->any())
-<div class="bg-red-100 text-red-700 p-3 rounded mb-4">
-    <ul class="list-disc ml-4">
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
+        <div class="contenedor_login_imagen">
+            <!--IMAGEN-->
+            <img src="{{ asset('assets/imagenes/nosotros/nosotros-2.jpg') }}" alt="" />
+            <!--TEXTO-->
+            <div>
+                <h2>"Sorteamos cada mes miles de productos"</h2>
+                <h3>Nickol Sinchi </h3>
+                <p>Propietaria de Aybar Las</p>
+            </div>
+        </div>
 
-<!-- Mensaje de éxito -->
-@if (session('status'))
-<div class="bg-green-100 text-green-700 p-3 rounded mb-4">
-    {{ session('status') }}
-</div>
-@endif
+        <div class="contenedor_login_formulario">
+            <div class="login_formulario_centrar">
 
-<form method="POST" action="{{ route('password.update') }}" class="flex flex-col gap-6">
-    @csrf
+                <div class="login_formulario_logo">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('assets/imagen/logo.png') }}" alt="" />
+                    </a>
+                </div>
 
-    <!-- Token -->
-    <input type="hidden" name="token" value="{{ request()->route('token') }}">
+                <h1 class="titulo_formulario">Restablecer contraseña</h1>
 
-    <!-- Email -->
-    <div>
-        <label for="email" class="block text-sm font-medium text-zinc-700 mb-1">Correo electrónico</label>
-        <input id="email" name="email" type="email" value="{{ request('email') }}" required
-            class="w-full border border-zinc-300 px-4 py-2 rounded-md focus:ring focus:ring-blue-300">
-        @error('email')
-        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-        @enderror
+                <p class="descripcion_formulario">Ingrese su nueva contraseña para continuar.</p>
+
+                <div class="r_gap_pagina r_margin_top_40">
+
+                    @if (session('status'))
+                        <div class="g_alerta_succes">
+                            <i class="fa-solid fa-circle-check"></i>
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="g_alerta_error">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div>
+                                <strong>Por favor corrige los siguientes errores:</strong>
+                                {{-- <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul> --}}
+                            </div>
+                        </div>
+                    @endif
+
+                    <form method="POST" action="{{ route('password.update') }}" class="g_formulario">
+                        @csrf
+
+                        <input type="hidden" name="token" value="{{ request()->route('token') }}">
+
+                        <div class="form_grupo">
+                            <label for="email">Correo electrónico</label>
+                            <input id="email" name="email" type="email" value="{{ request('email') }}" required>
+                            @error('email')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form_grupo">
+                            <label for="password">Nueva contraseña</label>
+                            <input id="password" name="password" type="password" required>
+                            @error('password')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form_grupo">
+                            <label for="password_confirmation">Confirmar contraseña</label>
+                            <input id="password_confirmation" name="password_confirmation" type="password" required>
+                            @error('password_confirmation')
+                                <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <button type="submit">
+                            Restablecer
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Password -->
-    <div>
-        <label for="password" class="block text-sm font-medium text-zinc-700 mb-1">Nueva contraseña</label>
-        <input id="password" name="password" type="password" required
-            class="w-full border border-zinc-300 px-4 py-2 rounded-md focus:ring focus:ring-blue-300">
-        @error('password')
-        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-        @enderror
-    </div>
-
-    <!-- Confirm -->
-    <div>
-        <label for="password_confirmation" class="block text-sm font-medium text-zinc-700 mb-1">Confirmar
-            contraseña</label>
-        <input id="password_confirmation" name="password_confirmation" type="password" required
-            class="w-full border border-zinc-300 px-4 py-2 rounded-md focus:ring focus:ring-blue-300">
-        @error('password_confirmation')
-        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-        @enderror
-    </div>
-
-    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
-        Restablecer contraseña
-    </button>
-</form>
 
 @endsection
