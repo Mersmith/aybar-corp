@@ -74,9 +74,11 @@
                     <button type="submit">
                         Ingresar
                     </button>
-
-                    <a href="" class="recuperar_clave">¿Olvidaste tu
-                        contraseña?</a>
+                    
+                    @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" class="recuperar_clave">¿Olvidaste tu
+                            contraseña?</a>
+                    @endif
                 </form>
             </div>
         </div>
