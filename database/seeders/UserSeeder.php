@@ -34,10 +34,10 @@ class UserSeeder extends Seeder
 
         for ($i = 1; $i <= 5; $i++) {
             User::create([
-                'name' => "Asesor $i",
-                'email' => "asesor$i@example.com",
+                'name' => "Socio $i",
+                'email' => "socio$i@example.com",
                 'password' => Hash::make('123456'),
-                'role' => 'asesor',
+                'role' => 'socio',
             ]);
         }
     }

@@ -107,10 +107,10 @@
                             class="boton_personalizado boton_personalizado_blanco">BACKOFFICE</a>
                     </li>
 
-                    @elseif (auth()->user()->role === 'asesor')
+                    @elseif (auth()->user()->role === 'socio')
 
                     <li class="menu_item">
-                        <a href="{{ route('asesor.home') }}" class="boton_personalizado boton_personalizado_blanco">MI
+                        <a href="{{ route('socio.home') }}" class="boton_personalizado boton_personalizado_blanco">MI
                             PERFIL</a>
                     </li>
 

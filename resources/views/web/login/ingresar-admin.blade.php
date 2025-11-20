@@ -59,10 +59,16 @@
                         @enderror
                     </div>
 
+                    <div class="form_grupo">
+                        <label for="recordarme">
+                            <input type="checkbox" name="recordarme" id="recordarme" />
+                            Recordarme
+                        </label>
+                    </div>
+
                     <button type="submit">
                         Ingresar
                     </button>
-
                 </form>
             </div>
         </div>

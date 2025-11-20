@@ -87,7 +87,6 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        // Buscar si el email existe
         $usuario = User::where('email', $request->email)->first();
 
         if (!$usuario) {
@@ -96,17 +95,14 @@ class LoginController extends Controller
                 ->withInput();
         }
 
-        // Verificar contraseña
         if (!Hash::check($request->password, $usuario->password)) {
             return back()
                 ->withErrors(['password' => 'La contraseña es incorrecta.'])
                 ->withInput();
         }
 
-        // Recordarme (checkbox)
         $remember = $request->has('recordarme');
 
-        // Intentar login con recordar
         if (Auth::attempt($request->only('email', 'password'), $remember)) {
 
             if (Auth::user()->role === 'socio') {
@@ -149,14 +145,30 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($request->only('email', 'password'))) {
+        $usuario = User::where('email', $request->email)->first();
+
+        if (!$usuario) {
+            return back()
+                ->withErrors(['email' => 'Este correo no está registrado.'])
+                ->withInput();
+        }
+
+        if (!Hash::check($request->password, $usuario->password)) {
+            return back()
+                ->withErrors(['password' => 'La contraseña es incorrecta.'])
+                ->withInput();
+        }
+
+        $remember = $request->has('recordarme');
+
+        if (Auth::attempt($request->only('email', 'password'), $remember)) {
             if (Auth::user()->role === 'admin') {
                 return redirect()->route('admin.home');
             }
 
             Auth::logout();
             return back()->withErrors([
-                'email' => 'Acceso denegado. Solo cliente pueden ingresar aquí.',
+                'email' => 'Acceso denegado. Solo admin pueden ingresar aquí.',
             ]);
         }
 

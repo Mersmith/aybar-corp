@@ -36,8 +36,8 @@ class FortifyServiceProvider extends ServiceProvider
                         return redirect()->route('cliente.home');
                     }
 
-                    if ($user->role === 'asesor') {
-                        return redirect()->route('asesor.home');
+                    if ($user->role === 'socio') {
+                        return redirect()->route('socio.home');
                     }
 
                     return '/';
@@ -61,8 +61,8 @@ class FortifyServiceProvider extends ServiceProvider
                         return redirect()->route('cliente.home');
                     }
 
-                    if ($user->role === 'asesor') {
-                        return redirect()->route('asesor.home');
+                    if ($user->role === 'socio') {
+                        return redirect()->route('socio.home');
                     }
 
                     return '/';

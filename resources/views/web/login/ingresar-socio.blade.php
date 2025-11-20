@@ -19,7 +19,7 @@
 
                 <div class="login_formulario_arriba">
                     <span>No tienes una cuenta?</span>
-                    <a href="{{ route('registrar.cliente') }}">Registrarme</a>
+                    <a href="{{ route('registrar.socio') }}">Registrarme</a>
                 </div>
 
                 <!--LOGO-->
@@ -45,7 +45,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('ingresar.cliente') }}" method="POST" class="g_formulario">
+                <form action="{{ route('ingresar.socio') }}" method="POST" class="g_formulario">
                     @csrf
 
                     <div class="form_grupo">
