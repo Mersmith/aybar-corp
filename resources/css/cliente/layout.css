@@ -9,34 +9,31 @@
 }
 
 .layout_cliente .grid_layout_cliente {
+    display: flex;
+    gap: 40px;
     width: 100%;
-    display: grid;
-    grid-template-areas: "contenedor_nav_links contenido_pagina";
-    grid-template-columns: 400px 1fr;
-    grid-gap: 50px;
-    align-items: start;
+    align-items: flex-start;
 }
 
 .layout_cliente .contenedor_nav_links {
-    grid-area: contenedor_nav_links;
+    flex: 0 0 300px;
 }
 
 .layout_cliente .contenido_pagina {
-    grid-area: contenido_pagina;
+    flex: 1;
 }
 
 @media (max-width: 1024px) {
-
     .layout_cliente .grid_layout_cliente {
-        width: 100%;
-        grid-template-areas: "contenido_pagina";
-        grid-template-columns: 1fr;
-        grid-gap: 0px;
-        margin-top: 0px;
+        flex-direction: column;
+        gap: 0;
     }
 
     .layout_cliente .contenedor_nav_links {
         display: none;
     }
 
+    .layout_cliente .contenido_pagina {
+        width: 100%;
+    }
 }

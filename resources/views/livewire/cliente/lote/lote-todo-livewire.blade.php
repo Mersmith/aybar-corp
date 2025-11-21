@@ -3,39 +3,66 @@
         <div class="r_titulo_panel">
             <h2>Mis lotes</h2>
         </div>
-
-
-        <div class="tabla_contenido">
-            <div class="contenedor_tabla">
-                <table class="tabla">
-                    <thead>
-                        <tr>
-                            <th>Razón social</th>
-                            <th>Proyecto</th>
-                            <th>Manzana</th>
-                            <th>Lote</th>
-                            <th>ID Cronograma</th>
-                            <th>ID Estado Cuenta</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($lotes as $lote)
-                        <tr>
-                            <td>{{ $lote['razon_social'] }}</td>
-                            <td>{{ $lote['nombre_proyecto'] }}</td>
-                            <td>{{ $lote['manzana'] }}</td>
-                            <td>{{ $lote['lote'] }}</td>
-                            <td><a href="{{ $lote['cronograma_id'] }}" class="g_link">Ver cronograma</a></td>
-                            <td><a href="{{ $lote['estado_cuenta_id'] }}" class="g_link">Ver estado cuenta</a></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-
-
     </div>
-</div>
+
+    <div class="tablecontainer">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Points</th>
+                <th>Points</th>
+                <th>Points</th>
+                <th>Points</th>
+                <th>Points</th>
+                <th>Points</th>
+                <th>Points</th>
+                <th>Points</th>
+                <th>Points</th>
+                <th>Points</th>
+            </tr>
+            <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+                <td>94</td>
+                <td>94</td>
+                <td>94</td>
+                <td>94</td>
+                <td>94</td>
+                <td>94</td>
+                <td>94</td>
+                <td>94</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>Adam</td>
+                <td>Johnson</td>
+                <td>67</td>
+                <td>67</td>
+                <td>67</td>
+                <td>67</td>
+                <td>67</td>
+                <td>67</td>
+                <td>67</td>
+                <td>67</td>
+                <td>67</td>
+                <td>67</td>
+            </tr>
+        </table>
+    </div>
 </div>
