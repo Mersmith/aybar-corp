@@ -38,8 +38,8 @@
                         <td>{{ $lote['manzana'] }}</td>
                         <td>{{ $lote['lote'] }}</td>
                         <td class="botones">
-                            <a href="{{ $lote['cronograma_id'] }}" class="boton boton_activo"><i
-                                    class="fas fa-calendar-alt"></i> Cronograma</a>
+                            <a href="{{ route('cliente.lote.cronograma.ver', $lote['cronograma_id']) }}"
+                                class="boton boton_activo"><i class="fas fa-calendar-alt"></i> Cronograma</a>
                             <a href="{{ $lote['estado_cuenta_id'] }}" class="boton boton_guardar"><i
                                     class="fas fa-file-invoice-dollar"></i> Estado cuenta</a>
                         </td>
