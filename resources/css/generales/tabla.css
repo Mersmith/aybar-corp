@@ -1,0 +1,31 @@
+.tabla_contenido {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    overflow-x: auto;
+}
+
+.contenedor_tabla {
+    overflow: hidden;
+    min-width: 100%;
+    display: inline-block;
+    border-radius: 12px;
+    border: 1px solid #e0e6eb;
+    border-collapse: collapse;
+}
+
+.tabla {
+    min-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla th,
+.tabla td {
+    padding: 12px 24px;
+    text-align: left;
+}
+
+.tabla th {
+    font-weight: 600;
+}
