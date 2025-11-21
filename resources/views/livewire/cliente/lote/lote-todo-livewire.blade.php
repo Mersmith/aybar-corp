@@ -27,8 +27,7 @@
                         <th>Proyecto</th>
                         <th>Manzana</th>
                         <th>Lote</th>
-                        <th>ID Cronograma</th>
-                        <th>ID Estado Cuenta</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,8 +37,11 @@
                         <td>{{ $lote['nombre_proyecto'] }}</td>
                         <td>{{ $lote['manzana'] }}</td>
                         <td>{{ $lote['lote'] }}</td>
-                        <td><a href="{{ $lote['cronograma_id'] }}" class="boton boton_activo">Cronograma</a></td>
-                        <td><a href="{{ $lote['estado_cuenta_id'] }}" class="boton boton_guardar">Estado cuenta</a>
+                        <td class="botones">
+                            <a href="{{ $lote['cronograma_id'] }}" class="boton boton_activo"><i
+                                    class="fas fa-calendar-alt"></i> Cronograma</a>
+                            <a href="{{ $lote['estado_cuenta_id'] }}" class="boton boton_guardar"><i
+                                    class="fas fa-file-invoice-dollar"></i> Estado cuenta</a>
                         </td>
                     </tr>
                     @endforeach

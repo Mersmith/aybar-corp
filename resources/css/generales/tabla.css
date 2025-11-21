@@ -7,7 +7,7 @@
     background: #ffff;
 }
 
-.contenedor_tabla {
+.tabla_contenido .contenedor_tabla {
     overflow: hidden;
     min-width: 100%;
     display: inline-block;
@@ -16,63 +16,70 @@
     border-collapse: collapse;
 }
 
-/*TABLA*/
-.tabla {
+.tabla_contenido .tabla {
     min-width: 100%;
     width: 100%;
     border-collapse: collapse;
 }
 
-.tabla th {
+.tabla_contenido .tabla th {
     font-weight: 600;
 }
 
-.tabla a {
+.tabla_contenido .tabla a {
     cursor: pointer;
 }
 
-.tabla tbody tr:nth-child(odd) {
+.tabla_contenido .tabla tbody tr:nth-child(odd) {
     background-color: #f9f9f9;
 }
 
-.tabla tr:hover {
+.tabla_contenido .tabla tr:hover {
     background-color: #eff4fa;
 }
 
-.tabla th,
-.tabla td {
+.tabla_contenido .tabla th,
+.tabla_contenido .tabla td {
     padding: 12px 24px;
     text-align: left;
 }
 
-.tabla tr:not(:last-child) td,
-.tabla th {
+.tabla_contenido .tabla tr:not(:last-child) td,
+.tabla_contenido .tabla th {
     border-bottom: 1px solid #e0e6eb;
 }
 
-.tabla .boton {
+.tabla_contenido .tabla .boton {
     cursor: pointer;
-    padding: 4px 6px;
+    padding: 6px 10px;
     font-size: 14px;
     font-weight: 500;
     border-radius: 15px;
+    width: max-content;
 }
 
-.tabla .boton_eliminar {
+.tabla_contenido .tabla .boton_eliminar {
     background-color: var(--color-plomo);
     color: var(--color-verde);
 }
 
-.tabla .boton_activo {
+.tabla_contenido .tabla .boton_activo {
     background-color: var(--color-verde);
     color: var(--color-blanco);
 }
 
-.tabla .boton_guardar {
+.tabla_contenido .tabla .boton_guardar {
     background-color: var(--color-amarillo);
     color: var(--color-verde);
 }
 
-.tabla .boton:hover {
+.tabla_contenido .tabla .boton:hover {
     filter: brightness(1.1);
+}
+
+.tabla_contenido .botones {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    flex-wrap: wrap;
 }
