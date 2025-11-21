@@ -1,16 +1,78 @@
-.tablecontainer {
-    overflow-x: auto;
-}
-
-table {
+/*TABLA CONTENIDO*/
+.tabla_contenido {
     border-collapse: collapse;
     width: 100%;
+    font-size: 13px;
+    overflow-x: auto;
+    background: #ffff;
 }
 
-table,
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 8px;
+.contenedor_tabla {
+    overflow: hidden;
+    min-width: 100%;
+    display: inline-block;
+    border-radius: 12px;
+    border: 1px solid #e0e6eb;
+    border-collapse: collapse;
+}
+
+/*TABLA*/
+.tabla {
+    min-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla th {
+    font-weight: 600;
+}
+
+.tabla a {
+    cursor: pointer;
+}
+
+.tabla tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.tabla tr:hover {
+    background-color: #eff4fa;
+}
+
+.tabla th,
+.tabla td {
+    padding: 12px 24px;
     text-align: left;
+}
+
+.tabla tr:not(:last-child) td,
+.tabla th {
+    border-bottom: 1px solid #e0e6eb;
+}
+
+.tabla .boton {
+    cursor: pointer;
+    padding: 4px 6px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 15px;
+}
+
+.tabla .boton_eliminar {
+    background-color: var(--color-plomo);
+    color: var(--color-verde);
+}
+
+.tabla .boton_activo {
+    background-color: var(--color-verde);
+    color: var(--color-blanco);
+}
+
+.tabla .boton_guardar {
+    background-color: var(--color-amarillo);
+    color: var(--color-verde);
+}
+
+.tabla .boton:hover {
+    filter: brightness(1.1);
 }
