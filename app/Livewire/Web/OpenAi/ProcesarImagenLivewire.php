@@ -5,7 +5,7 @@ namespace App\Livewire\Web\OpenAi;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use OpenAI\Laravel\Facades\OpenAI;
+use OpenAI;
 
 #[Layout('layouts.web.layout-web')]
 class ProcesarImagenLivewire extends Component
@@ -19,60 +19,96 @@ class ProcesarImagenLivewire extends Component
     public function procesarImagen()
     {
         $this->validate([
-            'imagen' => 'required|image|max:4096',
+            'imagen' => 'required|image|max:4096'
         ]);
 
         $this->procesando = true;
 
         try {
+            // Convertir imagen a base64
             $imageData = base64_encode(file_get_contents($this->imagen->getRealPath()));
 
-            $response = OpenAI::responses()->create([
+            $client = OpenAI::client(config('services.openai.key'));
+
+            // --- PETICIÓN CORRECTA ---
+            $response = $client->chat()->create([
                 'model' => 'gpt-4o-mini',
-                'input' => [[
-                    'role' => 'user',
-                    'content' => [
-                        [
-                            'type' => 'input_text',
-                            'text' => 'Extrae los datos del comprobante de pago. Devuelve SIEMPRE un JSON con estas claves: numero, banco, monto, fecha. Si algún dato no se encuentra, devuelve null o "" en su valor.',
-                        ],
-                        [
-                            'type' => 'input_image',
-                            'image_url' => 'data:image/png;base64,' . $imageData,
-                        ],
-                    ],
-                ]],
+                'messages' => [
+                    [
+                        'role' => 'user',
+                        'content' => [
+                            [
+                                "type" => "text",
+                                "text" => "Extrae los datos EXACTOS del comprobante BCP.
+Devuelve únicamente un JSON válido con esta estructura:
+
+{
+  \"numero_operacion\": \"\",
+  \"banco\": \"\",
+  \"monto\": \"\",
+  \"fecha\": \"\"
+}
+
+NO agregues explicación ni texto adicional. Solo JSON."
+                            ],
+                            [
+                                "type" => "image_url",
+                                "image_url" => [
+                                    "url" => "data:image/jpeg;base64,{$imageData}"
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]);
 
-            $texto = $response['output'][0]['content'][0]['text'] ?? '';
-            $decoded = json_decode($texto, true);
+            // --- PROCESAR RESPUESTA ---
+            $content = $response->choices[0]->message->content;
 
-            if (!is_array($decoded)) {
-                session()->flash('error', 'No se pudo extraer la información correctamente. Intenta subir una imagen más clara.');
+            $texto = '';
+
+            // Si devuelve blocks
+            if (is_array($content)) {
+                foreach ($content as $block) {
+                    if (($block['type'] ?? null) === 'text') {
+                        $texto .= $block['text'];
+                    }
+                }
+            } else {
+                $texto = $content;
+            }
+
+            // Limpiar ```json
+            $texto = trim(preg_replace('/```json|```/', '', $texto));
+
+            // Decodificar JSON
+            $data = json_decode($texto, true);
+
+            if (!$data) {
+                session()->flash('error', 'No se pudo extraer la información correctamente.');
                 $this->procesando = false;
                 return;
             }
 
+            // Asignar datos
             $this->datos = [
-                'numero' => $decoded['numero'] ?? null,
-                'banco' => $decoded['banco'] ?? null,
-                'monto' => $decoded['monto'] ?? null,
-                'fecha' => $decoded['fecha'] ?? null,
+                'numero' => $data['numero_operacion'] ?? null,
+                'banco'  => $data['banco'] ?? null,
+                'monto'  => $data['monto'] ?? null,
+                'fecha'  => $data['fecha'] ?? null,
             ];
-
-        } catch (\OpenAI\Exceptions\RateLimitException $e) {
-            session()->flash('error', '⚠️ Has alcanzado el límite de peticiones. Espera un momento e inténtalo de nuevo.');
         } catch (\Exception $e) {
-            session()->flash('error', '❌ Error al procesar la imagen: ' . $e->getMessage());
+            session()->flash('error', '❌ Error: ' . $e->getMessage());
         }
 
         $this->procesando = false;
     }
 
+
+
+
     public function guardar()
     {
-        // Guardar en la base de datos, por ejemplo:
-        // Comprobante::create($this->datos);
         session()->flash('success', 'Comprobante guardado correctamente.');
         $this->reset(['imagen', 'datos']);
     }
