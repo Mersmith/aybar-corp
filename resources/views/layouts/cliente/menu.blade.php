@@ -9,7 +9,7 @@
         <i class="fa-solid fa-chevron-right"></i>
     </a>
 
-    <a href="" class="">
+    <a href="{{ route('cliente.lote') }}" class="">
         <span><i class="fa-solid fa-border-all"></i> Mis Lotes</span>
         <i class="fa-solid fa-chevron-right"></i>
     </a>
