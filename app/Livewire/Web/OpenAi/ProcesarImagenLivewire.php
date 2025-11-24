@@ -34,7 +34,7 @@ class ProcesarImagenLivewire extends Component
                     'content' => [
                         [
                             'type' => 'input_text',
-                            'text' => 'Extrae los datos del comprobante de pago: número de comprobante, banco, monto y fecha. Devuélvelo en formato JSON.',
+                            'text' => 'Extrae los datos del comprobante de pago. Devuelve SIEMPRE un JSON con estas claves: numero, banco, monto, fecha. Si algún dato no se encuentra, devuelve null o "" en su valor.',
                         ],
                         [
                             'type' => 'input_image',
@@ -45,7 +45,20 @@ class ProcesarImagenLivewire extends Component
             ]);
 
             $texto = $response['output'][0]['content'][0]['text'] ?? '';
-            $this->datos = json_decode($texto, true) ?? [];
+            $decoded = json_decode($texto, true);
+
+            if (!is_array($decoded)) {
+                session()->flash('error', 'No se pudo extraer la información correctamente. Intenta subir una imagen más clara.');
+                $this->procesando = false;
+                return;
+            }
+
+            $this->datos = [
+                'numero' => $decoded['numero'] ?? null,
+                'banco' => $decoded['banco'] ?? null,
+                'monto' => $decoded['monto'] ?? null,
+                'fecha' => $decoded['fecha'] ?? null,
+            ];
 
         } catch (\OpenAI\Exceptions\RateLimitException $e) {
             session()->flash('error', '⚠️ Has alcanzado el límite de peticiones. Espera un momento e inténtalo de nuevo.');
