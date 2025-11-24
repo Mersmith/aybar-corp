@@ -104,9 +104,6 @@ NO agregues explicación ni texto adicional. Solo JSON."
         $this->procesando = false;
     }
 
-
-
-
     public function guardar()
     {
         session()->flash('success', 'Comprobante guardado correctamente.');

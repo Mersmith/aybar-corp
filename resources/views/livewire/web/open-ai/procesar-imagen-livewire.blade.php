@@ -15,13 +15,21 @@
                 <div class="text-red-600 mb-2">{{ session('error') }}</div>
                 @endif
 
-                @if (!$datos)
+
                 <input type="file" wire:model="imagen" accept="image/*" class="mb-3">
 
                 @error('imagen')
                 <div class="text-red-600">{{ $message }}</div>
                 @enderror
 
+                {{-- PREVIEW DE LA IMAGEN --}}
+                @if ($imagen)
+                <div class="mb-3">
+                    <p class="text-gray-600 mb-1">Vista previa:</p>
+                    <img src="{{ $imagen->temporaryUrl() }}" style="width: 400px;">
+                </div>
+                @endif
+                @if (!$datos)
                 <button wire:click="procesarImagen" wire:loading.attr="disabled"
                     class="bg-blue-600 text-white px-4 py-2 rounded">
                     Analizar comprobante
