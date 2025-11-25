@@ -7,9 +7,9 @@ use App\Models\Canal;
 use App\Models\Cliente;
 use App\Models\EstadoTicket;
 use App\Models\Ticket;
+use App\Models\TicketHistorial;
 use App\Models\User;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\On;
 use Livewire\Component;
 
 #[Layout('layouts.admin.layout-admin')]
@@ -55,13 +55,13 @@ class TicketCrearLivewire extends Component
         $this->tipos_solicitudes = $area ? $area->tipos()->where('activo', true)->get() : [];
 
         $this->tipo_solicitud_id = "";
-    }   
+    }
 
     public function store()
     {
         $this->validate();
 
-        Ticket::create([
+        $ticket = Ticket::create([
             'cliente_id' => $this->cliente_id,
             'area_id' => $this->area_id,
             'tipo_solicitud_id' => $this->tipo_solicitud_id,
@@ -70,6 +70,13 @@ class TicketCrearLivewire extends Component
             'usuario_asignado_id' => $this->usuario_asignado_id,
             'asunto' => $this->asunto,
             'descripcion' => $this->descripcion,
+        ]);
+
+        TicketHistorial::create([
+            'ticket_id' => $ticket->id,
+            'user_id' => auth()->id(),
+            'accion' => 'Creación',
+            'detalle' => 'Ticket creado con estado: ' . $ticket->estado->nombre,
         ]);
 
         $this->dispatch('alertaLivewire', "Creado");
