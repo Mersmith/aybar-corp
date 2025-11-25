@@ -227,3 +227,5 @@ Route::prefix('seccion')->name('seccion.')->group(function () {
     Route::get('/bloque-nueve/crear', SeccionBloqueNueveCrearLivewire::class)->name('bloque-nueve.vista.crear');
     Route::get('/bloque-nueve/editar/{id}', SeccionBloqueNueveEditarLivewire::class)->name('bloque-nueve.vista.editar');
 });
+
+require __DIR__ . '/atc.php';

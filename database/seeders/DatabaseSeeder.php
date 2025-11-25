@@ -15,10 +15,17 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            PaisSeeder::class,
-            RegionSeeder::class,
-            ProvinciaSeeder::class,
-            DistritoSeeder::class,
+            //PaisSeeder::class,
+            //RegionSeeder::class,
+            //ProvinciaSeeder::class,
+            //DistritoSeeder::class,
+            EstadoTicketSeeder::class,
+            CanalSeeder::class,
+            AreaSeeder::class,
+            TipoSolicitudSeeder::class,
+            AsignacionesSeeder::class,
+            TicketSeeder::class,
+
     
             //UnidadNegocioSeeder::class,
             //ProyectoSeeder::class,

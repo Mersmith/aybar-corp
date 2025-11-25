@@ -1,0 +1,62 @@
+Usuarios
+Roles
+Permisos
+Areas
+Proyectos
+Lote
+Estados ATC
+Estados Internos
+Tipos Cita
+Motivos Cita
+Solicitudes
+Derivado
+
+
+----------
+Canal
+Cliente
+Proyecto
+Lote
+Solicitud
+
+Prioridad
+Area
+Estado ticket
+Estado Atencion
+Derivado
+
+
+php artisan make:model Area -mfsc
+php artisan make:migration create_area_user_table
+php artisan make:model TipoSolicitud -mfsc
+php artisan make:migration create_area_tipo_solicitud_table
+php artisan make:model EstadoTicket -mfsc
+php artisan make:model Canal -mfsc
+php artisan make:model Ticket -mfsc
+php artisan make:model TicketHistorial -mfsc
+php artisan make:model TicketDerivado -mfsc
+php artisan make:model TicketMensaje -mfsc
+
+php artisan make:seeder AsignacionesSeeder
+
+php artisan make:livewire Atc/Area/AreaTodoLivewire
+php artisan make:livewire Atc/Area/AreaCrearLivewire
+php artisan make:livewire Atc/Area/AreaEditarLivewire
+php artisan make:livewire Atc/Area/AreaUserLivewire
+php artisan make:livewire Atc/Area/AreaSolicitudLivewire
+
+php artisan make:livewire Atc/TipoSolicitud/TipoSolicitudTodoLivewire
+php artisan make:livewire Atc/TipoSolicitud/TipoSolicitudCrearLivewire
+php artisan make:livewire Atc/TipoSolicitud/TipoSolicitudEditarLivewire
+
+php artisan make:livewire Atc/EstadoTicket/EstadoTicketTodoLivewire
+php artisan make:livewire Atc/EstadoTicket/EstadoTicketCrearLivewire
+php artisan make:livewire Atc/EstadoTicket/EstadoTicketEditarLivewire
+
+php artisan make:livewire Atc/Canal/CanalTodoLivewire
+php artisan make:livewire Atc/Canal/CanalCrearLivewire
+php artisan make:livewire Atc/Canal/CanalEditarLivewire
+
+php artisan make:livewire Atc/Ticket/TicketTodoLivewire
+php artisan make:livewire Atc/Ticket/TicketCrearLivewire
+php artisan make:livewire Atc/Ticket/TicketEditarLivewire
