@@ -165,4 +165,38 @@
             </div>
         </div>
     </div>
+
+    <div class="g_panel g_margin_top_20">
+        <h4 class="g_panel_titulo">Historial del ticket</h4>
+
+        <div class="tabla_contenido g_margin_bottom_20">
+            <div class="contenedor_tabla">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Usuario</th>
+                            <th>Acción</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($historial as $item)
+                            <tr>
+                                <td>{{ $item->created_at->format('d/m/Y H:i') }}</td>
+                                <td>{{ $item->usuario->name ?? 'Sistema' }}</td>
+                                <td>{{ $item->accion }}</td>
+                                <td>
+                                    @foreach (explode(' | ', $item->detalle) as $linea)
+                                        <div>{{ $linea }}</div>
+                                    @endforeach
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 </div>
