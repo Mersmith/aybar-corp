@@ -135,6 +135,34 @@ class TicketEditarLivewire extends Component
         $this->dispatch('alertaLivewire', 'Creado');
     }
 
+    public function cancelar()
+    {
+        $this->reset(['archivo', 'descripcion_archivo']);
+        $this->resetErrorBag();
+        $this->resetValidation();
+    }
+
+    public function eliminarArchivo($id)
+    {
+        $archivo = Archivo::find($id);
+
+        if (!$archivo) {
+            $this->dispatch('alertaLivewire', 'Error');
+            return;
+        }
+
+        if (Storage::disk('public')->exists($archivo->path)) {
+            Storage::disk('public')->delete($archivo->path);
+        }
+
+        $archivo->delete();
+
+        $this->archivos_existentes = $this->ticket->archivos()->get();
+
+        $this->dispatch('alertaLivewire', 'Eliminado');
+    }
+
+
     public function render()
     {
         return view('livewire.atc.ticket.ticket-editar-livewire');

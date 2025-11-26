@@ -165,6 +165,12 @@
                             <span wire:loading.remove wire:target="adjuntar">Adjuntar</span>
                             <span wire:loading wire:target="adjuntar">Adjuntando...</span>
                         </button>
+
+                        <button wire:click="cancelar" class="cancelar" wire:loading.attr="disabled"
+                            wire:target="cancelar">
+                            <span wire:loading.remove wire:target="store">Cancelar</span>
+                            <span wire:loading wire:target="cancelar">Cancelando...</span>
+                        </button>
                     </div>
                     @endif
                 </div>
