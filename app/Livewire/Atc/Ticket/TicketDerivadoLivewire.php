@@ -15,50 +15,69 @@ class TicketDerivadoLivewire extends Component
 {
     public Ticket $ticket;
 
-    // Catálogos
     public $areas;
-    public $usuarios;
+    public $usuarios = [];
 
-    // Form
-    public $a_area_id; // area destino
+    public $a_area_id = "";
     public $usuario_recibe_id;
     public $motivo;
 
-    // Mapas para mostrar nombres sin más queries
     public $mapAreas = [];
     public $mapUsuarios = [];
 
-    // Lista de derivaciones
     public $derivaciones = [];
+    public $historial = [];
+
+    protected function rules()
+    {
+        return [
+            'a_area_id' => 'required',
+            'usuario_recibe_id' => 'required',
+            'motivo' => 'required|string|max:2000',
+        ];
+    }
+
+    protected function nombreCampo($campo)
+    {
+        return [
+            'area_id'             => 'Área',
+            'usuario_asignado_id' => 'Usuario asignado',
+            'estado_ticket_id'    => 'Estado',
+        ][$campo] ?? ucfirst(str_replace('_', ' ', $campo));
+    }
+
+    protected function valorLegible($campo, $valor)
+    {
+        if (!$valor) return 'Ninguno';
+
+        return match ($campo) {
+            'area_id'               => Area::find($valor)->nombre ?? $valor,
+            'usuario_asignado_id'   => User::find($valor)->name ?? $valor,
+            'estado_ticket_id'      => EstadoTicket::find($valor)->nombre ?? $valor,
+            default                 => $valor
+        };
+    }
 
     public function mount($id)
     {
         $this->ticket = Ticket::findOrFail($id);
 
-        // Cargar catálogos
         $this->areas = Area::all();
-        $this->usuarios = User::where('role', 'admin')->get();
 
-        // Mapas
         $this->mapAreas = $this->areas->pluck('nombre', 'id')->toArray();
-        $this->mapUsuarios = $this->usuarios->pluck('name', 'id')->toArray();
 
-        // Valores por defecto
-        $this->a_area_id = null;
-        $this->usuario_recibe_id = $this->ticket->usuario_asignado_id;
-        $this->motivo = null;
-
-        // Derivaciones previas
         $this->derivaciones = $this->ticket->derivados()->latest()->get();
+        $this->historial = $this->ticket->historial()->latest()->get();
     }
 
-    protected function rules()
+    public function updatedAAreaId($value)
     {
-        return [
-            'a_area_id' => 'required|exists:areas,id',
-            'usuario_recibe_id' => 'nullable|exists:users,id',
-            'motivo' => 'nullable|string|max:2000',
-        ];
+        $area = Area::find($value);
+        $this->usuarios = $area
+            ? $area->usuarios()->where('activo', true)->get()
+            : [];
+
+        $this->usuario_recibe_id = "";
     }
 
     public function derivar()
@@ -67,38 +86,62 @@ class TicketDerivadoLivewire extends Component
 
         $deAreaId = $this->ticket->area_id;
 
-        $derivado = TicketDerivado::create([
-            'ticket_id' => $this->ticket->id,
-            'de_area_id' => $deAreaId,
-            'a_area_id' => $this->a_area_id,
+        $old = $this->ticket->toArray();
+
+        TicketDerivado::create([
+            'ticket_id'         => $this->ticket->id,
+            'de_area_id'        => $deAreaId,
+            'a_area_id'         => $this->a_area_id,
             'usuario_deriva_id' => auth()->id(),
             'usuario_recibe_id' => $this->usuario_recibe_id,
-            'motivo' => $this->motivo,
+            'motivo'            => $this->motivo,
         ]);
 
         $this->ticket->update([
-            'area_id' => $this->a_area_id,
+            'area_id'             => $this->a_area_id,
             'usuario_asignado_id' => $this->usuario_recibe_id,
         ]);
 
-        $detalle = "Derivado del área '" . ($this->mapAreas[$deAreaId] ?? $deAreaId) .
-            "' a '" . ($this->mapAreas[$this->a_area_id] ?? $this->a_area_id) . "'.";
+        $new = $this->ticket->fresh()->toArray();
+
+        $cambios = [];
+        $ignorar = ['id', 'created_at', 'updated_at', 'deleted_at'];
+
+        foreach ($new as $campo => $valorNuevo) {
+            if (in_array($campo, $ignorar)) {
+                continue;
+            }
+
+            $valorViejo = $old[$campo] ?? null;
+
+            if ($valorNuevo != $valorViejo) {
+                $nombreCampo = $this->nombreCampo($campo);
+                $viejo = $this->valorLegible($campo, $valorViejo);
+                $nuevo = $this->valorLegible($campo, $valorNuevo);
+
+                $cambios[] = "$nombreCampo cambiado de '$viejo' a '$nuevo'";
+            }
+        }
+
         if (!empty($this->motivo)) {
-            $detalle .= " Motivo: " . $this->motivo;
+            $cambios[] = "Motivo: " . $this->motivo;
         }
 
         TicketHistorial::create([
             'ticket_id' => $this->ticket->id,
-            'user_id' => auth()->id(),
-            'accion' => 'Derivación',
-            'detalle' => $detalle,
+            'user_id'   => auth()->id(),
+            'accion'    => 'Derivación',
+            'detalle'   => implode(" | ", $cambios),
         ]);
 
+        $this->historial = $this->ticket->historial()->latest()->get();
         $this->derivaciones = $this->ticket->derivados()->latest()->get();
-        $this->dispatch('alertaLivewire', "Creado");
 
         $this->a_area_id = null;
+        $this->usuario_recibe_id = null;
         $this->motivo = null;
+
+        $this->dispatch('alertaLivewire', "Creado");
     }
 
     public function render()

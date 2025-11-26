@@ -81,38 +81,6 @@
 
             <!-- Panel derecho: Derivaciones previas -->
             <div class="g_columna_4 g_gap_pagina g_columna_invertir">
-                <div class="g_panel">
-                    <h4 class="g_panel_titulo">Derivaciones previas</h4>
-
-                    <div class="tabla_contenido">
-                        <div class="contenedor_tabla">
-                            <table class="tabla">
-                                <thead>
-                                    <tr>
-                                        <th>Fecha</th>
-                                        <th>De</th>
-                                        <th>A</th>
-                                        <th>Usuario</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @forelse ($derivaciones as $d)
-                                    <tr>
-                                        <td>{{ $d->created_at->format('d/m/Y H:i') }}</td>
-                                        <td>{{ $d->deArea->nombre ?? 'Sin asignar' }}</td>
-                                        <td>{{ $d->aArea->nombre ?? 'Sin asignar' }}</td>
-                                        <td>{{ $d->usuarioDeriva->name ?? ($d->usuarioRecibe->name ?? 'Sistema') }}</td>
-                                    </tr>
-                                    @empty
-                                    <tr>
-                                        <td colspan="4">No hay derivaciones</td>
-                                    </tr>
-                                    @endforelse
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">Ticket</h4>
@@ -120,6 +88,72 @@
                     <div style="margin-top:8px"><strong>Cliente:</strong> {{ $ticket->cliente->name ?? 'Sin asignar' }}
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="g_panel">
+        <h4 class="g_panel_titulo">Derivaciones previas</h4>
+
+        <div class="tabla_contenido">
+            <div class="contenedor_tabla">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>De</th>
+                            <th>A</th>
+                            <th>Recibe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($derivaciones as $d)
+                        <tr>
+                            <td>{{ $d->created_at->format('d/m/Y H:i') }}</td>
+                            <td>{{ $d->deArea->nombre ?? 'Sin asignar' }}</td>
+                            <td>{{ $d->aArea->nombre ?? 'Sin asignar' }}</td>
+                            <td>{{ $d->usuarioDeriva->name ?? ($d->usuarioRecibe->name ?? 'Sistema') }}</td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="4">No hay derivaciones</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="g_panel ">
+        <h4 class="g_panel_titulo">Historial del ticket</h4>
+
+        <div class="tabla_contenido">
+            <div class="contenedor_tabla">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Usuario</th>
+                            <th>Acción</th>
+                            <th>Detalle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($historial as $item)
+                        <tr>
+                            <td>{{ $item->created_at->format('d/m/Y H:i') }}</td>
+                            <td>{{ $item->usuario->name ?? 'Sistema' }}</td>
+                            <td>{{ $item->accion }}</td>
+                            <td>
+                                @foreach (explode(' | ', $item->detalle) as $linea)
+                                <div>{{ $linea }}</div>
+                                @endforeach
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
