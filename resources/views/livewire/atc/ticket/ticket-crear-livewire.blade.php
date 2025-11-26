@@ -33,11 +33,11 @@
                             <select id="area_id" wire:model.live="area_id" required>
                                 <option value="" selected disabled>Seleccionar un area</option>
                                 @foreach ($areas as $area)
-                                    <option value="{{ $area->id }}">{{ $area->nombre }}</option>
+                                <option value="{{ $area->id }}">{{ $area->nombre }}</option>
                                 @endforeach
                             </select>
                             @error('area_id')
-                                <p class="mensaje_error">{{ $message }}</p>
+                            <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -48,11 +48,11 @@
                             <select id="tipo_solicitud_id" wire:model.live="tipo_solicitud_id" required>
                                 <option value="" selected disabled>Seleccionar un area</option>
                                 @foreach ($tipos_solicitudes as $tipo)
-                                    <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
+                                <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
                                 @endforeach
                             </select>
                             @error('tipo_solicitud_id')
-                                <p class="mensaje_error">{{ $message }}</p>
+                            <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -62,13 +62,13 @@
                             <select id="canal_id" name="canal_id" wire:model.live="canal_id" required>
                                 <option value="" selected disabled>Seleccionar un canal</option>
                                 @if ($canales)
-                                    @foreach ($canales as $canal)
-                                        <option value="{{ $canal->id }}">{{ $canal->nombre }}</option>
-                                    @endforeach
+                                @foreach ($canales as $canal)
+                                <option value="{{ $canal->id }}">{{ $canal->nombre }}</option>
+                                @endforeach
                                 @endif
                             </select>
                             @error('canal_id')
-                                <p class="mensaje_error">{{ $message }}</p>
+                            <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -81,27 +81,17 @@
                             <select id="cliente_id" wire:model.live="cliente_id" required>
                                 <option value="" selected disabled>Seleccionar un cliente</option>
                                 @foreach ($clientes as $cliente)
-                                    <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                                <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
                                 @endforeach
                             </select>
                             @error('cliente_id')
-                                <p class="mensaje_error">{{ $message }}</p>
+                            <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="g_margin_bottom_10 g_columna_4">
-                            <label for="estado_ticket_id">
-                                Estado <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
-                            </label>
-                            <select id="estado_ticket_id" wire:model.live="estado_ticket_id" required>
-                                <option value="" selected disabled>Seleccionar un estado</option>
-                                @foreach ($estados as $estado)
-                                    <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
-                                @endforeach
-                            </select>
-                            @error('estado_ticket_id')
-                                <p class="mensaje_error">{{ $message }}</p>
-                            @enderror
+                            <label>Estado</label>
+                            <input type="text" value="Abierto" disabled>
                         </div>
 
                         <div class="g_margin_bottom_10 g_columna_4">
@@ -111,11 +101,11 @@
                             <select id="usuario_asignado_id" wire:model.live="usuario_asignado_id" required>
                                 <option value="" selected disabled>Seleccionar un asignado</option>
                                 @foreach ($usuarios as $usuario)
-                                    <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
+                                <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
                                 @endforeach
                             </select>
                             @error('usuario_asignado_id')
-                                <p class="mensaje_error">{{ $message }}</p>
+                            <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -126,7 +116,7 @@
                                         class="fa-solid fa-asterisk"></i></span></label>
                             <textarea id="asunto" wire:model.live="asunto" rows="2"></textarea>
                             @error('asunto')
-                                <p class="mensaje_error">{{ $message }}</p>
+                            <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -137,7 +127,7 @@
                                         class="fa-solid fa-asterisk"></i></span></label>
                             <textarea id="descripcion" wire:model.live="descripcion" rows="5"></textarea>
                             @error('descripcion')
-                                <p class="mensaje_error">{{ $message }}</p>
+                            <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
