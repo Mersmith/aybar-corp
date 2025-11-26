@@ -13,6 +13,9 @@
             <a href="{{ route('admin.ticket.vista.crear') }}" class="g_boton g_boton_primary">
                 Crear <i class="fa-solid fa-square-plus"></i></a>
 
+            <a href="{{ route('admin.ticket.vista.editar', $ticket->id) }}" class="g_boton g_boton_secondary">
+                Editar <i class="fa-solid fa-pencil"></i></a>
+
             <a href="{{ route('admin.ticket.vista.todo') }}" class="g_boton g_boton_darkt">
                 <i class="fa-solid fa-arrow-left"></i> Regresar
             </a>
@@ -26,9 +29,14 @@
                     <h4 class="g_panel_titulo">Derivación</h4>
 
                     <div class="g_fila">
-                        <div class="g_columna_12 g_margin_bottom_10">
+                        <div class="g_columna_6 g_margin_bottom_10">
                             <label>Área origen</label>
-                            <input type="text" disabled value="{{ $mapAreas[$ticket->area_id] ?? 'Sin asignar' }}">
+                            <input type="text" disabled value="{{ $ticket->area->nombre ?? 'Sin asignar' }}">
+                        </div>
+
+                        <div class="g_columna_6 g_margin_bottom_10">
+                            <label>Usuario origen</label>
+                            <input type="text" disabled value="{{ $ticket->asignado->name ?? 'Sin asignar' }}">
                         </div>
                     </div>
 
@@ -46,7 +54,7 @@
                         </div>
 
                         <div class="g_columna_6 g_margin_bottom_10">
-                            <label for="usuario_recibe_id">Usuario que recibe</label>
+                            <label for="usuario_recibe_id">Usuario destino</label>
                             <select id="usuario_recibe_id" wire:model.live="usuario_recibe_id">
                                 <option value="">Sin asignar</option>
                                 @foreach ($usuarios as $usuario)

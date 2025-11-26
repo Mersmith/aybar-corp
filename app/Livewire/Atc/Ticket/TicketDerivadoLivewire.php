@@ -3,6 +3,7 @@
 namespace App\Livewire\Atc\Ticket;
 
 use App\Models\Area;
+use App\Models\EstadoTicket;
 use App\Models\Ticket;
 use App\Models\TicketDerivado;
 use App\Models\TicketHistorial;
@@ -13,7 +14,7 @@ use Livewire\Component;
 #[Layout('layouts.admin.layout-admin')]
 class TicketDerivadoLivewire extends Component
 {
-    public Ticket $ticket;
+    public $ticket;
 
     public $areas;
     public $usuarios = [];
@@ -22,8 +23,10 @@ class TicketDerivadoLivewire extends Component
     public $usuario_recibe_id;
     public $motivo;
 
+    // MAPAS para evitar consultas SQL
     public $mapAreas = [];
     public $mapUsuarios = [];
+    public $mapEstados = [];
 
     public $derivaciones = [];
     public $historial = [];
@@ -48,13 +51,13 @@ class TicketDerivadoLivewire extends Component
 
     protected function valorLegible($campo, $valor)
     {
-        if (!$valor) return 'Ninguno';
+        if (!$valor) return 'Sin asignar';
 
         return match ($campo) {
-            'area_id'               => Area::find($valor)->nombre ?? $valor,
-            'usuario_asignado_id'   => User::find($valor)->name ?? $valor,
-            'estado_ticket_id'      => EstadoTicket::find($valor)->nombre ?? $valor,
-            default                 => $valor
+            'area_id'             => $this->mapAreas[$valor] ?? $valor,
+            'usuario_asignado_id' => $this->mapUsuarios[$valor] ?? $valor,
+            'estado_ticket_id'    => $this->mapEstados[$valor] ?? $valor,
+            default               => $valor
         };
     }
 
@@ -63,8 +66,10 @@ class TicketDerivadoLivewire extends Component
         $this->ticket = Ticket::findOrFail($id);
 
         $this->areas = Area::all();
-
         $this->mapAreas = $this->areas->pluck('nombre', 'id')->toArray();
+
+        $estados = EstadoTicket::all();
+        $this->mapEstados = $estados->pluck('nombre', 'id')->toArray();
 
         $this->derivaciones = $this->ticket->derivados()->latest()->get();
         $this->historial = $this->ticket->historial()->latest()->get();
@@ -73,6 +78,7 @@ class TicketDerivadoLivewire extends Component
     public function updatedAAreaId($value)
     {
         $area = Area::find($value);
+
         $this->usuarios = $area
             ? $area->usuarios()->where('activo', true)->get()
             : [];
@@ -84,10 +90,10 @@ class TicketDerivadoLivewire extends Component
     {
         $this->validate();
 
+        $old = $this->ticket->toArray();
         $deAreaId = $this->ticket->area_id;
 
-        $old = $this->ticket->toArray();
-
+        // REGISTRO DE DERIVACIÓN
         TicketDerivado::create([
             'ticket_id'         => $this->ticket->id,
             'de_area_id'        => $deAreaId,
@@ -97,6 +103,7 @@ class TicketDerivadoLivewire extends Component
             'motivo'            => $this->motivo,
         ]);
 
+        // ACTUALIZAR TICKET
         $this->ticket->update([
             'area_id'             => $this->a_area_id,
             'usuario_asignado_id' => $this->usuario_recibe_id,
@@ -104,17 +111,18 @@ class TicketDerivadoLivewire extends Component
 
         $new = $this->ticket->fresh()->toArray();
 
+        // DETECTAR CAMBIOS
         $cambios = [];
         $ignorar = ['id', 'created_at', 'updated_at', 'deleted_at'];
 
         foreach ($new as $campo => $valorNuevo) {
-            if (in_array($campo, $ignorar)) {
-                continue;
-            }
+
+            if (in_array($campo, $ignorar)) continue;
 
             $valorViejo = $old[$campo] ?? null;
 
             if ($valorNuevo != $valorViejo) {
+
                 $nombreCampo = $this->nombreCampo($campo);
                 $viejo = $this->valorLegible($campo, $valorViejo);
                 $nuevo = $this->valorLegible($campo, $valorNuevo);
@@ -123,10 +131,11 @@ class TicketDerivadoLivewire extends Component
             }
         }
 
-        if (!empty($this->motivo)) {
-            $cambios[] = "Motivo: " . $this->motivo;
+        if ($this->motivo) {
+            $cambios[] = "Motivo: {$this->motivo}";
         }
 
+        // GUARDAR HISTORIAL
         TicketHistorial::create([
             'ticket_id' => $this->ticket->id,
             'user_id'   => auth()->id(),
@@ -134,9 +143,11 @@ class TicketDerivadoLivewire extends Component
             'detalle'   => implode(" | ", $cambios),
         ]);
 
+        // RECARGAR LISTAS
         $this->historial = $this->ticket->historial()->latest()->get();
         $this->derivaciones = $this->ticket->derivados()->latest()->get();
 
+        // RESETEAR FORM
         $this->a_area_id = null;
         $this->usuario_recibe_id = null;
         $this->motivo = null;

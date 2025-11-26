@@ -33,66 +33,25 @@
 
                     <div class="g_fila">
                         <div class="g_margin_bottom_10 g_columna_4">
-                            <label for="area_id">
-                                Area <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
-                            </label>
-                            <select id="area_id" wire:model.live="area_id" required>
-                                <option value="" selected disabled>Seleccionar un area</option>
-                                @foreach ($areas as $area)
-                                <option value="{{ $area->id }}">{{ $area->nombre }}</option>
-                                @endforeach
-                            </select>
-                            @error('area_id')
-                            <p class="mensaje_error">{{ $message }}</p>
-                            @enderror
+                            <label>Área origen</label>
+                            <input type="text" disabled value="{{ $ticket->area->nombre ?? 'Sin asignar' }}">
                         </div>
 
                         <div class="g_margin_bottom_10 g_columna_4">
-                            <label for="tipo_solicitud_id">
-                                Tipo solicitud <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
-                            </label>
-                            <select id="tipo_solicitud_id" wire:model.live="tipo_solicitud_id" required>
-                                <option value="" selected disabled>Seleccionar un area</option>
-                                @foreach ($tipos_solicitudes as $tipo)
-                                <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
-                                @endforeach
-                            </select>
-                            @error('tipo_solicitud_id')
-                            <p class="mensaje_error">{{ $message }}</p>
-                            @enderror
+                            <label>Tipo solicitud</label>
+                            <input type="text" disabled value="{{ $ticket->tipoSolicitud->nombre ?? 'Sin asignar' }}">
                         </div>
 
                         <div class="g_margin_bottom_10 g_columna_4">
-                            <label for="canal_id">Canal <span class="obligatorio"><i
-                                        class="fa-solid fa-asterisk"></i></span></label>
-                            <select id="canal_id" name="canal_id" wire:model.live="canal_id" required>
-                                <option value="" selected disabled>Seleccionar un canal</option>
-                                @if ($canales)
-                                @foreach ($canales as $canal)
-                                <option value="{{ $canal->id }}">{{ $canal->nombre }}</option>
-                                @endforeach
-                                @endif
-                            </select>
-                            @error('canal_id')
-                            <p class="mensaje_error">{{ $message }}</p>
-                            @enderror
+                            <label>Canal</label>
+                            <input type="text" disabled value="{{ $ticket->canal->nombre ?? 'Sin asignar' }}">
                         </div>
                     </div>
 
                     <div class="g_fila">
                         <div class="g_margin_bottom_10 g_columna_4">
-                            <label for="cliente_id">
-                                Cliente <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
-                            </label>
-                            <select id="cliente_id" wire:model.live="cliente_id" required>
-                                <option value="" selected disabled>Seleccionar un cliente</option>
-                                @foreach ($clientes as $cliente)
-                                <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
-                                @endforeach
-                            </select>
-                            @error('cliente_id')
-                            <p class="mensaje_error">{{ $message }}</p>
-                            @enderror
+                            <label>Cliente</label>
+                            <input type="text" disabled value="{{ $ticket->cliente->name ?? 'Sin asignar' }}">
                         </div>
 
                         <div class="g_margin_bottom_10 g_columna_4">
@@ -114,18 +73,13 @@
                             <label for="usuario_asignado_id">
                                 Asignado <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
                             </label>
-                            <select id="usuario_asignado_id" wire:model.live="usuario_asignado_id" required>
-                                <option value="" selected disabled>Seleccionar un asignado</option>
-                                @foreach ($usuarios as $usuario)
-                                <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('usuario_asignado_id')
-                            <p class="mensaje_error">{{ $message }}</p>
-                            @enderror
+                            <input type="text" disabled value="{{ $ticket->asignado->name ?? 'Sin asignar' }}">
                         </div>
                     </div>
+                </div>
 
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Detalle</h4>
                     <div class="g_fila">
                         <div class="g_columna_12">
                             <label for="asunto">Asunto <span class="obligatorio"><i
