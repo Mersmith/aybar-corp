@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         for ($i = 1; $i <= 5; $i++) {
-            User::create([
+            User::factory()->create([
                 'name' => "Admin $i",
                 'email' => "admin$i@example.com",
                 'password' => Hash::make('123456'),

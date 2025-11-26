@@ -21,6 +21,7 @@ use App\Livewire\Atc\Canal\CanalEditarLivewire;
 use App\Livewire\Atc\Ticket\TicketTodoLivewire;
 use App\Livewire\Atc\Ticket\TicketCrearLivewire;
 use App\Livewire\Atc\Ticket\TicketEditarLivewire;
+use App\Livewire\Atc\Ticket\TicketDerivadoLivewire;
 
 use Illuminate\Support\Facades\Route;
 
@@ -54,4 +55,5 @@ Route::prefix('ticket')->name('ticket.vista.')->group(function () {
     Route::get('/', TicketTodoLivewire::class)->name('todo');
     Route::get('/crear', TicketCrearLivewire::class)->name('crear');
     Route::get('/editar/{id}', TicketEditarLivewire::class)->name('editar');
+    Route::get('/derivado/{id}', TicketDerivadoLivewire::class)->name('derivado');
 });

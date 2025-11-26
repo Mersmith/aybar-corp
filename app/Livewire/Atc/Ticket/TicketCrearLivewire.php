@@ -20,7 +20,7 @@ class TicketCrearLivewire extends Component
     public $canales, $canal_id = "";
     public $clientes, $cliente_id = "";
     public $estados, $estado_ticket_id = "";
-    public $usuarios, $usuario_asignado_id = "";
+    public $usuarios = [], $usuario_asignado_id = "";
 
     public $asunto;
     public $descripcion;
@@ -45,7 +45,7 @@ class TicketCrearLivewire extends Component
         $this->areas = Area::all();
         $this->canales = Canal::all();
         $this->estados = EstadoTicket::all();
-        $this->usuarios = User::where('role', 'admin')->get();
+        //$this->usuarios = User::where('role', 'admin')->get();
     }
 
     public function updatedAreaId($value)
@@ -53,8 +53,10 @@ class TicketCrearLivewire extends Component
         $area = Area::find($value);
 
         $this->tipos_solicitudes = $area ? $area->tipos()->where('activo', true)->get() : [];
+        $this->usuarios = $area ? $area->usuarios()->where('activo', true)->get() : [];
 
         $this->tipo_solicitud_id = "";
+        $this->usuario_asignado_id = "";
     }
 
     public function store()

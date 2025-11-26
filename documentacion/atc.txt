@@ -60,3 +60,4 @@ php artisan make:livewire Atc/Canal/CanalEditarLivewire
 php artisan make:livewire Atc/Ticket/TicketTodoLivewire
 php artisan make:livewire Atc/Ticket/TicketCrearLivewire
 php artisan make:livewire Atc/Ticket/TicketEditarLivewire
+php artisan make:livewire Atc/Ticket/TicketDerivadoLivewire
