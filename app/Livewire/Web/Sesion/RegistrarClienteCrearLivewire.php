@@ -7,10 +7,14 @@ use Livewire\Component;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 #[Layout('layouts.web.layout-web')]
 class RegistrarClienteCrearLivewire extends Component
 {
+    public $dni;
+    public $cliente_encontrado = null;
+
     public $email;
     public $password;
     public $password_confirmation;
@@ -20,19 +24,45 @@ class RegistrarClienteCrearLivewire extends Component
         'password' => 'required|min:6|confirmed',
     ];
 
+    public function buscarCliente()
+    {
+        $this->cliente_encontrado = null;
+
+        if (!$this->dni) {
+            session()->flash('error', 'Debe ingresar un DNI.');
+            return;
+        }
+
+        $response = Http::get("https://aybarcorp.com/slin/cliente/{$this->dni}");
+
+        if ($response->failed() || empty($response->json())) {
+            session()->flash('error', 'No se encontró un cliente con este DNI.');
+            return;
+        }
+
+        session()->flash('status', 'Ahora si puede crear');
+
+        $this->cliente_encontrado = $response->json();
+    }
+
     public function registrar()
     {
+        if (!$this->cliente_encontrado) {
+            session()->flash('error', 'Debe validar su DNI antes de registrarse.');
+            return;
+        }
+
         $this->validate();
 
         $user = User::create([
-            'name' => $this->email,
+            'name' => $this->cliente_encontrado['nombre'] ?? $this->email,
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'role' => 'cliente',
+            'dni' => $this->dni,
         ]);
 
         Auth::login($user);
-
         $user->sendEmailVerificationNotification();
 
         return redirect()->route('verification.notice');
