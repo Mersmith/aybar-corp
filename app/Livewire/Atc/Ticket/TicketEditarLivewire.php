@@ -129,6 +129,15 @@ class TicketEditarLivewire extends Component
             'extension'       => $extension,
         ]);
 
+        TicketHistorial::create([
+            'ticket_id' => $this->ticket->id,
+            'user_id'   => auth()->id(),
+            'accion'    => 'Adjuntar archivo',
+            'detalle'   => "Se adjuntó el archivo '{$this->descripcion_archivo}' con extensión {$extension}",
+        ]);
+
+        $this->historial = $this->ticket->historial()->latest()->get();
+
         $this->reset(['archivo', 'descripcion_archivo']);
 
         $this->archivos_existentes = $this->ticket->archivos()->get();
@@ -159,11 +168,52 @@ class TicketEditarLivewire extends Component
 
         $archivo->delete();
 
+        TicketHistorial::create([
+            'ticket_id' => $this->ticket->id,
+            'user_id'   => auth()->id(),
+            'accion'    => 'Eliminar archivo',
+            'detalle'   => "Se eliminó el archivo '{$archivo->descripcion}' con extensión {$archivo->extension}",
+        ]);
+
+        $this->historial = $this->ticket->historial()->latest()->get();
+
         $this->archivos_existentes = $this->ticket->archivos()->get();
 
         $this->dispatch('alertaLivewire', 'Eliminado');
     }
 
+    #[On('eliminarTicketOn')]
+    public function eliminarTicketOn()
+    {
+        $ticket = $this->ticket->fresh();
+
+        if ($ticket->estado_ticket_id != 1) {
+            $this->dispatch('alertaLivewire', 'Solo se pueden eliminar tickets en estado ABIERTO.');
+            return;
+        }
+
+        if ($ticket->derivados()->count() > 0) {
+            $this->dispatch('alertaLivewire', 'Este ticket tiene derivaciones. No se puede eliminar.');
+            return;
+        }
+
+        if ($ticket->archivos()->count() > 0) {
+            $this->dispatch('alertaLivewire', 'Este ticket tiene archivos adjuntos. Primero elimínalos.');
+            return;
+        }
+
+
+        TicketHistorial::create([
+            'ticket_id' => $ticket->id,
+            'user_id'   => auth()->id(),
+            'accion'    => 'Eliminar ticket',
+            'detalle'   => "Se eliminó el ticket con asunto '{$ticket->asunto}'",
+        ]);
+
+        $ticket->delete();
+
+        return redirect()->route('admin.ticket.vista.todo');
+    }
 
     public function render()
     {

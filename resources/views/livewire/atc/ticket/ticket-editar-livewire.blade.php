@@ -14,6 +14,10 @@
             <a href="{{ route('admin.ticket.vista.crear') }}" class="g_boton g_boton_primary">
                 Crear <i class="fa-solid fa-square-plus"></i></a>
 
+            <button type="button" class="g_boton g_boton_danger" onclick="alertaEliminarTicket()">
+                Eliminar <i class="fa-solid fa-trash-can"></i>
+            </button>
+
             <a href="{{ route('admin.ticket.vista.derivado', $ticket->id) }}" class="g_boton g_boton_warning">
                 Derivar <i class="fa-solid fa-arrow-right-arrow-left"></i></a>
 
@@ -246,6 +250,29 @@
         </div>
     </div>
     <script>
+        function alertaEliminarTicket() {
+            Swal.fire({
+                title: '¿Quieres eliminar?',
+                text: "No podrás recuperarlo.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí, eliminar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('eliminarTicketOn');
+
+                    Swal.fire(
+                        '¡Eliminado!',
+                        'Eliminaste correctamente.',
+                        'success'
+                    )
+                }
+            });
+        }
+
         function alertaEliminarArchivo(idArchivo) {
             console.log(idArchivo);
             Swal.fire({
