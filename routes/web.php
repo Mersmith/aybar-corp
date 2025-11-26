@@ -18,7 +18,11 @@ use App\Http\Controllers\SlinController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [InicioController::class, 'index'])->name('home'); //pagina personalizada //ok
-Route::get('/test-slin', [SlinController::class, 'probarSlin']);
+
+Route::get('/test-slin/cliente', [SlinController::class, 'probarCliente']);
+Route::get('/test-slin/lotes', [SlinController::class, 'probarLotes']);
+Route::get('/test-slin/cuotas', [SlinController::class, 'probarCuotas']);
+
 Route::get('/ingresar', [LoginController::class, 'indexIngresarCliente'])->name('ingresar.cliente');
 Route::post('/ingresar', [LoginController::class, 'ingresarCliente'])->name('ingresar.cliente');
 Route::post('/logout', [LoginController::class, 'logoutCliente'])->name('logout.cliente');
