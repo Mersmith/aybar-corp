@@ -197,7 +197,8 @@
                                             <a href="{{ $file->url }}" class="g_accion_editar">
                                                 <span><i class="fa-solid fa-eye"></i></span>
                                             </a>
-                                            <button wire:click="eliminarArchivo({{ $file->id }})" class="g_desactivado">
+                                            <button onclick="alertaEliminarArchivo({{ $file->id }})"
+                                                class="g_desactivado">
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
                                         </td>
@@ -244,5 +245,29 @@
             </div>
         </div>
     </div>
+    <script>
+        function alertaEliminarArchivo(idArchivo) {
+            console.log(idArchivo);
+            Swal.fire({
+                title: '¿Quieres eliminar?',
+                text: "No podrás recuperarlo.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí, eliminar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('eliminarArchivoOn', { id: idArchivo });
 
+                    Swal.fire(
+                        '¡Eliminado!',
+                        'Eliminaste correctamente.',
+                        'success'
+                    )
+                }
+            });
+        }
+    </script>
 </div>

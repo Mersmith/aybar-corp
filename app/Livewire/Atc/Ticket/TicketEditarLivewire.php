@@ -9,6 +9,7 @@ use App\Models\TicketHistorial;
 use Livewire\Attributes\Layout;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 #[Layout('layouts.admin.layout-admin')]
@@ -142,7 +143,8 @@ class TicketEditarLivewire extends Component
         $this->resetValidation();
     }
 
-    public function eliminarArchivo($id)
+    #[On('eliminarArchivoOn')]
+    public function eliminarArchivoOn($id)
     {
         $archivo = Archivo::find($id);
 
