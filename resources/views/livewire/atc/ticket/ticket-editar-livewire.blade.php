@@ -101,24 +101,107 @@
                             @enderror
                         </div>
                     </div>
+
+                    <div class="g_margin_top_20">
+                        <div class="formulario_botones">
+                            <button wire:click="store" class="guardar" wire:loading.attr="disabled" wire:target="store">
+                                <span wire:loading.remove wire:target="store">Actualizar</span>
+                                <span wire:loading wire:target="store">Actualizando...</span>
+                            </button>
+
+                            <a href="{{ route('admin.ticket.vista.todo') }}" class="cancelar">Cancelar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- DERECHA -->
             <div class="g_columna_4 g_gap_pagina g_columna_invertir">
                 <div class="g_panel">
+                    <div class="">
+                        <input type="file" id="fileUpload" wire:model="archivo" accept=".docx,.xlsx,.pptx,.pdf"
+                            style="display: none;">
+
+                        <div class="contenedor_dropzone" onclick="document.getElementById('fileUpload').click()">
+                            @if ($archivo)
+                            <div class="dropzone_item">
+                                @php
+                                $ext = strtolower($archivo->getClientOriginalExtension());
+                                $icons = [
+                                'pdf' => 'fa-file-pdf text-red-600',
+                                'docx' => 'fa-file-word text-blue-600',
+                                'xlsx' => 'fa-file-excel text-green-600',
+                                'pptx' => 'fa-file-powerpoint text-orange-500',
+                                ];
+                                @endphp
+
+                                <i class="fa-solid {{ $icons[$ext] ?? 'fa-file text-gray-500' }}"></i>
+                                <span>{{ $archivo->getClientOriginalName() }}</span>
+
+                                <button type="button" wire:click="$set('archivo', null)" class="remove_button">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                            @else
+                            <div class="g_vacio">
+                                <p>Haz clic para subir archivo</p>
+                            </div>
+                            @endif
+                        </div>
+
+                        @error('archivo') <p class="mensaje_error">{{ $message }}</p> @enderror
+                    </div>
+
+                    @if ($archivo)
+                    <div class="g_margin_top_20">
+                        <label>Descripción</label>
+                        <textarea wire:model="descripcion_archivo" class="g_input"></textarea>
+                        @error('descripcion_archivo') <p class="mensaje_error">{{ $message }}</p> @enderror
+                    </div>
+
+                    <div class="formulario_botones g_margin_top_20">
+                        <button wire:click="adjuntar" class="guardar" wire:loading.attr="disabled"
+                            wire:target="adjuntar">
+                            <span wire:loading.remove wire:target="adjuntar">Adjuntar</span>
+                            <span wire:loading wire:target="adjuntar">Adjuntando...</span>
+                        </button>
+                    </div>
+                    @endif
                 </div>
-            </div>
-        </div>
 
-        <div class="g_margin_top_20">
-            <div class="formulario_botones">
-                <button wire:click="store" class="guardar" wire:loading.attr="disabled" wire:target="store">
-                    <span wire:loading.remove wire:target="store">Actualizar</span>
-                    <span wire:loading wire:target="store">Actualizando...</span>
-                </button>
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Adjuntos</h4>
 
-                <a href="{{ route('admin.ticket.vista.todo') }}" class="cancelar">Cancelar</a>
+                    <div class="tabla_contenido">
+                        <div class="contenedor_tabla">
+                            <table class="tabla">
+                                <thead>
+                                    <tr>
+                                        <th>Descripcion</th>
+                                        <th>Ext.</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($archivos_existentes as $file)
+                                    <tr>
+                                        <td>{{ $file->descripcion }}</td>
+                                        <td>{{ $file->extension }}</td>
+                                        <td class="centrar_iconos">
+                                            <a href="{{ $file->url }}" class="g_accion_editar">
+                                                <span><i class="fa-solid fa-eye"></i></span>
+                                            </a>
+                                            <button wire:click="eliminarArchivo({{ $file->id }})" class="g_desactivado">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -11,5 +11,18 @@ class Archivo extends Model
     /** @use HasFactory<\Database\Factories\ArchivoFactory> */
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['path', 'url', 'titulo', 'descripcion', 'extension'];
+    protected $fillable = [
+        'archivable_id',
+        'archivable_type',
+        'path',
+        'url',
+        'titulo',
+        'descripcion',
+        'extension'
+    ];
+
+    public function archivable()
+    {
+        return $this->morphTo();
+    }
 }

@@ -16,8 +16,8 @@
 }
 
 .dropzone_item {
-    width: 100px;
-    height: 100px;
+    /*width: 100px;
+    height: 100px;*/
     margin: 10px;
     position: relative;
 }
@@ -105,14 +105,12 @@
 }
 
 .imagene_seleccionada {
-    border: 2px solid #635BFF !important;
+    border: 2px solid #635bff !important;
 }
 
 @media (max-width: 700px) {
-
     .grid_instagram {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         grid-gap: 10px;
     }
-
 }

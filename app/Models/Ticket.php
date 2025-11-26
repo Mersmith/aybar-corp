@@ -66,4 +66,9 @@ class Ticket extends Model
     {
         return $this->hasMany(TicketMensaje::class);
     }
+
+    public function archivos()
+    {
+        return $this->morphMany(Archivo::class, 'archivable');
+    }
 }

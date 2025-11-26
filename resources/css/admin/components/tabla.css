@@ -65,6 +65,11 @@
     gap: 10px;
 }*/
 
+.centrar_iconos a,
+.centrar_iconos button {
+    cursor: pointer;
+}
+
 /*TABLA PARA ELIMINARD*/
 .tabla_eliminar {
     width: 100%;

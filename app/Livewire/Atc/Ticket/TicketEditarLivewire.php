@@ -3,14 +3,23 @@
 namespace App\Livewire\Atc\Ticket;
 
 use App\Models\EstadoTicket;
+use App\Models\Archivo;
 use App\Models\Ticket;
 use App\Models\TicketHistorial;
 use Livewire\Attributes\Layout;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 #[Layout('layouts.admin.layout-admin')]
 class TicketEditarLivewire extends Component
 {
+    use WithFileUploads;
+
+    public $archivo;
+    public $descripcion_archivo;
+    public $archivos_existentes = [];
+
     public $ticket;
 
     public $asunto;
@@ -21,6 +30,11 @@ class TicketEditarLivewire extends Component
     public $historial = [];
 
     public $mapEstados = [];
+
+    protected $rules = [
+        'archivo' => 'required|file|max:51200|mimes:pdf,docx,xlsx,pptx',
+        'descripcion_archivo' => 'nullable|string|max:2000',
+    ];
 
     public function mount($id)
     {
@@ -34,6 +48,7 @@ class TicketEditarLivewire extends Component
         $this->descripcion      = $this->ticket->descripcion;
 
         $this->historial = $this->ticket->historial()->latest()->get();
+        $this->archivos_existentes = $this->ticket->archivos()->get();
     }
 
     public function store()
@@ -95,6 +110,29 @@ class TicketEditarLivewire extends Component
             'estado_ticket_id' => $this->mapEstados[$valor] ?? $valor,
             default            => $valor
         };
+    }
+
+    public function adjuntar()
+    {
+        $this->validate();
+
+        $ruta = $this->archivo->store('archivos', 'public');
+        $extension = $this->archivo->getClientOriginalExtension();
+
+        Archivo::create([
+            'archivable_type' => Ticket::class,
+            'archivable_id'   => $this->ticket->id,
+            'descripcion'     => $this->descripcion_archivo,
+            'path'            => $ruta,
+            'url'             => Storage::url($ruta),
+            'extension'       => $extension,
+        ]);
+
+        $this->reset(['archivo', 'descripcion_archivo']);
+
+        $this->archivos_existentes = $this->ticket->archivos()->get();
+
+        $this->dispatch('alertaLivewire', 'Creado');
     }
 
     public function render()
