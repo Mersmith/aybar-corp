@@ -1,0 +1,4 @@
+php artisan make:livewire Web/OpenAi/ProcesarImagenLivewire
+
+php artisan make:livewire Web/Sesion/RegistrarClienteCrearLivewire
+php artisan make:livewire Web/Sesion/RegistrarSocioCrearLivewire
