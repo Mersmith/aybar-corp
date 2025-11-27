@@ -23,7 +23,7 @@
     @if ($lote_select)
         <div class="r_gap_pagina_fila">
             <button wire:click="cerrarCronograma" class="boton_personalizado boton_personalizado_verde">Cerrar</button>
-            <button class="boton_personalizado boton_personalizado_amarillo">PDF</button>
+            <button wire:click="descargarPDF" class="boton_personalizado boton_personalizado_amarillo">PDF</button>
         </div>
 
         @livewire('cliente.cronograma.cronograma-ver-livewire', ['lote' => $lote_select, 'cronograma' => $cronograma], key($lote_select['id_recaudo']))

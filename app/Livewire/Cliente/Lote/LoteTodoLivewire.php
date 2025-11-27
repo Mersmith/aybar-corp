@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Cliente\Lote;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Livewire\Component;
@@ -94,6 +95,24 @@ class LoteTodoLivewire extends Component
     {
         $this->lote_select = null;
         //$this->cronograma = [];
+    }
+
+    public function descargarPDF()
+    {
+        if (!$this->lote_select || empty($this->cronograma)) {
+            session()->flash('error', 'Debe seleccionar un lote antes de descargar.');
+            return;
+        }
+
+        $pdf = Pdf::loadView('pdf.cronograma', [
+            'lote' => $this->lote_select,
+            'cronograma' => $this->cronograma,
+        ]);
+
+        return response()->streamDownload(
+            fn() => print($pdf->output()),
+            'cronograma-' . $this->lote_select['id_recaudo'] . '.pdf'
+        );
     }
 
     public function render()
