@@ -14,10 +14,8 @@ class LoteTodoLivewire extends Component
     public $razon_social_id = "";
     public $razon_social_select;
 
-    public $cliente_lotes = null;
-
-    public $lotes = [];
-    public $lotes_originales = [];
+    public $lotes = null;
+    public $lote_select = null;
 
     public function mount()
     {
@@ -36,7 +34,7 @@ class LoteTodoLivewire extends Component
     {
         if (empty($value)) {
             $this->razon_social_select = null;
-            $this->cliente_lotes = null;
+            $this->lotes = null;
             return;
         }
 
@@ -44,7 +42,7 @@ class LoteTodoLivewire extends Component
             ->firstWhere('id_empresa', $value);
 
         if (!$this->razon_social_select) {
-            $this->cliente_lotes = null;
+            $this->lotes = null;
             return;
         }
 
@@ -56,12 +54,20 @@ class LoteTodoLivewire extends Component
         $response = Http::get("https://aybarcorp.com/slin/lotes", $params);
 
         if ($response->failed() || empty($response->json())) {
-            $this->cliente_lotes = [];
+            $this->lotes = [];
             session()->flash('error', 'Intentelo más tarde, por favor.');
             return;
         }
 
-        $this->cliente_lotes = $response->json();
+        $this->lotes = $response->json();
+
+        $this->lote_select = null;
+    }
+
+    public function seleccionarLote($lote)
+    {
+        $this->lote_select = $lote;
+
     }
 
     public function render()

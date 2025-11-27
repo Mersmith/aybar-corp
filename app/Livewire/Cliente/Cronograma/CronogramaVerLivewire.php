@@ -6,11 +6,11 @@ use Livewire\Component;
 
 class CronogramaVerLivewire extends Component
 {
-    public function mount($id)
+    public $lote;
+
+    public function mount($lote)
     {
-        if (!$id) {
-            abort(404);
-        }
+        $this->lote = $lote;
     }
 
     public function render()
