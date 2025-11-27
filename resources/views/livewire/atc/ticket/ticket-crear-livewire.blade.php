@@ -18,7 +18,7 @@
     </div>
 
     <!-- FORMULARIO -->
-    <form wire:submit.prevent="store" class="formulario">
+    <div class="formulario">
         <div class="g_fila">
             <!-- IZQUIERDA -->
             <div class="g_columna_8 g_gap_pagina">
@@ -33,11 +33,11 @@
                             <select id="area_id" wire:model.live="area_id" required>
                                 <option value="" selected disabled>Seleccionar un area</option>
                                 @foreach ($areas as $area)
-                                <option value="{{ $area->id }}">{{ $area->nombre }}</option>
+                                    <option value="{{ $area->id }}">{{ $area->nombre }}</option>
                                 @endforeach
                             </select>
                             @error('area_id')
-                            <p class="mensaje_error">{{ $message }}</p>
+                                <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -48,11 +48,11 @@
                             <select id="tipo_solicitud_id" wire:model.live="tipo_solicitud_id" required>
                                 <option value="" selected disabled>Seleccionar un area</option>
                                 @foreach ($tipos_solicitudes as $tipo)
-                                <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
+                                    <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
                                 @endforeach
                             </select>
                             @error('tipo_solicitud_id')
-                            <p class="mensaje_error">{{ $message }}</p>
+                                <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -62,13 +62,13 @@
                             <select id="canal_id" name="canal_id" wire:model.live="canal_id" required>
                                 <option value="" selected disabled>Seleccionar un canal</option>
                                 @if ($canales)
-                                @foreach ($canales as $canal)
-                                <option value="{{ $canal->id }}">{{ $canal->nombre }}</option>
-                                @endforeach
+                                    @foreach ($canales as $canal)
+                                        <option value="{{ $canal->id }}">{{ $canal->nombre }}</option>
+                                    @endforeach
                                 @endif
                             </select>
                             @error('canal_id')
-                            <p class="mensaje_error">{{ $message }}</p>
+                                <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -81,11 +81,11 @@
                             <select id="cliente_id" wire:model.live="cliente_id" required>
                                 <option value="" selected disabled>Seleccionar un cliente</option>
                                 @foreach ($clientes as $cliente)
-                                <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                                    <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
                                 @endforeach
                             </select>
                             @error('cliente_id')
-                            <p class="mensaje_error">{{ $message }}</p>
+                                <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -101,11 +101,11 @@
                             <select id="usuario_asignado_id" wire:model.live="usuario_asignado_id" required>
                                 <option value="" selected disabled>Seleccionar un asignado</option>
                                 @foreach ($usuarios as $usuario)
-                                <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
+                                    <option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
                                 @endforeach
                             </select>
                             @error('usuario_asignado_id')
-                            <p class="mensaje_error">{{ $message }}</p>
+                                <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -116,7 +116,7 @@
                                         class="fa-solid fa-asterisk"></i></span></label>
                             <textarea id="asunto" wire:model.live="asunto" rows="2"></textarea>
                             @error('asunto')
-                            <p class="mensaje_error">{{ $message }}</p>
+                                <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                                         class="fa-solid fa-asterisk"></i></span></label>
                             <textarea id="descripcion" wire:model.live="descripcion" rows="5"></textarea>
                             @error('descripcion')
-                            <p class="mensaje_error">{{ $message }}</p>
+                                <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -137,13 +137,57 @@
             <!-- DERECHA -->
             <div class="g_columna_4 g_gap_pagina g_columna_invertir">
                 <div class="g_panel">
+                    <h4 class="g_panel_titulo">Cliente</h4>
+
+                    <div class="g_margin_bottom_10">
+                        <label for="dni">DNI/CE/RUC <span class="obligatorio"><i
+                                    class="fa-solid fa-asterisk"></i></span></label>
+                        <input type="text" id="dni" wire:model.live="dni"
+                            x-on:input="$el.value = $el.value.replace(/[^0-9]/g, '')" required>
+                    </div>
+
+                    <div class="formulario_botones">
+                        <button wire:click="buscarCliente" class="guardar" wire:loading.attr="disabled"
+                            wire:target="buscarCliente">
+                            <span wire:loading.remove wire:target="buscarCliente">Buscar</span>
+                            <span wire:loading wire:target="buscarCliente">Buscando...</span>
+                        </button>
+                    </div>
                 </div>
+
+                @if ($cliente_encontrado)
+                    <div class="g_panel">
+                        <h4 class="g_panel_titulo">Razón social</h4>
+                        <select wire:model.live="razon_social_id" id="razon_social_id" name="razon_social_id">
+                            <option value="">Todos</option>
+                            @foreach ($razones_sociales as $empresa)
+                                <option value="{{ $empresa['id_empresa'] }}">
+                                    {{ $empresa['razon_social'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    @if (is_array($lotes) && !empty($lotes))
+                        <div class="g_panel">
+                            <h4 class="g_panel_titulo">Lotes</h4>
+                            <select id="razon_social_id" name="razon_social_id">
+                                <option value="">Todos</option>
+                                @foreach ($lotes as $lote)
+                                    <option value="{{ $lote['id_empresa'] }}">
+                                        {{ $lote['id_manzana'] }} - {{ $lote['id_lote'] }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    @endif
+                @endif
             </div>
         </div>
 
         <div class="g_margin_top_20">
             <div class="formulario_botones">
-                <button type="submit" class="guardar" wire:loading.attr="disabled" wire:target="store">
+                <button wire:click="store" class="guardar" wire:loading.attr="disabled" wire:target="store">
                     <span wire:loading.remove wire:target="store">Crear</span>
                     <span wire:loading wire:target="store">Guardando...</span>
                 </button>
@@ -151,5 +195,5 @@
                 <a href="{{ route('admin.ticket.vista.todo') }}" class="cancelar">Cancelar</a>
             </div>
         </div>
-    </form>
+    </div>
 </div>
