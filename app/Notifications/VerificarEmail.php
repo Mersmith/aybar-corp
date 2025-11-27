@@ -3,11 +3,8 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Illuminate\Auth\Notifications\VerifyEmail;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\URL;
 
 class VerificarEmail extends Notification
@@ -52,10 +49,10 @@ class VerificarEmail extends Notification
         $url = $this->verificationUrl($notifiable);
         return (new MailMessage)
             ->subject('Confirma tu correo - Aybar Corp')
-            ->greeting('¡Hola ' . $notifiable->name . '!')
-            ->line('Gracias por registrarte. Para activar tu cuenta haz clic en el siguiente botón:')
-            ->action('Confirmar correo', $url)
-            ->line('Si no creaste esta cuenta, ignora este mensaje.');
+            ->view('emails.verificar-email', [
+                'user' => $notifiable,
+                'url' => $url,
+            ]);
     }
 
     /**

@@ -48,6 +48,7 @@ php artisan storage:link
 
 php artisan make:notification VerificarEmail
 php artisan vendor:publish --tag=laravel-notifications
+php artisan vendor:publish --tag=laravel-mail
 
 composer require laravel-lang/lang --dev
 php artisan lang:add es

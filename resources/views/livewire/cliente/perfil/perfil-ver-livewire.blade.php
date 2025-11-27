@@ -48,16 +48,17 @@
             <div class="r_fila">
                 <div class="form_grupo r_columna_4">
                     <label for="dni">DNI</label>
-                    <input type="text" wire:model="dni" name="dni" id="dni" autocomplete="off">
+                    <input type="text" wire:model="dni" name="dni" id="dni" autocomplete="off" readonly
+                    disabled>
                     @error('dni')
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <div class="form_grupo r_columna_4">
-                    <label for="celular">Celular</label>
-                    <input type="text" wire:model="celular" name="celular" id="celular" autocomplete="tel">
-                    @error('celular')
+                    <label for="telefono_principal">Celular</label>
+                    <input type="text" wire:model="telefono_principal" name="telefono_principal" id="telefono_principal" autocomplete="tel">
+                    @error('telefono_principal')
                         <span class="error">{{ $message }}</span>
                     @enderror
                 </div>

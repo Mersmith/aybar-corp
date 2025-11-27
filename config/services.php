@@ -12,7 +12,7 @@ return [
     | location for this type of information, allowing packages to have
     | a conventional file to locate the various service credentials.
     |
-    */
+     */
 
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
@@ -44,7 +44,31 @@ return [
     'slin' => [
         'user' => env('SLIN_USER'),
         'pass' => env('SLIN_PASS'),
-        'url'  => env('SLIN_URL'),
+        'url' => env('SLIN_URL'),
+    ],
+
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => env('GITHUB_REDIRECT_URL'),
+    ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URL'),
+    ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT_URL'),
+    ],
+
+    'whatsapp' => [
+        'tocken' => env('WHATSAPP_TOKEN'),
+        'phone' => env('WHATSAPP_PHONE_ID'),
+        'account_id' => env('WHATSAPP_BUSINESS_ACCOUNT_ID'),
     ],
 
 ];

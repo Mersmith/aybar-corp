@@ -2,12 +2,13 @@
 
 namespace App\Livewire\Web\Sesion;
 
+use App\Models\Cliente;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 
 #[Layout('layouts.web.layout-web')]
 class RegistrarClienteCrearLivewire extends Component
@@ -40,7 +41,7 @@ class RegistrarClienteCrearLivewire extends Component
             return;
         }
 
-        session()->flash('status', 'Ahora si puede crear');
+        session()->flash('status', 'Ahora si puede crear tu cuenta');
 
         $this->cliente_encontrado = $response->json();
     }
@@ -55,10 +56,15 @@ class RegistrarClienteCrearLivewire extends Component
         $this->validate();
 
         $user = User::create([
-            'name' => $this->cliente_encontrado['nombre'] ?? $this->email,
+            'name' => $this->cliente_encontrado['apellidos_nombres'] ?? $this->email,
             'email' => $this->email,
             'password' => Hash::make($this->password),
             'role' => 'cliente',
+        ]);
+
+        Cliente::create([
+            'user_id' => $user->id,
+            'email' => $user->email,
             'dni' => $this->dni,
         ]);
 

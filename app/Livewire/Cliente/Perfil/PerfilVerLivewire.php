@@ -13,7 +13,7 @@ class PerfilVerLivewire extends Component
     public $apellido_paterno;
     public $apellido_materno;
     public $dni;
-    public $celular;
+    public $telefono_principal;
     public $email;
 
     public $clave_actual;
@@ -28,7 +28,7 @@ class PerfilVerLivewire extends Component
         $this->apellido_paterno = $cliente->apellido_paterno;
         $this->apellido_materno = $cliente->apellido_materno;
         $this->dni = $cliente->dni;
-        $this->celular = $cliente->celular;
+        $this->telefono_principal = $cliente->telefono_principal;
         $this->email = $cliente->email;
     }
 
@@ -45,7 +45,7 @@ class PerfilVerLivewire extends Component
                 'size:8',
                 Rule::unique('clientes')->ignore(Auth::id(), 'user_id'),
             ],
-            'celular' => 'nullable|string|max:15',
+            'telefono_principal' => 'nullable|string|max:15',
         ];
 
         $messages = [
@@ -59,7 +59,7 @@ class PerfilVerLivewire extends Component
             'apellido_paterno' => 'apellido paterno',
             'apellido_materno' => 'apellido materno',
             'dni' => 'DNI',
-            'celular' => 'número de celular',
+            'telefono_principal' => 'número de celular',
         ];
 
         $validatedData = $this->validate($rules, $messages, $validationAttributes);
