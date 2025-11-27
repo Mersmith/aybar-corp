@@ -41,4 +41,30 @@
 
     </table>
 
+    <!-- TABLA DETALLE DsEL CRONOGRAMA -->
+    <table class="tabla_detalle">
+        <thead>
+            <tr>
+                <th>Nro</th>
+                <th>Fecha Venc.</th>
+                <th>Cuota</th>
+                <th>Mto. Amortizado</th>
+                <th>Saldo</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach ($cronograma as $item)
+                <tr>
+                    <td>{{ $item['cuota'] }}</td>
+                    <td>{{ $item['fec_vencimiento'] }}</td>
+                    <td>S/ {{ number_format($item['monto'], 2) }}</td>
+                    <td>S/ {{ number_format($item['amortizacion'], 2) }}</td>
+                    <td>S/ {{ number_format($item['saldo'], 2) }}</td>
+                    <td>{{ $item['estado'] }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>

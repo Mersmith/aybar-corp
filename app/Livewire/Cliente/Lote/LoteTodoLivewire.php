@@ -13,9 +13,11 @@ class LoteTodoLivewire extends Component
     public $razones_sociales = [];
     public $razon_social_id = "";
     public $razon_social_select;
-
+    
     public $lotes = null;
     public $lote_select = null;
+    
+    public $cronograma = [];
 
     public function mount()
     {
@@ -68,6 +70,24 @@ class LoteTodoLivewire extends Component
     {
         $this->lote_select = $lote;
 
+        $params = [
+            "id_empresa" => $this->lote_select['id_empresa'],
+            "id_cliente" => $this->lote_select['id_cliente'],
+            "id_proyecto" => $this->lote_select['id_proyecto'],
+            "id_etapa" => $this->lote_select['id_etapa'],
+            "id_manzana" => $this->lote_select['id_manzana'],
+            "id_lote" => $this->lote_select['id_lote'],
+        ];
+
+        $response = Http::get("https://aybarcorp.com/slin/cuotas", $params);
+
+        if ($response->failed() || empty($response->json())) {
+            $this->cronograma = [];
+            session()->flash('error', 'Intentelo más tarde, por favor.');
+            return;
+        }
+
+        $this->cronograma = $response->json();
     }
 
     public function render()

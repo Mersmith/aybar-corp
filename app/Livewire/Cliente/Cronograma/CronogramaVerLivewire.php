@@ -7,10 +7,12 @@ use Livewire\Component;
 class CronogramaVerLivewire extends Component
 {
     public $lote;
+    public $cronograma = [];
 
-    public function mount($lote)
+    public function mount($lote, $cronograma)
     {
         $this->lote = $lote;
+        $this->cronograma = $cronograma;
     }
 
     public function render()

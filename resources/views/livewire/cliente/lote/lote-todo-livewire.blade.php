@@ -21,9 +21,8 @@
     </div>
 
     @if ($lote_select)
-        @livewire('cliente.cronograma.cronograma-ver-livewire', ['lote' => $lote_select], key($lote_select['id_recaudo']))
+        @livewire('cliente.cronograma.cronograma-ver-livewire', ['lote' => $lote_select, 'cronograma' => $cronograma], key($lote_select['id_recaudo']))
     @endif
-
 
     <div class="tabla_contenido">
         <div class="contenedor_tabla">
