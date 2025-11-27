@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Http;
 use Livewire\Attributes\Layout;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Livewire\Component;
 
 #[Layout('layouts.admin.layout-admin')]
@@ -148,6 +149,8 @@ class TicketCrearLivewire extends Component
             'dni' => $this->dni,
             'email' => $this->email,
         ]);
+
+        Password::sendResetLink(['email' => $user->email]);
 
         session()->flash('success', "Cliente registrado. Contraseña temporal enviada al correo.");
 

@@ -55,3 +55,5 @@ php artisan lang:add es
 
 composer require barryvdh/laravel-dompdf
 php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
+
+php artisan make:notification ResetPasswordCustom
