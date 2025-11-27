@@ -78,12 +78,9 @@
                             <label for="cliente_id">
                                 Cliente <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
                             </label>
-                            <select id="cliente_id" wire:model.live="cliente_id" required>
-                                <option value="" selected disabled>Seleccionar un cliente</option>
-                                @foreach ($clientes as $cliente)
-                                    <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
-                                @endforeach
-                            </select>
+                            <input type="text" disabled
+                                value="{{ $existingCliente?->user->name ?? 'Sin asignar' }}">
+
                             @error('cliente_id')
                                 <p class="mensaje_error">{{ $message }}</p>
                             @enderror
@@ -174,6 +171,19 @@
             <!-- DERECHA -->
             <div class="g_columna_4 g_gap_pagina g_columna_invertir">
                 <div class="g_panel">
+                    @if (session('info'))
+                        <div class="g_alerta_info">
+                            <i class="fa-solid fa-circle-check"></i>
+                            {{ session('info') }}
+                        </div>
+                    @endif
+
+                    @if (session('success'))
+                        <div class="g_alerta_succes">
+                            <i class="fa-solid fa-circle-check"></i>
+                            {{ session('success') }}
+                        </div>
+                    @endif
                     <h4 class="g_panel_titulo">Cliente</h4>
 
                     <div class="g_margin_bottom_10">
@@ -183,13 +193,31 @@
                             x-on:input="$el.value = $el.value.replace(/[^0-9]/g, '')" required>
                     </div>
 
-                    <div class="formulario_botones">
+                    <div class="formulario_botones g_margin_bottom_10">
                         <button wire:click="buscarCliente" class="guardar" wire:loading.attr="disabled"
                             wire:target="buscarCliente">
                             <span wire:loading.remove wire:target="buscarCliente">Buscar</span>
                             <span wire:loading wire:target="buscarCliente">Buscando...</span>
                         </button>
                     </div>
+
+                    @if ($mostrar_form_email)
+                        <div class="g_margin_bottom_10">
+                            <label for="email">Email <span class="obligatorio">*</span></label>
+                            <input type="email" id="email" wire:model="email" required>
+                            @error('email')
+                                <p class="mensaje_error">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="formulario_botones">
+                            <button wire:click="registrarClienteNuevo" class="guardar" wire:loading.attr="disabled"
+                                wire:target="registrarClienteNuevo">
+                                <span wire:loading.remove wire:target="registrarClienteNuevo">Registrar</span>
+                                <span wire:loading wire:target="registrarClienteNuevo">Registrando...</span>
+                            </button>
+                        </div>
+                    @endif
                 </div>
 
                 @if ($cliente_encontrado)

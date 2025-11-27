@@ -26,6 +26,7 @@
     --color-placeholder: #888787; /**/
     --color-error: #b81010; /**/
     --color-success: #3bb54a; /**/
+    --color-info: #ff8902; /**/
     --color-overlay: rgba(0, 0, 0, 0.6); /**/
 
     --sombra: 0 6px 20px rgba(0, 0, 0, 0.15); /**/
