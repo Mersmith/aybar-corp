@@ -16,8 +16,8 @@
 
     <form method="POST" action="{{ route('logout.cliente') }}">
         @csrf
-        <a href="">
+        <button type="submit">
             <span><i class="fa-solid fa-power-off"></i> Cerrar</span>
-        </a>
+        </button>
     </form>
 </div>
