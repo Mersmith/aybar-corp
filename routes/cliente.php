@@ -16,6 +16,8 @@ Route::get('/direccion', [DireccionController::class, 'index'])->name('direccion
 
 Route::get('/lote', [LoteController::class, 'index'])->name('lote');
 
-Route::get('/lote/{id}/cronograma', [CronogramaController::class, 'index'])->name('lote.cronograma.ver');
+Route::get('/lote/cronograma/{id_empresa}/{id_cliente}/{id_proyecto}/{id_etapa}/{id_manzana}/{id_lote}',
+    [CronogramaController::class, 'index']
+)->name('lote.cronograma.ver');
 
 Route::get('/lote/{id}/estado-cuenta', [EstadoCuentaController::class, 'index'])->name('lote.estado-cuenta.ver');

@@ -7,10 +7,12 @@
         <div class="g_formulario">
             <div class="r_fila">
                 <div class="r_columna_4">
-                    <select wire:model.live="razon_social" id="razon_social" name="razon_social">
+                    <select wire:model.live="razon_social_id" id="razon_social_id" name="razon_social_id">
                         <option value="">Todos</option>
-                        @foreach ($razones_sociales as $item)
-                        <option value="{{ $item }}">{{ $item }}</option>
+                        @foreach ($razones_sociales as $empresa)
+                            <option value="{{ $empresa['id_empresa'] }}">
+                                {{ $empresa['razon_social'] }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
@@ -31,21 +33,49 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($lotes as $lote)
-                    <tr>
-                        <td>{{ $lote['razon_social'] }}</td>
-                        <td>{{ $lote['nombre_proyecto'] }}</td>
-                        <td>{{ $lote['manzana'] }}</td>
-                        <td>{{ $lote['lote'] }}</td>
-                        <td class="botones">
-                            <a href="{{ route('cliente.lote.cronograma.ver', $lote['cronograma_id']) }}"
-                                class="boton boton_activo"><i class="fas fa-calendar-alt"></i> Cronograma</a>
-                            <a href="{{ route('cliente.lote.estado-cuenta.ver', $lote['estado_cuenta_id']) }}"
-                                class="boton boton_guardar"><i class="fas fa-file-invoice-dollar"></i> Estado cuenta</a>
-                        </td>
-                    </tr>
-                    @endforeach
+                    @if (empty($razon_social_id))
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 20px;">
+                                Selecciona una razón social para ver tus lotes.
+                            </td>
+                        </tr>
+                    @elseif (empty($cliente_lotes))
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 20px;">
+                                No se encontraron lotes para esta razón social.
+                            </td>
+                        </tr>
+                    @else
+                        @foreach ($cliente_lotes as $lote)
+                            <tr>
+                                <td>{{ $lote['razon_social'] }}</td>
+                                <td>{{ $lote['descripcion'] }}</td>
+                                <td>{{ $lote['id_manzana'] }}</td>
+                                <td>{{ $lote['id_lote'] }}</td>
+
+                                <td class="botones">
+                                    <a href="{{ route('cliente.lote.cronograma.ver', [
+                                        'id_empresa' => $lote['id_empresa'],
+                                        'id_cliente' => $lote['id_cliente'],
+                                        'id_proyecto' => $lote['id_proyecto'],
+                                        'id_etapa' => $lote['id_etapa'],
+                                        'id_manzana' => $lote['id_manzana'],
+                                        'id_lote' => $lote['id_lote'],
+                                    ]) }}"
+                                        class="boton boton_activo">
+                                        <i class="fas fa-calendar-alt"></i> Cronograma
+                                    </a>
+
+                                    <a href="" class="boton boton_guardar">
+                                        <i class="fas fa-file-invoice-dollar"></i> Estado cuenta
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
+
+
             </table>
         </div>
     </div>
