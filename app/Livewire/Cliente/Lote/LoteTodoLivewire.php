@@ -13,10 +13,10 @@ class LoteTodoLivewire extends Component
     public $razones_sociales = [];
     public $razon_social_id = "";
     public $razon_social_select;
-    
+
     public $lotes = null;
     public $lote_select = null;
-    
+
     public $cronograma = [];
 
     public function mount()
@@ -88,6 +88,12 @@ class LoteTodoLivewire extends Component
         }
 
         $this->cronograma = $response->json();
+    }
+
+    public function cerrarCronograma()
+    {
+        $this->lote_select = null;
+        //$this->cronograma = [];
     }
 
     public function render()
