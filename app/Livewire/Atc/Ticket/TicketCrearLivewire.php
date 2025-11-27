@@ -22,8 +22,8 @@ class TicketCrearLivewire extends Component
 
     public $usuarios = [], $usuario_asignado_id = "";
 
-    public $asunto;
-    public $descripcion;
+    public $asunto_inicial;
+    public $descripcion_inicial;
 
     public $dni;
     public $cliente_encontrado = null;
@@ -33,6 +33,9 @@ class TicketCrearLivewire extends Component
     public $lotes = null;
     public $lote_select = null;
 
+    public $lote_id = "";
+    public $lotes_agregados = [];
+
     protected function rules()
     {
         return [
@@ -41,8 +44,8 @@ class TicketCrearLivewire extends Component
             'tipo_solicitud_id' => 'required',
             'canal_id' => 'required',
             'usuario_asignado_id' => 'required',
-            'asunto' => 'required|string|max:255',
-            'descripcion' => 'required|string|max:555',
+            'asunto_inicial' => 'required|string|max:255',
+            'descripcion_inicial' => 'required|string|max:555',
         ];
     }
 
@@ -77,8 +80,9 @@ class TicketCrearLivewire extends Component
             'canal_id' => $this->canal_id,
             'estado_ticket_id' => $estadoAbiertoId,
             'usuario_asignado_id' => $this->usuario_asignado_id,
-            'asunto' => $this->asunto,
-            'descripcion' => $this->descripcion,
+            'asunto_inicial' => $this->asunto_inicial,
+            'descripcion_inicial' => $this->descripcion_inicial,
+            'lotes' => $this->lotes_agregados,
         ]);
 
         TicketHistorial::create([
@@ -140,6 +144,37 @@ class TicketCrearLivewire extends Component
         $this->lotes = $response->json();
 
         $this->lote_select = null;
+    }
+
+    public function agregarLote()
+    {
+        if (empty($this->lote_id)) {
+            return;
+        }
+
+        $lote = collect($this->lotes)->firstWhere('id_recaudo', $this->lote_id);
+
+        if (!$lote) {
+            return;
+        }
+
+        $existe = collect($this->lotes_agregados)->firstWhere('id_recaudo', $lote['id_recaudo']);
+
+        if ($existe) {
+            return;
+        }
+
+        $this->lotes_agregados[] = $lote;
+
+        $this->lote_id = "";
+    }
+
+    public function quitarLote($id_recaudo)
+    {
+        $this->lotes_agregados = collect($this->lotes_agregados)
+            ->reject(fn($l) => $l['id_recaudo'] == $id_recaudo)
+            ->values()
+            ->toArray();
     }
 
     public function render()

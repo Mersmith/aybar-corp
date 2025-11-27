@@ -18,8 +18,15 @@ class Ticket extends Model
         'canal_id',
         'estado_ticket_id',
         'usuario_asignado_id',
+        'asunto_inicial',
+        'descripcion_inicial',
+        'lotes',
         'asunto',
         'descripcion',
+    ];
+
+    protected $casts = [
+        'lotes' => 'array',
     ];
 
     public function cliente()

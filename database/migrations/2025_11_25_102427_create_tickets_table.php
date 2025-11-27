@@ -22,8 +22,12 @@ return new class extends Migration
 
             $table->foreignId('usuario_asignado_id')->nullable()->constrained('users')->nullOnDelete();
 
-            $table->string('asunto');
-            $table->text('descripcion');
+            $table->string('asunto_inicial');
+            $table->text('descripcion_inicial');
+            $table->json('lotes')->nullable();
+
+            $table->string('asunto')->nullable();
+            $table->text('descripcion')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

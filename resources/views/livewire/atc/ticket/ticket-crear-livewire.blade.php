@@ -112,10 +112,10 @@
 
                     <div class="g_fila">
                         <div class="g_columna_12">
-                            <label for="asunto">Asunto <span class="obligatorio"><i
+                            <label for="asunto_inicial">Asunto <span class="obligatorio"><i
                                         class="fa-solid fa-asterisk"></i></span></label>
-                            <textarea id="asunto" wire:model.live="asunto" rows="2"></textarea>
-                            @error('asunto')
+                            <textarea id="asunto_inicial" wire:model.live="asunto_inicial" rows="2"></textarea>
+                            @error('asunto_inicial')
                                 <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
@@ -123,15 +123,52 @@
 
                     <div class="g_fila">
                         <div class="g_columna_12">
-                            <label for="descripcion">Descripción <span class="obligatorio"><i
+                            <label for="descripcion_inicial">Descripción <span class="obligatorio"><i
                                         class="fa-solid fa-asterisk"></i></span></label>
-                            <textarea id="descripcion" wire:model.live="descripcion" rows="5"></textarea>
-                            @error('descripcion')
+                            <textarea id="descripcion_inicial" wire:model.live="descripcion_inicial" rows="5"></textarea>
+                            @error('descripcion_inicial')
                                 <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
                 </div>
+
+                @if (!empty($lotes_agregados))
+                    <div class="g_panel">
+                        <h4 class="g_panel_titulo">Lotes seleccionados</h4>
+
+                        <table class="tabla_eliminar">
+                            <thead>
+                                <tr>
+                                    <th>Razón Social</th>
+                                    <th>Proyecto</th>
+                                    <th>Mz.</th>
+                                    <th>Lot.</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($lotes_agregados as $index => $l)
+                                    <tr class="sorteable_item" wire:key="lote-{{ $index }}">
+                                        <td> {{ $l['razon_social'] }} </td>
+                                        <td> {{ $l['descripcion'] }} </td>
+                                        <td> {{ $l['id_manzana'] }} </td>
+                                        <td> {{ $l['id_lote'] }} </td>
+                                        <td>
+                                            <button type="button" wire:click="quitarLote({{ $l['id_recaudo'] }})"
+                                                class="boton_eliminar" @pointerdown.stop @mousedown.stop
+                                                @touchstart.stop draggable="false">
+
+                                                <i class="fa-solid fa-xmark"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @endif
+
             </div>
 
             <!-- DERECHA -->
@@ -171,14 +208,26 @@
                     @if (is_array($lotes) && !empty($lotes))
                         <div class="g_panel">
                             <h4 class="g_panel_titulo">Lotes</h4>
-                            <select id="razon_social_id" name="razon_social_id">
-                                <option value="">Todos</option>
-                                @foreach ($lotes as $lote)
-                                    <option value="{{ $lote['id_empresa'] }}">
-                                        {{ $lote['id_manzana'] }} - {{ $lote['id_lote'] }}
-                                    </option>
-                                @endforeach
-                            </select>
+
+                            <div class="g_margin_bottom_10">
+                                <select wire:model.live="lote_id">
+                                    <option value="">Seleccionar lote</option>
+                                    @foreach ($lotes as $lote)
+                                        <option value="{{ $lote['id_recaudo'] }}">
+                                            {{ $lote['descripcion'] }} - {{ $lote['id_manzana'] }} -
+                                            {{ $lote['id_lote'] }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="formulario_botones">
+                                <button wire:click="agregarLote" class="guardar" wire:loading.attr="disabled"
+                                    wire:target="agregarLote">
+                                    <span wire:loading.remove wire:target="agregarLote">Agregar</span>
+                                    <span wire:loading wire:target="agregarLote">Agregando...</span>
+                                </button>
+                            </div>
                         </div>
                     @endif
                 @endif
