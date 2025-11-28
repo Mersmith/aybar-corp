@@ -1,5 +1,24 @@
 [
     {
+        "id": 11,
+        "nombre": "11",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-circle-user",
+        "nivel": 1,
+        "submenus": [
+            {
+                "id": 41,
+                "nombre": "Perfil",
+                "ruta": "admin.home",
+                "url": "/admin/perfil",
+                "icono": "fa-solid fa-user-tie",
+                "nivel": 2,
+                "submenus": []
+            }
+        ]
+    },
+    {
         "id": 10,
         "nombre": "10",
         "ruta": "#",

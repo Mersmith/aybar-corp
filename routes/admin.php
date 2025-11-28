@@ -114,7 +114,7 @@ use App\Livewire\Admin\Seccion\{
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/home', InicioLivewire::class)->name('home');
+Route::get('/perfil', InicioLivewire::class)->name('home');
 
 Route::prefix('usuario')->name('usuario.vista.')->group(function () {
     Route::get('/', UserTodoLivewire::class)->name('todo');
