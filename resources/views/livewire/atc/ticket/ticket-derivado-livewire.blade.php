@@ -91,9 +91,21 @@
             <div class="g_columna_4 g_gap_pagina g_columna_invertir">
 
                 <div class="g_panel">
-                    <h4 class="g_panel_titulo">Ticket</h4>
-                    <div><strong>Asunto:</strong> {{ $ticket->asunto }}</div>
-                    <div style="margin-top:8px"><strong>Cliente:</strong> {{ $ticket->cliente->name ?? 'Sin asignar' }}
+                    <h4 class="g_panel_titulo">Ticket: {{ $ticket->id}}</h4>
+
+                    <div class="g_columna_12 g_margin_bottom_10">
+                        <label>Cliente</label>
+                        <input type="text" disabled value="{{ $ticket->cliente->name ?? 'Sin asignar' }}">
+                    </div>
+
+                    <div class="g_columna_12 g_margin_bottom_10">
+                        <label>Asunto </label>
+                        <textarea disabled>{{ $ticket->asunto_inicial ?? 'Sin asunto' }}</textarea>
+                    </div>
+
+                    <div class="g_columna_12">
+                        <label>Asunto </label>
+                        <textarea disabled>{{ $ticket->descripcion_inicial ?? 'Sin descripción' }}</textarea>
                     </div>
                 </div>
             </div>

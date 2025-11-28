@@ -51,14 +51,13 @@
                         @foreach ($tickets as $index => $item)
                         <tr>
                             <td> {{ $index + 1 }} </td>
-                            <td class="g_resaltar">ID: {{ $item->id }}</td>
-                            <td class="g_resaltar">ID: {{ $item->cliente->id }} - {{ $item->cliente->name }}</td>
-                            <td class="g_resaltar">ID: {{ $item->area->id }} - {{ $item->area->nombre }}</td>
-                            <td class="g_resaltar">ID: {{ $item->tipoSolicitud->id }} - {{ $item->tipoSolicitud->nombre
-                                }}</td>
-                            <td class="g_resaltar">ID: {{ $item->canal->id }} - {{ $item->canal->nombre }}</td>
+                            <td class="g_resaltar">{{ $item->id }}</td>
+                            <td class="g_resaltar">{{ $item->cliente->name }}</td>
+                            <td class="g_resaltar">{{ $item->area->nombre }}</td>
+                            <td class="g_resaltar">{{ $item->tipoSolicitud->nombre }}</td>
+                            <td class="g_resaltar">{{ $item->canal->nombre }}</td>
                             <td class="g_resaltar">{{ $item->estado->nombre }}</td>
-                            <td class="g_resaltar">ID: {{ $item->asignado->id }} - {{ $item->asignado->name }}</td>
+                            <td class="g_resaltar">{{ $item->asignado->name }}</td>
 
                             <td class="centrar_iconos">
                                 <a href="{{ route('admin.ticket.vista.editar', $item->id) }}" class="g_accion_editar">

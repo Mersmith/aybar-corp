@@ -105,7 +105,7 @@ class TicketEditarLivewire extends Component
 
     protected function valorLegible($campo, $valor)
     {
-        if (!$valor) return 'Sin asignar';
+        if (!$valor) return '';
 
         return match ($campo) {
             'estado_ticket_id' => $this->mapEstados[$valor] ?? $valor,

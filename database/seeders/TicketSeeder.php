@@ -65,8 +65,8 @@ class TicketSeeder extends Seeder
                 'estado_ticket_id'    => $estado?->id ?? 1,
                 'usuario_asignado_id' => $admin?->id ?? null,
 
-                'asunto'              => $asuntos[array_rand($asuntos)],
-                'descripcion'         => $descripciones[array_rand($descripciones)],
+                'asunto_inicial'              => $asuntos[array_rand($asuntos)],
+                'descripcion_inicial'         => $descripciones[array_rand($descripciones)],
                 'created_at'          => now(),
                 'updated_at'          => now(),
             ]);

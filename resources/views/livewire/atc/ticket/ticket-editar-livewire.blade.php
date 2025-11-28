@@ -80,6 +80,49 @@
                             <input type="text" disabled value="{{ $ticket->asignado->name ?? 'Sin asignar' }}">
                         </div>
                     </div>
+
+                    <div class="g_fila">
+                        <div class="g_columna_12">
+                            <label>Asunto </label>
+                            <textarea disabled>{{ $ticket->asunto_inicial ?? 'Sin asunto' }}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="g_fila">
+                        <div class="g_columna_12">
+                            <label>Descripción </label>
+                            <textarea disabled>{{ $ticket->descripcion_inicial ?? 'Sin descripción' }}</textarea>
+                        </div>
+                    </div>
+
+                    @if (!empty($ticket->lotes))
+                    <div class="g_fila">
+                        <div class="g_columna_12">
+                            <label>Lotes</label>
+
+                            <table class="tabla_eliminar">
+                                <thead>
+                                    <tr>
+                                        <th>Razón Social</th>
+                                        <th>Proyecto</th>
+                                        <th>Mz.</th>
+                                        <th>Lot.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($ticket->lotes as $index => $l)
+                                    <tr class="sorteable_item" wire:key="lote-{{ $index }}">
+                                        <td> {{ $l['razon_social'] }} </td>
+                                        <td> {{ $l['descripcion'] }} </td>
+                                        <td> {{ $l['id_manzana'] }} </td>
+                                        <td> {{ $l['id_lote'] }} </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    @endif
                 </div>
 
                 <div class="g_panel">
