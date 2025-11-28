@@ -62,7 +62,7 @@
                             <tr>
                                 <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->nombre }}</td>
-                                <td>{{ $item->pivot->created_at?->format('d/m/Y H:i') ?? '—' }}</td>
+                                <td>{{ $item->pivot?->created_at?->format('d/m/Y H:i') ?? '—' }}</td>
 
                                 <td>
                                     @if ($item->tipos->count())

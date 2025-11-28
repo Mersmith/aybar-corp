@@ -89,4 +89,9 @@ class Ticket extends Model
     {
         return self::PRIORIDADES[$this->prioridad] ?? 'Desconocida';
     }
+
+    public function getTieneDerivadosAttribute()
+    {
+        return $this->derivados()->exists();
+    }
 }

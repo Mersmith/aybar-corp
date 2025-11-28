@@ -8,6 +8,7 @@ use App\Models\Area;
 use App\Models\User;
 use App\Models\TipoSolicitud;
 use App\Models\Canal;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -34,6 +35,7 @@ class TicketTodoLivewire extends Component
     public $solicitud = '';
     public $canal = '';
     public $perPage = 20;
+    public $con_derivados = '';
 
     public function mount()
     {
@@ -43,6 +45,9 @@ class TicketTodoLivewire extends Component
         $this->canales = Canal::all();
         $this->usuarios_admin = User::where('role', 'admin')->get();
         $this->prioridades = Ticket::PRIORIDADES;
+        $this->admin = Auth::check() ? Auth::id() : '';
+        $this->fecha_inicio = now()->toDateString(); // "2025-11-26"
+        $this->fecha_fin = now()->toDateString();
     }
 
     public function updatingBuscar()
@@ -99,6 +104,7 @@ class TicketTodoLivewire extends Component
             'canal',
             'perPage',
             'prioridad',
+            'con_derivados',
         ]);
 
         $this->perPage = 20;
@@ -134,6 +140,16 @@ class TicketTodoLivewire extends Component
                 $q->whereDate('created_at', '<=', $this->fecha_fin)
             )
             ->when($this->prioridad, fn($q) => $q->where('prioridad', $this->prioridad))
+            ->when(
+                $this->con_derivados === '1',
+                fn($q) =>
+                $q->whereHas('derivados')
+            )
+            ->when(
+                $this->con_derivados === '0',
+                fn($q) =>
+                $q->whereDoesntHave('derivados')
+            )
             ->orderBy('created_at', 'desc')
             ->paginate($this->perPage);
 

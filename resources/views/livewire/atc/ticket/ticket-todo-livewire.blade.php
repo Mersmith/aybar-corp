@@ -94,6 +94,15 @@
                 </div>
 
                 <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Derivados</label>
+                    <select wire:model.live="con_derivados">
+                        <option value="">Todos</option>
+                        <option value="1">Con derivados</option>
+                        <option value="0">Sin derivados</option>
+                    </select>
+                </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
                     <label>Fecha inicio</label>
                     <input type="date" wire:model.live="fecha_inicio">
                 </div>
@@ -121,6 +130,7 @@
                             <th>Asignado</th>
                             <th>Prioridad</th>
                             <th>Fecha</th>
+                            <th>Derivado</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -147,6 +157,14 @@
                             </td>
 
                             <td class="g_resaltar">{{ $item->created_at }}</td>
+
+                            <td>
+                                @if($item->tiene_derivados)
+                                <span class="g_boton g_boton_danger">Sí</span>
+                                @else
+                                <span class="g_boton g_boton_light">No</span>
+                                @endif
+                            </td>
 
                             <td class="centrar_iconos">
                                 <a href="{{ route('admin.ticket.vista.editar', $item->id) }}" class="g_accion_editar">
