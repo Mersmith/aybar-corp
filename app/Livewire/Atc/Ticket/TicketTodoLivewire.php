@@ -5,6 +5,7 @@ namespace App\Livewire\Atc\Ticket;
 use App\Models\Ticket;
 use App\Models\EstadoTicket;
 use App\Models\Area;
+use App\Models\User;
 use App\Models\TipoSolicitud;
 use App\Models\Canal;
 use Livewire\Attributes\Layout;
@@ -20,7 +21,13 @@ class TicketTodoLivewire extends Component
     public $areas;
     public $solicitudes;
     public $canales;
+    public $usuarios_admin;
+    public $prioridades = [];
 
+    public $prioridad = '';
+    public $fecha_inicio = '';
+    public $fecha_fin = '';
+    public $admin = '';
     public $buscar = '';
     public $estado = '';
     public $area = '';
@@ -34,6 +41,8 @@ class TicketTodoLivewire extends Component
         $this->areas = Area::all();
         $this->solicitudes = TipoSolicitud::all();
         $this->canales = Canal::all();
+        $this->usuarios_admin = User::where('role', 'admin')->get();
+        $this->prioridades = Ticket::PRIORIDADES;
     }
 
     public function updatingBuscar()
@@ -57,6 +66,45 @@ class TicketTodoLivewire extends Component
         $this->resetPage();
     }
 
+    public function updatingAdmin()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingFechaInicio()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingFechaFin()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingPrioridad()
+    {
+        $this->resetPage();
+    }
+
+    public function resetFiltros()
+    {
+        $this->reset([
+            'fecha_inicio',
+            'fecha_fin',
+            'admin',
+            'buscar',
+            'estado',
+            'area',
+            'solicitud',
+            'canal',
+            'perPage',
+            'prioridad',
+        ]);
+
+        $this->perPage = 20;
+        $this->resetPage();
+    }
+
     public function render()
     {
         $tickets = Ticket::query()
@@ -74,6 +122,18 @@ class TicketTodoLivewire extends Component
             ->when($this->area, fn($q) => $q->where('area_id', $this->area))
             ->when($this->solicitud, fn($q) => $q->where('tipo_solicitud_id', $this->solicitud))
             ->when($this->canal, fn($q) => $q->where('canal_id', $this->canal))
+            ->when($this->admin, fn($q) => $q->where('usuario_asignado_id', $this->admin))
+            ->when(
+                $this->fecha_inicio,
+                fn($q) =>
+                $q->whereDate('created_at', '>=', $this->fecha_inicio)
+            )
+            ->when(
+                $this->fecha_fin,
+                fn($q) =>
+                $q->whereDate('created_at', '<=', $this->fecha_fin)
+            )
+            ->when($this->prioridad, fn($q) => $q->where('prioridad', $this->prioridad))
             ->orderBy('created_at', 'desc')
             ->paginate($this->perPage);
 

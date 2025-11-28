@@ -29,6 +29,12 @@ class Ticket extends Model
         'lotes' => 'array',
     ];
 
+    const PRIORIDADES = [
+        1 => 'Alta',
+        2 => 'Media',
+        3 => 'Baja',
+    ];
+
     public function cliente()
     {
         return $this->belongsTo(User::class, 'cliente_id');
@@ -77,5 +83,10 @@ class Ticket extends Model
     public function archivos()
     {
         return $this->morphMany(Archivo::class, 'archivable');
+    }
+
+    public function getPrioridadNombreAttribute()
+    {
+        return self::PRIORIDADES[$this->prioridad] ?? 'Desconocida';
     }
 }

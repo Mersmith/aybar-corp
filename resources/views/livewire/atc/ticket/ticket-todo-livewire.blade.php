@@ -15,6 +15,10 @@
 
             <a href="{{ route('admin.ticket.vista.crear') }}" class="g_boton g_boton_primary">
                 Crear <i class="fa-solid fa-square-plus"></i></a>
+
+            <button wire:click="resetFiltros" class="g_boton g_boton_danger">
+                Limpiar Filtros <i class="fa-solid fa-rotate-left"></i>
+            </button>
         </div>
     </div>
 
@@ -67,6 +71,38 @@
                     </select>
                 </div>
             </div>
+
+            <div class="g_fila">
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Asignado </label>
+                    <select wire:model.live="admin">
+                        <option value="">Todos</option>
+                        @foreach ($usuarios_admin as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Prioridad</label>
+                    <select wire:model.live="prioridad">
+                        <option value="">Todas</option>
+                        @foreach ($prioridades as $key => $nombre)
+                        <option value="{{ $key }}">{{ $nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Fecha inicio</label>
+                    <input type="date" wire:model.live="fecha_inicio">
+                </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Fecha fin</label>
+                    <input type="date" wire:model.live="fecha_fin">
+                </div>
+            </div>
         </div>
         @if ($tickets->count())
         <!--TABLA CONTENIDO-->
@@ -83,6 +119,8 @@
                             <th>Canal</th>
                             <th>Estado</th>
                             <th>Asignado</th>
+                            <th>Prioridad</th>
+                            <th>Fecha</th>
                             <th>Acción</th>
                         </tr>
                     </thead>
@@ -93,10 +131,22 @@
                             <td class="g_resaltar">{{ $item->id }}</td>
                             <td class="g_resaltar">{{ $item->cliente->name }}</td>
                             <td class="g_resaltar">{{ $item->area->nombre }}</td>
-                            <td class="g_resaltar">{{ $item->tipoSolicitud->nombre }}</td>
+                            <td class="g_resumir g_inferior">{{ $item->tipoSolicitud->nombre }}</td>
                             <td class="g_resaltar">{{ $item->canal->nombre }}</td>
-                            <td class="g_resaltar">{{ $item->estado->nombre }}</td>
+                            <td class="g_negrita">{{ $item->estado->nombre }}</td>
                             <td class="g_resaltar">{{ $item->asignado->name }}</td>
+                            <td class="g_resaltar">
+                                <span class="g_badge
+                                    @if ($item->prioridad == 1) g_inventario
+                                    @elseif ($item->prioridad == 2) g_activo
+                                    @else g_accion_editar
+                                    @endif
+                                ">
+                                    {{ $item->prioridad_nombre }}
+                                </span>
+                            </td>
+
+                            <td class="g_resaltar">{{ $item->created_at }}</td>
 
                             <td class="centrar_iconos">
                                 <a href="{{ route('admin.ticket.vista.editar', $item->id) }}" class="g_accion_editar">
