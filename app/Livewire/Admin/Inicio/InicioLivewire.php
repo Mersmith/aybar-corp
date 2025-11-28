@@ -12,12 +12,15 @@ class InicioLivewire extends Component
     public $usuario;
     public $name;
 
+    public $areasUsuario = [];
+
     public function mount()
     {
         $this->usuario = auth()->user();
 
-        // Asignar los valores del cliente a las propiedades del componente
         $this->name = $this->usuario->name;
+
+        $this->areasUsuario = $this->usuario->areas()->withPivot('created_at')->get();
     }
 
     public function actualizarDatos()
@@ -29,8 +32,12 @@ class InicioLivewire extends Component
         $this->usuario->name = $this->name;
         $this->usuario->save();
 
+        $this->usuario->load('areas');
+        $this->areasUsuario = $this->usuario->areas()->withPivot('created_at')->get();
+
         $this->dispatch('alertaLivewire', "Actualizado");
     }
+
 
     public function render()
     {

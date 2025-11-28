@@ -55,7 +55,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function areas()
     {
-        return $this->belongsToMany(Area::class);
+        return $this->belongsToMany(Area::class)->withTimestamps();
     }
     /**
      * Get the attributes that should be cast.

@@ -15,7 +15,6 @@
         <div class="g_fila">
             <div class="g_columna_8 g_gap_pagina">
                 <div class="g_panel">
-
                     <h4 class="g_panel_titulo">General</h4>
 
                     <div class="g_fila">
@@ -44,6 +43,31 @@
                         </div>
                     </div>
                 </div>
+
+                @if ($areasUsuario->count())
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Areas</h4>
+
+                    <table class="tabla_eliminar">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Area</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($areasUsuario as $index => $item)
+                            <tr>
+                                <td>{{ $index + 1}}</td>
+                                <td>{{ $item->nombre }} </td>
+                                <td> {{ optional($item->pivot?->created_at)->format('d/m/Y H:i') ?? '—' }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                @endif
             </div>
         </div>
     </div>
