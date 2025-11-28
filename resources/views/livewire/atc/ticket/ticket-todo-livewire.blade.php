@@ -20,13 +20,52 @@
 
     <!--TABLA-->
     <div class="g_panel">
-        <div class="tabla_cabecera">
-            <div class="tabla_cabecera_buscar">
-                <form action="">
-                    <input type="text" wire:model.live.debounce.1300ms="buscar" id="buscar" name="buscar"
-                        placeholder="Buscar...">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </form>
+        <div class="formulario">
+            <div class="g_fila">
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>DNI/Nombres</label>
+                    <input type="text" wire:model.live.debounce.1300ms="buscar" id="buscar" name="buscar">
+                </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Area </label>
+                    <select wire:model.live="area">
+                        <option value="">Todos</option>
+                        @foreach ($areas as $item)
+                        <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Solicitud </label>
+                    <select wire:model.live="solicitud">
+                        <option value="">Todos</option>
+                        @foreach ($solicitudes as $item)
+                        <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Canal </label>
+                    <select wire:model.live="canal">
+                        <option value="">Todos</option>
+                        @foreach ($canales as $item)
+                        <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Estado </label>
+                    <select wire:model.live="estado">
+                        <option value="">Todos</option>
+                        @foreach ($estados as $estadoItem)
+                        <option value="{{ $estadoItem->id }}">{{ $estadoItem->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
         </div>
         @if ($tickets->count())
