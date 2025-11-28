@@ -25,18 +25,41 @@
     </div>
 
     <div class="g_fila ">
-        <div class="g_columna_6 g_gap_pagina">
+        <div class="g_columna_4 g_gap_pagina">
             <div class="g_panel">
                 <h2 class="g_panel_titulo">Tickets por estado</h2>
                 <canvas id="chartEstado" height="130"></canvas>
             </div>
         </div>
 
+        <div class="g_columna_4 g_gap_pagina">
+            <div class="g_panel">
+                <h2 class="g_panel_titulo">Tickets por canal</h2>
+                <canvas id="grafCanal"></canvas>
+            </div>
+        </div>
+
+        <div class="g_columna_4 g_gap_pagina">
+            <div class="g_panel">
+                <h2 class="g_panel_titulo">Tickets por Tipo de Solicitud</h2>
+                <canvas id="chartTipo" height="160"></canvas>
+            </div>
+        </div>
     </div>
 
-    <div class="g_panel">
-        <h2 class="g_panel_titulo">Tickets por area</h2>
-        <canvas id="chartArea" height="130"></canvas>
+    <div class="g_fila ">
+        <div class="g_columna_6 g_gap_pagina">
+            <div class="g_panel">
+                <h2 class="g_panel_titulo">Tickets por area</h2>
+                <canvas id="chartArea" height="130"></canvas>
+            </div>
+        </div>
+        <div class="g_columna_6 g_gap_pagina">
+            <div class="g_panel">
+                <h2 class="g_panel_titulo">Ranking de usuarios que más cierran</h2>
+                <canvas id="grafRankingUsuarios" height="150"></canvas>
+            </div>
+        </div>
     </div>
 
     <div class="g_panel">
@@ -96,6 +119,45 @@
                 tension: 0.3
             }]
         }
+    });
+
+    new Chart(document.getElementById('grafRankingUsuarios'), {
+        type: 'bar',
+        data: {
+            labels: @json($rankingUsuarios['labels']),
+            datasets: [{
+                label: "Tickets cerrados",
+                data: @json($rankingUsuarios['data']),
+                backgroundColor: colores,
+            }]
+        },
+        options: { indexAxis: 'y' }
+    });
+
+    new Chart(document.getElementById('grafCanal'), {
+        type: 'pie',
+        data: {
+            labels: @json($ticketsPorCanal['labels']),
+            datasets: [{
+                data: @json($ticketsPorCanal['data']),
+                backgroundColor: colores,
+            }]
+        }
+    });
+
+     new Chart(document.getElementById('chartTipo'), {
+        type: 'pie',
+        data: {
+            labels: @json($ticketsPorTipo['labels'] ?? []),
+            datasets: [{
+                data: @json($ticketsPorTipo['data'] ?? []),
+                backgroundColor: colores,
+            }]
+        },
+        /*options: {
+            responsive: true,
+            plugins: { legend: { position: 'bottom' } }
+        }*/
     });
 
 });
