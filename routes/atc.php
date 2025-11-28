@@ -23,6 +23,8 @@ use App\Livewire\Atc\Ticket\TicketCrearLivewire;
 use App\Livewire\Atc\Ticket\TicketEditarLivewire;
 use App\Livewire\Atc\Ticket\TicketDerivadoLivewire;
 
+use App\Livewire\Atc\Reporte\ReporteLivewire;
+
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('area')->name('area.vista.')->group(function () {
@@ -56,4 +58,8 @@ Route::prefix('ticket')->name('ticket.vista.')->group(function () {
     Route::get('/crear', TicketCrearLivewire::class)->name('crear');
     Route::get('/editar/{id}', TicketEditarLivewire::class)->name('editar');
     Route::get('/derivado/{id}', TicketDerivadoLivewire::class)->name('derivado');
+});
+
+Route::prefix('reporte-ticket')->name('reporte-ticket.vista.')->group(function () {
+    Route::get('/', ReporteLivewire::class)->name('todo');
 });

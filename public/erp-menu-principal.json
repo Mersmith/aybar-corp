@@ -155,6 +155,24 @@
                         "submenus": []
                     }
                 ]
+            },
+            {
+                "id": 46,
+                "nombre": "Reporte",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-chart-line",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.reporte-ticket.vista.todo",
+                        "url": "/admin/reporte-ticket",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
             }
         ]
     },
