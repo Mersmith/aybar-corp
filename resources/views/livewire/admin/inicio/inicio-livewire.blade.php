@@ -52,20 +52,34 @@
                         <thead>
                             <tr>
                                 <th>N°</th>
-                                <th>Area</th>
-                                <th>Fecha</th>
+                                <th>Área</th>
+                                <th>Fecha asignación</th>
+                                <th>Tipos</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($areasUsuario as $index => $item)
                             <tr>
-                                <td>{{ $index + 1}}</td>
-                                <td>{{ $item->nombre }} </td>
-                                <td> {{ optional($item->pivot?->created_at)->format('d/m/Y H:i') ?? '—' }}</td>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $item->nombre }}</td>
+                                <td>{{ $item->pivot->created_at?->format('d/m/Y H:i') ?? '—' }}</td>
+
+                                <td>
+                                    @if ($item->tipos->count())
+                                    <div class="celda_wrap">
+                                        @foreach ($item->tipos as $tipo)
+                                        <span class="g_badge">{{ $tipo->nombre }}</span>
+                                        @endforeach
+                                    </div>
+                                    @else
+                                    <span>—</span>
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+
                 </div>
                 @endif
             </div>

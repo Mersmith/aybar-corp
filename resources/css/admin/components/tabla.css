@@ -70,6 +70,12 @@
     cursor: pointer;
 }
 
+.celda_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
 /*TABLA PARA ELIMINARD*/
 .tabla_eliminar {
     width: 100%;

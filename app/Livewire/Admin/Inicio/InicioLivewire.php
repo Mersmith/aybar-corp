@@ -20,7 +20,10 @@ class InicioLivewire extends Component
 
         $this->name = $this->usuario->name;
 
-        $this->areasUsuario = $this->usuario->areas()->withPivot('created_at')->get();
+        $this->areasUsuario = $this->usuario
+            ->areas()
+            ->with(['tipos']) // pivot y tipos
+            ->get();
     }
 
     public function actualizarDatos()
