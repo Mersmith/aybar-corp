@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             ]);
         }
 
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 25; $i++) {
             $cliente = User::create([
                 'name' => "Cliente $i",
                 'email' => "cliente$i@example.com",

@@ -15,16 +15,19 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            PaisSeeder::class,
-            RegionSeeder::class,
-            ProvinciaSeeder::class,
-            DistritoSeeder::class,
+            //PaisSeeder::class,
+            //RegionSeeder::class,
+            //ProvinciaSeeder::class,
+            //DistritoSeeder::class,
             EstadoTicketSeeder::class,
             CanalSeeder::class,
             AreaSeeder::class,
+            AreaUserSeeder::class,
             TipoSolicitudSeeder::class,
-            AsignacionesSeeder::class,
+            AreaTipoSolicitudSeeder::class,
             TicketSeeder::class,
+            TicketHistorialSeeder::class,
+            TicketDerivadoSeeder::class,
 
 
             //UnidadNegocioSeeder::class,

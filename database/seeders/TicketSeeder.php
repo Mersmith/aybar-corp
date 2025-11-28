@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Ticket;
 use App\Models\User;
@@ -13,62 +12,70 @@ use App\Models\EstadoTicket;
 
 class TicketSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        // Obtener valores necesarios
-        $cliente = User::where('role', 'cliente')->first();
-        $admin   = User::where('role', 'admin')->first();
+        $clientes = User::where('role', 'cliente')->pluck('id')->toArray();
+        $admins   = User::where('role', 'admin')->pluck('id')->toArray();
 
-        $area    = Area::first();
-        $tipo    = TipoSolicitud::first();
-        $canal   = Canal::first();
-        $estado  = EstadoTicket::where('nombre', 'Abierto')->first();
+        $areas = Area::pluck('id')->toArray();
+        $canales = Canal::pluck('id')->toArray();
+        $estados = EstadoTicket::pluck('id')->toArray();
 
-        // Lista de asuntos y descripciones aleatorios
         $asuntos = [
             'No puedo acceder a mi cuenta',
-            'Consulta sobre factura',
             'Problema con mi pedido',
-            'No recibí respuesta del soporte',
-            'Mi pago fue rechazado',
-            'Error al cargar documento',
-            'Solicitud de actualización de datos',
-            'No puedo cambiar mi contraseña',
-            'Consulta sobre promociones',
-            'Problema con el aplicativo móvil',
+            'Consulta de facturación',
+            'Error en el sistema',
+            'No puedo actualizar mis datos',
+            'Necesito soporte técnico',
         ];
 
         $descripciones = [
-            'Tengo este problema desde ayer.',
-            'Solicito ayuda urgente.',
-            'Adjunté captura del error.',
-            'Requiero orientación, por favor.',
-            'No sé cómo proceder.',
-            'Ya intenté varias veces y nada.',
+            'Ocurre desde ayer.',
+            'Ya intenté varias veces sin éxito.',
+            'Adjunto captura del error.',
             'Agradezco su pronta respuesta.',
-            'Me aparece un mensaje de error.',
-            'No puedo finalizar el proceso.',
-            'Mi caso sigue sin resolverse.',
+            'No sé cómo solucionarlo.',
         ];
 
-        // Crear 20 tickets
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 50; $i++) {
+
+            $areaId = fake()->randomElement($areas);
+
+            $tipos = TipoSolicitud::whereHas('areas', function ($q) use ($areaId) {
+                $q->where('area_id', $areaId);
+            })->pluck('id')->toArray();
+
+            $tipoId = $tipos ? fake()->randomElement($tipos) : TipoSolicitud::inRandomOrder()->value('id');
 
             Ticket::create([
-                'cliente_id'          => $cliente?->id ?? 1,
-                'area_id'             => $area?->id ?? null,
-                'tipo_solicitud_id'   => $tipo?->id ?? null,
-                'canal_id'            => $canal?->id ?? null,
-                'estado_ticket_id'    => $estado?->id ?? 1,
-                'usuario_asignado_id' => $admin?->id ?? null,
+                'cliente_id'          => fake()->randomElement($clientes),
+                'area_id'             => $areaId,
+                'tipo_solicitud_id'   => $tipoId,
+                'canal_id'            => fake()->randomElement($canales),
+                'estado_ticket_id'    => fake()->randomElement($estados),
 
-                'asunto_inicial'              => $asuntos[array_rand($asuntos)],
-                'descripcion_inicial'         => $descripciones[array_rand($descripciones)],
-                'created_at'          => now(),
-                'updated_at'          => now(),
+                'prioridad'           => fake()->randomElement([1, 2, 3]),
+
+                'usuario_asignado_id' => fake()->randomElement($admins),
+
+                'asunto_inicial'      => fake()->randomElement($asuntos),
+                'descripcion_inicial' => fake()->randomElement($descripciones),
+
+                'asunto'              => fake()->boolean(40) ? fake()->sentence() : null,
+                'descripcion'         => fake()->boolean(40) ? fake()->paragraph() : null,
+
+                'lotes' => [
+                    [
+                        "razon_social" => fake()->company(),
+                        "descripcion"  => fake()->sentence(4),
+                        "id_manzana"   => rand(1, 50),
+                        "id_lote"      => rand(1, 200),
+                    ]
+                ],
+
+                'created_at' => now(),
+                'updated_at' => now(),
             ]);
         }
     }

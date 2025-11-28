@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('tipo_solicitud_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('canal_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('estado_ticket_id')->default(1)->constrained('estado_tickets')->cascadeOnDelete();
+            $table->tinyInteger('prioridad')->default(2)->comment('1 = Alta, 2 = Media, 3 = Baja')->check('prioridad IN (1, 2, 3)');
 
             $table->foreignId('usuario_asignado_id')->nullable()->constrained('users')->nullOnDelete();
 

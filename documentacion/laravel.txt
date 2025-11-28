@@ -57,3 +57,7 @@ composer require barryvdh/laravel-dompdf
 php artisan vendor:publish --provider="Barryvdh\DomPDF\ServiceProvider"
 
 php artisan make:notification ResetPasswordCustom
+
+php artisan make:seeder AreaUserSeeder
+php artisan make:seeder TipoSolicitudSeeder
+php artisan make:seeder AreaTipoSolicitudSeeder
