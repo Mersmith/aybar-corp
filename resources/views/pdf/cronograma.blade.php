@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <style>
         body {
-            font-family: sans-serif;
-            font-size: 12px;
+            font-family: DejaVu Sans, sans-serif;
+            font-size: 11px;
         }
 
         table {
@@ -23,11 +23,13 @@
         }
 
         th {
-            background: #eee;
+            background: #f2f2f2;
+            font-weight: bold;
         }
 
         h2 {
             text-align: center;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -38,24 +40,37 @@
 
     <table>
         <tr>
-            <td>Proyecto</td>
+            <th style="width: 25%;">Proyecto</th>
             <td colspan="3">{{ $lote['descripcion'] }}</td>
         </tr>
+
         <tr>
-            <td>Manzana - Lote</td>
+            <th>Etapa</th>
+            <td style="width: 25%;">{{ $lote['etapa'] ?? '01' }}</td>
+
+            <th>Manzana - Lote</th>
             <td>{{ $lote['id_manzana'] }} - {{ $lote['id_lote'] }}</td>
         </tr>
+
         <tr>
-            <td>Cliente</td>
+            <th>Nombre Cliente</th>
             <td colspan="3">{{ $lote['apellidos_nombres'] }}</td>
         </tr>
+
         <tr>
-            <td>DNI</td>
+            <th>DNI</th>
             <td>{{ $lote['nit'] }}</td>
-        </tr>
-        <tr>
-            <td>ID Recaudo</td>
+
+            <th>ID Recaudo</th>
             <td>{{ $lote['id_recaudo'] }}</td>
+        </tr>
+
+        <tr>
+            <th>N° Cuotas</th>
+            <td>{{ count($cronograma) }}</td>
+
+            <th>ID Proyecto</th>
+            <td>{{ $lote['id_proyecto'] ?? '---' }}</td>
         </tr>
     </table>
 
@@ -72,14 +87,14 @@
         </thead>
         <tbody>
             @foreach ($cronograma as $item)
-                <tr>
-                    <td>{{ $item['cuota'] }}</td>
-                    <td>{{ $item['fec_vencimiento'] }}</td>
-                    <td>S/ {{ number_format($item['monto'], 2) }}</td>
-                    <td>S/ {{ number_format($item['amortizacion'], 2) }}</td>
-                    <td>S/ {{ number_format($item['saldo'], 2) }}</td>
-                    <td>{{ $item['estado'] }}</td>
-                </tr>
+            <tr>
+                <td>{{ $item['cuota'] }}</td>
+                <td>{{ $item['fec_vencimiento'] }}</td>
+                <td>S/ {{ number_format($item['monto'], 2) }}</td>
+                <td>S/ {{ number_format($item['amortizacion'], 2) }}</td>
+                <td>S/ {{ number_format($item['saldo'], 2) }}</td>
+                <td>{{ $item['estado'] }}</td>
+            </tr>
             @endforeach
         </tbody>
     </table>

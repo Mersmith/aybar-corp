@@ -42,6 +42,8 @@ class DireccionEditarLivewire extends Component
         $this->direccion = $this->direccion_seleccionada->direccion;
         $this->direccion_numero = $this->direccion_seleccionada->direccion_numero;
         $this->codigo_postal = $this->direccion_seleccionada->codigo_postal;
+        $this->opcional = $this->direccion_seleccionada->opcional;
+        $this->instrucciones = $this->direccion_seleccionada->instrucciones;
 
         $this->region_id = $this->direccion_seleccionada->region_id;
         $this->loadProvincias();
@@ -57,6 +59,8 @@ class DireccionEditarLivewire extends Component
         $this->direccion_seleccionada->direccion = $this->direccion;
         $this->direccion_seleccionada->direccion_numero = $this->direccion_numero;
         $this->direccion_seleccionada->codigo_postal = $this->codigo_postal;
+        $this->direccion_seleccionada->opcional = $this->opcional;
+        $this->direccion_seleccionada->instrucciones = $this->instrucciones;
 
         $this->direccion_seleccionada->region_id = $this->region_id;
         $this->direccion_seleccionada->provincia_id = $this->provincia_id;
