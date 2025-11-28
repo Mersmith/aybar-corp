@@ -34,6 +34,16 @@ class RegistrarClienteCrearLivewire extends Component
             return;
         }
 
+        $existingCliente = Cliente::where('dni', $this->dni)->first();
+
+        if ($existingCliente) {
+            session()->flash(
+                'error',
+                "Ya existe una cuenta asociada a este DNI. Tu correo registrado es: {$existingCliente->email}. Recupera tu contraseña."
+            );
+            return;
+        }
+
         $response = Http::get("https://aybarcorp.com/slin/cliente/{$this->dni}");
 
         if ($response->failed() || empty($response->json())) {
