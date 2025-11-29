@@ -55,16 +55,31 @@ class CitaTodoLivewire extends Component
             'anio'   => $this->fechaActual->copy()->endOfYear(),
         };
 
-        $this->eventos = Cita::whereBetween('start_at', [$inicio, $fin])
+        $this->eventos = Cita::with(['receptor', 'sede', 'motivo'])
+            ->whereBetween('start_at', [$inicio, $fin])
             ->orderBy('start_at')
             ->get()
             ->map(fn($cita) => [
-                'id' => $cita->id,
-                'title' => $cita->motivo->nombre,
-                'date' => $cita->start_at->toDateString(),
-                'time' => $cita->start_at->format('H:i'),
-                'end_time' => $cita->end_at->format('H:i'),
-                'label' => $cita->start_at->format('H:i') . " — " . $cita->motivo->nombre,
+                'id'        => $cita->id,
+                'title'     => $cita->motivo->nombre,
+                'cliente'   => $cita->receptor?->name,
+                'sede'      => $cita->sede?->nombre,
+                'estado'    => $cita->estado,
+
+                'date'      => $cita->start_at->toDateString(),
+                'time'      => $cita->start_at->format('H:i'),
+                'end_time'  => $cita->end_at?->format('H:i'),
+
+                'label'     => $cita->start_at->format('H:i') . " — " . $cita->motivo->nombre,
+
+                'label_detallado' => sprintf(
+                    "%s - %s | %s | %s | %s",
+                    $cita->start_at->format('H:i'),
+                    $cita->end_at?->format('H:i') ?? '—',
+                    $cita->motivo->nombre,
+                    $cita->receptor?->name,
+                    ucfirst($cita->estado)
+                ),
             ])
             ->toArray();
     }

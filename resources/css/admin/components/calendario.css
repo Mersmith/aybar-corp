@@ -219,28 +219,49 @@
 }
 
 .cal-day-grid {
-    margin-top: 1rem;
-    border-top: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 .cal-hour-row {
     display: grid;
     grid-template-columns: 80px 1fr;
-    padding: 6px 0;
-    border-bottom: 1px solid #eee;
+    padding: 4px 0;
 }
 
 .cal-hour-label {
     font-weight: bold;
-    color: #555;
+    font-size: 13px;
+    color: #444;
+}
+
+.cal-event-detalle {
+    background: #e9f1ff;
+    border-left: 4px solid #1d6cff;
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    cursor: pointer;
     font-size: 13px;
 }
 
-.cal-event {
-    background: #1e63ff;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 6px;
-    margin-bottom: 4px;
-    cursor: pointer;
+.estado {
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.estado-pendiente {
+    background: #ffc107;
+}
+.estado-confirmada {
+    background: #28a745;
+}
+.estado-cancelada {
+    background: #dc3545;
+}
+.estado-rechazada {
+    background: #6c757d;
 }
