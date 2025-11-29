@@ -16,16 +16,14 @@ class Cita extends Model
         'usuario_recibe_id',
         'sede_id',
         'motivo_cita_id',
-        'fecha',
-        'hora_inicio',
-        'hora_fin',
+        'start_at',
+        'end_at',
         'estado',
     ];
 
     protected $casts = [
-        'fecha' => 'date',
-        'hora_inicio' => 'datetime:H:i',
-        'hora_fin' => 'datetime:H:i',
+        'start_at' => 'datetime',
+        'end_at'   => 'datetime',
     ];
 
     /** RELACIONES */

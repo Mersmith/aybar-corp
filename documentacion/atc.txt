@@ -64,4 +64,12 @@ php artisan make:livewire Atc/Ticket/TicketTodoLivewire
 php artisan make:livewire Atc/Ticket/TicketCrearLivewire
 php artisan make:livewire Atc/Ticket/TicketEditarLivewire
 php artisan make:livewire Atc/Ticket/TicketDerivadoLivewire
+
 php artisan make:livewire Atc/Reporte/ReporteLivewire
+
+php artisan make:livewire Atc/Cita/CitaTodoLivewire
+php artisan make:livewire Atc/Cita/CitaCrearLivewire
+php artisan make:livewire Atc/Cita/Vistas/Dia
+php artisan make:livewire Atc/Cita/Vistas/Semana
+php artisan make:livewire Atc/Cita/Vistas/Mes
+php artisan make:livewire Atc/Cita/Vistas/Anio

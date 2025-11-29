@@ -24,29 +24,28 @@ class CitaSeeder extends Seeder
         $estados = ['pendiente', 'confirmada', 'cancelada', 'rechazada'];
         $duraciones = [30, 45, 60, 90];
 
-        for ($i = 1; $i <= 50; $i++) {
+        for ($i = 0; $i < 50; $i++) {
 
             $cliente = $clientes->random();
             $sede = $sedes->random();
             $motivo = $motivos->random();
 
-            // Fecha aleatoria entre sept–dic 2025
-            $fecha = fake()->dateTimeBetween('2025-09-01', '2025-12-31')->format('Y-m-d');
+            // Fecha random
+            $start = fake()->dateTimeBetween('2025-09-01', '2025-12-31');
 
-            // Hora aleatoria entre 08:00 y 18:00
-            $horaInicio = fake()->time('H:i', '18:00');
+            // Hora random entre 8 AM – 6 PM
+            $start->setTime(fake()->numberBetween(8, 17), fake()->numberBetween(0, 59));
 
             $duracion = $duraciones[array_rand($duraciones)];
-            $horaFin = date('H:i', strtotime($horaInicio . " + {$duracion} minutes"));
+            $end = (clone $start)->modify("+{$duracion} minutes");
 
             Cita::create([
                 'usuario_solicita_id' => $admin->id,
                 'usuario_recibe_id'   => $cliente->id,
                 'sede_id'             => $sede->id,
                 'motivo_cita_id'      => $motivo->id,
-                'fecha'               => $fecha,
-                'hora_inicio'         => $horaInicio,
-                'hora_fin'            => $horaFin,
+                'start_at'            => $start,
+                'end_at'              => $end,
                 'estado'              => $estados[array_rand($estados)],
             ]);
         }

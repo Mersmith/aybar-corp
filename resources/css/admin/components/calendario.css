@@ -1,0 +1,95 @@
+/* Contenedor general */
+.cal-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+
+/* Barra superior del mes */
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cal-header button {
+    background: #e5e7eb;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.cal-header button:hover {
+    background: #d1d5db;
+}
+
+.cal-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* Encabezados de días */
+.cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Grid del mes */
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+/* Cada celda/día */
+.cal-day {
+    border: 1px solid #e5e7eb;
+    height: 110px;
+    padding: 4px;
+    border-radius: 6px;
+    background: #fafafa;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cal-day:hover {
+    background: #f0f0f0;
+}
+
+/* Número del día */
+.cal-day-number {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+/* Evento */
+.cal-event {
+    background: #2563eb;
+    color: white;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.cal-event:hover {
+    background: #1d4ed8;
+}

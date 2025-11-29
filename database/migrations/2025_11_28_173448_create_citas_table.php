@@ -16,11 +16,11 @@ return new class extends Migration
 
             $table->foreignId('usuario_solicita_id')
                 ->constrained('users')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); //crea cita
 
             $table->foreignId('usuario_recibe_id')
                 ->constrained('users')
-                ->onDelete('cascade');
+                ->onDelete('cascade'); //agendado
 
             $table->foreignId('sede_id')
                 ->nullable()
@@ -32,9 +32,8 @@ return new class extends Migration
                 ->constrained('motivo_citas')
                 ->onDelete('restrict');
 
-            $table->date('fecha');
-            $table->time('hora_inicio');
-            $table->time('hora_fin')->nullable();
+            $table->dateTime('start_at');
+            $table->dateTime('end_at')->nullable();
 
             $table->enum('estado', [
                 'pendiente',

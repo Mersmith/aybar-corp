@@ -101,7 +101,7 @@
         </div>
 
     </form>
-    @push('script')
+    @push('scripts')
     <script>
         function init_select2(){
         let ctr = $('#proyecto_id');
