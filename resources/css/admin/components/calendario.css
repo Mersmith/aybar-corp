@@ -1,6 +1,8 @@
-/* Contenedor general */
+/* =============================== */
+/*   CONTENEDOR GENERAL           */
+/* =============================== */
 .cal-container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     background: white;
     padding: 20px;
@@ -9,7 +11,32 @@
     font-family: sans-serif;
 }
 
-/* Barra superior del mes */
+/* =============================== */
+/*    BOTONES DE VISTA            */
+/* =============================== */
+.cal-view-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.cal-view-buttons button {
+    background: #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.cal-view-buttons button:hover {
+    background: #d1d5db;
+}
+
+/* =============================== */
+/*  BARRA SUPERIOR (NAVEGACIÓN)   */
+/* =============================== */
 .cal-header {
     display: flex;
     justify-content: space-between;
@@ -36,7 +63,9 @@
     font-weight: 700;
 }
 
-/* Encabezados de días */
+/* =============================== */
+/*        VISTA DE MES            */
+/* =============================== */
 .cal-weekdays {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -46,17 +75,16 @@
     font-size: 14px;
 }
 
-/* Grid del mes */
 .cal-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 6px;
 }
 
-/* Cada celda/día */
+/* Celda de día */
 .cal-day {
     border: 1px solid #e5e7eb;
-    height: 110px;
+    min-height: 110px;
     padding: 4px;
     border-radius: 6px;
     background: #fafafa;
@@ -65,11 +93,16 @@
     transition: 0.2s;
 }
 
+.cal-day.empty {
+    background: transparent;
+    border: none;
+}
+
 .cal-day:hover {
     background: #f0f0f0;
 }
 
-/* Número del día */
+/* Número */
 .cal-day-number {
     font-size: 14px;
     font-weight: bold;
@@ -92,4 +125,122 @@
 
 .cal-event:hover {
     background: #1d4ed8;
+}
+
+/* =============================== */
+/*      VISTA DE SEMANA           */
+/* =============================== */
+.cal-week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.cal-week-grid .cal-day {
+    min-height: 140px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+}
+
+/* =============================== */
+/*        VISTA DE DÍA            */
+/* =============================== */
+.cal-day-box {
+    border: 1px solid #e5e7eb;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+.cal-day-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.cal-add-btn {
+    background: #10b981;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+
+.cal-add-btn:hover {
+    background: #059669;
+}
+
+.cal-empty {
+    color: #888;
+    font-size: 14px;
+}
+
+/* =============================== */
+/*       VISTA DE AÑO             */
+/* =============================== */
+.cal-year-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.cal-year-box {
+    background: #f9fafb;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.cal-year-month {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Evento mini para vista anual */
+.cal-event-mini {
+    background: #2563eb;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cal-event-mini:hover {
+    background: #1d4ed8;
+}
+
+.cal-day-grid {
+    margin-top: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+.cal-hour-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cal-hour-label {
+    font-weight: bold;
+    color: #555;
+    font-size: 13px;
+}
+
+.cal-event {
+    background: #1e63ff;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    cursor: pointer;
 }

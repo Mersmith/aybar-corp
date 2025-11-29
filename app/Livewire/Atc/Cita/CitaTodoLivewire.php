@@ -56,11 +56,15 @@ class CitaTodoLivewire extends Component
         };
 
         $this->eventos = Cita::whereBetween('start_at', [$inicio, $fin])
+            ->orderBy('start_at')
             ->get()
             ->map(fn($cita) => [
                 'id' => $cita->id,
                 'title' => $cita->motivo->nombre,
                 'date' => $cita->start_at->toDateString(),
+                'time' => $cita->start_at->format('H:i'),
+                'end_time' => $cita->end_at->format('H:i'),
+                'label' => $cita->start_at->format('H:i') . " — " . $cita->motivo->nombre,
             ])
             ->toArray();
     }

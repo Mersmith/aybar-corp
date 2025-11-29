@@ -49,5 +49,39 @@ class CitaSeeder extends Seeder
                 'estado'              => $estados[array_rand($estados)],
             ]);
         }
+
+        // Crear 20 citas SOLO para HOY con horarios distintos
+        $hoy = now()->startOfDay();
+        $horaActual = $hoy->copy()->setTime(8, 0); // empiezan desde las 8:00 AM
+
+        for ($i = 0; $i < 20; $i++) {
+
+            $cliente = $clientes->random();
+            $sede = $sedes->random();
+            $motivo = $motivos->random();
+            $duracion = $duraciones[array_rand($duraciones)];
+
+            // generar start/end
+            $start = $horaActual->copy();
+            $end = $start->copy()->addMinutes($duracion);
+
+            // evitar que pase de las 6 PM
+            if ($start->hour >= 18) {
+                break;
+            }
+
+            Cita::create([
+                'usuario_solicita_id' => $admin->id,
+                'usuario_recibe_id'   => $cliente->id,
+                'sede_id'             => $sede->id,
+                'motivo_cita_id'      => $motivo->id,
+                'start_at'            => $start,
+                'end_at'              => $end,
+                'estado'              => 'confirmada',
+            ]);
+
+            // mover horaActual para próxima cita
+            $horaActual = $end->copy()->addMinutes(5); // 5 minutos entre citas
+        }
     }
 }
