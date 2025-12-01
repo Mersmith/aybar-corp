@@ -45,6 +45,20 @@ class CitaTodoLivewire extends Component
         $this->loadEventos();
     }
 
+    public function irAlDiaDeMes($dia)
+    {
+        $this->vista = 'dia';
+        $this->fechaActual->setDay($dia);
+        $this->loadEventos();
+    }
+
+    public function irAlDiaDeSemana($fecha)
+    {
+        $this->vista = 'dia';
+        $this->fechaActual = Carbon::parse($fecha);
+        $this->loadEventos();
+    }
+
     public function loadEventos()
     {
         $inicio = match ($this->vista) {

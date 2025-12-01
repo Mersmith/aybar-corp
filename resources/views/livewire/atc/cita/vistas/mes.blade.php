@@ -12,19 +12,30 @@ $diasEnMes = $inicioMes->daysInMonth;
 @endfor
 
 {{-- Días del mes --}}
+{{-- Días del mes --}}
 @for ($dia = 1; $dia <= $diasEnMes; $dia++) @php $fecha=$fechaActual->copy()->day($dia)->toDateString();
     $items = collect($eventos)->where('date', $fecha);
     @endphp
 
     <div class="cal-day" wire:click="$dispatch('crearCita', { fecha: '{{ $fecha }}' })">
-        <div class="cal-day-number">{{ $dia }}</div>
+
+        <div class="cal-day-number">
+            {{ $dia }}
+
+            {{-- BOTÓN PARA IR AL DÍA --}}
+            <button type="button" class="cal-open-btn" wire:click.stop="irAlDiaDeMes({{ $dia }})">
+                Abrir
+            </button>
+        </div>
 
         @foreach ($items as $ev)
         <div class="cal-event" wire:click.stop="$dispatch('editarCita', { id: {{ $ev['id'] }} })">
             {{ $ev['title'] }}
         </div>
         @endforeach
+
     </div>
     @endfor
+
 
     </div>

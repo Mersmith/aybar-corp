@@ -8,9 +8,14 @@ $inicio = $fechaActual->copy()->startOfWeek();
         $items = collect($eventos)->where('date', $fecha);
         @endphp
 
-        <div class="cal-day" wire:click="$dispatch('crearCita', { fecha: '{{ $fecha }}' })">
+        <div class="cal-day">
 
-            <div class="cal-day-number">
+            {{-- Abrir Día --}}
+            <button class="cal-open-btn" wire:click="irAlDiaDeSemana('{{ $fecha }}')">
+                Abrir
+            </button>
+
+            <div class="cal-day-number" wire:click="$dispatch('crearCita', { fecha: '{{ $fecha }}' })">
                 {{ $day->translatedFormat('D d') }}
             </div>
 
