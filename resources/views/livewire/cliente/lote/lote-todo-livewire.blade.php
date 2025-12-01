@@ -81,6 +81,4 @@
         </div>
     </div>
     @endif
-
-    @livewire('web.open-ai.procesar-imagen-livewire')
 </div>
