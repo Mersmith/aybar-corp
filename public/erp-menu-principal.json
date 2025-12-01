@@ -171,6 +171,22 @@
                         "url": "/admin/cita",
                         "nivel": 3,
                         "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.cita.vista.crear",
+                        "url": "/admin/cita/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 113,
+                        "nombre": "Calendario",
+                        "ruta": "admin.cita.vista.calendario",
+                        "url": "/admin/cita/calendario",
+                        "nivel": 3,
+                        "submenus": []
                     }
                 ]
             },
