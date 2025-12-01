@@ -3,7 +3,6 @@
 namespace App\Livewire\Atc\Cita;
 
 use App\Models\Cita;
-use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Carbon\Carbon;
@@ -11,7 +10,7 @@ use Carbon\Carbon;
 #[Layout('layouts.admin.layout-admin')]
 class CitaTodoLivewire extends Component
 {
-    public $vista = 'mes'; // mes | semana | dia | anio
+    public $vista = 'mes';
     public $fechaActual;
     public $eventos = [];
 
@@ -36,6 +35,13 @@ class CitaTodoLivewire extends Component
             'anio'   => $this->fechaActual->addYears($valor),
         };
 
+        $this->loadEventos();
+    }
+
+    public function irAlMes($mes)
+    {
+        $this->vista = 'mes';
+        $this->fechaActual->setMonth($mes);
         $this->loadEventos();
     }
 
@@ -65,21 +71,9 @@ class CitaTodoLivewire extends Component
                 'cliente'   => $cita->receptor?->name,
                 'sede'      => $cita->sede?->nombre,
                 'estado'    => $cita->estado,
-
                 'date'      => $cita->start_at->toDateString(),
                 'time'      => $cita->start_at->format('H:i'),
                 'end_time'  => $cita->end_at?->format('H:i'),
-
-                'label'     => $cita->start_at->format('H:i') . " — " . $cita->motivo->nombre,
-
-                'label_detallado' => sprintf(
-                    "%s - %s | %s | %s | %s",
-                    $cita->start_at->format('H:i'),
-                    $cita->end_at?->format('H:i') ?? '—',
-                    $cita->motivo->nombre,
-                    $cita->receptor?->name,
-                    ucfirst($cita->estado)
-                ),
             ])
             ->toArray();
     }
