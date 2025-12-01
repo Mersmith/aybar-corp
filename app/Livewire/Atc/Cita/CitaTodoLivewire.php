@@ -59,6 +59,13 @@ class CitaTodoLivewire extends Component
         $this->loadEventos();
     }
 
+    public function irHoy()
+    {
+        $this->fechaActual = Carbon::now();
+        $this->vista = 'dia'; // O si quieres mantener la vista actual, quita esta línea
+        $this->loadEventos();
+    }
+
     public function loadEventos()
     {
         $inicio = match ($this->vista) {

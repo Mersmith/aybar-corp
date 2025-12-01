@@ -2,22 +2,18 @@
 
     <!-- Botones de vista -->
     <div class="cal-view-buttons">
-        <button wire:click="cambiarVista('anio')" class="{{ $vista === 'anio' ? 'active' : '' }}">
-            Año
-        </button>
+        <button wire:click="cambiarVista('anio')" class="{{ $vista === 'anio' ? 'active' : '' }}">Año</button>
+        <button wire:click="cambiarVista('mes')" class="{{ $vista === 'mes' ? 'active' : '' }}">Mes</button>
+        <button wire:click="cambiarVista('semana')" class="{{ $vista === 'semana' ? 'active' : '' }}">Semana</button>
+        <button wire:click="cambiarVista('dia')" class="{{ $vista === 'dia' ? 'active' : '' }}">Día</button>
 
-        <button wire:click="cambiarVista('mes')" class="{{ $vista === 'mes' ? 'active' : '' }}">
-            Mes
-        </button>
-
-        <button wire:click="cambiarVista('semana')" class="{{ $vista === 'semana' ? 'active' : '' }}">
-            Semana
-        </button>
-
-        <button wire:click="cambiarVista('dia')" class="{{ $vista === 'dia' ? 'active' : '' }}">
-            Día
+        {{-- BOTÓN HOY --}}
+        <button wire:click="irHoy()"
+            class="btn-hoy {{ $vista === 'dia' && $fechaActual->isToday() ? 'hoy-activo' : '' }}">
+            Hoy
         </button>
     </div>
+
 
     <!-- Navegación -->
     <div class="cal-header">

@@ -272,3 +272,20 @@
 .estado-rechazada {
     background: #6c757d;
 }
+
+/* Botón HOY distinto */
+.btn-hoy {
+    background: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-left: 10px;
+}
+
+/* Cuando estás realmente en HOY */
+.btn-hoy.hoy-activo {
+    background: #ff9800 !important; /* naranja */
+    color: #fff !important;
+    border-color: #e68900;
+}
