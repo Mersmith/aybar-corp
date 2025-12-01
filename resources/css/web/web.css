@@ -4,6 +4,8 @@
 @import "../generales/paginacion.css";
 @import "../generales/formulario.css";
 @import "../generales/ckeditor.css";
+@import "../generales/botones.css";
+@import "../generales/loader.css";
 
 @import "./layout.css";
 @import "./rejilla.css";

@@ -10,7 +10,6 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\PaginaController;
-use App\Livewire\Web\OpenAi\ProcesarImagenLivewire;
 use App\Livewire\Web\Sesion\RegistrarClienteCrearLivewire;
 use App\Livewire\Web\Sesion\RegistrarSocioCrearLivewire;
 use App\Http\Controllers\VerificationController;
@@ -59,7 +58,5 @@ Route::post('/contacto/enviar', [FormularioPaginaContactoController::class, 'env
 
 Route::get('/libro-de-reclamaciones', [FormularioLibroReclamacionController::class, 'index'])->name('reclamaciones.index'); //pagina personalizada
 Route::post('/libro-de-reclamaciones/enviar', [FormularioLibroReclamacionController::class, 'enviar'])->name('reclamaciones.enviar');
-
-Route::get('/procesar-imagen', ProcesarImagenLivewire::class)->name('procesar-imagen.vista.todo');
 
 Route::get('/{slug?}', [PaginaController::class, 'show'])->name('pagina.mostrar');
