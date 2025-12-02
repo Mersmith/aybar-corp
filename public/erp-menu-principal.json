@@ -116,7 +116,7 @@
         "submenus": [
             {
                 "id": 41,
-                "nombre": "Usuario",
+                "nombre": "Admins",
                 "ruta": "#",
                 "url": "#",
                 "icono": "fa-solid fa-user-tie",
@@ -135,6 +135,32 @@
                         "nombre": "Crear",
                         "ruta": "admin.usuario.vista.crear",
                         "url": "/admin/usuario/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 42,
+                "nombre": "Clientes",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-users",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.cliente.vista.todo",
+                        "url": "/admin/cliente",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.cliente.vista.crear",
+                        "url": "/admin/cliente/crear",
                         "nivel": 3,
                         "submenus": []
                     }

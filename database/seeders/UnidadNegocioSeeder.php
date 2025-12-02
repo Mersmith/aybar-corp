@@ -15,15 +15,15 @@ class UnidadNegocioSeeder extends Seeder
     {
         $unidades = [
             [
-                'nombre' => 'AYBAR',
+                'nombre' => 'AYBAR CORP. S.A.C',
                 'razon_social' => 'AYBAR CORP. S.A.C',
             ],
             [
-                'nombre' => 'PONTEVEDRA',
+                'nombre' => 'PONTEVEDRA S.A.C',
                 'razon_social' => 'PONTEVEDRA S.A.C',
             ],
             [
-                'nombre' => 'VIDANORTE',
+                'nombre' => 'VIVANORTE S.A.C',
                 'razon_social' => 'VIVANORTE S.A.C',
             ],
         ];

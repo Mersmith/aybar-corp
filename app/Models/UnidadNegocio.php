@@ -17,4 +17,11 @@ class UnidadNegocio extends Model
     {
         return $this->hasMany(Proyecto::class);
     }
+
+    public function clientes()
+    {
+        return $this->belongsToMany(Cliente::class, 'cliente_unidad_negocio')
+            ->withPivot(['codigo', 'id_empresa'])
+            ->withTimestamps();
+    }
 }

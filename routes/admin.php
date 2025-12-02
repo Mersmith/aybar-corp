@@ -12,6 +12,12 @@ use App\Livewire\Admin\User\{
     UserEditarLivewire
 };
 
+use App\Livewire\Admin\Cliente\{
+    ClienteTodoLivewire,
+    ClienteCrearLivewire,
+    ClienteEditarLivewire
+};
+
 use App\Livewire\Admin\UnidadNegocio\{
     UnidadNegocioTodoLivewire,
     UnidadNegocioCrearLivewire,
@@ -126,6 +132,12 @@ Route::prefix('usuario')->name('usuario.vista.')->group(function () {
     Route::get('/', UserTodoLivewire::class)->name('todo');
     Route::get('/crear', UserCrearLivewire::class)->name('crear');
     Route::get('/editar/{id}', UserEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('cliente')->name('cliente.vista.')->group(function () {
+    Route::get('/', ClienteTodoLivewire::class)->name('todo');
+    Route::get('/crear', ClienteCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', ClienteEditarLivewire::class)->name('editar');
 });
 
 Route::prefix('unidad-negocio')->name('unidad-negocio.vista.')->group(function () {

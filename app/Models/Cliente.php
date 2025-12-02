@@ -25,7 +25,7 @@ class Cliente extends Model
         'telefono_alternativo',
         'imagen_ruta',
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -34,5 +34,12 @@ class Cliente extends Model
     public function ventas()
     {
         return $this->hasMany(Venta::class);
+    }
+
+    public function unidadesNegocio()
+    {
+        return $this->belongsToMany(UnidadNegocio::class, 'cliente_unidad_negocio')
+            ->withPivot(['codigo', 'id_empresa'])
+            ->withTimestamps();
     }
 }
