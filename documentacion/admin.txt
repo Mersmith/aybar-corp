@@ -68,6 +68,10 @@ php artisan make:livewire Admin/User/UserTodoLivewire
 php artisan make:livewire Admin/User/UserCrearLivewire
 php artisan make:livewire Admin/User/UserEditarLivewire
 
+php artisan make:livewire Admin/Cliente/ClienteTodoLivewire
+php artisan make:livewire Admin/Cliente/ClienteCrearLivewire
+php artisan make:livewire Admin/Cliente/ClienteEditarLivewire
+
 php artisan make:livewire Admin/TipoFormulario/TipoFormularioTodoLivewire
 php artisan make:livewire Admin/TipoFormulario/TipoFormularioCrearLivewire
 php artisan make:livewire Admin/TipoFormulario/TipoFormularioEditarLivewire

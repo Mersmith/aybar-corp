@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 1; $i <= 2; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             User::factory()->create([
                 'name' => "Admin $i",
                 'email' => "admin$i@example.com",
@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
             ]);
         }
 
-        for ($i = 1; $i <= 2; $i++) {
+        for ($i = 1; $i <= 20; $i++) {
             $cliente = User::create([
                 'name' => "Cliente $i",
                 'email' => "cliente$i@example.com",

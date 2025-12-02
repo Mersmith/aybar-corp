@@ -11,13 +11,33 @@ use Livewire\WithPagination;
 class UserTodoLivewire extends Component
 {
     use WithPagination;
+    public $buscar = '';
+    public $perPage = 20;
+
+    public function updatingBuscar()
+    {
+        $this->resetPage();
+    }
+
+    public function resetFiltros()
+    {
+        $this->reset([
+            'buscar',
+        ]);
+
+        $this->perPage = 20;
+        $this->resetPage();
+    }
 
     public function render()
     {
-        $users = User::orderBy('created_at', 'desc')
-            ->paginate(10);
+        $items = User::where('role', 'admin')
+            ->where('name', 'like', '%' . $this->buscar . '%')
+            ->orderBy('created_at', 'desc')
+            ->paginate($this->perPage);
+
         return view('livewire.admin.user.user-todo-livewire', [
-            'users' => $users,
+            'items' => $items,
         ]);
     }
 }
