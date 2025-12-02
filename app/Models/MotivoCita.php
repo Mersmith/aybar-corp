@@ -13,6 +13,8 @@ class MotivoCita extends Model
 
     protected $fillable = [
         'nombre',
+        'color',
+        'icono',
         'activo',
     ];
 

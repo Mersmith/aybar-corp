@@ -8,6 +8,32 @@
         "nivel": 1,
         "submenus": [
             {
+                "id": 44,
+                "nombre": "Motivos cita",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-lightbulb",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.motivo-cita.vista.todo",
+                        "url": "/admin/motivo-cita",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.motivo-cita.vista.crear",
+                        "url": "/admin/motivo-cita/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
                 "id": 45,
                 "nombre": "Estados cita",
                 "ruta": "#",

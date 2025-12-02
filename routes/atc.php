@@ -25,6 +25,10 @@ use App\Livewire\Atc\Ticket\TicketDerivadoLivewire;
 
 use App\Livewire\Atc\Reporte\ReporteLivewire;
 
+use App\Livewire\Atc\MotivoCita\MotivoCitaTodoLivewire;
+use App\Livewire\Atc\MotivoCita\MotivoCitaCrearLivewire;
+use App\Livewire\Atc\MotivoCita\MotivoCitaEditarLivewire;
+
 use App\Livewire\Atc\EstadoCita\EstadoCitaTodoLivewire;
 use App\Livewire\Atc\EstadoCita\EstadoCitaCrearLivewire;
 use App\Livewire\Atc\EstadoCita\EstadoCitaEditarLivewire;
@@ -73,6 +77,12 @@ Route::prefix('ticket')->name('ticket.vista.')->group(function () {
 
 Route::prefix('reporte-ticket')->name('reporte-ticket.vista.')->group(function () {
     Route::get('/', ReporteLivewire::class)->name('todo');
+});
+
+Route::prefix('motivo-cita')->name('motivo-cita.vista.')->group(function () {
+    Route::get('/', MotivoCitaTodoLivewire::class)->name('todo');
+    Route::get('/crear', MotivoCitaCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', MotivoCitaEditarLivewire::class)->name('editar');
 });
 
 Route::prefix('estado-cita')->name('estado-cita.vista.')->group(function () {

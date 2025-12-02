@@ -116,3 +116,7 @@ php artisan make:livewire Admin/Reprogramacion/ReprogramacionEditarLivewire
 php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralTodoLivewire
 php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralCrearLivewire
 php artisan make:livewire Admin/ReprogramacionGeneral/ReprogramacionGeneralEditarLivewire
+
+php artisan make:livewire Admin/Sede/SedeTodoLivewire
+php artisan make:livewire Admin/Sede/SedeCrearLivewire
+php artisan make:livewire Admin/Sede/SedeEditarLivewire

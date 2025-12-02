@@ -1,16 +1,16 @@
-@section('tituloPagina', 'Estados cita')
+@section('tituloPagina', 'Motivos cita')
 
 @section('anchoPantalla', '100%')
 
 <div class="g_gap_pagina">
     <div class="g_panel cabecera_titulo_pagina">
-        <h2>Estados cita</h2>
+        <h2>Motivos cita</h2>
 
         <div class="cabecera_titulo_botones">
-            <a href="{{ route('admin.estado-cita.vista.todo') }}" class="g_boton g_boton_light">
+            <a href="{{ route('admin.motivo-cita.vista.todo') }}" class="g_boton g_boton_light">
                 Inicio <i class="fa-solid fa-house"></i></a>
 
-            <a href="{{ route('admin.estado-cita.vista.crear') }}" class="g_boton g_boton_primary">
+            <a href="{{ route('admin.motivo-cita.vista.crear') }}" class="g_boton g_boton_primary">
                 Crear <i class="fa-solid fa-square-plus"></i></a>
         </div>
     </div>
@@ -60,7 +60,7 @@
                                     </td>
 
                                     <td class="centrar_iconos">
-                                        <a href="{{ route('admin.estado-cita.vista.editar', $item->id) }}"
+                                        <a href="{{ route('admin.motivo-cita.vista.editar', $item->id) }}"
                                             class="g_accion_editar">
                                             <span><i class="fa-solid fa-pencil"></i></span>
                                         </a>

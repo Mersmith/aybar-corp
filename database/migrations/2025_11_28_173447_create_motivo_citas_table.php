@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('motivo_citas', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nombre');
+            $table->string('nombre')->unique();
+            $table->string('color')->nullable();
+            $table->string('icono')->nullable();
             $table->boolean('activo')->default(true);
 
             $table->timestamps();
