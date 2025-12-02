@@ -1,7 +1,6 @@
 @section('tituloPagina', 'Editar estado ticket')
 
 <div class="g_gap_pagina">
-    <!-- CABECERA -->
     <div class="g_panel cabecera_titulo_pagina">
         <h2>Editar estado ticket</h2>
         <div class="cabecera_titulo_botones">
@@ -20,7 +19,6 @@
         </div>
     </div>
 
-    <!-- FORMULARIO -->
     <div class="formulario">
         <div class="g_fila">
             <div class="g_columna_8 g_gap_pagina">

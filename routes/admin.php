@@ -18,6 +18,12 @@ use App\Livewire\Admin\UnidadNegocio\{
     UnidadNegocioEditarLivewire
 };
 
+use App\Livewire\Admin\Sede\{
+    SedeTodoLivewire,
+    SedeCrearLivewire,
+    SedeEditarLivewire
+};
+
 use App\Livewire\Admin\Proyecto\{
     ProyectoTodoLivewire,
     ProyectoCrearLivewire,
@@ -128,6 +134,12 @@ Route::prefix('unidad-negocio')->name('unidad-negocio.vista.')->group(function (
     Route::get('/editar/{id}', UnidadNegocioEditarLivewire::class)->name('editar');
 });
 
+Route::prefix('sede')->name('sede.vista.')->group(function () {
+    Route::get('/', SedeTodoLivewire::class)->name('todo');
+    Route::get('/crear', SedeCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', SedeEditarLivewire::class)->name('editar');
+});
+
 Route::prefix('proyecto')->name('proyecto.vista.')->group(function () {
     Route::get('/', ProyectoTodoLivewire::class)->name('todo');
     Route::get('/crear', ProyectoCrearLivewire::class)->name('crear');
@@ -166,7 +178,6 @@ Route::prefix('formulario-libro-reclamacion')->name('formulario-libro-reclamacio
     Route::get('/', FormularioLibroReclamacionTodoLivewire::class)->name('todo');
     Route::get('/editar/{id}', FormularioLibroReclamacionEditarLivewire::class)->name('editar');
 });
-
 
 Route::get('/imagen', ImagenTodoLivewire::class)->name('imagen.vista.todo');
 Route::post('/upload-local-imagen', [ImagenController::class, 'uploadLocalImagen'])->name('imagen.upload-local');

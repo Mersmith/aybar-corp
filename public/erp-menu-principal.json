@@ -1,5 +1,93 @@
 [
     {
+        "id": 13,
+        "nombre": "13",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-city",
+        "nivel": 1,
+        "submenus": [
+            {
+                "id": 39,
+                "nombre": "Unidad Negocio",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-archway",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.unidad-negocio.vista.todo",
+                        "url": "/admin/unidad-negocio",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.unidad-negocio.vista.crear",
+                        "url": "/admin/unidad-negocio/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 40,
+                "nombre": "Sedes",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-map-location-dot",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.sede.vista.todo",
+                        "url": "/admin/sede",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.sede.vista.crear",
+                        "url": "/admin/sede/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 41,
+                "nombre": "Areas",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-shapes",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.area.vista.todo",
+                        "url": "/admin/area",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.area.vista.crear",
+                        "url": "/admin/area/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "id": 12,
         "nombre": "12",
         "ruta": "#",
@@ -142,32 +230,6 @@
         "nivel": 1,
         "submenus": [
             {
-                "id": 41,
-                "nombre": "Areas",
-                "ruta": "#",
-                "url": "#",
-                "icono": "fa-solid fa-shapes",
-                "nivel": 2,
-                "submenus": [
-                    {
-                        "id": 111,
-                        "nombre": "Todo",
-                        "ruta": "admin.area.vista.todo",
-                        "url": "/admin/area",
-                        "nivel": 3,
-                        "submenus": []
-                    },
-                    {
-                        "id": 112,
-                        "nombre": "Crear",
-                        "ruta": "admin.area.vista.crear",
-                        "url": "/admin/area/crear",
-                        "nivel": 3,
-                        "submenus": []
-                    }
-                ]
-            },
-            {
                 "id": 42,
                 "nombre": "Tipo solicitud",
                 "ruta": "#",
@@ -299,32 +361,6 @@
         "icono": "fa-solid fa-map",
         "nivel": 1,
         "submenus": [
-            {
-                "id": 41,
-                "nombre": "Unidad Negocio",
-                "ruta": "#",
-                "url": "#",
-                "icono": "fa-solid fa-shapes",
-                "nivel": 2,
-                "submenus": [
-                    {
-                        "id": 111,
-                        "nombre": "Todo",
-                        "ruta": "admin.unidad-negocio.vista.todo",
-                        "url": "/admin/unidad-negocio",
-                        "nivel": 3,
-                        "submenus": []
-                    },
-                    {
-                        "id": 112,
-                        "nombre": "Crear",
-                        "ruta": "admin.unidad-negocio.vista.crear",
-                        "url": "/admin/unidad-negocio/crear",
-                        "nivel": 3,
-                        "submenus": []
-                    }
-                ]
-            },
             {
                 "id": 42,
                 "nombre": "Proyecto",

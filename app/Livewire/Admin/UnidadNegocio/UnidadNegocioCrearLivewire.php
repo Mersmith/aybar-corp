@@ -4,7 +4,6 @@ namespace App\Livewire\Admin\UnidadNegocio;
 
 use App\Models\UnidadNegocio;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\On;
 use Livewire\Component;
 
 #[Layout('layouts.admin.layout-admin')]
