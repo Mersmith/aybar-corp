@@ -253,12 +253,12 @@
     font-size: 13px;
 }
 
-.estado {
+/*.estado {
     padding: 2px 6px;
     border-radius: 4px;
     font-size: 12px;
     color: #fff;
-}
+}*/
 
 .estado-pendiente {
     background: #ffc107;

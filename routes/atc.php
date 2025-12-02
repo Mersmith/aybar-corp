@@ -25,10 +25,16 @@ use App\Livewire\Atc\Ticket\TicketDerivadoLivewire;
 
 use App\Livewire\Atc\Reporte\ReporteLivewire;
 
+use App\Livewire\Atc\EstadoCita\EstadoCitaTodoLivewire;
+use App\Livewire\Atc\EstadoCita\EstadoCitaCrearLivewire;
+use App\Livewire\Atc\EstadoCita\EstadoCitaEditarLivewire;
+
 use App\Livewire\Atc\Cita\CitaTodoLivewire;
 use App\Livewire\Atc\Cita\CitaCalendarioLivewire;
 use App\Livewire\Atc\Cita\CitaCrearLivewire;
 use App\Livewire\Atc\Cita\CitaEditarLivewire;
+
+use App\Livewire\Atc\ReporteCita\ReporteCitaLivewire;
 
 use Illuminate\Support\Facades\Route;
 
@@ -69,9 +75,19 @@ Route::prefix('reporte-ticket')->name('reporte-ticket.vista.')->group(function (
     Route::get('/', ReporteLivewire::class)->name('todo');
 });
 
+Route::prefix('estado-cita')->name('estado-cita.vista.')->group(function () {
+    Route::get('/', EstadoCitaTodoLivewire::class)->name('todo');
+    Route::get('/crear', EstadoCitaCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', EstadoCitaEditarLivewire::class)->name('editar');
+});
+
 Route::prefix('cita')->name('cita.vista.')->group(function () {
     Route::get('/', CitaTodoLivewire::class)->name('todo');
     Route::get('/calendario', CitaCalendarioLivewire::class)->name('calendario');
     Route::get('/crear', CitaCrearLivewire::class)->name('crear');
     Route::get('/editar/{id}', CitaEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('reporte-cita')->name('reporte-cita.vista.')->group(function () {
+    Route::get('/', ReporteCitaLivewire::class)->name('todo');
 });

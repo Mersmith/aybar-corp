@@ -2,88 +2,66 @@
 
 namespace App\Livewire\Atc\Cita;
 
-use App\Models\Cita;
-use App\Models\MotivoCita;
-use App\Models\Sede;
-use App\Models\User;
-use Livewire\Attributes\On;
+use Livewire\Attributes\Layout;
 use Livewire\Component;
+use App\Models\User;
+use App\Models\Sede;
+use App\Models\MotivoCita;
+use App\Models\Cita;
 
+#[Layout('layouts.admin.layout-admin')]
 class CitaCrearLivewire extends Component
 {
-    public $modal = false;
-    public $cita_id;
+    public $usuarios_admin, $usuario_solicita_id = '';
+    public $usuarios_cliente, $usuario_recibe_id = '23';
+    public $sedes, $sede_id = '';
+    public $motivos, $motivo_cita_id = '';
+    public $fecha_inicio;
+    public $fecha_fin;
+    public $estado = '';
 
-    public $usuario_solicita_id;
-    public $usuario_recibe_id;
-    public $sede_id;
-    public $motivo_cita_id;
-    public $fecha;
-    public $hora_inicio;
-    public $hora_fin;
-
-    #[On('abrirModalCrear')]
-    public function abrirModalCrear($data)
+    protected function rules()
     {
-        $this->reset([
-            'cita_id',
-            'usuario_solicita_id',
-            'usuario_recibe_id',
-            'sede_id',
-            'motivo_cita_id',
-            'hora_inicio',
-            'hora_fin',
-        ]);
-
-        $this->fecha = $data['fecha'];
-        $this->modal = true;
-    }
-
-    #[On('abrirModalEditar')]
-    public function abrirModalEditar($data)
-    {
-        $cita = Cita::findOrFail($data['id']);
-
-        $this->cita_id = $cita->id;
-        $this->usuario_solicita_id = $cita->usuario_solicita_id;
-        $this->usuario_recibe_id = $cita->usuario_recibe_id;
-        $this->sede_id = $cita->sede_id;
-        $this->motivo_cita_id = $cita->motivo_cita_id;
-        $this->fecha = $cita->fecha;
-        $this->hora_inicio = $cita->hora_inicio;
-        $this->hora_fin = $cita->hora_fin;
-
-        $this->modal = true;
-    }
-
-    public function guardar()
-    {
-        $data = $this->validate([
+        return [
             'usuario_solicita_id' => 'required',
             'usuario_recibe_id' => 'required',
-            'sede_id' => 'nullable',
+            'sede_id' => 'required',
             'motivo_cita_id' => 'required',
-            'fecha' => 'required|date',
-            'hora_inicio' => 'required',
-            'hora_fin' => 'nullable',
+            'fecha_inicio' => 'required',
+            'fecha_fin' => 'required',
+            'estado' => 'required',
+        ];
+    }
+
+    public function mount()
+    {
+        $this->sedes = Sede::all();
+        $this->motivos = MotivoCita::all();
+        $this->usuarios_admin = User::where('role', 'admin')->get();
+        $this->usuarios_cliente = User::where('role', 'cliente')->get();
+    }
+
+    public function store()
+    {
+        $this->validate();
+
+        $cita = Cita::create([
+            'usuario_solicita_id' => $this->usuario_solicita_id,
+            'usuario_recibe_id' => $this->usuario_recibe_id,
+            'sede_id' => $this->sede_id,
+            'motivo_cita_id' => $this->motivo_cita_id,
+            'fecha_inicio' => $this->fecha_inicio,
+            'fecha_fin' => $this->fecha_fin,
+            'estado' => $this->estado,
         ]);
 
-        if ($this->cita_id) {
-            $data['id'] = $this->cita_id;
-            $this->dispatch('actualizarCita', $data);
-        } else {
-            $this->dispatch('crearCita', $data);
-        }
+        $this->dispatch('alertaLivewire', "Creado");
 
-        $this->modal = false;
+        return redirect()->route('admin.cita.vista.todo');
     }
 
     public function render()
     {
-        return view('livewire.atc.cita.cita-crear-livewire', [
-            'users' => User::all(),
-            'sedes' => Sede::all(),
-            'motivos' => MotivoCita::all(),
-        ]);
+        return view('livewire.atc.cita.cita-crear-livewire');
     }
 }

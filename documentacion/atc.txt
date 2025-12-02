@@ -39,6 +39,7 @@ php artisan make:model TicketMensaje -mfsc
 php artisan make:model Sede -mfsc
 php artisan make:model Cita -mfsc
 php artisan make:model MotivoCita -mfsc
+php artisan make:model EstadoCita -mfsc
 
 php artisan make:seeder AsignacionesSeeder
 
@@ -66,6 +67,11 @@ php artisan make:livewire Atc/Ticket/TicketEditarLivewire
 php artisan make:livewire Atc/Ticket/TicketDerivadoLivewire
 
 php artisan make:livewire Atc/Reporte/ReporteLivewire
+
+php artisan make:livewire Atc/EstadoCita/EstadoCitaTodoLivewire
+php artisan make:livewire Atc/EstadoCita/EstadoCitaCrearLivewire
+php artisan make:livewire Atc/EstadoCita/EstadoCitaEditarLivewire
+php artisan make:livewire Atc/ReporteCita/ReporteCitaLivewire
 
 php artisan make:livewire Atc/Cita/CitaTodoLivewire
 php artisan make:livewire Atc/Cita/CitaCalendarioLivewire

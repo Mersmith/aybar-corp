@@ -16,17 +16,19 @@ class Cita extends Model
         'usuario_recibe_id',
         'sede_id',
         'motivo_cita_id',
-        'start_at',
-        'end_at',
-        'estado',
+        'estado_cita_id',
+        'fecha_inicio',
+        'fecha_fin',
+        'asunto_solicitud',
+        'descripcion_solicitud',
+        'asunto_respuesta',
+        'descripcion_respuesta',
     ];
 
     protected $casts = [
-        'start_at' => 'datetime',
-        'end_at'   => 'datetime',
+        'fecha_inicio' => 'datetime',
+        'fecha_fin'   => 'datetime',
     ];
-
-    /** RELACIONES */
 
     public function solicitante()
     {
@@ -46,5 +48,10 @@ class Cita extends Model
     public function motivo()
     {
         return $this->belongsTo(MotivoCita::class, 'motivo_cita_id');
+    }
+
+    public function estado()
+    {
+        return $this->belongsTo(EstadoCita::class, 'estado_cita_id');
     }
 }
