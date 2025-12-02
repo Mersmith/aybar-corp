@@ -1,7 +1,26 @@
 [
     {
-        "id": 13,
-        "nombre": "13",
+        "id": 50,
+        "nombre": "50",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-circle-user",
+        "nivel": 1,
+        "submenus": [
+            {
+                "id": 41,
+                "nombre": "Perfil",
+                "ruta": "admin.home",
+                "url": "/admin/perfil",
+                "icono": "fa-solid fa-user-tie",
+                "nivel": 2,
+                "submenus": []
+            }
+        ]
+    },
+    {
+        "id": 49,
+        "nombre": "49",
         "ruta": "#",
         "url": "#",
         "icono": "fa-solid fa-city",
@@ -80,6 +99,42 @@
                         "nombre": "Crear",
                         "ruta": "admin.area.vista.crear",
                         "url": "/admin/area/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 48,
+        "nombre": "48",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-user-shield",
+        "nivel": 1,
+        "submenus": [
+            {
+                "id": 41,
+                "nombre": "Usuario",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-user-tie",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.usuario.vista.todo",
+                        "url": "/admin/usuario",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.usuario.vista.crear",
+                        "url": "/admin/usuario/crear",
                         "nivel": 3,
                         "submenus": []
                     }
@@ -201,26 +256,7 @@
                 ]
             }
         ]
-    },
-    {
-        "id": 11,
-        "nombre": "11",
-        "ruta": "#",
-        "url": "#",
-        "icono": "fa-solid fa-circle-user",
-        "nivel": 1,
-        "submenus": [
-            {
-                "id": 41,
-                "nombre": "Perfil",
-                "ruta": "admin.home",
-                "url": "/admin/perfil",
-                "icono": "fa-solid fa-user-tie",
-                "nivel": 2,
-                "submenus": []
-            }
-        ]
-    },
+    },    
     {
         "id": 10,
         "nombre": "10",
@@ -503,43 +539,7 @@
                 "submenus": []
             }
         ]
-    },
-    {
-        "id": 7,
-        "nombre": "7",
-        "ruta": "#",
-        "url": "#",
-        "icono": "fa-solid fa-user-shield",
-        "nivel": 1,
-        "submenus": [
-            {
-                "id": 41,
-                "nombre": "Usuario",
-                "ruta": "#",
-                "url": "#",
-                "icono": "fa-solid fa-user-tie",
-                "nivel": 2,
-                "submenus": [
-                    {
-                        "id": 111,
-                        "nombre": "Todo",
-                        "ruta": "admin.usuario.vista.todo",
-                        "url": "/admin/usuario",
-                        "nivel": 3,
-                        "submenus": []
-                    },
-                    {
-                        "id": 112,
-                        "nombre": "Crear",
-                        "ruta": "admin.usuario.vista.crear",
-                        "url": "/admin/usuario/crear",
-                        "nivel": 3,
-                        "submenus": []
-                    }
-                ]
-            }
-        ]
-    },
+    },    
     {
         "id": 6,
         "nombre": "6",

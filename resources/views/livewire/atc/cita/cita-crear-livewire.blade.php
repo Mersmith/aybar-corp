@@ -2,7 +2,6 @@
 @section('anchoPantalla', '100%')
 
 <div class="g_gap_pagina">
-    <!-- CABECERA -->
     <div class="g_panel cabecera_titulo_pagina">
         <h2>Crear cita</h2>
 
@@ -17,16 +16,14 @@
         </div>
     </div>
 
-    <!-- FORMULARIO -->
     <div class="formulario">
         <div class="g_fila">
-            <!-- IZQUIERDA -->
-            <div class="g_columna_8 g_gap_pagina">
+            <div class="g_columna_6 g_gap_pagina">
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">General</h4>
 
                     <div class="g_fila">
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_6">
                             <label for="sede_id">
                                 Sede <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
                             </label>
@@ -41,7 +38,7 @@
                             @enderror
                         </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_6">
                             <label for="motivo_cita_id">
                                 Motivo <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
                             </label>
@@ -55,8 +52,10 @@
                                 <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
+                    </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                    <div class="g_fila">
+                        <div class="g_margin_bottom_10 g_columna_6">
                             <label for="usuario_solicita_id">
                                 Creador <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
                             </label>
@@ -70,10 +69,8 @@
                                 <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
-                    </div>
 
-                    <div class="g_fila">
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_6">
                             <label for="fecha_inicio">Fecha inicio <span class="obligatorio"><i
                                         class="fa-solid fa-asterisk"></i></span></label>
                             <input type="date" id="fecha_inicio" wire:model.live="fecha_inicio" required>
@@ -81,8 +78,10 @@
                                 <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
+                    </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                    <div class="g_fila">
+                        <div class="g_margin_bottom_10 g_columna_6">
                             <label for="fecha_inicio">Fecha fin <span class="obligatorio"><i
                                         class="fa-solid fa-asterisk"></i></span></label>
                             <input type="date" id="fecha_inicio" wire:model.live="fecha_inicio" required>
@@ -91,7 +90,7 @@
                             @enderror
                         </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_6">
                             <label for="fecha_inicio">Estado<span class="obligatorio"><i
                                         class="fa-solid fa-asterisk"></i></span></label>
                             <select id="estado" wire:model.live="estado">
@@ -102,12 +101,54 @@
                     </div>
                 </div>
             </div>
+
+            <div class="g_columna_6 g_gap_pagina g_columna_invertir">
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Clientes</h4>
+
+                    <div class="tabla_cabecera">
+                        <div class="tabla_cabecera_buscar">
+                            <form action="">
+                                <input type="text" id="buscar" name="buscar" placeholder="Buscar...">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="tabla_contenido">
+                        <div class="contenedor_tabla">
+                            <table class="tabla">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>DNI</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($usuarios_cliente as $index => $item)
+                                        <tr>
+                                            <td class="g_resaltar">{{ $item->name }}</td>
+                                            <td class="g_resaltar">{{ $item->email }}</td>
+                                            <td class="g_resaltar">{{ $item->cliente->dni }}</td>
+
+                                            <td class="centrar_iconos">
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="g_margin_top_20">
             <div class="formulario_botones">
                 <button wire:click="store" class="guardar" wire:loading.attr="disabled">Guardar</button>
-                
+
                 <a href="{{ route('admin.cita.vista.todo') }}" class="cancelar">Cancelar</a>
             </div>
         </div>
