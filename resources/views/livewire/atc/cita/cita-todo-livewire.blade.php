@@ -7,6 +7,9 @@
         <h2>Citas</h2>
 
         <div class="cabecera_titulo_botones">
+            <a href="{{ route('admin.cita.vista.crear') }}" class="g_boton g_boton_primary">
+                Crear <i class="fa-solid fa-square-plus"></i></a>
+
             <button wire:click="resetFiltros" class="g_boton g_boton_danger">
                 Limpiar Filtros <i class="fa-solid fa-rotate-left"></i>
             </button>

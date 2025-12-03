@@ -1,4 +1,4 @@
-<div class="cal-year-grid">
+<div class="calendario_grid_anio">
 
     @for ($m = 1; $m <= 12; $m++) @php $fechaMes=\Carbon\Carbon::create($fechaActual->year, $m, 1);
 
@@ -8,21 +8,20 @@
         })->count();
         @endphp
 
-        <div class="cal-year-box">
+        <div class="calendario_caja">
+            <div class="cabecera_titulo_pagina">
+                <h2>{{ $fechaMes->translatedFormat('F') }}</h2>
 
-            <h4 class="cal-year-month">
-                {{ $fechaMes->translatedFormat('F') }}
-            </h4>
-
-            <div class="cal-year-total">
-                {{ $totalMes }} citas
+                <div class="cabecera_titulo_botones">
+                    <button class="g_boton g_boton_success" wire:click="irAlMes({{ $m }})">
+                        Abrir
+                    </button>
+                </div>
             </div>
 
-            <button class="cal-open-btn" wire:click="irAlMes({{ $m }})">
-                Abrir
-            </button>
-
+            <div>
+                {{ $totalMes }} citas
+            </div>
         </div>
         @endfor
-
 </div>

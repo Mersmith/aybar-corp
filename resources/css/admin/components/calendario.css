@@ -1,57 +1,11 @@
-/* =============================== */
-/*   CONTENEDOR GENERAL           */
-/* =============================== */
-.cal-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    font-family: sans-serif;
-}
-
-/* =============================== */
-/*    BOTONES DE VISTA            */
-/* =============================== */
-.cal-view-buttons {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
-}
-
-.cal-view-buttons button {
-    background: #e5e7eb;
-    padding: 6px 12px;
-    border-radius: 6px;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    transition: 0.2s;
-}
-
-.cal-view-buttons button.active {
-    background: #2563eb;
-    color: white;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
-}
-
-.cal-view-buttons button:hover {
-    background: #d1d5db;
-}
-
-/* =============================== */
-/*  BARRA SUPERIOR (NAVEGACIÓN)   */
-/* =============================== */
-.cal-header {
+.calendario_cabecera {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.cal-header button {
+.calendario_cabecera button {
     background: #e5e7eb;
     padding: 8px 12px;
     border-radius: 6px;
@@ -61,63 +15,43 @@
     transition: 0.2s;
 }
 
-.cal-header button:hover {
+.calendario_cabecera button:hover {
     background: #d1d5db;
 }
 
-.cal-header h2 {
+.calendario_cabecera h2 {
     font-size: 22px;
     font-weight: 700;
 }
 
-/* =============================== */
-/*        VISTA DE MES            */
-/* =============================== */
-.cal-weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 14px;
+.calendario_caja {
+    background: #f9fafb;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
 }
 
-.cal-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
-}
-
-/* Celda de día */
-.cal-day {
+.calendario_caja_dia {
+    background: #fafafa;
     border: 1px solid #e5e7eb;
-    min-height: 110px;
     padding: 4px;
     border-radius: 6px;
-    background: #fafafa;
+    min-height: 110px;
     position: relative;
     cursor: pointer;
     transition: 0.2s;
 }
 
-.cal-day.empty {
+.calendario_caja_dia.vacio {
     background: transparent;
     border: none;
 }
 
-.cal-day:hover {
+.calendario_caja_dia:hover {
     background: #f0f0f0;
 }
 
-/* Número */
-.cal-day-number {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 3px;
-}
-
-/* Evento */
-.cal-event {
+.calendario_lista {
     background: #2563eb;
     color: white;
     font-size: 12px;
@@ -130,120 +64,44 @@
     cursor: pointer;
 }
 
-.cal-event:hover {
+.calendario_lista:hover {
     background: #1d4ed8;
 }
 
-/* =============================== */
-/*      VISTA DE SEMANA           */
-/* =============================== */
-.cal-week-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-}
-
-.cal-week-grid .cal-day {
-    min-height: 140px;
-    background: #fafafa;
-    border: 1px solid #ddd;
-}
-
-/* =============================== */
-/*        VISTA DE DÍA            */
-/* =============================== */
-.cal-day-box {
-    border: 1px solid #e5e7eb;
-    padding: 20px;
-    border-radius: 12px;
-    background: #fafafa;
-}
-
-.cal-day-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.cal-add-btn {
-    background: #10b981;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    border: none;
-    font-size: 14px;
-}
-
-.cal-add-btn:hover {
-    background: #059669;
-}
-
-.cal-empty {
-    color: #888;
-    font-size: 14px;
-}
-
-/* =============================== */
-/*       VISTA DE AÑO             */
-/* =============================== */
-.cal-year-grid {
+/* AÑO */
+.calendario_grid_anio {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 18px;
 }
 
-.cal-year-box {
-    background: #f9fafb;
-    border: 1px solid #ddd;
-    padding: 12px;
-    border-radius: 8px;
+/* MES */
+.calendario_grid_mes {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
 }
 
-.cal-year-month {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* Evento mini para vista anual */
-.cal-event-mini {
-    background: #2563eb;
-    color: white;
-    font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.cal-event-mini:hover {
-    background: #1d4ed8;
-}
-
-.cal-day-grid {
+/* DIA */
+.calendario_grid_dia {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.cal-hour-row {
+.calendario_hora_fila {
     display: grid;
     grid-template-columns: 80px 1fr;
     padding: 4px 0;
 }
 
-.cal-hour-label {
+.calendario_hora_fila .hora {
     font-weight: bold;
     font-size: 13px;
     color: #444;
 }
 
-.cal-event-detalle {
+.calendario_cita_item {
     background: #e9f1ff;
     border-left: 4px solid #1d6cff;
     padding: 6px 10px;
@@ -253,39 +111,20 @@
     font-size: 13px;
 }
 
-/*.estado {
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
-    color: #fff;
-}*/
-
-.estado-pendiente {
-    background: #ffc107;
-}
-.estado-confirmada {
-    background: #28a745;
-}
-.estado-cancelada {
-    background: #dc3545;
-}
-.estado-rechazada {
-    background: #6c757d;
+@media (max-width: 1200px) {
+    .calendario_grid_mes {
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
 
-/* Botón HOY distinto */
-.btn-hoy {
-    background: #f0f0f0;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 6px 12px;
-    border-radius: 6px;
-    margin-left: 10px;
+@media (max-width: 900px) {
+    .calendario_grid_mes {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-/* Cuando estás realmente en HOY */
-.btn-hoy.hoy-activo {
-    background: #ff9800 !important; /* naranja */
-    color: #fff !important;
-    border-color: #e68900;
+@media (max-width: 600px) {
+    .calendario_grid_mes {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

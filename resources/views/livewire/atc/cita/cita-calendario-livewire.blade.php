@@ -1,38 +1,53 @@
-<div class="cal-container">
+@section('tituloPagina', 'Citas')
+@section('anchoPantalla', '100%')
 
-    <!-- Botones de vista -->
-    <div class="cal-view-buttons">
-        <button wire:click="cambiarVista('anio')" class="{{ $vista === 'anio' ? 'active' : '' }}">Año</button>
-        <button wire:click="cambiarVista('mes')" class="{{ $vista === 'mes' ? 'active' : '' }}">Mes</button>
-        <button wire:click="cambiarVista('semana')" class="{{ $vista === 'semana' ? 'active' : '' }}">Semana</button>
-        <button wire:click="cambiarVista('dia')" class="{{ $vista === 'dia' ? 'active' : '' }}">Día</button>
+<div class="g_gap_pagina">
 
-        {{-- BOTÓN HOY --}}
-        <button wire:click="irHoy()"
-            class="btn-hoy {{ $vista === 'dia' && $fechaActual->isToday() ? 'hoy-activo' : '' }}">
-            Hoy
-        </button>
+    <div class="g_panel cabecera_titulo_pagina">
+        <h2>Calendario</h2>
+
+        <div class="cabecera_titulo_botones">
+            <button wire:click="cambiarVista('anio')"
+                class="g_boton {{ $vista === 'anio' ? 'g_boton_primary' : 'g_boton_light' }}">
+                Año
+            </button>
+            <button wire:click="cambiarVista('mes')"
+                class="g_boton {{ $vista === 'mes' ? 'g_boton_primary' : 'g_boton_light' }}">
+                Mes
+            </button>
+            <button wire:click="cambiarVista('semana')"
+                class="g_boton {{ $vista === 'semana' ? 'g_boton_primary' : 'g_boton_light' }}">
+                Semana
+            </button>
+            <button wire:click="cambiarVista('dia')"
+                class="g_boton {{ $vista === 'dia' ? 'g_boton_primary' : 'g_boton_light' }}">
+                Día
+            </button>
+
+            <button wire:click="irHoy()"
+                class="g_boton {{ $vista === 'dia' && $fechaActual->isToday() ? 'g_boton_success' : 'g_boton_light' }}">
+                Hoy
+            </button>
+        </div>
     </div>
 
+    <div class="g_panel">
+        <div class="calendario_cabecera">
+            <button wire:click="navegar(-1)">◀</button>
 
-    <!-- Navegación -->
-    <div class="cal-header">
-        <button wire:click="navegar(-1)">◀</button>
+            <h2>
+                @switch($vista)
+                @case('mes') {{ $fechaActual->translatedFormat('F Y') }} @break
+                @case('semana') Semana {{ $fechaActual->weekOfYear }} @break
+                @case('dia') {{ $fechaActual->translatedFormat('d F Y') }} @break
+                @case('anio') {{ $fechaActual->year }} @break
+                @endswitch
+            </h2>
 
-        <h2>
-            @switch($vista)
-            @case('mes') {{ $fechaActual->translatedFormat('F Y') }} @break
-            @case('semana') Semana {{ $fechaActual->weekOfYear }} @break
-            @case('dia') {{ $fechaActual->translatedFormat('d F Y') }} @break
-            @case('anio') {{ $fechaActual->year }} @break
-            @endswitch
-        </h2>
+            <button wire:click="navegar(1)">▶</button>
+        </div>
 
-        <button wire:click="navegar(1)">▶</button>
+        @include("livewire.atc.cita.vistas.{$vista}")
     </div>
-
-    {{-- incluir plantillas según vista --}}
-    @include("livewire.atc.cita.vistas.{$vista}")
-
 
 </div>

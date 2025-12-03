@@ -4,38 +4,33 @@ $primerDiaSemana = $inicioMes->dayOfWeekIso;
 $diasEnMes = $inicioMes->daysInMonth;
 @endphp
 
-<div class="cal-grid">
-
-    {{-- Espacios antes del 1 --}}
-    @for ($i = 1; $i < $primerDiaSemana; $i++) <div class="cal-day empty">
+<div class="calendario_grid_mes">
+    @for ($i = 1; $i < $primerDiaSemana; $i++) <div class="calendario_caja_dia vacio">
 </div>
 @endfor
 
-{{-- Días del mes --}}
-{{-- Días del mes --}}
 @for ($dia = 1; $dia <= $diasEnMes; $dia++) @php $fecha=$fechaActual->copy()->day($dia)->toDateString();
     $items = collect($eventos)->where('date', $fecha);
     @endphp
 
-    <div class="cal-day" wire:click="$dispatch('crearCita', { fecha: '{{ $fecha }}' })">
+    <div class="calendario_caja_dia">
 
-        <div class="cal-day-number">
-            {{ $dia }}
+        <div class="cabecera_titulo_pagina">
+            <h2>{{ $dia }}</h2>
 
-            {{-- BOTÓN PARA IR AL DÍA --}}
-            <button type="button" class="cal-open-btn" wire:click.stop="irAlDiaDeMes({{ $dia }})">
-                Abrir
-            </button>
+            <div class="cabecera_titulo_botones">
+                <button class="g_boton g_boton_success" wire:click.stop="irAlDiaDeMes({{ $dia }})">
+                    Abrir
+                </button>
+            </div>
         </div>
 
         @foreach ($items as $ev)
-        <div class="cal-event" wire:click.stop="$dispatch('editarCita', { id: {{ $ev['id'] }} })">
+        <div class="calendario_lista">
             {{ $ev['title'] }}
         </div>
         @endforeach
 
     </div>
     @endfor
-
-
     </div>

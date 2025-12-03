@@ -8,17 +8,18 @@ for ($h = 6; $h <= 22; $h++) { $horas->push(sprintf('%02d:00', $h));
     }
     @endphp
 
-    <div class="cal-day-box">
+    <div class="calendario_caja">
 
-        <h3 class="cal-day-title">
-            {{ $fechaActual->translatedFormat('l d F Y') }}
-        </h3>
+        <div class="cabecera_titulo_pagina">
+            <h2>{{ $fechaActual->translatedFormat('l d F Y') }}</h2>
 
-        <button class="cal-add-btn" wire:click="$dispatch('crearCita', { fecha: '{{ $fecha }}' })">
-            + Crear cita
-        </button>
+            <div class="cabecera_titulo_botones">
+                <a href="{{ route('admin.cita.vista.crear') }}" class="g_boton g_boton_primary">
+                    Crear cita <i class="fa-solid fa-square-plus"></i></a>
+            </div>
+        </div>
 
-        <div class="cal-day-grid">
+        <div class="calendario_grid_dia">
 
             @foreach ($horas as $hora)
 
@@ -28,40 +29,39 @@ for ($h = 6; $h <= 22; $h++) { $horas->push(sprintf('%02d:00', $h));
             );
             @endphp
 
-            <div class="cal-hour-row">
+            <div class="calendario_hora_fila">
 
-                <div class="cal-hour-label">
+                <div class="hora">
                     {{ $hora }}
                 </div>
 
-                <div class="cal-hour-events">
+                <div>
 
                     @forelse ($eventosHora as $ev)
-                    <div class="cal-event-detalle" wire:click.stop="$dispatch('editarCita', { id: {{ $ev['id'] }} })">
+                    <div class="calendario_cita_item">
 
-                        <div class="ev-hora">
+                        <div>
                             <strong>{{ $ev['time'] }} - {{ $ev['end_time'] }}</strong>
                         </div>
 
                         <div>
-                            <span class="ev-label">Motivo:</span>
+                            <span>Motivo:</span>
                             {{ $ev['title'] }}
                         </div>
 
                         <div>
-                            <span class="ev-label">Cliente:</span>
+                            <span>Cliente:</span>
                             {{ $ev['cliente'] }}
                         </div>
 
                         <div>
-                            <span class="ev-label">Sede:</span>
+                            <span>Sede:</span>
                             {{ $ev['sede'] ?? '—' }}
                         </div>
 
                         <div>
-                            <span class="ev-label">Estado:</span>
-                            <span class="estado estado-{{ $ev['estado'] }}">
-                                {{ ucfirst($ev['estado']) }}
+                            <span style="color: {{ $ev['estado']->color }};">
+                                {{ $ev['estado']->nombre }}
                             </span>
                         </div>
 
