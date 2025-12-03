@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('estado_tickets', function (Blueprint $table) {
             $table->id();
 
-            $table->string('nombre');
-            $table->boolean('activo')->default(false);
+            $table->string('nombre')->unique();
+            $table->string('color')->nullable();
+            $table->string('icono')->nullable();
+            $table->boolean('activo')->default(true);
 
             $table->timestamps();
             $table->softDeletes();

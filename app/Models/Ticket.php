@@ -60,6 +60,11 @@ class Ticket extends Model
         return $this->belongsTo(EstadoTicket::class, 'estado_ticket_id');
     }
 
+    public function prioridad()
+    {
+        return $this->belongsTo(PrioridadTicket::class, 'prioridad_ticket_id');
+    }
+
     public function asignado()
     {
         return $this->belongsTo(User::class, 'usuario_asignado_id');
@@ -73,11 +78,6 @@ class Ticket extends Model
     public function derivados()
     {
         return $this->hasMany(TicketDerivado::class);
-    }
-
-    public function mensajes()
-    {
-        return $this->hasMany(TicketMensaje::class);
     }
 
     public function archivos()

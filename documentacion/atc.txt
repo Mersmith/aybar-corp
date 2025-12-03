@@ -31,6 +31,7 @@ php artisan make:migration create_area_user_table
 php artisan make:model TipoSolicitud -mfsc
 php artisan make:migration create_area_tipo_solicitud_table
 php artisan make:model EstadoTicket -mfsc
+php artisan make:model PrioridadTicket -mfsc
 php artisan make:model Canal -mfsc
 php artisan make:model Ticket -mfsc
 php artisan make:model TicketHistorial -mfsc
@@ -56,6 +57,10 @@ php artisan make:livewire Atc/TipoSolicitud/TipoSolicitudEditarLivewire
 php artisan make:livewire Atc/EstadoTicket/EstadoTicketTodoLivewire
 php artisan make:livewire Atc/EstadoTicket/EstadoTicketCrearLivewire
 php artisan make:livewire Atc/EstadoTicket/EstadoTicketEditarLivewire
+
+php artisan make:livewire Atc/PrioridadTicket/PrioridadTicketTodoLivewire
+php artisan make:livewire Atc/PrioridadTicket/PrioridadTicketCrearLivewire
+php artisan make:livewire Atc/PrioridadTicket/PrioridadTicketEditarLivewire
 
 php artisan make:livewire Atc/Canal/CanalTodoLivewire
 php artisan make:livewire Atc/Canal/CanalCrearLivewire

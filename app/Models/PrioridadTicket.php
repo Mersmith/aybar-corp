@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class EstadoTicket extends Model
+class PrioridadTicket extends Model
 {
-    /** @use HasFactory<\Database\Factories\EstadoFactory> */
+    /** @use HasFactory<\Database\Factories\PrioridadTicketFactory> */
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'nombre',
+        'tiempo_permitido',
         'color',
         'icono',
         'activo',

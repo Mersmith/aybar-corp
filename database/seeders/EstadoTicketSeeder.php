@@ -13,12 +13,48 @@ class EstadoTicketSeeder extends Seeder
     public function run(): void
     {
         EstadoTicket::insert([
-            ['nombre' => 'Abierto', 'activo' => true],
-            ['nombre' => 'En Progreso', 'activo' => true],
-            ['nombre' => 'Derivado', 'activo' => true],
-            ['nombre' => 'En Espera Cliente', 'activo' => true],
-            ['nombre' => 'En Espera Área', 'activo' => true],
-            ['nombre' => 'Cerrado', 'activo' => true],
+            [
+                'nombre' => 'Abierto',
+                'color' => '#3498db', // Azul
+                'icono' => 'fa-solid fa-envelope-open-text',
+                'activo' => true,
+                'created_at' => now(),
+            ],
+            [
+                'nombre' => 'En Progreso',
+                'color' => '#f1c40f', // Amarillo
+                'icono' => 'fa-solid fa-spinner',
+                'activo' => true,
+                'created_at' => now(),
+            ],
+            [
+                'nombre' => 'Derivado',
+                'color' => '#9b59b6', // Morado
+                'icono' => 'fa-solid fa-share-nodes',
+                'activo' => true,
+                'created_at' => now(),
+            ],
+            [
+                'nombre' => 'En Espera Cliente',
+                'color' => '#e67e22', // Naranja
+                'icono' => 'fa-solid fa-user-clock',
+                'activo' => true,
+                'created_at' => now(),
+            ],
+            [
+                'nombre' => 'En Espera Área',
+                'color' => '#95a5a6', // Gris
+                'icono' => 'fa-solid fa-building-circle-exclamation',
+                'activo' => true,
+                'created_at' => now(),
+            ],
+            [
+                'nombre' => 'Cerrado',
+                'color' => '#2ecc71', // Verde
+                'icono' => 'fa-solid fa-circle-check',
+                'activo' => true,
+                'created_at' => now(),
+            ],
         ]);
     }
 }

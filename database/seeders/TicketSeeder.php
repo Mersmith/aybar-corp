@@ -55,7 +55,7 @@ class TicketSeeder extends Seeder
                 'canal_id'            => fake()->randomElement($canales),
                 'estado_ticket_id'    => fake()->randomElement($estados),
 
-                'prioridad'           => fake()->randomElement([1, 2, 3]),
+                'prioridad_ticket_id'           => fake()->randomElement([1, 2, 3]),
 
                 'usuario_asignado_id' => fake()->randomElement($admins),
 

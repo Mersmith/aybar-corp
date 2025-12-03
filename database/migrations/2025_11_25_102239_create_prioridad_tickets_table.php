@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ticket_mensajes', function (Blueprint $table) {
+        Schema::create('prioridad_tickets', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('ticket_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete(); // null = cliente
-            $table->boolean('es_agente')->default(false);
-
-            $table->text('mensaje');
+            $table->string('nombre')->unique();
+            $table->integer('tiempo_permitido')->default(48);
+            $table->string('color')->nullable();
+            $table->string('icono')->nullable();
+            $table->boolean('activo')->default(true);
 
             $table->timestamps();
             $table->softDeletes();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ticket_mensajes');
+        Schema::dropIfExists('prioridad_tickets');
     }
 };
