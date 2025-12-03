@@ -13,6 +13,8 @@ class EstadoTicketEditarLivewire extends Component
     public $estado_ticket;
 
     public $nombre;
+    public $icono;
+    public $color;
 
     public $activo = false;
 
@@ -29,6 +31,8 @@ class EstadoTicketEditarLivewire extends Component
         $this->estado_ticket = EstadoTicket::findOrFail($id);
 
         $this->nombre = $this->estado_ticket->nombre;
+        $this->icono = $this->estado_ticket->icono;
+        $this->color = $this->estado_ticket->color;
         $this->activo = $this->estado_ticket->activo;
     }
 
@@ -38,6 +42,8 @@ class EstadoTicketEditarLivewire extends Component
 
         $this->estado_ticket->update([
             'nombre' => $this->nombre,
+            'icono' => $this->icono,
+            'color' => $this->color,
             'activo' => $this->activo,
         ]);
 
@@ -53,7 +59,7 @@ class EstadoTicketEditarLivewire extends Component
             return redirect()->route('admin.estado-ticket.vista.todo');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.atc.estado-ticket.estado-ticket-editar-livewire');

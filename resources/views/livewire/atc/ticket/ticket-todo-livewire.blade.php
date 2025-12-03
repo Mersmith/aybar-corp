@@ -3,12 +3,9 @@
 @section('anchoPantalla', '100%')
 
 <div class="g_gap_pagina">
-    <!--CABECERA TITULO PAGINA-->
     <div class="g_panel cabecera_titulo_pagina">
-        <!--TITULO-->
         <h2>Ticket</h2>
 
-        <!--BOTONES-->
         <div class="cabecera_titulo_botones">
             <a href="{{ route('admin.ticket.vista.todo') }}" class="g_boton g_boton_light">
                 Inicio <i class="fa-solid fa-house"></i></a>
@@ -22,7 +19,6 @@
         </div>
     </div>
 
-    <!--TABLA-->
     <div class="g_panel">
         <div class="formulario">
             <div class="g_fila">
@@ -86,9 +82,9 @@
                 <div class="g_margin_bottom_10 g_columna_2">
                     <label>Prioridad</label>
                     <select wire:model.live="prioridad">
-                        <option value="">Todas</option>
-                        @foreach ($prioridades as $key => $nombre)
-                        <option value="{{ $key }}">{{ $nombre }}</option>
+                        <option value="">Todos</option>
+                        @foreach ($prioridades as $item)
+                        <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -113,14 +109,12 @@
                 </div>
             </div>
         </div>
-        @if ($tickets->count())
-        <!--TABLA CONTENIDO-->
+
         <div class="tabla_contenido g_margin_bottom_20">
             <div class="contenedor_tabla">
                 <table class="tabla">
                     <thead>
                         <tr>
-                            <th>Nº</th>
                             <th>Ticket</th>
                             <th>Cliente</th>
                             <th>Area</th>
@@ -131,32 +125,33 @@
                             <th>Prioridad</th>
                             <th>Fecha</th>
                             <th>Derivado</th>
-                            <th>Acción</th>
+                            <th></th>
                         </tr>
                     </thead>
+
+                    @if ($tickets->count())
                     <tbody>
                         @foreach ($tickets as $index => $item)
                         <tr>
-                            <td> {{ $index + 1 }} </td>
-                            <td class="g_resaltar">{{ $item->id }}</td>
-                            <td class="g_resaltar">{{ $item->cliente->name }}</td>
-                            <td class="g_resaltar">{{ $item->area->nombre }}</td>
+                            <td>{{ $item->id }}</td>
+                            <td class="g_negrita g_resumir">{{ $item->cliente->name }}</td>
+                            <td>{{ $item->area->nombre }}</td>
                             <td class="g_resumir g_inferior">{{ $item->tipoSolicitud->nombre }}</td>
-                            <td class="g_resaltar">{{ $item->canal->nombre }}</td>
-                            <td class="g_negrita">{{ $item->estado->nombre }}</td>
-                            <td class="g_resaltar">{{ $item->asignado->name }}</td>
-                            <td class="g_resaltar">
-                                <span class="g_badge
-                                    @if ($item->prioridad == 1) g_inventario
-                                    @elseif ($item->prioridad == 2) g_activo
-                                    @else g_accion_editar
-                                    @endif
-                                ">
-                                    {{ $item->prioridad_nombre }}
+                            <td>{{ $item->canal->nombre }}</td>
+                            <td>
+                                <span style="color: {{ $item->estado->color }};">
+                                    <i class="{{ $item->estado->icono }}"></i> {{$item->estado->nombre }}
+                                </span>
+                            </td>
+                            <td class="g_negrita g_resumir">{{ $item->asignado->name }}</td>
+                            <td>
+                                <span class="g_boton"
+                                    style="background-color: {{ $item->prioridad->color }}; color: white;">
+                                    <i class="{{ $item->prioridad->icono }}"></i> {{$item->prioridad->nombre }}
                                 </span>
                             </td>
 
-                            <td class="g_resaltar">{{ $item->created_at }}</td>
+                            <td>{{ $item->created_at }}</td>
 
                             <td>
                                 @if($item->tiene_derivados)
@@ -177,6 +172,7 @@
                         </tr>
                         @endforeach
                     </tbody>
+                    @endif
                 </table>
             </div>
         </div>
@@ -186,7 +182,8 @@
             {{ $tickets->links('vendor.pagination.default-livewire') }}
         </div>
         @endif
-        @else
+
+        @if ($tickets->count() == 0)
         <div class="g_vacio">
             <p>No hay tickets disponibles.</p>
             <i class="fa-regular fa-face-grin-wink"></i>

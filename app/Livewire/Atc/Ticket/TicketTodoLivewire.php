@@ -7,6 +7,7 @@ use App\Models\EstadoTicket;
 use App\Models\Area;
 use App\Models\User;
 use App\Models\TipoSolicitud;
+use App\Models\PrioridadTicket;
 use App\Models\Canal;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
@@ -44,7 +45,7 @@ class TicketTodoLivewire extends Component
         $this->solicitudes = TipoSolicitud::all();
         $this->canales = Canal::all();
         $this->usuarios_admin = User::where('role', 'admin')->get();
-        $this->prioridades = Ticket::PRIORIDADES;
+        $this->prioridades = PrioridadTicket::all();
         $this->admin = Auth::check() ? Auth::id() : '';
         $this->fecha_inicio = now()->toDateString(); // "2025-11-26"
         $this->fecha_fin = now()->toDateString();
@@ -139,7 +140,7 @@ class TicketTodoLivewire extends Component
                 fn($q) =>
                 $q->whereDate('created_at', '<=', $this->fecha_fin)
             )
-            ->when($this->prioridad, fn($q) => $q->where('prioridad', $this->prioridad))
+            ->when($this->prioridad, fn($q) => $q->where('prioridad_ticket_id', $this->prioridad))
             ->when(
                 $this->con_derivados === '1',
                 fn($q) =>

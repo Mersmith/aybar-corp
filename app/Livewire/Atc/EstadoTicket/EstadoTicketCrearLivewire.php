@@ -10,12 +10,14 @@ use Livewire\Component;
 class EstadoTicketCrearLivewire extends Component
 {
     public $nombre;
+    public $icono;
+    public $color;
     public $activo = false;
 
     protected function rules()
     {
         return [
-            'nombre' => 'required|string|max:255',
+            'nombre' => 'required|string|max:255|unique:estado_tickets,nombre',
             'activo' => 'required|boolean',
         ];
     }
@@ -26,6 +28,8 @@ class EstadoTicketCrearLivewire extends Component
 
         EstadoTicket::create([
             'nombre' => $this->nombre,
+            'icono' => $this->icono,
+            'color' => $this->color,
             'activo' => $this->activo,
         ]);
 

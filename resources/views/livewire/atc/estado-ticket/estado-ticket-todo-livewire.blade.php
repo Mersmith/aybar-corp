@@ -3,12 +3,9 @@
 @section('anchoPantalla', '100%')
 
 <div class="g_gap_pagina">
-    <!--CABECERA TITULO PAGINA-->
     <div class="g_panel cabecera_titulo_pagina">
-        <!--TITULO-->
         <h2>Estados ticket</h2>
 
-        <!--BOTONES-->
         <div class="cabecera_titulo_botones">
             <a href="{{ route('admin.estado-ticket.vista.todo') }}" class="g_boton g_boton_light">
                 Inicio <i class="fa-solid fa-house"></i></a>
@@ -18,7 +15,6 @@
         </div>
     </div>
 
-    <!--TABLA-->
     <div class="g_panel">
         <div class="tabla_cabecera">
             <div class="tabla_cabecera_buscar">
@@ -29,53 +25,67 @@
                 </form>
             </div>
         </div>
-        @if ($estados->count())
-            <!--TABLA CONTENIDO-->
-            <div class="tabla_contenido g_margin_bottom_20">
-                <div class="contenedor_tabla">
-                    <table class="tabla">
-                        <thead>
-                            <tr>
-                                <th>Nº</th>
-                                <th>Nombre</th>
-                                <th>Activo</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($estados as $index => $item)
-                                <tr>
-                                    <td> {{ $index + 1 }} </td>
-                                    <td class="g_resaltar">ID: {{ $item->id }} - {{ $item->nombre }}</td>
-                                    <td>
-                                        <span class="estado {{ $item->activo ? 'g_activo' : 'g_desactivado' }}"><i
-                                                class="fa-solid fa-circle"></i></span>
-                                        {{ $item->activo ? 'Activo' : 'Desactivo' }}
-                                    </td>
 
-                                    <td class="centrar_iconos">
-                                        <a href="{{ route('admin.estado-ticket.vista.editar', $item->id) }}"
-                                            class="g_accion_editar">
-                                            <span><i class="fa-solid fa-pencil"></i></span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div class="tabla_contenido g_margin_bottom_20">
+            <div class="contenedor_tabla">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nº</th>
+                            <th>Nombre</th>
+                            <th>Color</th>
+                            <th>Icono</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
 
-            @if ($estados->hasPages())
-                <div class="g_paginacion">
-                    {{ $estados->links('vendor.pagination.default-livewire') }}
-                </div>
-            @endif
-        @else
-            <div class="g_vacio">
-                <p>No hay estados disponibles.</p>
-                <i class="fa-regular fa-face-grin-wink"></i>
+                    @if ($estados->count())
+                    <tbody>
+                        @foreach ($estados as $index => $item)
+                        <tr>
+                            <td> {{ $index + 1 }} </td>
+                            <td class="g_resaltar">{{ $item->nombre }}</td>
+                            <td class="g_resaltar">
+                                @if ($item->color)
+                                <span style="color: {{ $item->color }};">
+                                    <i class="fa-solid fa-circle"></i>
+                                </span>
+                                @endif
+                            </td>
+                            <td class="g_resaltar"><i class="{{ $item->icono }}"></i></td>
+
+                            <td>
+                                <span class="g_estado {{ $item->activo ? 'g_activo' : 'g_desactivado' }}"><i
+                                        class="fa-solid fa-circle"></i></span>
+                                {{ $item->activo ? 'Activo' : 'Desactivo' }}
+                            </td>
+
+                            <td class="centrar_iconos">
+                                <a href="{{ route('admin.estado-ticket.vista.editar', $item->id) }}"
+                                    class="g_accion_editar">
+                                    <span><i class="fa-solid fa-pencil"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    @endif
+                </table>
             </div>
+        </div>
+
+        @if ($estados->hasPages())
+        <div class="g_paginacion">
+            {{ $estados->links('vendor.pagination.default-livewire') }}
+        </div>
+        @endif
+
+        @if ($estados->count() == 0)
+        <div class="g_vacio">
+            <p>No hay estados disponibles.</p>
+            <i class="fa-regular fa-face-grin-wink"></i>
+        </div>
         @endif
     </div>
 </div>

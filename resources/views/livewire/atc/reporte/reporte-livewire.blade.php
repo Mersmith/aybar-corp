@@ -18,7 +18,7 @@
 
                 <div class="g_panel" style="flex: 1 1 150px; padding:15px; text-align:center;">
                     <h3 class="g_texto_gris">Prioridad Alta</h3>
-                    <p class="g_numero_grande">{{ \App\Models\Ticket::where('prioridad',1)->count() }}</p>
+                    <p class="g_numero_grande">{{ \App\Models\Ticket::where('prioridad_ticket_id',1)->count() }}</p>
                 </div>
             </div>
         </div>
