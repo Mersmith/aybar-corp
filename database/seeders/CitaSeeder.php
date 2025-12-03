@@ -21,7 +21,7 @@ class CitaSeeder extends Seeder
             return;
         }
 
-        $estados = ['pendiente', 'confirmada', 'cancelada', 'rechazada'];
+        $estados = [1, 2, 3, 4];
         $duraciones = [30, 45, 60, 90];
 
         for ($i = 0; $i < 50; $i++) {
@@ -44,9 +44,9 @@ class CitaSeeder extends Seeder
                 'usuario_recibe_id'   => $cliente->id,
                 'sede_id'             => $sede->id,
                 'motivo_cita_id'      => $motivo->id,
-                'start_at'            => $start,
-                'end_at'              => $end,
-                'estado'              => $estados[array_rand($estados)],
+                'fecha_inicio'            => $start,
+                'fecha_fin'              => $end,
+                'estado_cita_id'              => $estados[array_rand($estados)],
             ]);
         }
 
@@ -75,9 +75,9 @@ class CitaSeeder extends Seeder
                 'usuario_recibe_id'   => $cliente->id,
                 'sede_id'             => $sede->id,
                 'motivo_cita_id'      => $motivo->id,
-                'start_at'            => $start,
-                'end_at'              => $end,
-                'estado'              => 'confirmada',
+                'fecha_inicio'            => $start,
+                'fecha_fin'              => $end,
+                'estado_cita_id'              => 2,
             ]);
 
             // mover horaActual para próxima cita

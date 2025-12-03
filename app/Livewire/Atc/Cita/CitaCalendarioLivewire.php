@@ -83,8 +83,8 @@ class CitaCalendarioLivewire extends Component
         };
 
         $this->eventos = Cita::with(['receptor', 'sede', 'motivo'])
-            ->whereBetween('start_at', [$inicio, $fin])
-            ->orderBy('start_at')
+            ->whereBetween('fecha_inicio', [$inicio, $fin])
+            ->orderBy('fecha_inicio')
             ->get()
             ->map(fn($cita) => [
                 'id'        => $cita->id,
@@ -92,9 +92,9 @@ class CitaCalendarioLivewire extends Component
                 'cliente'   => $cita->receptor?->name,
                 'sede'      => $cita->sede?->nombre,
                 'estado'    => $cita->estado,
-                'date'      => $cita->start_at->toDateString(),
-                'time'      => $cita->start_at->format('H:i'),
-                'end_time'  => $cita->end_at?->format('H:i'),
+                'date'      => $cita->fecha_inicio->toDateString(),
+                'time'      => $cita->fecha_inicio->format('H:i'),
+                'end_time'  => $cita->fecha_fin?->format('H:i'),
             ])
             ->toArray();
     }

@@ -3,11 +3,12 @@
 namespace App\Livewire\Atc\Cita;
 
 use App\Models\Cita;
-use App\Models\User;
-use App\Models\Sede;
+use App\Models\EstadoCita;
 use App\Models\MotivoCita;
-use Livewire\Component;
+use App\Models\Sede;
+use App\Models\User;
 use Livewire\Attributes\Layout;
+use Livewire\Component;
 use Livewire\WithPagination;
 
 #[Layout('layouts.admin.layout-admin')]
@@ -15,16 +16,12 @@ class CitaTodoLivewire extends Component
 {
     use WithPagination;
 
-    public $sedes;
-    public $motivos;
-    public $usuarios_admin;
-    public $usuarios_cliente;
+    public $sedes, $sede_id = '';
+    public $motivos, $motivo_cita_id = '';
+    public $estados, $estado_cita_id = '';
+    public $usuarios_admin, $usuario_solicita_id = '';
+    public $usuarios_cliente, $usuario_recibe_id = '';
 
-    public $sede_id = '';
-    public $motivo_cita_id = '';
-    public $usuario_solicita_id = '';
-    public $usuario_recibe_id = '';
-    public $estado = '';
     public $buscar = '';
 
     public $fecha_inicio = '';
@@ -32,7 +29,6 @@ class CitaTodoLivewire extends Component
 
     public $perPage = 20;
 
-    /** Reset paginación cuando cambian filtros */
     public function updating($field)
     {
         $this->resetPage();
@@ -40,7 +36,8 @@ class CitaTodoLivewire extends Component
 
     public function mount()
     {
-        $this->sedes   = Sede::all();
+        $this->sedes = Sede::all();
+        $this->estados = EstadoCita::all();
         $this->motivos = MotivoCita::all();
         $this->usuarios_admin = User::where('role', 'admin')->get();
         $this->usuarios_cliente = User::where('role', 'cliente')->get();
@@ -53,7 +50,7 @@ class CitaTodoLivewire extends Component
             'motivo_cita_id',
             'usuario_solicita_id',
             'usuario_recibe_id',
-            'estado',
+            'estado_cita_id',
             'buscar',
             'fecha_inicio',
             'fecha_fin',
@@ -80,20 +77,20 @@ class CitaTodoLivewire extends Component
             ->when($this->motivo_cita_id, fn($q) => $q->where('motivo_cita_id', $this->motivo_cita_id))
             ->when($this->usuario_solicita_id, fn($q) => $q->where('usuario_solicita_id', $this->usuario_solicita_id))
             ->when($this->usuario_recibe_id, fn($q) => $q->where('usuario_recibe_id', $this->usuario_recibe_id))
-            ->when($this->estado, fn($q) => $q->where('estado', $this->estado))
+            ->when($this->estado_cita_id, fn($q) => $q->where('estado_cita_id', $this->estado_cita_id))
 
             ->when(
                 $this->fecha_inicio,
                 fn($q) =>
-                $q->whereDate('start_at', '>=', $this->fecha_inicio)
+                $q->whereDate('fecha_inicio', '>=', $this->fecha_inicio)
             )
             ->when(
                 $this->fecha_fin,
                 fn($q) =>
-                $q->whereDate('start_at', '<=', $this->fecha_fin)
+                $q->whereDate('fecha_inicio', '<=', $this->fecha_fin)
             )
 
-            ->orderBy('start_at', 'desc')
+            ->orderBy('fecha_inicio', 'desc')
             ->paginate($this->perPage);
 
         return view('livewire.atc.cita.cita-todo-livewire', compact('citas'));

@@ -71,10 +71,12 @@
                         </div>
 
                         <div class="g_margin_bottom_10 g_columna_6">
-                            <label for="fecha_inicio">Fecha inicio <span class="obligatorio"><i
-                                        class="fa-solid fa-asterisk"></i></span></label>
-                            <input type="date" id="fecha_inicio" wire:model.live="fecha_inicio" required>
-                            @error('fecha_inicio')
+                            <label for="usuario_recibe_id">
+                                Cliente <span class="obligatorio"><i class="fa-solid fa-asterisk"></i></span>
+                            </label>
+                            <input type="text" disabled value="{{ $select_cliente?->name ?? 'Sin asignar' }}">
+
+                            @error('usuario_recibe_id')
                                 <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
@@ -82,21 +84,37 @@
 
                     <div class="g_fila">
                         <div class="g_margin_bottom_10 g_columna_6">
-                            <label for="fecha_inicio">Fecha fin <span class="obligatorio"><i
+                            <label for="fecha_inicio">Fecha inicio <span class="obligatorio"><i
                                         class="fa-solid fa-asterisk"></i></span></label>
-                            <input type="date" id="fecha_inicio" wire:model.live="fecha_inicio" required>
+                            <input type="datetime-local" id="fecha_inicio" wire:model.live="fecha_inicio" required>
                             @error('fecha_inicio')
                                 <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="g_margin_bottom_10 g_columna_6">
-                            <label for="fecha_inicio">Estado<span class="obligatorio"><i
+                            <label for="fecha_fin">Fecha fin <span class="obligatorio"><i
                                         class="fa-solid fa-asterisk"></i></span></label>
-                            <select id="estado" wire:model.live="estado">
-                                <option value="0">DESACTIVADO</option>
-                                <option value="1">ACTIVO</option>
+                            <input type="datetime-local" id="fecha_fin" wire:model.live="fecha_fin" required>
+                            @error('fecha_fin')
+                                <p class="mensaje_error">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="g_fila">
+                        <div class="g_margin_bottom_10 g_columna_6">
+                            <label for="estado_cita_id">Estado<span class="obligatorio"><i
+                                        class="fa-solid fa-asterisk"></i></span></label>
+                            <select id="estado_cita_id" wire:model.live="estado_cita_id" required>
+                                <option value="" selected disabled>Seleccionar un estado</option>
+                                @foreach ($estados as $estado)
+                                    <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
+                                @endforeach
                             </select>
+                            @error('estado_cita_id')
+                                <p class="mensaje_error">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -109,7 +127,7 @@
                     <div class="tabla_cabecera">
                         <div class="tabla_cabecera_buscar">
                             <form action="">
-                                <input type="text" id="buscar" name="buscar" placeholder="Buscar...">
+                                <input type="text" wire:model.live="buscar_cliente" placeholder="Buscar cliente...">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </form>
                         </div>
@@ -127,13 +145,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($usuarios_cliente as $index => $item)
+                                    @foreach ($usuarios_cliente as $item)
                                         <tr>
-                                            <td class="g_resaltar">{{ $item->name }}</td>
-                                            <td class="g_resaltar">{{ $item->email }}</td>
-                                            <td class="g_resaltar">{{ $item->cliente->dni }}</td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->cliente->dni }}</td>
 
-                                            <td class="centrar_iconos">
+                                            <td>
+                                                <button type="button"
+                                                    wire:click="seleccionarCliente({{ $item->id }})">
+                                                    Elegir
+                                                </button>
                                             </td>
                                         </tr>
                                     @endforeach

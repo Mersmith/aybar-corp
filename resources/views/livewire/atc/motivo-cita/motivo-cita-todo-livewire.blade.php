@@ -25,20 +25,22 @@
                 </form>
             </div>
         </div>
-        @if ($items->count())
-            <div class="tabla_contenido">
-                <div class="contenedor_tabla">
-                    <table class="tabla">
-                        <thead>
-                            <tr>
-                                <th>Nº</th>
-                                <th>Nombre</th>
-                                <th>Color</th>
-                                <th>Icono</th>
-                                <th>Estado</th>
-                                <th></th>
-                            </tr>
-                        </thead>
+
+        <div class="tabla_contenido">
+            <div class="contenedor_tabla">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nº</th>
+                            <th>Nombre</th>
+                            <th>Color</th>
+                            <th>Icono</th>
+                            <th>Estado</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    @if ($items->count())
                         <tbody>
                             @foreach ($items as $index => $item)
                                 <tr>
@@ -68,16 +70,18 @@
                                 </tr>
                             @endforeach
                         </tbody>
-                    </table>
-                </div>
+                    @endif
+                </table>
             </div>
+        </div>
 
-            @if ($items->hasPages())
-                <div class="g_paginacion">
-                    {{ $items->links('vendor.pagination.default-livewire') }}
-                </div>
-            @endif
-        @else
+        @if ($items->hasPages())
+            <div class="g_paginacion">
+                {{ $items->links('vendor.pagination.default-livewire') }}
+            </div>
+        @endif
+        
+        @if ($items->count() == 0)
             <div class="g_vacio">
                 <p>No hay items disponibles.</p>
                 <i class="fa-regular fa-face-grin-wink"></i>

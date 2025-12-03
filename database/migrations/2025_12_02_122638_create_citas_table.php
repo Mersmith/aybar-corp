@@ -27,8 +27,8 @@ return new class extends Migration
             $table->dateTime('fecha_inicio');
             $table->dateTime('fecha_fin')->nullable();
 
-            $table->string('asunto_solicitud');
-            $table->text('descripcion_solicitud');
+            $table->string('asunto_solicitud')->nullable();
+            $table->text('descripcion_solicitud')->nullable();
 
             $table->string('asunto_respuesta')->nullable();
             $table->text('descripcion_respuesta')->nullable();

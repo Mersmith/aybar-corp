@@ -2,23 +2,28 @@
 
 namespace App\Livewire\Atc\Cita;
 
+use App\Models\Cita;
+use App\Models\EstadoCita;
+use App\Models\MotivoCita;
+use App\Models\Sede;
+use App\Models\User;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
-use App\Models\User;
-use App\Models\Sede;
-use App\Models\MotivoCita;
-use App\Models\Cita;
 
 #[Layout('layouts.admin.layout-admin')]
 class CitaCrearLivewire extends Component
 {
     public $usuarios_admin, $usuario_solicita_id = '';
-    public $usuarios_cliente, $usuario_recibe_id = '23';
+
+    public $usuarios_cliente = [], $usuario_recibe_id = '';
+    public $buscar_cliente = '';
+    public $select_cliente;
+
     public $sedes, $sede_id = '';
     public $motivos, $motivo_cita_id = '';
+    public $estados, $estado_cita_id = '';
     public $fecha_inicio;
     public $fecha_fin;
-    public $estado = '';
 
     protected function rules()
     {
@@ -29,16 +34,28 @@ class CitaCrearLivewire extends Component
             'motivo_cita_id' => 'required',
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required',
-            'estado' => 'required',
+            'estado_cita_id' => 'required',
         ];
     }
+
+    protected $validationAttributes = [
+        'usuario_solicita_id' => 'admin',
+        'usuario_recibe_id' => 'cliente',
+    ];
 
     public function mount()
     {
         $this->sedes = Sede::all();
         $this->motivos = MotivoCita::all();
+        $this->estados = EstadoCita::all();
         $this->usuarios_admin = User::where('role', 'admin')->get();
-        $this->usuarios_cliente = User::where('role', 'cliente')->get();
+    }
+
+    public function seleccionarCliente($id)
+    {
+        $this->usuario_recibe_id = $id;
+
+        $this->select_cliente = User::find($id);
     }
 
     public function store()
@@ -50,9 +67,9 @@ class CitaCrearLivewire extends Component
             'usuario_recibe_id' => $this->usuario_recibe_id,
             'sede_id' => $this->sede_id,
             'motivo_cita_id' => $this->motivo_cita_id,
+            'estado_cita_id' => $this->estado_cita_id,
             'fecha_inicio' => $this->fecha_inicio,
             'fecha_fin' => $this->fecha_fin,
-            'estado' => $this->estado,
         ]);
 
         $this->dispatch('alertaLivewire', "Creado");
@@ -62,6 +79,14 @@ class CitaCrearLivewire extends Component
 
     public function render()
     {
+        $this->usuarios_cliente = User::where('role', 'cliente')
+            ->where(function ($q) {
+                $q->where('name', 'like', '%' . $this->buscar_cliente . '%')
+                    ->orWhere('email', 'like', '%' . $this->buscar_cliente . '%');
+            })
+            ->limit(10)
+            ->get();
+
         return view('livewire.atc.cita.cita-crear-livewire');
     }
 }
