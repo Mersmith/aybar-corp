@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('usuario_solicita_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('usuario_solicita_id')->constrained('users')->onDelete('cascade'); //quien crea
 
-            $table->foreignId('usuario_recibe_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('usuario_recibe_id')->constrained('users')->onDelete('cascade'); //quien es agendado
 
-            $table->foreignId('usuario_cierra_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('usuario_cierra_id')->nullable()->constrained('users')->nullOnDelete(); //quien atiende al cliente
 
             $table->foreignId('sede_id')->nullable()->constrained('sedes')->nullOnDelete();
 
