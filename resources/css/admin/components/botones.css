@@ -109,3 +109,26 @@
     margin-right: 3px;
     font-size: 12px;
 }
+
+.g_estado {
+    font-size: 8px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.g_celda_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/*.g_centrar_iconos {
+    display: flex;
+    gap: 10px;
+}*/
+
+.g_centrar_iconos a,
+.g_centrar_iconos button {
+    cursor: pointer;
+}

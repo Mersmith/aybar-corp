@@ -66,7 +66,7 @@
 
                                 <td>
                                     @if ($item->tipos->count())
-                                    <div class="celda_wrap">
+                                    <div class="g_celda_wrap">
                                         @foreach ($item->tipos as $tipo)
                                         <span class="g_badge">{{ $tipo->nombre }}</span>
                                         @endforeach

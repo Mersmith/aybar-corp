@@ -50,15 +50,3 @@
     justify-content: flex-end;
     gap: 10px;
 }
-
-/*MODAL GRACIAS*/
-.modal_gracias{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.emoji {
-    font-size: 3rem;
-}

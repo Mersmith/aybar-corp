@@ -1,13 +1,15 @@
 /*CONTENEDOR ASIDE*/
 .contenedor_aside {
     position: fixed;
-    left: calc(-1 * (var(--ancho-sidebar-admin-item) + var(--ancho-sidebar-admin-menu)));
+    left: calc(
+        -1 * (var(--ancho-sidebar-admin-item) + var(--ancho-sidebar-admin-menu))
+    );
     width: var(--ancho-sidebar-admin-item);
     height: 100%;
     background: var(--color-blanco);
     top: 0;
     z-index: 99;
-    transition: all .4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     border-right: var(--borde-card);
 }
 
@@ -56,7 +58,7 @@
     color: var(--color-blanco);
 }
 
-.nav_icono_seleccionado.no-hover {
+.contenedor_nav_iconos .nav_icono_seleccionado.no-hover {
     pointer-events: none;
 }
 
@@ -76,7 +78,6 @@
 
 /*FIN CONTENEDOR NAV ICONOS*/
 
-
 /*CONTENEDOR NAV LINKS*/
 .contenedor_nav_links {
     position: absolute;
@@ -84,7 +85,7 @@
     left: calc(-1 * var(--ancho-sidebar-admin-menu));
     background: var(--color-blanco);
     top: 0;
-    transition: left .4s ease-in-out;
+    transition: left 0.4s ease-in-out;
     height: 100%;
     border-right: var(--borde-card);
 }
@@ -94,11 +95,11 @@
 }
 
 /*CONTENEDOR LOGO*/
-.contenedor_logo {
+.contenedor_nav_links .contenedor_logo {
     position: absolute;
     top: 0;
     padding: 0 24px;
-    transition: left .4s ease-in-out;
+    transition: left 0.4s ease-in-out;
     height: var(--alto-header-admin);
     display: flex;
     align-items: center;
@@ -109,19 +110,19 @@
 /*FIN CONTENEDOR LOGO*/
 
 /*SIDEBAR NAV*/
-.sidebar_nav {
+.contenedor_nav_links .sidebar_nav {
     padding: 20px 0px;
     position: absolute;
     height: calc(100vh - var(--alto-header-admin));
     top: var(--alto-header-admin);
-    transition: left .4s ease-in-out;
+    transition: left 0.4s ease-in-out;
     z-index: 98;
     width: 100%;
     font-size: 15px;
-    color: var(--color-negro)
+    color: var(--color-negro);
 }
 
-.sidebar_nav .sidebar_scroll {
+.contenedor_nav_links .sidebar_nav .sidebar_scroll {
     height: 100%;
     overflow: hidden scroll;
     direction: inherit;
@@ -134,25 +135,25 @@
     scrollbar-width: none;
 }
 
-.sidebar_nav .nivel_1 {
+.contenedor_nav_links .sidebar_nav .nivel_1 {
     padding: 0px 20px;
 }
 
-.sidebar_nav li {
+.contenedor_nav_links .sidebar_nav li {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 10px;
 }
 
-.sidebar_nav ul {
+.contenedor_nav_links .sidebar_nav ul {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 10px;
 }
 
-.sidebar_nav li .contenedor_a {
+.contenedor_nav_links .sidebar_nav li .contenedor_a {
     width: 100%;
     display: flex;
     padding: 8px 15px;
@@ -161,59 +162,58 @@
     justify-content: space-between;
 }
 
-.sidebar_nav li .contenedor_a a {
+.contenedor_nav_links .sidebar_nav li .contenedor_a a {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
-.sidebar_nav .nivel_2 li {
+.contenedor_nav_links .sidebar_nav .nivel_2 li {
     padding-left: 15px;
 }
 
-.sidebar_nav ul .sidebar_nav_seleccionado {
+.contenedor_nav_links .sidebar_nav ul .sidebar_nav_seleccionado {
     background-color: var(--color-verde);
     color: var(--color-blanco);
     border-radius: 12px;
 }
 
-.sidebar_nav ul .contenedor_a:hover {
+.contenedor_nav_links .sidebar_nav ul .contenedor_a:hover {
     color: var(--color-verde);
 }
 
-.sidebar_nav ul .sidebar_item_seleccionado {
+.contenedor_nav_links .sidebar_nav ul .sidebar_item_seleccionado {
     color: var(--color-verde);
 }
 
-.sidebar_nav_seleccionado.no-hover {
+.contenedor_nav_links .sidebar_nav_seleccionado.no-hover {
     color: var(--color-blanco) !important;
 }
 
-.ocultar_nivel {
+.contenedor_nav_links .ocultar_nivel {
     display: none !important;
 }
 
-.punto_item {
+.contenedor_nav_links .punto_item {
     font-size: 6px;
 }
 
 @media (min-width: 768px) {
-
     .contenedor_aside {
         left: 0;
     }
-
 }
 
 @media (max-width: 768px) {
-
     /*CONTENEDOR ASIDE*/
     .contenedor_aside {
-        left: calc(-1 * (var(--ancho-sidebar-admin-item) + var(--ancho-sidebar-admin-menu)));
+        left: calc(
+            -1 * (var(--ancho-sidebar-admin-item) +
+                        var(--ancho-sidebar-admin-menu))
+        );
     }
 
     .contenedor_aside.estilo_abierto_contenedor_aside {
         left: 0;
     }
-
 }

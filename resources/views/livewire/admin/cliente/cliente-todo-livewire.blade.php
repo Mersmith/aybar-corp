@@ -22,11 +22,11 @@
     <div class="g_panel">
         <div class="tabla_cabecera">
             <div class="tabla_cabecera_botones">
-                <button>
+                <button class="g_boton g_boton_primary">
                     PDF <i class="fa-solid fa-file-pdf"></i>
                 </button>
 
-                <button>
+                <button class="g_boton g_boton_primary">
                     EXCEL <i class="fa-regular fa-file-excel"></i>
                 </button>
             </div>
@@ -57,49 +57,48 @@
                     </thead>
 
                     @if ($items->count())
-                        <tbody>
-                            @foreach ($items as $index => $item)
-                                <tr>
-                                    <td>{{ $items->firstItem() + $index }}</td>
-                                    <td class="g_resaltar">{{ $item->name }}</td>
-                                    <td class="g_resaltar">{{ $item->email }}</td>
-                                    <td class="g_resaltar">{{ $item->cliente->dni ?? '-' }}</td>
-                                    <td class="g_resaltar">{{ $item->created_at }}</td>
-                                    <td>
-                                        <span class="estado {{ $item->email_verified_at ? 'g_activo' : 'g_desactivado' }}"><i
-                                                class="fa-solid fa-circle"></i></span>
-                                        {{ $item->email_verified_at ? 'Sí' : 'No' }}
-                                    </td>
-                                    <td>
-                                        <span class="estado {{ $item->activo ? 'g_activo' : 'g_desactivado' }}"><i
-                                                class="fa-solid fa-circle"></i></span>
-                                        {{ $item->activo ? 'Activo' : 'Desactivo' }}
-                                    </td>
-                                    <td class="centrar_iconos">
-                                        <a href="{{ route('admin.cliente.vista.editar', $item) }}"
-                                            class="g_accion_editar">
-                                            <span><i class="fa-solid fa-pencil"></i></span>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+                    <tbody>
+                        @foreach ($items as $index => $item)
+                        <tr>
+                            <td>{{ $items->firstItem() + $index }}</td>
+                            <td class="g_resaltar">{{ $item->name }}</td>
+                            <td class="g_resaltar">{{ $item->email }}</td>
+                            <td class="g_resaltar">{{ $item->cliente->dni ?? '-' }}</td>
+                            <td class="g_resaltar">{{ $item->created_at }}</td>
+                            <td>
+                                <span class="g_estado {{ $item->email_verified_at ? 'g_activo' : 'g_desactivado' }}"><i
+                                        class="fa-solid fa-circle"></i></span>
+                                {{ $item->email_verified_at ? 'Sí' : 'No' }}
+                            </td>
+                            <td>
+                                <span class="g_estado {{ $item->activo ? 'g_activo' : 'g_desactivado' }}"><i
+                                        class="fa-solid fa-circle"></i></span>
+                                {{ $item->activo ? 'Activo' : 'Desactivo' }}
+                            </td>
+                            <td class="centrar_iconos">
+                                <a href="{{ route('admin.cliente.vista.editar', $item) }}" class="g_accion_editar">
+                                    <span><i class="fa-solid fa-pencil"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                     @endif
                 </table>
             </div>
         </div>
 
         @if ($items->hasPages())
-            <div class="g_paginacion">
-                {{ $items->links('vendor.pagination.default-livewire') }}
-            </div>
+        <div class="g_paginacion">
+            {{ $items->links('vendor.pagination.default-livewire') }}
+        </div>
         @endif
 
         @if ($items->count() == 0)
-            <div class="g_vacio">
-                <p>No hay items disponibles.</p>
-                <i class="fa-regular fa-face-grin-wink"></i>
-            </div>
+        <div class="g_vacio">
+            <p>No hay items disponibles.</p>
+            <i class="fa-regular fa-face-grin-wink"></i>
+        </div>
         @endif
 
     </div>
