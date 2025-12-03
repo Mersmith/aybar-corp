@@ -39,14 +39,16 @@ for ($h = 6; $h <= 22; $h++) { $horas->push(sprintf('%02d:00', $h));
 
                     @forelse ($eventosHora as $ev)
                     <div class="calendario_cita_item">
+                        <a href="{{ route('admin.cita.vista.editar', $ev['id'] ) }}" class="g_accion_editar">
+                            <span><i class="fa-solid fa-eye"></i></span>
+                        </a>
 
                         <div>
                             <strong>{{ $ev['time'] }} - {{ $ev['end_time'] }}</strong>
                         </div>
 
                         <div>
-                            <span>Motivo:</span>
-                            {{ $ev['title'] }}
+                            <span class="g_negrita">Motivo: {{ $ev['title'] }}</span>
                         </div>
 
                         <div>
@@ -60,15 +62,10 @@ for ($h = 6; $h <= 22; $h++) { $horas->push(sprintf('%02d:00', $h));
                         </div>
 
                         <div>
-                            <span style="color: {{ $ev['estado']->color }};">
+                            <span class="g_negrita" style="color: {{ $ev['estado']->color }};">
                                 {{ $ev['estado']->nombre }}
                             </span>
                         </div>
-
-                        <a href="{{ route('admin.cita.vista.editar', $ev['id'] ) }}" class="g_accion_editar">
-                            <span><i class="fa-solid fa-pencil"></i></span>
-                        </a>
-
                     </div>
                     @empty
                     {{-- No hay eventos --}}

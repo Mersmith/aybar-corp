@@ -20,7 +20,7 @@
             </div>
 
             <div>
-                {{ $totalMes }} citas
+                <span class="g_badge g_negrita">{{ $totalMes }} citas</span>
             </div>
         </div>
         @endfor
