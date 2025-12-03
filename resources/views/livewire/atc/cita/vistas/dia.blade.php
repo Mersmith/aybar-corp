@@ -65,6 +65,10 @@ for ($h = 6; $h <= 22; $h++) { $horas->push(sprintf('%02d:00', $h));
                             </span>
                         </div>
 
+                        <a href="{{ route('admin.cita.vista.editar', $ev['id'] ) }}" class="g_accion_editar">
+                            <span><i class="fa-solid fa-pencil"></i></span>
+                        </a>
+
                     </div>
                     @empty
                     {{-- No hay eventos --}}
