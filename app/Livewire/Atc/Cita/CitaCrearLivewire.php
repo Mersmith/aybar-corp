@@ -25,6 +25,9 @@ class CitaCrearLivewire extends Component
     public $fecha_inicio;
     public $fecha_fin;
 
+    public $asunto_solicitud;
+    public $descripcion_solicitud;
+
     protected function rules()
     {
         return [
@@ -35,6 +38,8 @@ class CitaCrearLivewire extends Component
             'fecha_inicio' => 'required',
             'fecha_fin' => 'required',
             'estado_cita_id' => 'required',
+            'asunto_solicitud' => 'required|string|max:555',
+            'descripcion_solicitud' => 'required|string|max:555',
         ];
     }
 
@@ -70,6 +75,8 @@ class CitaCrearLivewire extends Component
             'estado_cita_id' => $this->estado_cita_id,
             'fecha_inicio' => $this->fecha_inicio,
             'fecha_fin' => $this->fecha_fin,
+            'asunto_solicitud' => $this->asunto_solicitud,
+            'descripcion_solicitud' => $this->descripcion_solicitud,
         ]);
 
         $this->dispatch('alertaLivewire', "Creado");
@@ -84,7 +91,7 @@ class CitaCrearLivewire extends Component
                 $q->where('name', 'like', '%' . $this->buscar_cliente . '%')
                     ->orWhere('email', 'like', '%' . $this->buscar_cliente . '%');
             })
-            ->limit(10)
+            ->limit(5)
             ->get();
 
         return view('livewire.atc.cita.cita-crear-livewire');

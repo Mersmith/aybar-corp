@@ -20,8 +20,7 @@
 
                 <div class="g_margin_bottom_10 g_columna_2">
                     <label>Buscar</label>
-                    <input type="text" wire:model.live.debounce.800ms="buscar"
-                        placeholder="ID, solicitante, receptor">
+                    <input type="text" wire:model.live.debounce.800ms="buscar" placeholder="Id, solicitante, receptor">
                 </div>
 
                 <div class="g_margin_bottom_10 g_columna_2">
@@ -29,7 +28,7 @@
                     <select wire:model.live="sede_id">
                         <option value="">Todas</option>
                         @foreach ($sedes as $item)
-                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                        <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -39,27 +38,17 @@
                     <select wire:model.live="motivo_cita_id">
                         <option value="">Todos</option>
                         @foreach ($motivos as $item)
-                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                        <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="g_margin_bottom_10 g_columna_2">
-                    <label>Solicitante</label>
+                    <label>Admins</label>
                     <select wire:model.live="usuario_solicita_id">
                         <option value="">Todos</option>
                         @foreach ($usuarios_admin as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="g_margin_bottom_10 g_columna_2">
-                    <label>Receptor</label>
-                    <select wire:model.live="usuario_recibe_id">
-                        <option value="">Todos</option>
-                        @foreach ($usuarios_cliente as $item)
-                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -69,11 +58,10 @@
                     <select wire:model.live="estado_cita_id">
                         <option value="">Todos</option>
                         @foreach ($estados as $item)
-                            <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+                        <option value="{{ $item->id }}">{{ $item->nombre }}</option>
                         @endforeach
                     </select>
                 </div>
-
             </div>
 
             <div class="g_fila">
@@ -102,39 +90,53 @@
                             <th>Inicio</th>
                             <th>Fin</th>
                             <th>Estado</th>
+                            <th></th>
                         </tr>
                     </thead>
 
                     @if ($citas->count())
-                        <tbody>
-                            @foreach ($citas as $item)
-                                <tr>
-                                    <td class="g_resaltar">{{ $item->id }}</td>
-                                    <td>{{ $item->solicitante->name }}</td>
-                                    <td>{{ $item->receptor->name }}</td>
-                                    <td>{{ $item->sede->nombre ?? '-' }}</td>
-                                    <td>{{ $item->motivo->nombre }}</td>
-                                    <td>{{ $item->fecha_inicio->format('d/m/Y H:i') }}</td>
-                                    <td>{{ $item->fecha_fin ? $item->fecha_fin->format('d/m/Y H:i') : '-' }}</td>
-                                    <td>{{ $item->estado->nombre }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+                    <tbody>
+                        @foreach ($citas as $item)
+                        <tr>
+                            <td>{{ $item->id }}</td>
+                            <td class="g_negrita">{{ $item->solicitante->name }}</td>
+                            <td class="g_negrita">{{ $item->receptor->name }}</td>
+                            <td>{{ $item->sede->nombre ?? '-' }}</td>
+                            <td>
+                                <span style="color: {{ $item->motivo->color }};">
+                                    <i class="{{ $item->motivo->icono }}"></i> {{$item->motivo->nombre }}
+                                </span>
+                            </td>
+                            <td>{{ $item->fecha_inicio->format('d/m/Y H:i') }}</td>
+                            <td>{{ $item->fecha_fin ? $item->fecha_fin->format('d/m/Y H:i') : '-' }}</td>
+                            <td>
+                                <span style="color: {{ $item->estado->color }};">
+                                    <i class="{{ $item->estado->icono }}"></i> {{$item->estado->nombre }}
+                                </span>
+                            </td>
+                            <td class="centrar_iconos">
+                                <a href="{{ route('admin.cita.vista.editar', $item->id) }}" class="g_accion_editar">
+                                    <span><i class="fa-solid fa-pencil"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
                     @endif
                 </table>
             </div>
         </div>
 
         @if ($citas->hasPages())
-            <div class="g_paginacion">
-                {{ $citas->links('vendor.pagination.default-livewire') }}
-            </div>
+        <div class="g_paginacion">
+            {{ $citas->links('vendor.pagination.default-livewire') }}
+        </div>
         @endif
 
         @if ($citas->count() == 0)
-            <div class="g_vacio">
-                <p>No hay citas disponibles.</p>
-            </div>
+        <div class="g_vacio">
+            <p>No hay citas disponibles.</p>
+        </div>
         @endif
     </div>
 

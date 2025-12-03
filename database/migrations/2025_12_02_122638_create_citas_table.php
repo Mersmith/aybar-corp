@@ -18,6 +18,8 @@ return new class extends Migration
 
             $table->foreignId('usuario_recibe_id')->constrained('users')->onDelete('cascade');
 
+            $table->foreignId('usuario_cierra_id')->nullable()->constrained('users')->nullOnDelete();
+
             $table->foreignId('sede_id')->nullable()->constrained('sedes')->nullOnDelete();
 
             $table->foreignId('motivo_cita_id')->constrained('motivo_citas')->onDelete('restrict');
@@ -26,6 +28,7 @@ return new class extends Migration
 
             $table->dateTime('fecha_inicio');
             $table->dateTime('fecha_fin')->nullable();
+            $table->dateTime('fecha_cierre')->nullable();
 
             $table->string('asunto_solicitud')->nullable();
             $table->text('descripcion_solicitud')->nullable();

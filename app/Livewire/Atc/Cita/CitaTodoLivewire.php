@@ -20,7 +20,6 @@ class CitaTodoLivewire extends Component
     public $motivos, $motivo_cita_id = '';
     public $estados, $estado_cita_id = '';
     public $usuarios_admin, $usuario_solicita_id = '';
-    public $usuarios_cliente, $usuario_recibe_id = '';
 
     public $buscar = '';
 
@@ -40,7 +39,6 @@ class CitaTodoLivewire extends Component
         $this->estados = EstadoCita::all();
         $this->motivos = MotivoCita::all();
         $this->usuarios_admin = User::where('role', 'admin')->get();
-        $this->usuarios_cliente = User::where('role', 'cliente')->get();
     }
 
     public function resetFiltros()
@@ -49,7 +47,6 @@ class CitaTodoLivewire extends Component
             'sede_id',
             'motivo_cita_id',
             'usuario_solicita_id',
-            'usuario_recibe_id',
             'estado_cita_id',
             'buscar',
             'fecha_inicio',
@@ -76,7 +73,6 @@ class CitaTodoLivewire extends Component
             ->when($this->sede_id, fn($q) => $q->where('sede_id', $this->sede_id))
             ->when($this->motivo_cita_id, fn($q) => $q->where('motivo_cita_id', $this->motivo_cita_id))
             ->when($this->usuario_solicita_id, fn($q) => $q->where('usuario_solicita_id', $this->usuario_solicita_id))
-            ->when($this->usuario_recibe_id, fn($q) => $q->where('usuario_recibe_id', $this->usuario_recibe_id))
             ->when($this->estado_cita_id, fn($q) => $q->where('estado_cita_id', $this->estado_cita_id))
 
             ->when(

@@ -14,11 +14,13 @@ class Cita extends Model
     protected $fillable = [
         'usuario_solicita_id',
         'usuario_recibe_id',
+        'usuario_cierra_id',
         'sede_id',
         'motivo_cita_id',
         'estado_cita_id',
         'fecha_inicio',
         'fecha_fin',
+        'fecha_cierre',
         'asunto_solicitud',
         'descripcion_solicitud',
         'asunto_respuesta',
@@ -28,6 +30,7 @@ class Cita extends Model
     protected $casts = [
         'fecha_inicio' => 'datetime',
         'fecha_fin'   => 'datetime',
+        'fecha_cierre'   => 'datetime',
     ];
 
     public function solicitante()
@@ -38,6 +41,11 @@ class Cita extends Model
     public function receptor()
     {
         return $this->belongsTo(User::class, 'usuario_recibe_id');
+    }
+
+    public function cierrePor()
+    {
+        return $this->belongsTo(User::class, 'usuario_cierra_id');
     }
 
     public function sede()
