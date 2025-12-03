@@ -282,7 +282,7 @@
                 ]
             }
         ]
-    },    
+    },
     {
         "id": 10,
         "nombre": "10",
@@ -319,6 +319,32 @@
             },
             {
                 "id": 43,
+                "nombre": "Prioridad ticket",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-bolt",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.prioridad-ticket.vista.todo",
+                        "url": "/admin/prioridad-ticket",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.prioridad-ticket.vista.crear",
+                        "url": "/admin/prioridad-ticket/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 44,
                 "nombre": "Estados ticket",
                 "ruta": "#",
                 "url": "#",
@@ -344,7 +370,7 @@
                 ]
             },
             {
-                "id": 44,
+                "id": 45,
                 "nombre": "Canal",
                 "ruta": "#",
                 "url": "#",
@@ -370,7 +396,7 @@
                 ]
             },
             {
-                "id": 45,
+                "id": 46,
                 "nombre": "Ticket",
                 "ruta": "#",
                 "url": "#",
@@ -565,7 +591,7 @@
                 "submenus": []
             }
         ]
-    },    
+    },
     {
         "id": 6,
         "nombre": "6",

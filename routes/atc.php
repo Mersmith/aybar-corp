@@ -14,6 +14,10 @@ use App\Livewire\Atc\EstadoTicket\EstadoTicketTodoLivewire;
 use App\Livewire\Atc\EstadoTicket\EstadoTicketCrearLivewire;
 use App\Livewire\Atc\EstadoTicket\EstadoTicketEditarLivewire;
 
+use App\Livewire\Atc\PrioridadTicket\PrioridadTicketTodoLivewire;
+use App\Livewire\Atc\PrioridadTicket\PrioridadTicketCrearLivewire;
+use App\Livewire\Atc\PrioridadTicket\PrioridadTicketEditarLivewire;
+
 use App\Livewire\Atc\Canal\CanalTodoLivewire;
 use App\Livewire\Atc\Canal\CanalCrearLivewire;
 use App\Livewire\Atc\Canal\CanalEditarLivewire;
@@ -60,6 +64,12 @@ Route::prefix('estado-ticket')->name('estado-ticket.vista.')->group(function () 
     Route::get('/', EstadoTicketTodoLivewire::class)->name('todo');
     Route::get('/crear', EstadoTicketCrearLivewire::class)->name('crear');
     Route::get('/editar/{id}', EstadoTicketEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('prioridad-ticket')->name('prioridad-ticket.vista.')->group(function () {
+    Route::get('/', PrioridadTicketTodoLivewire::class)->name('todo');
+    Route::get('/crear', PrioridadTicketCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', PrioridadTicketEditarLivewire::class)->name('editar');
 });
 
 Route::prefix('canal')->name('canal.vista.')->group(function () {
