@@ -70,7 +70,7 @@
                                 <td>S/ {{ number_format($item['saldo'], 2) }}</td>
                                 <td>{{ $item['estado'] }}</td>
                                 <td>
-                                    <button wire:click="seleccionarLote('{{ $item['codigo'] }}')"
+                                    <button wire:click="seleccionarCuota({{ json_encode($item) }})"
                                         class="g_boton g_boton_empresa_secundario">
                                         <i class="fa-solid fa-image"></i> Subir evidencia
                                     </button>
@@ -85,7 +85,7 @@
         </div>
     </div>
 
-    @if ($codigo_lote)
-        @livewire('web.open-ai.procesar-imagen-livewire', ['codigo_lote' => $codigo_lote])
+    @if ($cuota)
+        @livewire('web.open-ai.procesar-imagen-livewire', ['cuota' => $cuota])
     @endif
 </div>

@@ -1,6 +1,7 @@
-<div class="r_panel contenedor_procesar_imagen">
+<div class="g_panel contenedor_procesar_imagen">
 
-    <div class="r_titulo_panel">
+    @dump($cuota)
+    <div class="g_panel_titulo">
         <h2>Subir comprobante</h2>
     </div>
 

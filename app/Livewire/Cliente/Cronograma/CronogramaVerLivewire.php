@@ -6,9 +6,9 @@ use Livewire\Component;
 
 class CronogramaVerLivewire extends Component
 {
-    public $codigo_lote;
     public $lote;
     public $cronograma = [];
+    public $cuota;
 
     public function mount($lote, $cronograma)
     {
@@ -16,9 +16,9 @@ class CronogramaVerLivewire extends Component
         $this->cronograma = $cronograma;
     }
 
-    public function seleccionarLote($codigo)
+    public function seleccionarCuota($cuota)
     {
-        $this->codigo_lote = $codigo;
+        $this->cuota = $cuota;
     }
 
     public function render()

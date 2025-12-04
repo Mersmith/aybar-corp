@@ -12,14 +12,21 @@ class ProcesarImagenLivewire extends Component
 {
     use WithFileUploads;
 
+    public $cuota;
+
     public $imagen;
     public $datos = [];
     public $procesando = false;
 
+    public function mount($cuota)
+    {
+        $this->cuota = $cuota;
+    }
+
     public function procesarImagen()
     {
         $this->validate([
-            'imagen' => 'required|image|max:4096'
+            'imagen' => 'required|image|max:4096',
         ]);
 
         $this->procesando = true;
@@ -49,17 +56,17 @@ Devuelve únicamente un JSON válido con esta estructura:
   \"fecha\": \"\"
 }
 
-NO agregues explicación ni texto adicional. Solo JSON."
+NO agregues explicación ni texto adicional. Solo JSON.",
                             ],
                             [
                                 "type" => "image_url",
                                 "image_url" => [
-                                    "url" => "data:image/jpeg;base64,{$imageData}"
-                                ]
-                            ]
-                        ]
-                    ]
-                ]
+                                    "url" => "data:image/jpeg;base64,{$imageData}",
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
             ]);
 
             // --- PROCESAR RESPUESTA ---
@@ -93,9 +100,9 @@ NO agregues explicación ni texto adicional. Solo JSON."
             // Asignar datos
             $this->datos = [
                 'numero' => $data['numero_operacion'] ?? null,
-                'banco'  => $data['banco'] ?? null,
-                'monto'  => $data['monto'] ?? null,
-                'fecha'  => $data['fecha'] ?? null,
+                'banco' => $data['banco'] ?? null,
+                'monto' => $data['monto'] ?? null,
+                'fecha' => $data['fecha'] ?? null,
             ];
         } catch (\Exception $e) {
             session()->flash('error', '❌ Error: ' . $e->getMessage());
