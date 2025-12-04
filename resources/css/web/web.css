@@ -8,10 +8,14 @@
 @import "../generales/loader.css";
 
 @import "./layout.css";
+@import "./globales.css";
 @import "./rejilla.css";
 @import "./components/header.css";
 @import "./components/header-banner.css";
+@import "./components/texto.css";
 @import "./components/footer.css";
+@import "./components/panel.css";
+@import "./components/lista.css";
 @import "./partials/compartir-redes.css";
 @import "./partials/back-to-top.css";
 @import "./partials/titulo-encabezado.css";

@@ -6,12 +6,12 @@
 
 @import "./layout.css";
 @import "./globales.css";
+@import "./rejilla.css";
 @import "./components/menu-principal.css";
 @import "./components/header.css";
 @import "./components/botones.css";
 @import "./components/panel.css";
 @import "./components/pagina-cabecera.css";
-@import "./components/pagina-cuerpo.css";
 @import "./components/tabla.css";
 @import "./components/tabla-cabecera.css";
 @import "./components/dropzone.css";
