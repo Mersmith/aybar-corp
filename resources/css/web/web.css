@@ -2,26 +2,29 @@
 @import "../generales/variables.css";
 @import "../generales/alertas.css";
 @import "../generales/paginacion.css";
+@import "../generales/rejilla.css";
+@import "../generales/globales.css";
+@import "../generales/panel.css";
 @import "../generales/formulario.css";
 @import "../generales/ckeditor.css";
 @import "../generales/botones.css";
 @import "../generales/loader.css";
 
 @import "./layout.css";
-@import "./globales.css";
-@import "./rejilla.css";
+
 @import "./components/header.css";
 @import "./components/header-banner.css";
 @import "./components/texto.css";
 @import "./components/footer.css";
-@import "./components/panel.css";
 @import "./components/lista.css";
+
 @import "./partials/compartir-redes.css";
 @import "./partials/back-to-top.css";
 @import "./partials/titulo-encabezado.css";
 @import "./partials/slider-post.css";
 @import "./partials/slider-proyectos.css";
 @import "./partials/visualizador-pdf.css";
+
 @import "./bloques/bloque-1.css";
 @import "./bloques/bloque-2.css";
 @import "./bloques/bloque-3.css";
@@ -30,7 +33,9 @@
 @import "./bloques/bloque-6.css";
 @import "./bloques/bloque-7.css";
 @import "./bloques/bloque-8.css";
+
 @import "./sesion/ingresar.css";
+
 @import "./paginas/nosotros.css";
 @import "./paginas/consulta-codigo-cliente.css";
 @import "./paginas/contacto.css";
