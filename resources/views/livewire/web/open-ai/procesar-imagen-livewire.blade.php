@@ -1,6 +1,6 @@
 <div class="g_panel contenedor_procesar_imagen">
 
-    @dump($cuota)
+    @dump($cuota, $lote)
     <div class="g_panel_titulo">
         <h2>Subir comprobante</h2>
     </div>

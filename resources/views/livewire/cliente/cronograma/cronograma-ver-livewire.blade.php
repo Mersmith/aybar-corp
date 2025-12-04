@@ -86,6 +86,6 @@
     </div>
 
     @if ($cuota)
-        @livewire('web.open-ai.procesar-imagen-livewire', ['cuota' => $cuota])
+        @livewire('web.open-ai.procesar-imagen-livewire', ['cuota' => $cuota, 'lote' => $lote], key('cuota_' . $cuota['codigo']))
     @endif
 </div>

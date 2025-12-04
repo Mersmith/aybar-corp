@@ -12,15 +12,17 @@ class ProcesarImagenLivewire extends Component
 {
     use WithFileUploads;
 
+    public $lote;
     public $cuota;
 
     public $imagen;
     public $datos = [];
     public $procesando = false;
 
-    public function mount($cuota)
+    public function mount($cuota, $lote)
     {
         $this->cuota = $cuota;
+        $this->lote = $lote;
     }
 
     public function procesarImagen()
