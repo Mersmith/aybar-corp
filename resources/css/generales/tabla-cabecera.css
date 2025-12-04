@@ -7,12 +7,12 @@
 }
 
 /*TABLA CABECERA BOTONES*/
-.tabla_cabecera_botones {
+/*.tabla_cabecera_botones {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 10px 0px;
-}
+}*/
 
 .tabla_cabecera_botones {
     display: flex;
@@ -20,6 +20,7 @@
     overflow-y: auto;
     white-space: nowrap;
     justify-content: flex-end;
+    margin: 10px 0px;
 }
 
 .tabla_cabecera_botones a,

@@ -21,17 +21,28 @@
     </div>
 
     @if ($lote_select)
-        <div class="r_gap_pagina_fila">
-            <button wire:click="cerrarCronograma" class="boton_personalizado boton_personalizado_verde">Cerrar</button>
-            <button wire:click="descargarPDF" class="boton_personalizado boton_personalizado_amarillo">PDF</button>
-        </div>
+        <div class="g_panel">
+            <div class="tabla_cabecera_botones">
+                <button wire:click="descargarPDF" class="g_boton g_boton_empresa_primario">
+                    PDF <i class="fa-solid fa-file-pdf"></i> <i class="fa-solid fa-download"></i>
+                </button>
 
-        @livewire('cliente.cronograma.cronograma-ver-livewire', ['lote' => $lote_select, 'cronograma' => $cronograma], key($lote_select['id_recaudo']))
+                <button wire:click="cerrarCronograma" class="g_boton g_boton_darkt">
+                    <i class="fa-solid fa-xmark"></i> CERRAR
+                </button>
+            </div>
+
+            <div class="g_panel_titulo centrar">
+                <h2>CRONOGRAMA DE PAGOS</h2>
+            </div>
+
+            @livewire('cliente.cronograma.cronograma-ver-livewire', ['lote' => $lote_select, 'cronograma' => $cronograma], key($lote_select['id_recaudo']))
+        </div>
     @endif
 
     @if (!$lote_select)
-        <div class="tabla_contenido">
-            <div class="contenedor_tabla">
+        <div class="g_panel tabla_contenido">
+            <div class="contenedor_tabla borde">
                 <table class="tabla">
                     <thead>
                         <tr>
@@ -63,13 +74,13 @@
                                     <td>{{ $lote['id_manzana'] }}</td>
                                     <td>{{ $lote['id_lote'] }}</td>
 
-                                    <td class="botones">
-                                        <button class="boton boton_activo"
+                                    <td class="g_centrar_iconos">
+                                        <button class="g_boton g_boton_empresa_primario"
                                             wire:click="seleccionarLote({{ json_encode($lote) }})">
                                             <i class="fas fa-calendar-alt"></i> Cronograma
                                         </button>
 
-                                        <a href="" class="boton boton_guardar">
+                                        <a href="" class="g_boton g_boton_empresa_secundario">
                                             <i class="fas fa-file-invoice-dollar"></i> Estado cuenta
                                         </a>
                                     </td>

@@ -9,10 +9,13 @@
 .contenedor_tabla {
     overflow: hidden;
     min-width: 100%;
-    display: inline-block;
-    border-radius: 12px;
-    border: 1px solid #e0e6eb;
+    display: inline-block;    
     border-collapse: collapse;
+}
+
+.contenedor_tabla.borde {
+    border: 1px solid #e0e6eb;
+    border-radius: 12px;
 }
 
 /*TABLA*/

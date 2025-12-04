@@ -1,36 +1,21 @@
-.cronograma_contenedor {
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.cronograma_contenedor .titulo {
-    text-align: center;
-    margin: 20px 0;
-    font-weight: bold;
-    font-size: 22px;
-}
-
 .cronograma_contenedor .tabla_info,
 .cronograma_contenedor .tabla_detalle {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
 }
 
 .cronograma_contenedor .tabla_info td {
-    border: 1px solid #999;
+    border: 1px solid #e0e6eb;
     padding: 6px 10px;
 }
 
 .cronograma_contenedor .tabla_info .label {
     font-weight: bold;
-    background: #f0a741;
+    background: #f0f0f0;
     width: 25%;
 }
 
-.cronograma_contenedor .tabla_info .valor {
-    background: #f7d79c;
+.cronograma_contenedor .tabla_info .valor {    
     font-weight: bold;
 }
 
@@ -45,7 +30,7 @@
 }
 
 .cronograma_contenedor .tabla_detalle td {
-    border: 1px solid #ccc;
+    border: 1px solid #e0e6eb;
     padding: 6px;
     text-align: center;
 }

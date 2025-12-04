@@ -45,36 +45,38 @@
                     </div>
                 @endif
 
-                <form action="{{ route('ingresar.cliente') }}" method="POST" class="g_formulario">
+                <form action="{{ route('ingresar.cliente') }}" method="POST" class="formulario_flex formulario">
                     @csrf
 
-                    <div class="form_grupo">
+                    <div class="g_margin_top_20">
                         <label for="email">Correo electrónico</label>
                         <input type="email" name="email" id="email" value="{{ old('email') }}" required autofocus>
                         @error('email')
-                            <div class="error">{{ $message }}</div>
+                            <div class="mensaje_error">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    <div class="form_grupo">
+                    <div class="g_margin_top_20">
                         <label for="password">Contraseña</label>
                         <input type="password" name="password" id="password" required>
                         @error('password')
-                            <div class="error">{{ $message }}</div>
+                            <div class="mensaje_error">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    <div class="form_grupo">
+                    <div class="g_margin_top_20">
                         <label for="recordarme">
                             <input type="checkbox" name="recordarme" id="recordarme" />
                             Recordarme
                         </label>
                     </div>
 
-                    <button type="submit">
-                        Ingresar
-                    </button>
-                    
+                    <div class="g_margin_top_20 formulario_botones centrar">
+                        <button type="submit" class="guardar">
+                            Ingresar
+                        </button>
+                    </div>
+
                     @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}" class="recuperar_clave">¿Olvidaste tu
                             contraseña?</a>

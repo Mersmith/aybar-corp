@@ -3,10 +3,21 @@
     padding: 5px 10px;
     font-size: 12px;
     cursor: pointer;
+    width: max-content;
 }
 
 .g_boton:hover {
     filter: brightness(1.1);
+}
+
+.g_boton_empresa_primario {
+    background-color: #02424E;
+    color: white;
+}
+
+.g_boton_empresa_secundario {
+    background-color: #FFA726;
+    color: #02424E;
 }
 
 .g_boton_primary {
@@ -123,10 +134,10 @@
     gap: 6px;
 }
 
-/*.g_centrar_iconos {
-    display: flex;
+.g_centrar_iconos {
+    display: grid;
     gap: 10px;
-}*/
+}
 
 .g_centrar_iconos a,
 .g_centrar_iconos button {
