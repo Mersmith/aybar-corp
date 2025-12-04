@@ -3,8 +3,8 @@
 @section('titulo', 'Contacto')
 
 @section('contenido')
-    <div class="r_centrar_pagina">
-        <div class="r_pading_pagina r_gap_pagina">
+    <div class="g_centrar_pagina">
+        <div class="g_pading_pagina g_gap_pagina">
 
             <div class="g_contenedor_columna">
                 @include('partials.titulo-encabezado', [
@@ -52,7 +52,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('contacto.enviar') }}" method="POST" class="g_formulario">
+                        <form action="{{ route('contacto.enviar') }}" method="POST" class="formulario">
                             @csrf
 
                             <div class="form_grupo">

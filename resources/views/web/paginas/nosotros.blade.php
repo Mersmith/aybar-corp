@@ -6,9 +6,9 @@
 
 @include('bloques.bloque-5', ['p_elemento' => $bloque5_1])
 
-<div class="r_centrar_pagina">
-    <div class="r_pading_pagina">
-        <div class="r_contenedor_columna">
+<div class="g_centrar_pagina">
+    <div class="g_pading_pagina">
+        <div class="g_gap_pagina">
             @include('bloques.bloque-6', ['p_elemento' => $bloque6_1])
 
             @include('bloques.bloque-2', ['p_elemento' => $bloque2_1])
@@ -20,8 +20,8 @@
         </div>
     </div>
 
-    <div class="r_pading_pagina">
-        <div class="r_contenedor_columna">
+    <div class="g_pading_pagina">
+        <div class="g_gap_pagina">
             @include('bloques.bloque-7', ['p_elemento' => $bloque7_1])
         </div>
     </div>

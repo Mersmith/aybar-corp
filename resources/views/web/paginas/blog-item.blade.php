@@ -7,8 +7,8 @@
 @section('imagen', $post->meta_image ? url($post->meta_image) : asset('assets/imagen/default.jpg'))
 
 @section('contenido')
-    <div class="r_centrar_pagina">
-        <div class="r_pading_pagina">
+    <div class="g_centrar_pagina">
+        <div class="g_pading_pagina">
 
             <div class="pagina_post_grid">
 
@@ -126,7 +126,7 @@
                         </div>
 
                         <!-- links de paginación -->
-                        <div class="g_paginacion r_margin_top_40">
+                        <div class="g_paginacion g_margin_bottom_40">
                             {{ $otrosPosts->links('vendor.pagination.default') }}
                         </div>
                     @endif

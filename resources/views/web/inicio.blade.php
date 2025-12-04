@@ -6,9 +6,9 @@
 
 @include('bloques.bloque-1', ['p_elemento' => $bloque1_1])
 
-<div class="r_centrar_pagina">
-    <div class="r_pading_pagina">
-        <div class="r_gap_pagina r_margin_top_40 r_margin_bottom_40">
+<div class="g_centrar_pagina">
+    <div class="g_pading_pagina">
+        <div class="g_gap_pagina g_margin_top_40 g_margin_bottom_40">
 
             @include('partials.titulo-encabezado', [
             'titulo' => 'Nuestros proyectos',
@@ -26,9 +26,9 @@
 
 @include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
 
-<div class="r_centrar_pagina">
-    <div class="r_pading_pagina">
-        <div class="r_gap_pagina">
+<div class="g_centrar_pagina">
+    <div class="g_pading_pagina">
+        <div class="g_gap_pagina">
 
             <div>
                 @include('bloques.bloque-8', ['p_elemento' => $bloque8_1])

@@ -4,8 +4,8 @@
 
 @section('contenido')
 
-<div class="r_centrar_pagina">
-    <div class="r_pading_pagina">
+<div class="g_centrar_pagina">
+    <div class="g_pading_pagina">
 
         <div class="r_contenedor_columna">
             @include('partials.titulo-encabezado', [
@@ -36,7 +36,7 @@
                     @endforeach
                 </div>
 
-                <div class="g_paginacion r_margin_top_40">
+                <div class="g_paginacion g_margin_bottom_40">
                     {{ $posts->links('vendor.pagination.default') }}
                 </div>
             </div>
