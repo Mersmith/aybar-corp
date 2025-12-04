@@ -9,6 +9,7 @@
 @import "../generales/ckeditor.css";
 @import "../generales/botones.css";
 @import "../generales/loader.css";
+@import "../generales/lista-simple.css";
 
 @import "./layout.css";
 
@@ -16,7 +17,6 @@
 @import "./components/header-banner.css";
 @import "./components/texto.css";
 @import "./components/footer.css";
-@import "./components/lista.css";
 
 @import "./partials/compartir-redes.css";
 @import "./partials/back-to-top.css";
