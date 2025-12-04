@@ -37,6 +37,10 @@
     color: #888;
 }
 
+.g_modal .modal_cerrar button{
+    cursor: pointer;
+}
+
 .g_modal .modal_titulo {
     margin-bottom: 15px;
 }

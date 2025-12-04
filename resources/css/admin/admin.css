@@ -2,21 +2,20 @@
 @import "../generales/variables.css";
 @import "../generales/alertas.css";
 @import "../generales/paginacion.css";
-/*@import "../generales/formulario.css";*/
 @import "../generales/ckeditor.css";
 
-@import "./layout.css"; /*ok*/
-@import "./globales.css"; /*ok*/
-@import "./components/menu-principal.css"; /*ok*/
-@import "./components/header.css"; /*ok*/
-@import "./components/botones.css"; /*ok*/
-@import "./components/panel.css"; /*ok*/
-@import "./components/pagina-cabecera.css"; /*ok*/
-@import "./components/pagina-cuerpo.css"; /*ok*/
-@import "./components/tabla.css"; /*ok*/
-@import "./components/tabla-cabecera.css"; /*ok*/
-@import "./components/dropzone.css"; /*ok*/
-@import "./components/grid-instagram.css"; /*ok*/
-@import "./components/formulario.css"; /*ok*/
-@import "./components/modal.css"; /*ok*/
-@import "./components/calendario.css"; /*ok*/
+@import "./layout.css";
+@import "./globales.css";
+@import "./components/menu-principal.css";
+@import "./components/header.css";
+@import "./components/botones.css";
+@import "./components/panel.css";
+@import "./components/pagina-cabecera.css";
+@import "./components/pagina-cuerpo.css";
+@import "./components/tabla.css";
+@import "./components/tabla-cabecera.css";
+@import "./components/dropzone.css";
+@import "./components/grid-instagram.css";
+@import "./components/formulario.css";
+@import "./components/modal.css";
+@import "./components/calendario.css";
