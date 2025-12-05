@@ -5,6 +5,8 @@ namespace App\Livewire\Web\OpenAi;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\Imagen;
+use Illuminate\Support\Facades\Storage;
 use OpenAI;
 
 #[Layout('layouts.web.layout-web')]
@@ -120,6 +122,22 @@ NO agregues explicación ni texto adicional. Solo JSON.",
 
     public function guardar()
     {
+        $this->validate([
+            'imagen' => 'required|image|max:4096',
+        ]);
+
+        $ruta = $this->imagen->store('evidencias', 'public');
+        $url = Storage::url($ruta);
+        $extension = $this->imagen->getClientOriginalExtension();
+
+        Imagen::create([
+            'titulo' => null,
+            'descripcion' => null,
+            'path' => $ruta,
+            'url' => $url,
+            'extension' => $extension,
+        ]);
+
         session()->flash('success', 'Comprobante guardado correctamente.');
         $this->reset(['imagen', 'datos']);
     }
