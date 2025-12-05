@@ -91,7 +91,8 @@
                                 </span>
                             </td>
                             <td class="centrar_iconos">
-                                <a href="{{ route('admin.ticket.vista.editar', $item->id) }}" class="g_accion_editar">
+                                <a href="{{ route('admin.comprobante-pago.vista.editar', $item->id) }}"
+                                    class="g_accion_editar">
                                     <span><i class="fa-solid fa-pencil"></i></span>
                                 </a>
                             </td>

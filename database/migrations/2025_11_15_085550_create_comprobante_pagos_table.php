@@ -22,10 +22,12 @@ return new class extends Migration
             $table->string('path');
             $table->string('url');
             $table->string('extension');
+
             $table->string('numero_operacion')->nullable();
             $table->string('banco')->nullable();
             $table->decimal('monto', 10, 2)->nullable();
             $table->date('fecha')->nullable();
+
             $table->text('observacion')->nullable();
 
             $table->foreignId('estado_comprobante_pago_id')->default(1)->constrained('estado_comprobante_pagos')->onDelete('restrict');

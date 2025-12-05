@@ -26,7 +26,8 @@ class CronogramaPago extends Model
         'codigo_banco',
         'nombre_banco',
         'medio_pago',
-        'monto_pagado_acumulado'
+        'monto_pagado_acumulado',
+        'observacion'
     ];
 
     public function venta()
