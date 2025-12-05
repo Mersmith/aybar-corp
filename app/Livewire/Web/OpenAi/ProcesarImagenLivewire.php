@@ -151,6 +151,7 @@ NO agregues explicación ni texto adicional. Solo JSON.",
             'banco' => $this->datos["banco"] ?? null,
             'monto' => $monto,
             'fecha' => $fecha,
+            'cliente_id' => Auth::user()->cliente->id,
             /*
             'codigo_cuota' => $this->cuota["codigo"] ?? null,
             'numero_cuota' => $this->cuota["cuota"] ?? null,
