@@ -1,10 +1,8 @@
-<div class="g_panel contenedor_procesar_imagen">
+<div class="contenedor_procesar_imagen">
 
     <div class="g_panel_titulo">
         <h2>Subir comprobante</h2>
     </div>
-
-    @dump($cuota, $lote)
 
     @if (session('success'))
     <div class="g_alerta_succes">
@@ -46,21 +44,48 @@
                 <span wire:loading wire:target="procesarImagen">Comprobando...</span>
             </button>
             @else
-            <div class="r_gap_pagina">
-                <div class="r_titulo_panel">
+            <div class="g_gap_pagina">
+                <div class="g_panel_titulo">
                     <h2>Datos detectados</h2>
                 </div>
 
-                <ul>
-                    <li><strong class="r_negrita">N° Comprobante:</strong> {{ $datos['numero'] ?? '—' }}</li>
-                    <li><strong class="r_negrita">Banco:</strong> {{ $datos['banco'] ?? '—' }}</li>
-                    <li><strong class="r_negrita">Monto:</strong> {{ $datos['monto'] ?? '—' }}</li>
-                    <li><strong class="r_negrita">Fecha:</strong> {{ $datos['fecha'] ?? '—' }}</li>
-                </ul>
+                <div class="formulario">
+                    <div class="g_fila">
+                        <div class="g_margin_bottom_20 g_columna_12">
+                            <label>N° Comprobante</label>
+                            <input type="text" disabled value="{{ $datos['numero'] ?? 'No se detecta' }}">
+                        </div>
+                    </div>
 
-                <button wire:click="guardar" class="g_boton_personalizado verde">
-                    Guardar envidencia
-                </button>
+                    <div class="g_fila">
+                        <div class="g_margin_bottom_20 g_columna_12">
+                            <label>Banco</label>
+                            <input type="text" disabled value="{{ $datos['banco'] ?? 'No se detecta' }}">
+                        </div>
+                    </div>
+
+                    <div class="g_fila">
+                        <div class="g_margin_bottom_20 g_columna_12">
+                            <label>Monto</label>
+                            <input type="text" disabled value="{{ $datos['monto'] ?? 'No se detecta' }}">
+                        </div>
+                    </div>
+
+                    <div class="g_fila">
+                        <div class="g_margin_bottom_20 g_columna_12">
+                            <label>Fecha</label>
+                            <input type="text" disabled value="{{ $datos['fecha'] ?? 'No se detecta' }}">
+                        </div>
+                    </div>
+
+                    <div class="formulario_botones">
+                        <button wire:click="guardar" class="g_boton_personalizado verde">
+                            Guardar envidencia
+                        </button>
+                    </div>
+                </div>
+
+
             </div>
             @endif
         </div>

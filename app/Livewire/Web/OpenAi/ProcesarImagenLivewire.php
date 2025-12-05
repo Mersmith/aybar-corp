@@ -166,6 +166,8 @@ NO agregues explicación ni texto adicional. Solo JSON.",
 
         session()->flash('success', 'Comprobante guardado correctamente 👍');
         $this->reset(['imagen', 'datos']);
+
+        $this->dispatch('cerrarModalEvidenciaPagoOn');
     }
 
     public function render()

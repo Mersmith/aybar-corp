@@ -62,22 +62,22 @@
 
                     <tbody>
                         @foreach ($cronograma as $item)
-                            <tr>
-                                <td>{{ $item['cuota'] }}</td>
-                                <td>{{ $item['fec_vencimiento'] }}</td>
-                                <td>S/ {{ number_format($item['monto'], 2) }}</td>
-                                <td>S/ {{ number_format($item['amortizacion'], 2) }}</td>
-                                <td>S/ {{ number_format($item['saldo'], 2) }}</td>
-                                <td>{{ $item['estado'] }}</td>
-                                <td>
-                                    <button wire:click="seleccionarCuota({{ json_encode($item) }})"
-                                        class="g_boton g_boton_empresa_secundario">
-                                        <i class="fa-solid fa-image"></i> Subir evidencia
-                                    </button>
-                                </td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                        <tr>
+                            <td>{{ $item['cuota'] }}</td>
+                            <td>{{ $item['fec_vencimiento'] }}</td>
+                            <td>S/ {{ number_format($item['monto'], 2) }}</td>
+                            <td>S/ {{ number_format($item['amortizacion'], 2) }}</td>
+                            <td>S/ {{ number_format($item['saldo'], 2) }}</td>
+                            <td>{{ $item['estado'] }}</td>
+                            <td>
+                                <button wire:click="seleccionarCuota({{ json_encode($item) }})"
+                                    class="g_boton g_boton_empresa_secundario">
+                                    <i class="fa-solid fa-image"></i> Subir evidencia
+                                </button>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -86,6 +86,17 @@
     </div>
 
     @if ($cuota)
-        @livewire('web.open-ai.procesar-imagen-livewire', ['cuota' => $cuota, 'lote' => $lote], key('cuota_' . $cuota['codigo']))
+    <div class="g_modal">
+        <div class="modal_contenedor">
+            <div class="modal_cerrar">
+                <button wire:click="cerrarModalEvidenciaPago"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="modal_cuerpo">
+                @livewire('web.open-ai.procesar-imagen-livewire', ['cuota' => $cuota, 'lote' => $lote], key('cuota_' .
+                $cuota['codigo']))
+            </div>
+        </div>
+    </div>
     @endif
 </div>

@@ -3,12 +3,13 @@
 namespace App\Livewire\Cliente\Cronograma;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 
 class CronogramaVerLivewire extends Component
 {
     public $lote;
     public $cronograma = [];
-    public $cuota;
+    public $cuota = null;
 
     public function mount($lote, $cronograma)
     {
@@ -19,6 +20,12 @@ class CronogramaVerLivewire extends Component
     public function seleccionarCuota($cuota)
     {
         $this->cuota = $cuota;
+    }
+
+    #[On('cerrarModalEvidenciaPagoOn')]
+    public function cerrarModalEvidenciaPago()
+    {
+        $this->cuota = null;
     }
 
     public function render()
