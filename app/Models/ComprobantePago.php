@@ -25,6 +25,12 @@ class ComprobantePago extends Model
         'cliente_id',
         'usuario_valida_id',
         'fecha_validacion',
+        'razon_social',
+        'proyecto',
+        'manzana',
+        'lote',
+        'codigo_cuota',
+        'numero_cuota',
     ];
 
     protected $casts = [

@@ -39,7 +39,12 @@ return new class extends Migration
                 ->constrained('users')
                 ->nullOnDelete();
 
-            $table->timestamp('fecha_validacion')->nullable();
+            $table->string('razon_social')->nullable();
+            $table->string('proyecto')->nullable();
+            $table->string('manzana')->nullable();
+            $table->string('lote')->nullable();
+            $table->string('codigo_cuota')->nullable();
+            $table->string('numero_cuota')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

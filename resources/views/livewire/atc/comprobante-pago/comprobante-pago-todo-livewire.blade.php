@@ -42,6 +42,11 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>Razón S.</th>
+                            <th>Proyecto</th>
+                            <th>Mz.</th>
+                            <th>Lt.</th>
+                            <th>N° Cuota</th>
                             <th>Imagen</th>
                             <th>Cliente</th>
                             <th>Dni</th>
@@ -58,14 +63,20 @@
                     <tbody>
                         @foreach ($evidencias as $index => $item)
                         <tr>
-                            <td>{{ $item->id }}</td>
+                            <td> {{ $index + 1 }} </td>
+                            <td class="g_resumir">{{ $item->razon_social }}</td>
+                            <td class="g_resumir">{{ $item->proyecto }}</td>
+                            <td class="g_resumir">{{ $item->manzana }}</td>
+                            <td class="g_resumir">{{ $item->lote }}</td>
+                            <td class="g_resumir">{{ $item->numero_cuota }}</td>
                             <td>
                                 @if ($item->url)
-                                <a href="{{ $item->url }}" target="_blank">
-                                    <img src="{{ $item->url }}" alt="Comprobante" width="60">
+                                <a href="{{ $item->url }}" target="_blank" class="g_accion_editar"
+                                    title="Ver evidencia">
+                                    <i class="fa-regular fa-file-image fa-xl"></i>
                                 </a>
                                 @else
-                                <span>Sin imagen</span>
+                                <span class="g_texto_secundario">Sin imagen</span>
                                 @endif
                             </td>
                             <td class="g_negrita g_resumir">{{ $item->cliente->user->name }}</td>

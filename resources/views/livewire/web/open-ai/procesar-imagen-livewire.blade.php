@@ -8,8 +8,8 @@
     <div class="g_alerta_succes">
         <i class="fa-solid fa-circle-check"></i>
         {{ session('success') }}
-    </div> @endif
-
+    </div>
+    @else
     @if (session()->has('error'))
     <div class="g_alerta_error">
         <i class="fa-solid fa-triangle-exclamation"></i>
@@ -92,4 +92,5 @@
     </div>
     @endif
 
+    @endif
 </div>
