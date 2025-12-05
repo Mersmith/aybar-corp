@@ -151,7 +151,16 @@ NO agregues explicación ni texto adicional. Solo JSON.",
             'banco' => $this->datos["banco"] ?? null,
             'monto' => $monto,
             'fecha' => $fecha,
-            'cliente_id' => Auth::user()->cliente->id,
+            /*
+            'codigo_cuota' => $this->cuota["codigo"] ?? null,
+            'numero_cuota' => $this->cuota["cuota"] ?? null,
+            'proyecto_id' => $this->lote["descripcion"] ?? null,
+            'manzana' => $this->lote["id_manzana"] ?? null,
+            'lote' => $this->lote["id_lote"] ?? null,
+            'unidad_negocio_id' => $this->lote["razon_social"] ?? null,
+
+            */
+
         ]);
 
         session()->flash('success', 'Comprobante guardado correctamente 👍');

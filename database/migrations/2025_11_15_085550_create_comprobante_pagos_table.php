@@ -28,8 +28,7 @@ return new class extends Migration
             $table->date('fecha')->nullable();
             $table->text('observacion')->nullable();
 
-            $table->enum('estado', ['pendiente', 'observado', 'aprobado', 'rechazado'])
-                ->default('pendiente');
+            $table->foreignId('estado_comprobante_pago_id')->default(1)->constrained('estado_comprobante_pagos')->onDelete('restrict');
 
             $table->foreignId('cliente_id')
                 ->constrained('clientes')

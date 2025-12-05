@@ -16,7 +16,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
 
-            UnidadNegocioSeeder::class,
+            EstadoComprobantePagoSeeder::class,
+            ComprobantePagoSeeder::class,
+            //UnidadNegocioSeeder::class,
             //SedeSeeder::class,
             //MotivoCitaSeeder::class,
             //EstadoCitaSeeder::class,
@@ -38,7 +40,7 @@ class DatabaseSeeder extends Seeder
             //TicketHistorialSeeder::class,
             //TicketDerivadoSeeder::class,
 
-            ProyectoSeeder::class,
+            //ProyectoSeeder::class,
             //LoteSeeder::class,
             //VentaSeeder::class,
             //CronogramaPagoSeeder::class,

@@ -46,4 +46,9 @@ class ComprobantePago extends Model
     {
         return $this->belongsTo(User::class, 'usuario_valida_id');
     }
+
+    public function estado()
+    {
+        return $this->belongsTo(EstadoComprobantePago::class, 'estado_comprobante_pago_id');
+    }
 }
