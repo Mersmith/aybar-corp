@@ -46,16 +46,16 @@ class DatabaseSeeder extends Seeder
             //ReprogramacionSeeder::class,
             //ReprogramacionGeneralSeeder::class,
 
-            ImagenSeeder::class,
-            ArchivoSeeder::class,
-            PaginaSeeder::class,
-            MenuSeeder::class,
-            SeccionSeeder::class,
-            BlogSeeder::class,
-            ComunicadoSeeder::class,
-            TipoFormularioSeeder::class,
-            FormularioPaginaContactoSeeder::class,
-            FormularioLibroReclamacionSeeder::class,
+            //ImagenSeeder::class,
+            //ArchivoSeeder::class,
+            //PaginaSeeder::class,
+            //MenuSeeder::class,
+            //SeccionSeeder::class,
+            //BlogSeeder::class,
+            //ComunicadoSeeder::class,
+            //TipoFormularioSeeder::class,
+            //FormularioPaginaContactoSeeder::class,
+            //FormularioLibroReclamacionSeeder::class,
         ]);
     }
 }

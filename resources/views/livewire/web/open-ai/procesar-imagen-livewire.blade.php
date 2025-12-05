@@ -4,6 +4,8 @@
         <h2>Subir comprobante</h2>
     </div>
 
+    @dump($cuota, $lote)
+
     @if (session('success'))
     <div class="g_alerta_succes">
         <i class="fa-solid fa-circle-check"></i>

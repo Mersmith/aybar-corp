@@ -5,8 +5,9 @@ namespace App\Livewire\Web\OpenAi;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Models\Imagen;
+use App\Models\ComprobantePago;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use OpenAI;
 
 #[Layout('layouts.web.layout-web')]
@@ -57,8 +58,11 @@ Devuelve únicamente un JSON válido con esta estructura:
   \"numero_operacion\": \"\",
   \"banco\": \"\",
   \"monto\": \"\",
-  \"fecha\": \"\"
+  \"fecha\": \"AAAA-MM-DD\"
 }
+
+Muy importante:
+- La fecha SIEMPRE debe estar en formato AAAA-MM-DD.
 
 NO agregues explicación ni texto adicional. Solo JSON.",
                             ],
@@ -126,19 +130,31 @@ NO agregues explicación ni texto adicional. Solo JSON.",
             'imagen' => 'required|image|max:4096',
         ]);
 
+        // Guardar archivo
         $ruta = $this->imagen->store('evidencias', 'public');
         $url = Storage::url($ruta);
         $extension = $this->imagen->getClientOriginalExtension();
 
-        Imagen::create([
-            'titulo' => null,
-            'descripcion' => null,
+        $fecha = $this->datos['fecha'] ?? null;
+
+        $monto = null;
+        if (!empty($this->datos['monto'])) {
+            $monto = preg_replace('/[^0-9.]/', '', $this->datos['monto']);
+        }
+
+        ComprobantePago::create([
+            'cronograma_id' => null,
             'path' => $ruta,
             'url' => $url,
             'extension' => $extension,
+            'numero_operacion' => $this->datos["numero"] ?? null,
+            'banco' => $this->datos["banco"] ?? null,
+            'monto' => $monto,
+            'fecha' => $fecha,
+            'cliente_id' => Auth::user()->cliente->id,
         ]);
 
-        session()->flash('success', 'Comprobante guardado correctamente.');
+        session()->flash('success', 'Comprobante guardado correctamente 👍');
         $this->reset(['imagen', 'datos']);
     }
 

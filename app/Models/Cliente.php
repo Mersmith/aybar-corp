@@ -42,4 +42,9 @@ class Cliente extends Model
             ->withPivot(['codigo', 'id_empresa'])
             ->withTimestamps();
     }
+
+    public function comprobantesPagos()
+    {
+        return $this->hasMany(ComprobantePago::class, 'cliente_id');
+    }
 }

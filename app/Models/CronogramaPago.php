@@ -43,4 +43,9 @@ class CronogramaPago extends Model
     {
         return $this->hasMany(Reprogramacion::class, 'cronograma_id');
     }
+
+    public function comprobantes()
+    {
+        return $this->hasMany(ComprobantePago::class, 'cronograma_id');
+    }
 }
