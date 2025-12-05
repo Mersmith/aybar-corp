@@ -70,10 +70,14 @@
                             <td>S/ {{ number_format($item['saldo'], 2) }}</td>
                             <td>{{ $item['estado'] }}</td>
                             <td>
+                                @if($item['comprobantes_count'] > 0)
+                                <span>{{ $item['comprobantes_count'] }} comprobante(s)</span>
+                                @else
                                 <button wire:click="seleccionarCuota({{ json_encode($item) }})"
                                     class="g_boton g_boton_empresa_secundario">
                                     <i class="fa-solid fa-image"></i> Subir evidencia
                                 </button>
+                                @endif
                             </td>
                             <td></td>
                             <td></td>
