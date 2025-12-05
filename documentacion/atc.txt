@@ -91,3 +91,10 @@ php artisan make:livewire Atc/Cita/Vistas/Mes
 php artisan make:livewire Atc/Cita/Vistas/Anio
 
 php artisan make:livewire Atc/ReporteCita/ReporteCitaLivewire
+
+php artisan make:livewire Atc/EstadoComprobantePago/EstadoComprobantePagoTodoLivewire
+php artisan make:livewire Atc/EstadoComprobantePago/EstadoComprobantePagoCrearLivewire
+php artisan make:livewire Atc/EstadoComprobantePago/EstadoComprobantePagoEditarLivewire
+
+php artisan make:livewire Atc/ComprobantePago/ComprobantePagoTodoLivewire
+php artisan make:livewire Atc/ComprobantePago/ComprobantePagoEditarLivewire

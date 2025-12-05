@@ -526,6 +526,50 @@
                         "submenus": []
                     }
                 ]
+            },
+            {
+                "id": 45,
+                "nombre": "Estados evidencias",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-lock-open",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.estado-comprobante-pago.vista.todo",
+                        "url": "/admin/estado-comprobante-pago",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.estado-comprobante-pago.vista.crear",
+                        "url": "/admin/estado-comprobante-pago/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 46,
+                "nombre": "Evidencias pago",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-regular fa-image",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.comprobante-pago.vista.todo",
+                        "url": "/admin/comprobante-pago",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
             }
         ]
     },

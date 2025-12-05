@@ -44,6 +44,13 @@ use App\Livewire\Atc\Cita\CitaEditarLivewire;
 
 use App\Livewire\Atc\ReporteCita\ReporteCitaLivewire;
 
+use App\Livewire\Atc\EstadoComprobantePago\EstadoComprobantePagoTodoLivewire;
+use App\Livewire\Atc\EstadoComprobantePago\EstadoComprobantePagoCrearLivewire;
+use App\Livewire\Atc\EstadoComprobantePago\EstadoComprobantePagoEditarLivewire;
+
+use App\Livewire\Atc\ComprobantePago\ComprobantePagoTodoLivewire;
+use App\Livewire\Atc\ComprobantePago\ComprobantePagoEditarLivewire;
+
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('area')->name('area.vista.')->group(function () {
@@ -110,4 +117,15 @@ Route::prefix('cita')->name('cita.vista.')->group(function () {
 
 Route::prefix('reporte-cita')->name('reporte-cita.vista.')->group(function () {
     Route::get('/', ReporteCitaLivewire::class)->name('todo');
+});
+
+Route::prefix('estado-comprobante-pago')->name('estado-comprobante-pago.vista.')->group(function () {
+    Route::get('/', EstadoComprobantePagoTodoLivewire::class)->name('todo');
+    Route::get('/crear', EstadoComprobantePagoCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', EstadoComprobantePagoEditarLivewire::class)->name('editar');
+});
+
+Route::prefix('comprobante-pago')->name('comprobante-pago.vista.')->group(function () {
+    Route::get('/', ComprobantePagoTodoLivewire::class)->name('todo');
+    Route::get('/editar/{id}', ComprobantePagoEditarLivewire::class)->name('editar');
 });
