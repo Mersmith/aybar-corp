@@ -9,6 +9,8 @@ use Livewire\Component;
 
 class PerfilVerLivewire extends Component
 {
+    public $cliente;
+
     public $nombre;
     public $apellido_paterno;
     public $apellido_materno;
@@ -24,6 +26,8 @@ class PerfilVerLivewire extends Component
         $cliente = Cliente::where('user_id', Auth::id())->firstOrFail();
 
         // Asignar los valores del cliente a las propiedades del componente
+        $this->cliente = $cliente;
+
         $this->nombre = $cliente->nombre;
         $this->apellido_paterno = $cliente->apellido_paterno;
         $this->apellido_materno = $cliente->apellido_materno;

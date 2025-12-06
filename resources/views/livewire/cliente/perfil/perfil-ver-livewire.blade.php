@@ -20,15 +20,12 @@
 
         <form wire:submit.prevent="actualizarDatos" class="formulario">
             <div class="g_fila">
-                <div class="g_margin_top_20 g_columna_4">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" wire:model="nombre" name="nombre" id="nombre">
-                    @error('nombre')
-                        <span class="mensaje_error">{{ $message }}</span>
-                    @enderror
+                <div class="g_margin_top_20 g_columna_12">
+                    <label>Nombres y apellidos</label>
+                    <input type="text" disabled value="{{ $cliente->user->name ?? 'Sin asignar' }}">
                 </div>
 
-                <div class="g_margin_top_20 g_columna_4">
+                {{-- <div class="g_margin_top_20 g_columna_4">
                     <label for="apellido_paterno">Apellido paterno</label>
                     <input type="text" wire:model="apellido_paterno" name="apellido_paterno" id="apellido_paterno">
                     @error('apellido_paterno')
@@ -42,7 +39,7 @@
                     @error('apellido_materno')
                         <span class="mensaje_error">{{ $message }}</span>
                     @enderror
-                </div>
+                </div> --}}
             </div>
 
             <div class="g_fila">
@@ -56,18 +53,18 @@
                 </div>
 
                 <div class="g_margin_top_20 g_columna_4">
+                    <label for="email">Email</label>
+                    <input type="email" wire:model="email" name="email" id="email" autocomplete="email" readonly
+                        disabled>
+                </div>
+
+                <div class="g_margin_top_20 g_columna_4">
                     <label for="telefono_principal">Celular</label>
                     <input type="text" wire:model="telefono_principal" name="telefono_principal"
                         id="telefono_principal" autocomplete="tel">
                     @error('telefono_principal')
                         <span class="mensaje_error">{{ $message }}</span>
                     @enderror
-                </div>
-
-                <div class="g_margin_top_20 g_columna_4">
-                    <label for="email">Email</label>
-                    <input type="email" wire:model="email" name="email" id="email" autocomplete="email" readonly
-                        disabled>
                 </div>
             </div>
 

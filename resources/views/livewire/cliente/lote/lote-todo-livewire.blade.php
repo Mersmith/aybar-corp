@@ -1,14 +1,14 @@
 <div class="g_gap_pagina">
     <div class="g_panel">
         <div class="g_panel_titulo">
-            <h2>Mis lotes</h2>
+            <h2>Mis proyectos</h2>
         </div>
 
         <div class="formulario">
             <div class="g_fila">
                 <div class="g_columna_4">
                     <select wire:model.live="razon_social_id" id="razon_social_id" name="razon_social_id">
-                        <option value="">Todos</option>
+                        <option value="">Seleccione empresa</option>
                         @foreach ($razones_sociales as $empresa)
                             <option value="{{ $empresa['id_empresa'] }}">
                                 {{ $empresa['razon_social'] }}
@@ -46,7 +46,7 @@
                 <table class="tabla">
                     <thead>
                         <tr>
-                            <th>Razón social</th>
+                            <th>Codigo cliente</th>
                             <th>Proyecto</th>
                             <th>Manzana</th>
                             <th>Lote</th>
@@ -69,7 +69,7 @@
                         @else
                             @foreach ($lotes as $lote)
                                 <tr>
-                                    <td>{{ $lote['razon_social'] }}</td>
+                                    <td>{{ $lote['id_cliente'] }}</td>
                                     <td>{{ $lote['descripcion'] }}</td>
                                     <td>{{ $lote['id_manzana'] }}</td>
                                     <td>{{ $lote['id_lote'] }}</td>
@@ -80,9 +80,9 @@
                                             <i class="fas fa-calendar-alt"></i> Cronograma
                                         </button>
 
-                                        <a href="" class="g_boton g_boton_empresa_secundario">
+                                        <!--<a href="" class="g_boton g_boton_empresa_secundario">
                                             <i class="fas fa-file-invoice-dollar"></i> Estado cuenta
-                                        </a>
+                                        </a>-->
                                     </td>
                                 </tr>
                             @endforeach

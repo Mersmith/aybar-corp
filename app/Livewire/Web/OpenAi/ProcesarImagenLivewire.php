@@ -165,6 +165,7 @@ NO agregues explicación ni texto adicional. Solo JSON.",
         $this->reset(['imagen', 'datos']);
 
         //$this->dispatch('cerrarModalEvidenciaPagoOn');
+        $this->dispatch('actualizarCronograma');
     }
 
     public function render()
