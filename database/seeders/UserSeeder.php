@@ -14,13 +14,24 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $user_super_admin = User::create([
+            'name' => "Super Admin",
+            'email' => "super@admin.com",
+            'password' => Hash::make('123456'),
+            'role' => 'admin',
+        ]);
+
+        $user_super_admin->assignRole('super-admin');
+
         for ($i = 1; $i <= 2; $i++) {
-            User::factory()->create([
+            $admin = User::factory()->create([
                 'name' => "Admin $i",
                 'email' => "admin$i@example.com",
                 'password' => Hash::make('123456'),
                 'role' => 'admin',
             ]);
+
+            $admin->assignRole('admin');
         }
 
         for ($i = 1; $i <= 2; $i++) {
@@ -31,6 +42,8 @@ class UserSeeder extends Seeder
                 'role' => 'cliente',
             ]);
 
+            $cliente->assignRole('cliente');
+
             Cliente::factory()->create([
                 'user_id' => $cliente->id,
                 'email' => $cliente->email,
@@ -40,12 +53,14 @@ class UserSeeder extends Seeder
         }
 
         for ($i = 1; $i <= 2; $i++) {
-            User::create([
+            $socio = User::create([
                 'name' => "Socio $i",
                 'email' => "socio$i@example.com",
                 'password' => Hash::make('123456'),
                 'role' => 'socio',
             ]);
+
+            $socio->assignRole('socio');
         }
     }
 }

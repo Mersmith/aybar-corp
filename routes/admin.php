@@ -2,12 +2,6 @@
 
 use App\Livewire\Admin\Inicio\InicioLivewire;
 
-use App\Livewire\Admin\User\{
-    UserTodoLivewire,
-    UserCrearLivewire,
-    UserEditarLivewire
-};
-
 use App\Livewire\Admin\Cliente\{
     ClienteTodoLivewire,
     ClienteCrearLivewire,
@@ -48,12 +42,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/perfil', InicioLivewire::class)->name('home');
 
-Route::prefix('usuario')->name('usuario.vista.')->group(function () {
-    Route::get('/', UserTodoLivewire::class)->name('todo');
-    Route::get('/crear', UserCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', UserEditarLivewire::class)->name('editar');
-});
-
 Route::prefix('cliente')->name('cliente.vista.')->group(function () {
     Route::get('/', ClienteTodoLivewire::class)->name('todo');
     Route::get('/crear', ClienteCrearLivewire::class)->name('crear');
@@ -90,5 +78,6 @@ Route::prefix('separacion-lote')->name('separacion-lote.vista.')->group(function
     Route::get('/editar/{id}', SeparacionLoteEditarLivewire::class)->name('editar');
 });
 
+require __DIR__ . '/spatie.php';
 require __DIR__ . '/marketing.php';
 require __DIR__ . '/atc.php';
