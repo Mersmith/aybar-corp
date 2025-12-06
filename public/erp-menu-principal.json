@@ -111,9 +111,61 @@
         "nombre": "48",
         "ruta": "#",
         "url": "#",
-        "icono": "fa-solid fa-user-shield",
+        "icono": "fa-solid fa-users-cog",
         "nivel": 1,
         "submenus": [
+            {
+                "id": 50,
+                "nombre": "Roles",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-user-shield",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.rol.vista.todo",
+                        "url": "/admin/rol",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.rol.vista.crear",
+                        "url": "/admin/rol/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 51,
+                "nombre": "Permisos",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-user-cog",
+                "nivel": 2,
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.permiso.vista.todo",
+                        "url": "/admin/permiso",
+                        "nivel": 3,
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.permiso.vista.crear",
+                        "url": "/admin/permiso/crear",
+                        "nivel": 3,
+                        "submenus": []
+                    }
+                ]
+            },
             {
                 "id": 41,
                 "nombre": "Admins",
