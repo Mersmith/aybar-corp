@@ -19,7 +19,7 @@
 }
 
 .web_header {
-    background-color: var(--color-oscuro);
+    background-color: var(--color-verde);
     box-shadow: var(--sombra);
     position: fixed;
     top: var(--alto-header-web-banner);
@@ -157,7 +157,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--color-oscuro);
+    background-color: var(--color-verde);
     min-width: 180px;
     list-style: none;
     padding: 8px 0px;
@@ -259,7 +259,7 @@ body.no-scroll {
         width: 80%;
         max-width: 320px;
         height: 100vh;
-        background-color: var(--color-oscuro);
+        background-color: var(--color-verde);
         flex-direction: column;
         padding: 20px var(--padding-costados);
         gap: 16px;
@@ -279,7 +279,7 @@ body.no-scroll {
 
     .web_header .menu_principal .menu_item .submenu {
         position: static;
-        background: var(--color-oscuro);
+        background: var(--color-verde);
         box-shadow: none;
         padding-left: 20px;
         display: none;
