@@ -107,7 +107,7 @@
                 </div>
 
                 <div class="modal_cuerpo">
-                    @livewire('web.open-ai.procesar-imagen-livewire', ['cuota' => $cuota, 'lote' => $lote], key('cuota_' . $cuota['codigo']))
+                    @livewire('cliente.open-ai.procesar-imagen-livewire', ['cuota' => $cuota, 'lote' => $lote], key('cuota_' . $cuota['codigo']))
                 </div>
             </div>
         </div>

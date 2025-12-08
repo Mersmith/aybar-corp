@@ -1,66 +1,76 @@
 <?php
 
-use App\Livewire\Admin\Imagen\ImagenTodoLivewire;
-use App\Livewire\Admin\Archivo\ArchivoTodoLivewire;
+use App\Livewire\Marketing\Imagen\ImagenTodoLivewire;
+use App\Livewire\Marketing\Archivo\ArchivoTodoLivewire;
 use App\Http\Controllers\ImagenController;
 
-use App\Livewire\Admin\Blog\BlogCrearLivewire;
-use App\Livewire\Admin\Blog\BlogEditarLivewire;
-use App\Livewire\Admin\Blog\BlogTodoLivewire;
+use App\Livewire\Marketing\Blog\BlogTodoLivewire;
+use App\Livewire\Marketing\Blog\BlogCrearLivewire;
+use App\Livewire\Marketing\Blog\BlogEditarLivewire;
 
-use App\Livewire\Admin\Comunicado\ComunicadoCrearLivewire;
-use App\Livewire\Admin\Comunicado\ComunicadoEditarLivewire;
+use App\Livewire\Marketing\Comunicado\ComunicadoTodoLivewire;
+use App\Livewire\Marketing\Comunicado\ComunicadoCrearLivewire;
+use App\Livewire\Marketing\Comunicado\ComunicadoEditarLivewire;
 
-use App\Livewire\Admin\Comunicado\ComunicadoTodoLivewire;
-use App\Livewire\Admin\FormularioLanding\FormularioLandingEditarLivewire;
+use App\Livewire\Marketing\TipoFormulario\TipoFormularioTodoLivewire;
+use App\Livewire\Marketing\TipoFormulario\TipoFormularioCrearLivewire;
+use App\Livewire\Marketing\TipoFormulario\TipoFormularioEditarLivewire;
 
-use App\Livewire\Admin\FormularioLanding\FormularioLandingTodoLivewire;
-use App\Livewire\Admin\FormularioLibroReclamacion\FormularioLibroReclamacionEditarLivewire;
+use App\Livewire\Marketing\FormularioLanding\FormularioLandingTodoLivewire;
+use App\Livewire\Marketing\FormularioLanding\FormularioLandingEditarLivewire;
 
-use App\Livewire\Admin\FormularioLibroReclamacion\FormularioLibroReclamacionTodoLivewire;
-use App\Livewire\Admin\FormularioPaginaContacto\FormularioPaginaContactoEditarLivewire;
-use App\Livewire\Admin\FormularioPaginaContacto\FormularioPaginaContactoTodoLivewire;
+use App\Livewire\Marketing\FormularioLibroReclamacion\FormularioLibroReclamacionTodoLivewire;
+use App\Livewire\Marketing\FormularioLibroReclamacion\FormularioLibroReclamacionEditarLivewire;
 
-use App\Livewire\Admin\Menu\MenuCrearLivewire;
-use App\Livewire\Admin\Menu\MenuEditarLivewire;
-use App\Livewire\Admin\Menu\MenuTodoLivewire;
+use App\Livewire\Marketing\FormularioPaginaContacto\FormularioPaginaContactoTodoLivewire;
+use App\Livewire\Marketing\FormularioPaginaContacto\FormularioPaginaContactoEditarLivewire;
 
-use App\Livewire\Admin\Pagina\PaginaCrearLivewire;
-use App\Livewire\Admin\Pagina\PaginaEditarLivewire;
-use App\Livewire\Admin\Pagina\PaginaTodoLivewire;
+use App\Livewire\Marketing\Menu\MenuCrearLivewire;
+use App\Livewire\Marketing\Menu\MenuEditarLivewire;
+use App\Livewire\Marketing\Menu\MenuTodoLivewire;
 
-use App\Livewire\Admin\Seccion\SeccionBloqueCincoCrearLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueCincoEditarLivewire;
+use App\Livewire\Marketing\Pagina\PaginaCrearLivewire;
+use App\Livewire\Marketing\Pagina\PaginaEditarLivewire;
+use App\Livewire\Marketing\Pagina\PaginaTodoLivewire;
 
-use App\Livewire\Admin\Seccion\SeccionBloqueCincoTodoLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueCuatroCrearLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueCuatroEditarLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueCuatroTodoLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueDosCrearLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueDosEditarLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueDosTodoLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueNueveCrearLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueNueveEditarLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueNueveTodoLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueOchoCrearLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueOchoEditarLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueOchoTodoLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueSeisCrearLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueSeisEditarLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueSeisTodoLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueSieteCrearLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueSieteEditarLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueSieteTodoLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueTresCrearLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueTresEditarLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueTresTodoLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueUnoCrearLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueUnoEditarLivewire;
-use App\Livewire\Admin\Seccion\SeccionBloqueUnoTodoLivewire;
-use App\Livewire\Admin\Seccion\SeccionTodoLivewire;
-use App\Livewire\Admin\TipoFormulario\TipoFormularioCrearLivewire;
-use App\Livewire\Admin\TipoFormulario\TipoFormularioEditarLivewire;
-use App\Livewire\Admin\TipoFormulario\TipoFormularioTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionTodoLivewire;
+
+use App\Livewire\Marketing\Seccion\SeccionBloqueUnoTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueUnoCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueUnoEditarLivewire;
+
+use App\Livewire\Marketing\Seccion\SeccionBloqueDosTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueDosCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueDosEditarLivewire;
+
+use App\Livewire\Marketing\Seccion\SeccionBloqueTresTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueTresCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueTresEditarLivewire;
+
+use App\Livewire\Marketing\Seccion\SeccionBloqueCuatroTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueCuatroCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueCuatroEditarLivewire;
+
+use App\Livewire\Marketing\Seccion\SeccionBloqueCincoTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueCincoCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueCincoEditarLivewire;
+
+use App\Livewire\Marketing\Seccion\SeccionBloqueSeisTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueSeisCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueSeisEditarLivewire;
+
+use App\Livewire\Marketing\Seccion\SeccionBloqueSieteTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueSieteCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueSieteEditarLivewire;
+
+use App\Livewire\Marketing\Seccion\SeccionBloqueOchoTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueOchoCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueOchoEditarLivewire;
+
+use App\Livewire\Marketing\Seccion\SeccionBloqueNueveTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueNueveCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueNueveEditarLivewire;
+
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('tipo-formulario')->name('tipo-formulario.vista.')->group(function () {
