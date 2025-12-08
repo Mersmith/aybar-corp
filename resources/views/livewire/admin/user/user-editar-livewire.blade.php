@@ -65,6 +65,17 @@
                         @enderror
                     </div>
                 </div>
+
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Permisos</h4>
+
+                    @foreach ($roles as $rol)
+                        <label>
+                            <input type="checkbox" wire:model.live="selectedRoles" value="{{ $rol->name }}">
+                            {{ $rol->name }}
+                        </label>
+                    @endforeach
+                </div>
             </div>
 
             <!-- COLUMNA DERECHA -->

@@ -5,8 +5,9 @@ namespace App\Livewire\Admin\User;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Layout;
-use Livewire\Component;
 use Livewire\Attributes\On;
+use Livewire\Component;
+use Spatie\Permission\Models\Role;
 
 #[Layout('layouts.admin.layout-admin')]
 class UserEditarLivewire extends Component
@@ -16,7 +17,10 @@ class UserEditarLivewire extends Component
     public $name;
     public $email;
     public $password;
-    public $role = 'cliente';
+    public $role = 'admin';
+
+    public $roles;
+    public $selectedRoles = [];
 
     public $activo = false;
 
@@ -33,6 +37,9 @@ class UserEditarLivewire extends Component
     public function mount($id)
     {
         $this->user = User::findOrFail($id);
+
+        $this->roles = Role::all();
+        $this->selectedRoles = $this->user->roles->pluck('name')->toArray();
 
         $this->name = $this->user->name;
         $this->email = $this->user->email;
@@ -53,6 +60,8 @@ class UserEditarLivewire extends Component
             'role' => $this->role,
             'activo' => $this->activo,
         ]);
+
+        $this->user->syncRoles($this->selectedRoles);
 
         $this->dispatch('alertaLivewire', 'Actualizado');
     }
