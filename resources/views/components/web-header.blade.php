@@ -5,9 +5,9 @@
     x-effect="document.body.classList.toggle('no-scroll', menuAbierto)">
 
     <!-- Banner -->
-    <div class="web_header_banner" :class="{ 'oculto': ocultarBanner }">
+    {{--<div class="web_header_banner" :class="{ 'oculto': ocultarBanner }">
         @include('components.web-header-banner')
-    </div>
+    </div>--}}
 
     <!-- Header -->
     <header class="web_header">

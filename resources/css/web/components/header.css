@@ -19,7 +19,7 @@
 }
 
 .web_header {
-    background-color: var(--color-blanco);
+    background-color: var(--color-oscuro);
     box-shadow: var(--sombra);
     position: fixed;
     top: var(--alto-header-web-banner);
@@ -44,7 +44,7 @@
 }
 
 .web_header .web_header_cuerpo .logo {
-    height: 50px;
+    height: 75px;
 }
 
 .web_header .web_nav_menu {
@@ -74,7 +74,7 @@
 
 .web_header .menu_principal .menu_item .nav_link {
     text-decoration: none;
-    color: var(--color-negro);
+    color: var(--color-blanco);
     font-weight: 500;
     transition: color 0.3s ease, background-color 0.3s ease;
     padding: 8px 4px;
@@ -88,7 +88,7 @@
 }
 
 .web_header .menu_principal .menu_item .nav_link:hover {
-    color: var(--color-verde);
+    color: var(--color-amarillo);
 }
 
 .boton_personalizado {
@@ -157,7 +157,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--color-blanco);
+    background-color: var(--color-oscuro);
     min-width: 180px;
     list-style: none;
     padding: 8px 0px;
@@ -177,18 +177,18 @@
 .web_header .menu_principal .menu_item .submenu li a {
     display: block;
     padding: 10px 16px;
-    color: var(--color-negro);
+    color: var(--color-blanco);
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
 .web_header .menu_principal .menu_item .submenu li i {
-    color: var(--color-negro);
+    color: var(--color-blanco);
     font-size: 5px;
 }
 
 .web_header .menu_principal .menu_item .submenu li:hover {
-    background-color: var(--color-gris);
+    background-color: var(--color-amarillo);
 }
 
 /* Mostrar submenú */
@@ -206,7 +206,7 @@
     border: none;
     font-size: 22px;
     cursor: pointer;
-    color: var(--color-negro);
+    color: var(--color-blanco);
     display: none;
 }
 
@@ -243,8 +243,8 @@ body.no-scroll {
 
     .web_header .web_nav_menu .cabecera_sidebar {
         display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+        justify-content: space-between;
+        flex-direction: row-reverse;
     }
 
     .web_header .web_menu_toggle {
@@ -259,7 +259,7 @@ body.no-scroll {
         width: 80%;
         max-width: 320px;
         height: 100vh;
-        background-color: var(--color-blanco);
+        background-color: var(--color-oscuro);
         flex-direction: column;
         padding: 20px var(--padding-costados);
         gap: 16px;
@@ -279,7 +279,7 @@ body.no-scroll {
 
     .web_header .menu_principal .menu_item .submenu {
         position: static;
-        background: var(--color-blanco);
+        background: var(--color-oscuro);
         box-shadow: none;
         padding-left: 20px;
         display: none;

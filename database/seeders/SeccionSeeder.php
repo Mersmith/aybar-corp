@@ -24,12 +24,6 @@ class SeccionSeeder extends Seeder
                             'imagen_movil' => 'http://127.0.0.1:8000/assets/imagenes/slider/sliders-movil-1.jpg',
                             'imagen_computadora' => 'http://127.0.0.1:8000/assets/imagenes/slider/sliders-computadora-1.jpg',
                         ],
-                        [
-                            'id' => 2,
-                            'link' => '',
-                            'imagen_movil' => 'http://127.0.0.1:8000/assets/imagenes/slider/sliders-movil-2.jpg',
-                            'imagen_computadora' => 'http://127.0.0.1:8000/assets/imagenes/slider/sliders-computadora-2.jpg',
-                        ],
                     ],
                 ],
                 'activo' => true,

@@ -8,26 +8,30 @@
     </div>
 
     <div class="footer_socials">
-        <a href="#" target="_blank">
+        <a href="https://www.facebook.com/aybarcorpoficial" target="_blank">
             <span><i class="fa-brands fa-facebook-f"></i></span>
             <p>Facebook</p>
         </a>
-        <a href="#" target="_blank">
+        <a href="https://www.tiktok.com/@aybarcorpoficial" target="_blank">
+            <span><i class="fa-brands fa-tiktok"></i></span>
+            <p>TikTok</p>
+        </a>
+        <a href="https://www.instagram.com/aybarcorpoficial/" target="_blank">
             <span><i class="fa-brands fa-instagram"></i></span>
             <p>Instagram</p>
+        </a>        
+        <a href="https://www.linkedin.com/company/aybarcorpoficial/" target="_blank">
+            <span><i class="fa-brands fa-linkedin-in"></i></span>
+            <p>LinkedIn</p>
         </a>
-        <a href="#" target="_blank">
-            <span><i class="fa-brands fa-tiktok"></i></span>
-            <p>TikTok </p>
-        </a>
-        <a href="https://wa.me/51924218321" target="_blank">
+        <!--<a href="https://wa.me/51924218321" target="_blank">
             <span><i class="fa-brands fa-whatsapp"></i></span>
             <p>Whatsapp</p>
         </a>
         <a href="#" target="_blank">
             <span><i class="fa-brands fa-youtube"></i></span>
             <p>Youtube</p>
-        </a>
+        </a>-->
     </div>
 
     <div class="footer_titulo">
@@ -40,24 +44,24 @@
             <div class="item_grid">
                 <i class="fa-regular fa-envelope"></i>
                 <div class="datos">
-                    <a>ventas@shebrad.pe</a>
+                    <a>atencion@aybarcorp.com</a>
                 </div>
             </div>
             <div class="item_grid">
                 <i class="fa-solid fa-phone"></i>
                 <div class="datos">
-                    <a>993 263 371</a>
-                    <a>(01) 7124722</a>
+                    <!--<a>993 263 371</a>-->
+                    <a>(01) 9049838</a>
                 </div>
             </div>
             <div class="item_grid">
                 <i class="fa-solid fa-house"></i>
                 <div class="datos">
                     <p>Atención al cliente:</p>
-                    <a>Calle Las Orquídeas 585</a>
+                    <a>Av. Javier Prado Este 4457 <br> Santiago de Surco</a>
                     <br>
-                    <p>Atención al cliente:</p>
-                    <a>San Isidro - Lima</a>
+                    <p>Oficinas Administrativas:</p>
+                    <a>Circunvalación Del Golf Los Incas <br> Av. 134 Patio Panorama, <br> Piso 19. Santiago de Surco.</a>
                 </div>
             </div>
         </div>
