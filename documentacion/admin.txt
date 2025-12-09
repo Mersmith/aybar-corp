@@ -48,6 +48,10 @@ php artisan make:livewire Admin/Seccion/SeccionBloqueNueveTodoLivewire
 php artisan make:livewire Admin/Seccion/SeccionBloqueNueveCrearLivewire
 php artisan make:livewire Admin/Seccion/SeccionBloqueNueveEditarLivewire
 
+php artisan make:livewire Marketing/Seccion/SeccionBloqueDiezTodoLivewire
+php artisan make:livewire Marketing/Seccion/SeccionBloqueDiezCrearLivewire
+php artisan make:livewire Marketing/Seccion/SeccionBloqueDiezEditarLivewire
+
 php artisan make:livewire Admin/Pagina/PaginaTodoLivewire
 php artisan make:livewire Admin/Pagina/PaginaCrearLivewire
 php artisan make:livewire Admin/Pagina/PaginaEditarLivewire
