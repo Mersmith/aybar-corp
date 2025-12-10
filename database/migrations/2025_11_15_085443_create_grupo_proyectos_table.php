@@ -11,20 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('proyectos', function (Blueprint $table) {
+        Schema::create('grupo_proyectos', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('unidad_negocio_id')->constrained('unidad_negocios')->onDelete('cascade');
             $table->string('nombre')->unique();
             $table->string('slug')->unique();
-            $table->longText('contenido')->nullable();
+
+            $table->string('titulo');
+            $table->string('subtitulo');
             $table->string('imagen')->nullable();
-            $table->dateTime('publicado_en')->nullable();
-            $table->boolean('activo')->default(false);
+            $table->boolean('activo')->default(true);
 
-            $table->json('documento')->nullable();
-
-            // SEO opcional
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_image')->nullable();
@@ -40,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('proyectos');
+        Schema::dropIfExists('grupo_proyectos');
     }
 };

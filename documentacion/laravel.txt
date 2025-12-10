@@ -25,6 +25,7 @@ php artisan make:model Distrito -mfs
 php artisan make:model FormularioLanding -mfsc
 php artisan make:model Cliente -mfsc
 php artisan make:model UnidadNegocio -mfsc
+php artisan make:model GrupoProyecto -mfsc
 php artisan make:model Proyecto -mfsc
 php artisan make:model Lote -mfsc
 php artisan make:model SeparacionLote -mfsc

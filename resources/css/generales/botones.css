@@ -11,13 +11,13 @@
 }
 
 .g_boton_empresa_primario {
-    background-color: #02424E;
+    background-color: #02424e;
     color: white;
 }
 
 .g_boton_empresa_secundario {
-    background-color: #FFA726;
-    color: #02424E;
+    background-color: #ffa726;
+    color: #02424e;
 }
 
 .g_boton_primary {
@@ -162,6 +162,12 @@
     background: var(--color-verde);
     border: 1px solid var(--color-verde);
     color: var(--color-blanco);
+}
+
+.g_boton_personalizado.amarillo {
+    background: var(--color-amarillo);
+    border: 1px solid var(--color-amarillo);
+    color: var(--color-verde);
 }
 
 .g_boton_personalizado:hover {

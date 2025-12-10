@@ -31,7 +31,7 @@
             'color' => 'color_1',
             ])
 
-            @include('partials.slider-proyectos', ['p_elemento' => $proyectos])
+            @include('partials.slider-grupo-proyectos', ['p_elemento' => $proyectos])
         </div>
     </div>
 </div>

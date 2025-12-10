@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             //EstadoComprobantePagoSeeder::class,
             //ComprobantePagoSeeder::class,
 
-            //UnidadNegocioSeeder::class,
+            UnidadNegocioSeeder::class,
+            GrupoProyectoSeeder::class,
             //SedeSeeder::class,
             //MotivoCitaSeeder::class,
             //EstadoCitaSeeder::class,
@@ -42,7 +43,7 @@ class DatabaseSeeder extends Seeder
             //TicketHistorialSeeder::class,
             //TicketDerivadoSeeder::class,
 
-            //ProyectoSeeder::class,
+            ProyectoSeeder::class,
             //LoteSeeder::class,
             //VentaSeeder::class,
             //CronogramaPagoSeeder::class,

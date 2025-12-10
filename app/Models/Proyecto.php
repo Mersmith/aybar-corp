@@ -13,6 +13,7 @@ class Proyecto extends Model
 
     protected $fillable = [
         'unidad_negocio_id',
+        'grupo_proyecto_id',
         'nombre',
         'slug',
         'contenido',
@@ -33,6 +34,11 @@ class Proyecto extends Model
     public function unidadNegocio()
     {
         return $this->belongsTo(UnidadNegocio::class);
+    }
+
+    public function grupoProyecto()
+    {
+        return $this->belongsTo(GrupoProyecto::class);
     }
 
     public function lotes()

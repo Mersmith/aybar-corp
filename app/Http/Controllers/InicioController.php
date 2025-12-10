@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comunicado;
-use App\Models\Proyecto;
+use App\Models\GrupoProyecto;
 
 class InicioController extends Controller
 {
@@ -19,8 +19,8 @@ class InicioController extends Controller
 
         //dd($bloque10_1);
 
+        $proyectos = $this->getGrupoProyectos();
         $posts = $this->getComunicados();
-        $proyectos = $this->getProyectos();
 
         return view('web.inicio', compact('bloque1_1', 'bloque10_1', 'bloque11_1', 'bloque3_1', 'bloque8_1', 'posts', 'proyectos', 'bloque4_1',));
     }
@@ -40,13 +40,13 @@ class InicioController extends Controller
         ];
     }
 
-    public function getProyectos()
+    public function getGrupoProyectos()
     {
         $consulta_id = 2;
 
         $titulo = 'Proyectos';
 
-        $data = Proyecto::where('activo', true)->latest()->take(6)->get();
+        $data = GrupoProyecto::where('activo', true)->latest()->take(6)->get();
 
         return [
             'id' => $consulta_id,

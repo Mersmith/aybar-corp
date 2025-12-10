@@ -42,6 +42,7 @@ class ProyectoSeeder extends Seeder
         foreach ($nombres_1 as $nombre) {
             Proyecto::factory()->create([
                 'unidad_negocio_id' => 1,
+                'grupo_proyecto_id' => 1,
                 'nombre' => $nombre,
                 'slug' => Str::slug($nombre),
             ]);
@@ -56,6 +57,7 @@ class ProyectoSeeder extends Seeder
         foreach ($nombres_2 as $nombre) {
             Proyecto::factory()->create([
                 'unidad_negocio_id' => 2,
+                'grupo_proyecto_id' => 2,
                 'nombre' => $nombre,
                 'slug' => Str::slug($nombre),
             ]);
@@ -75,6 +77,7 @@ class ProyectoSeeder extends Seeder
         foreach ($nombres_3 as $nombre) {
             Proyecto::factory()->create([
                 'unidad_negocio_id' => 3,
+                'grupo_proyecto_id' => 3,
                 'nombre' => $nombre,
                 'slug' => Str::slug($nombre),
             ]);
