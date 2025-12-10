@@ -13,22 +13,29 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
-        /*$inicio = Menu::create([
+        $inicio = Menu::create([
             'nombre' => 'INICIO',
             'slug' => 'inicio',
             'url' => '/',
             'orden' => 1,
-        ]);*/
+        ]);
 
-        $proyectos = Menu::create([
-            'nombre' => 'PROYECTOS',
-            'slug' => '',
-            'url' => '',
+        $nosotros = Menu::create([
+            'nombre' => 'NOSOTROS',
+            'slug' => 'nosotros',
+            'url' => '/nosotros',
             'orden' => 2,
         ]);
 
+        $proyectos = Menu::create([
+            'nombre' => 'PROYECTOS',
+            'slug' => 'proyectos',
+            'url' => '/proyectos',
+            'orden' => 3,
+        ]);
+
         // Submenús de "Proyectos"
-        Menu::create([
+        /*Menu::create([
             'nombre' => 'Proyecto 1',
             'slug' => 'martin-caicho',
             'url' => '/martin-caicho',
@@ -58,36 +65,13 @@ class MenuSeeder extends Seeder
             'url' => '/lider',
             'parent_id' => $proyectos->id,
             'orden' => 3,
-        ]);
+        ]);*/
 
-        $nosotros = Menu::create([
-            'nombre' => 'NOSOTROS',
-            'slug' => 'nosotros',
-            'url' => '/nosotros',
-            'orden' => 4,
-        ]);
-
-        $publicaciones = Menu::create([
-            'nombre' => 'PUBLICACIONES',
-            'slug' => '',
-            'url' => '',
-            'orden' => 3,
-        ]);
-
-        Menu::create([
-            'nombre' => 'Blog',
+        $blog = Menu::create([
+            'nombre' => 'BLOG',
             'slug' => 'blog',
             'url' => '/blog',
-            'parent_id' => $publicaciones->id,
-            'orden' => 1,
-        ]);
-
-        Menu::create([
-            'nombre' => 'Comunicados',
-            'slug' => 'comunicado',
-            'url' => '/comunicado',
-            'parent_id' => $publicaciones->id,
-            'orden' => 1,
+            'orden' => 4,
         ]);
     }
 }

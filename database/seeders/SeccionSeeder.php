@@ -13,7 +13,7 @@ class SeccionSeeder extends Seeder
     public function run(): void
     {
         $secciones = [
-            [
+            [ //1
                 'nombre' => 'Slider Principal - Inicio',
                 'tipo' => 'bloque-1',
                 'contenido' => [
@@ -28,7 +28,7 @@ class SeccionSeeder extends Seeder
                 ],
                 'activo' => true,
             ],
-            [
+            [ //2
                 'nombre' => 'Carrusel de videos YouTube - Inicio',
                 'tipo' => 'bloque-10',
                 'contenido' => [
@@ -59,7 +59,7 @@ class SeccionSeeder extends Seeder
                 ],
                 'activo' => true,
             ],
-            [
+            [ //3
                 'nombre' => 'Cuadricula - Inicio',
                 'tipo' => 'bloque-11',
                 'contenido' => [
@@ -90,7 +90,7 @@ class SeccionSeeder extends Seeder
                 ],
                 'activo' => true,
             ],
-            [
+            [ //4
                 'nombre' => 'Testimonios - INICIO',
                 'tipo' => 'bloque-8',
                 'contenido' => [
@@ -136,137 +136,8 @@ class SeccionSeeder extends Seeder
 
                 'activo' => true,
             ],
-            /*[
-                'nombre' => 'Presentación - Inicio',
-                'tipo' => 'bloque-2',
-                'contenido' => [
-                    'boton' => [
-                        'link' => 'http://127.0.0.1:8000/peru-tierra-de-incautos',
-                        'icono' => 'fa-solid fa-book',
-                        'texto' => 'Conoce más sobre mi libro',
-                        'fondo_color' => '#02424e',
-                        'texto_color' => '#ffffff',
-                    ],
-                    'lista' => [
-                        [
-                            'id' => 1,
-                            'icono' => 'fa-solid fa-book-open',
-                            'texto' => 'Autor de mi libro “Perú, Tierra de Incautos”',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 2,
-                            'icono' => 'fa-solid fa-lightbulb',
-                            'texto' => 'Comparto ideas que inspiran el cambio social y político',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 3,
-                            'icono' => 'fa-solid fa-briefcase',
-                            'texto' => 'Cuento con experiencia en el sector empresarial y gestión pública',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 4,
-                            'icono' => 'fa-solid fa-microphone',
-                            'texto' => 'Expreso mi voz crítica y analítica desde el periodismo independiente',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                    ],
-                    'imagen' => asset('assets/imagenes/proyectos/proyecto-1.jpg'),
-                    'titulo' => 'Soy Martín Caicho <span>Autor y Emprendedor Peruano</span>',
-                    'invertir' => false,
-                    'subtitulo' => 'Soy un <span>pensador</span> comprometido con el futuro del Perú',
-                    'imagen_seo' => 'Martín Caicho Autor Peruano',
-                    'titulo_descripcion' => 'Desde El Agustino para el Perú. Empresario, comunicador y apasionado por el desarrollo social. Autor del libro <span>“Perú, Tierra de Incautos”</span>, una mirada crítica y reflexiva sobre nuestra realidad nacional, con el deseo de inspirar un cambio verdadero basado en valores, trabajo y esperanza.',
-                    'subtitulo_descripcion' => 'Combino mi experiencia como empresario y en gestión pública con mi vocación por el periodismo y la reflexión social. A través de mi obra, busco despertar conciencia, promover la participación ciudadana y contribuir al cambio que nuestro país necesita.',
-                ],
-                'activo' => true,
-            ],
-            [
-                'nombre' => 'Tipos de Lotes - Inicio',
-                'tipo' => 'bloque-3',
-                'contenido' => [
-                    'lista' => [
-                        [
-                            'id' => 1,
-                            'boton' => [
-                                'link' => '',
-                                'icono' => '',
-                                'texto' => 'Ver detalles',
-                                'fondo_color' => '#0056D2',
-                                'texto_color' => '#FFFFFF',
-                            ],
-                            'imagen' => asset('assets/imagenes/proyectos/proyecto-1.jpg'),
-                            'titulo' => 'Lote para Vivienda',
-                            'subtitulo' => 'Ideal para construir tu hogar',
-                            'imagen_seo' => 'Lote para Vivienda',
-                            'descripcion' => 'Pensado para proyectos habitacionales con excelente ubicación y servicios cercanos.',
-                        ],
-                        [
-                            'id' => 2,
-                            'boton' => [
-                                'link' => '',
-                                'icono' => '',
-                                'texto' => 'Explorar',
-                                'fondo_color' => '#0056D2',
-                                'texto_color' => '#FFFFFF',
-                            ],
-                            'imagen' => asset('assets/imagenes/proyectos/proyecto-1.jpg'),
-                            'titulo' => 'Lote Comercial',
-                            'subtitulo' => 'Perfecto para negocios',
-                            'imagen_seo' => 'Lote Comercial',
-                            'descripcion' => 'Pensados para tiendas, oficinas o proyectos comerciales en zonas de alto crecimiento.',
-                        ],
-                        [
-                            'id' => 3,
-                            'boton' => [
-                                'link' => '',
-                                'icono' => '',
-                                'texto' => 'Conocer más',
-                                'fondo_color' => '#0056D2',
-                                'texto_color' => '#FFFFFF',
-                            ],
-                            'imagen' => asset('assets/imagenes/proyectos/proyecto-1.jpg'),
-                            'titulo' => 'Lote para Inversión',
-                            'subtitulo' => 'Rentabilidad garantizada',
-                            'imagen_seo' => 'Lote para Inversión',
-                            'descripcion' => 'Lotes estratégicos ideales para generar valorización, alquiler o desarrollo futuro.',
-                        ],
-                    ],
-                    'titulo' => 'Lotes con alta <span>rentabilidad</span>',
-                    'titulo_descripcion' => 'Encuentra la mejor opción para vivir, invertir o emprender',
-                ],
-                'activo' => true,
-            ],
-            [
-                'nombre' => 'Call to Action - Inicio',
-                'tipo' => 'bloque-4',
-                'contenido' => [
-                    'boton' => [
-                        'link' => 'http://127.0.0.1:8000/peru-tierra-de-incautos',
-                        'icono' => 'fa-solid fa-map-location-dot',
-                        'texto' => 'Explora nuestros proyectos',
-                        'fondo_color' => '#ffcd02',
-                        'texto_color' => '#02424e',
-                    ],
-                    'imagen' => asset('assets/imagenes/call-to-action/familia.png',
-                    'imagen_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',
-                    'imagen_fondo' => asset('assets/imagenes/call-to-action/fondo.jpg'),
-                    'imagen_fondo_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',
-                    'titulo' => 'Ten tu <span>lote propio</span>',
-                    'titulo_descripcion' => 'Ten tu <span>lote propio</span>',
-                    'subtitulo' => 'Terrenos <span>seguros</span>, LEGALES y con excelente ubicación para ti y tu familia.',
-                    'subtitulo_descripcion' => 'Terrenos <span>seguros</span>, LEGALES y con excelente ubicación para ti y tu familia.',
-                ],
-                'activo' => true,
-            ],
-            [
-                'nombre' => 'Banner - Nosotros',
+            [ //5
+                'nombre' => 'Banner - NOSOTROS',
                 'tipo' => 'bloque-5',
                 'contenido' => [
                     'boton' => [
@@ -277,23 +148,23 @@ class SeccionSeeder extends Seeder
                         'texto_color' => '',
                     ],
                     'imagen' => asset('assets/imagenes/banner/banner-1.jpg'),
-                    'titulo' => '¿Quiénes somos?',
+                    'titulo' => '¿QUIÉNES SOMOS?',
                     'subtitulo' => '',
                     'imagen_seo' => '¿Quiénes somos?',
                 ],
                 'activo' => true,
             ],
-            [
-                'nombre' => 'Titulo - Nosotros',
+            [ //6
+                'nombre' => 'Titulo Somos - NOSOTROS',
                 'tipo' => 'bloque-6',
                 'contenido' => [
-                    'titulo' => 'La <span>Solución</span> para un Perú con futuro',
-                    'subtitulo' => 'Propongo una visión renovadora basada en tres ejes: desarrollo económico inclusivo, fortalecimiento de los valores ciudadanos y modernización de la gestión pública. Desde mi experiencia en el sector privado y la función pública, impulso ideas que buscan unirnos como peruanos para construir un país más justo, productivo y solidario.',
+                    'titulo' => 'SOMOS',
+                    'subtitulo' => 'Una inmobiliaria 100% peruana, especializada en el desarrollo y comercialización de terrenos destinados a vivienda y proyectos de inversión en distintas regiones del país. Nos enfocamos en ofrecer espacios estratégicamente ubicados, garantizando seguridad, accesibilidad y oportunidades de crecimiento para nuestros clientes.',
                 ],
                 'activo' => true,
             ],
-            [
-                'nombre' => 'Desarrollo - Nosotros',
+            [ //7
+                'nombre' => 'Valores - NOSOTROS',
                 'tipo' => 'bloque-2',
                 'contenido' => [
                     'boton' => [
@@ -306,168 +177,52 @@ class SeccionSeeder extends Seeder
                     'lista' => [
                         [
                             'id' => 1,
-                            'icono' => 'fa-solid fa-hand-holding-dollar',
-                            'texto' => 'Apoyo a los emprendedores y pequeñas empresas',
+                            'icono' => 'fa-solid fa-handshake-angle',
+                            'texto' => 'Solidaridad',
                             'icono_color' => '#02424e',
                             'texto_color' => '#333',
                         ],
                         [
                             'id' => 2,
-                            'icono' => 'fa-solid fa-chart-line',
-                            'texto' => 'Promoción de la economía regional',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 3,
-                            'icono' => 'fa-solid fa-industry',
-                            'texto' => 'Fomento de la producción nacional',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 4,
-                            'icono' => 'fa-solid fa-graduation-cap',
-                            'texto' => 'Capacitación técnica y laboral',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 5,
-                            'icono' => 'fa-solid fa-briefcase',
-                            'texto' => 'Impulso a la formalización y al empleo digno',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                    ],
-                    'imagen' => asset('assets/imagenes/nosotros/nosotros-1.jpg'),
-                    'titulo' => '',
-                    'invertir' => false,
-                    'subtitulo' => 'Desarrollo económico con rostro humano',
-                    'imagen_seo' => 'Martín Caicho Autor Peruano',
-                    'titulo_descripcion' => '',
-                    'subtitulo_descripcion' => 'Promuevo un modelo económico que prioriza al emprendedor, al trabajador y a las familias peruanas. Mi propuesta busca generar empleo digno, impulsar la innovación y fortalecer la producción nacional con justicia social.',
-                ],
-                'activo' => true,
-            ],
-            [
-                'nombre' => 'Gestión - Nosotros',
-                'tipo' => 'bloque-2',
-                'contenido' => [
-                    'boton' => [
-                        'link' => 'http://127.0.0.1:8000/peru-tierra-de-incautos',
-                        'icono' => 'fa-solid fa-book',
-                        'texto' => 'Conoce más sobre mi libro',
-                        'fondo_color' => '#02424e',
-                        'texto_color' => '#ffffff',
-                    ],
-                    'lista' => [
-                        [
-                            'id' => 1,
-                            'icono' => 'fa-solid fa-handshake',
-                            'texto' => 'Promuevo la transparencia en el uso de los recursos públicos',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 2,
-                            'icono' => 'fa-solid fa-laptop-code',
-                            'texto' => 'Impulso la digitalización y el gobierno electrónico',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 3,
-                            'icono' => 'fa-solid fa-city',
-                            'texto' => 'Fortalezco la gestión de los gobiernos locales',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 4,
-                            'icono' => 'fa-solid fa-chalkboard-user',
-                            'texto' => 'Apoyo la capacitación constante de los servidores públicos',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 5,
                             'icono' => 'fa-solid fa-scale-balanced',
-                            'texto' => 'Combato la corrupción con firmeza y compromiso',
+                            'texto' => 'Respeto',
+                            'icono_color' => '#02424e',
+                            'texto_color' => '#333',
+                        ],
+                        [
+                            'id' => 3,
+                            'icono' => 'fa-solid fa-shield-heart',
+                            'texto' => 'Integridad',
+                            'icono_color' => '#02424e',
+                            'texto_color' => '#333',
+                        ],
+                        [
+                            'id' => 4,
+                            'icono' => 'fa-solid fa-heart',
+                            'texto' => 'Empatía',
+                            'icono_color' => '#02424e',
+                            'texto_color' => '#333',
+                        ],
+                        [
+                            'id' => 5,
+                            'icono' => 'fa-solid fa-handshake',
+                            'texto' => 'Compromiso',
                             'icono_color' => '#02424e',
                             'texto_color' => '#333',
                         ],
                     ],
                     'imagen' => asset('assets/imagenes/nosotros/nosotros-2.jpg'),
                     'titulo' => '',
-                    'invertir' => true,
-                    'subtitulo' => 'Gestión pública moderna y transparente',
-                    'imagen_seo' => 'Martín Caicho Autor Peruano',
-                    'titulo_descripcion' => '',
-                    'subtitulo_descripcion' => 'Desde mi experiencia en el sector público, defiendo una administración eficiente, meritocrática y enfocada en resultados. Busco eliminar la corrupción, digitalizar los procesos del Estado y acercar la gestión a los ciudadanos.',
-                ],
-                'activo' => true,
-            ],
-            [
-                'nombre' => 'Valores - Nosotros',
-                'tipo' => 'bloque-2',
-                'contenido' => [
-                    'boton' => [
-                        'link' => '',
-                        'icono' => '',
-                        'texto' => '',
-                        'fondo_color' => '',
-                        'texto_color' => '',
-                    ],
-                    'lista' => [
-                        [
-                            'id' => 1,
-                            'icono' => 'fa-solid fa-graduation-cap',
-                            'texto' => 'Fomento la educación cívica y moral en todos los niveles',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 2,
-                            'icono' => 'fa-solid fa-user-group',
-                            'texto' => 'Impulso programas de liderazgo juvenil',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 3,
-                            'icono' => 'fa-solid fa-heart',
-                            'texto' => 'Promuevo una cultura basada en el respeto y la empatía',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 4,
-                            'icono' => 'fa-solid fa-first-aid',
-                            'texto' => 'Apoyo la formación en primeros auxilios y convivencia ciudadana',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                        [
-                            'id' => 5,
-                            'icono' => 'fa-solid fa-flag',
-                            'texto' => 'Refuerzo la unidad y el orgullo de ser peruanos',
-                            'icono_color' => '#02424e',
-                            'texto_color' => '#333',
-                        ],
-                    ],
-                    'imagen' => asset('assets/imagenes/nosotros/nosotros-3.jpg'),
-                    'titulo' => '',
                     'invertir' => false,
-                    'subtitulo' => 'Valores y educación cívica para un nuevo Perú',
-                    'imagen_seo' => 'Martín Caicho Autor Peruano',
+                    'subtitulo' => 'NOS ENFOCAMOS EN ALCANZAR LOS OBJETIVOS',
+                    'imagen_seo' => '',
                     'titulo_descripcion' => '',
-                    'subtitulo_descripcion' => 'Estoy convencido de que el cambio real comienza en cada persona. Por eso, promuevo la educación en valores, la participación ciudadana y la formación de líderes comprometidos con el bien común y el respeto mutuo.',
+                    'subtitulo_descripcion' => 'Fomentando la cooperación y el apoyo mutuo, trabajando en equipo para alcanzar un bien común y fortalecer nuestra comunidad.',
                 ],
                 'activo' => true,
             ],
-            [
-                'nombre' => 'Compromiso con el Perú - Nosotros',
+            [ //8
+                'nombre' => 'Mision - NOSOTROS',
                 'tipo' => 'bloque-7',
                 'contenido' => [
                     'lista' => [
@@ -475,49 +230,27 @@ class SeccionSeeder extends Seeder
                             'id' => 1,
                             'icono' => 'fa-solid fa-bullseye',
                             'subtitulo' => 'Misión',
-                            'subtitulo_descripcion' => 'Mi misión es inspirar a los peruanos a creer en el cambio a través de la educación, la ética y la acción. Busco promover un liderazgo ciudadano que transforme nuestra realidad desde los valores y el compromiso social.',
+                            'subtitulo_descripcion' => 'Somos una inmobiliaria que ayuda a los peruanos a obtener su propio lote con espacios de calidad y eco sostenibles. Ofrecemos asesoramiento integral para satisfacer tus necesidades inmobiliarias y maximizar tu rentabilidad con integridad y empatía.',
                         ],
                         [
                             'id' => 2,
                             'icono' => 'fa-solid fa-eye',
                             'subtitulo' => 'Visión',
-                            'subtitulo_descripcion' => 'Sueño con un Perú unido, próspero y transparente, donde el esfuerzo, la innovación y la honestidad sean las bases de nuestro desarrollo.',
+                            'subtitulo_descripcion' => 'Queremos ser reconocidos como la mejor inmobiliaria en proyectos económicos y ecosostenibles, liderando en gestión y satisfaciendo a nuestros clientes en sus inversiones ideales.',
                         ],
                         [
                             'id' => 3,
                             'icono' => 'fa-solid fa-handshake',
                             'subtitulo' => 'Valores',
-                            'subtitulo_descripcion' => 'Me guío por la honestidad, el trabajo, la justicia social, la empatía y la responsabilidad. Estos principios inspiran cada propuesta y cada acción que realizo por el bienestar de nuestro país.',
+                            'subtitulo_descripcion' => 'Fomentamos un ambiente de trabajo colaborativo y de apoyo mutuo, valorando a nuestro equipo humano. Esto nos permite satisfacer mejor las necesidades y deseos de nuestros clientes.',
                         ],
                     ],
-                    'titulo' => 'Estoy <span>comprometido</span> con mi Perú',
-                    'titulo_descripcion' => 'Conóceme un poco más.',
+                    'titulo' => '',
+                    'titulo_descripcion' => '',
                 ],
                 'activo' => true,
             ],
-            [
-                'nombre' => 'Call to Action - Nosotros',
-                'tipo' => 'bloque-4',
-                'contenido' => [
-                    'boton' => [
-                        'link' => 'http://127.0.0.1:8000/peru-tierra-de-incautos',
-                        'icono' => 'fa-solid fa-map-location-dot',
-                        'texto' => 'Explora nuestros proyectos',
-                        'fondo_color' => '#ffcd02',
-                        'texto_color' => '#02424e',
-                    ],
-                    'imagen' => asset('assets/imagenes/call-to-action/familia.png',
-                    'imagen_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',
-                    'imagen_fondo' => asset('assets/imagenes/call-to-action/fondo.jpg'),
-                    'imagen_fondo_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',
-                    'titulo' => 'Ten tu <span>lote propio</span>',
-                    'titulo_descripcion' => 'Ten tu <span>lote propio</span>',
-                    'subtitulo' => 'Terrenos <span>seguros</span>, LEGALES y con excelente ubicación para ti y tu familia.',
-                    'subtitulo_descripcion' => 'Terrenos <span>seguros</span>, LEGALES y con excelente ubicación para ti y tu familia.',
-                ],
-                'activo' => true,
-            ],
-            [
+            /*[
                 'nombre' => 'Slider - Landing Libro',
                 'tipo' => 'bloque-1',
                 'contenido' => [
@@ -600,7 +333,7 @@ class SeccionSeeder extends Seeder
                         'fondo_color' => '#02424e',
                         'texto_color' => '#ffffff',
                     ],
-                    'imagen' => asset('assets/imagenes/call-to-action/familia.png',
+                    'imagen' => asset('assets/imagenes/call-to-action/familia.png'),
                     'imagen_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',
                     'imagen_fondo' => asset('assets/imagenes/call-to-action/fondo.jpg'),
                     'imagen_fondo_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',
@@ -673,7 +406,7 @@ class SeccionSeeder extends Seeder
                         'fondo_color' => '#02424e',
                         'texto_color' => '#ffffff',
                     ],
-                    'imagen' => asset('assets/imagenes/call-to-action/familia.png',
+                    'imagen' => asset('assets/imagenes/call-to-action/familia.png'),
                     'imagen_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',
                     'imagen_fondo' => asset('assets/imagenes/call-to-action/fondo.jpg'),
                     'imagen_fondo_seo' => 'Terrenos y lotes en venta por Inmobiliaria Aybar',

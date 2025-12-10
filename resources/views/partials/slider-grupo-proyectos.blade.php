@@ -25,7 +25,7 @@
             slidesPerView: 3.5,
             spaceBetween: 20,
             autoplay: {
-                delay: 3500,
+                delay: 6500,
                 disableOnInteraction: false,
             },
             /*loop: {{ count($p_elemento['proyectos']) > 1 ? 'true' : 'false' }},*/

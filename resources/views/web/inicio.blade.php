@@ -9,7 +9,15 @@
 <div class="g_centrar_pagina">
     <div class="g_pading_pagina">
         <div class="g_gap_pagina g_margin_top_40 g_margin_bottom_40">
-            @include('bloques.bloque-10', ['p_elemento' => $bloque10_1])
+            <div>
+                @include('partials.titulo-encabezado', [
+                'titulo' => 'DESCUBRE <br> NUESTROS PROYECTOS',
+                'alineacion' => 'left',
+                'color' => 'color_1',
+                ])
+            </div>
+
+            @include('partials.slider-grupo-proyectos', ['p_elemento' => $proyectos])
         </div>
     </div>
 </div>
@@ -25,13 +33,7 @@
 <div class="g_centrar_pagina">
     <div class="g_pading_pagina">
         <div class="g_gap_pagina g_margin_top_40 g_margin_bottom_40">
-            @include('partials.titulo-encabezado', [
-            'titulo' => 'DESCUBRE <br><span> NUESTROS PROYECTOS</span>',
-            'alineacion' => 'center',
-            'color' => 'color_1',
-            ])
-
-            @include('partials.slider-grupo-proyectos', ['p_elemento' => $proyectos])
+            @include('bloques.bloque-10', ['p_elemento' => $bloque10_1])
         </div>
     </div>
 </div>

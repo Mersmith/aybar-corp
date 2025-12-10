@@ -14,15 +14,11 @@ class InicioController extends Controller
         $bloque11_1 = app(SeccionController::class)->getSeccionPorTipo(3, 'bloque-11');
 
         $bloque8_1 = app(SeccionController::class)->getSeccionPorTipo(4, 'bloque-8');
-        $bloque4_1 = app(SeccionController::class)->getSeccionPorTipo(4, 'bloque-4');
-        $bloque3_1 = app(SeccionController::class)->getSeccionPorTipo(3, 'bloque-3');
-
-        //dd($bloque10_1);
 
         $proyectos = $this->getGrupoProyectos();
         $posts = $this->getBlogs();
 
-        return view('web.inicio', compact('bloque1_1', 'bloque10_1', 'bloque11_1', 'bloque3_1', 'bloque8_1', 'posts', 'proyectos', 'bloque4_1',));
+        return view('web.inicio', compact('bloque1_1', 'bloque10_1', 'bloque11_1', 'bloque8_1', 'proyectos', 'posts'));
     }
 
     public function getBlogs()
