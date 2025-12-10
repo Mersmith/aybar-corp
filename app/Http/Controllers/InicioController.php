@@ -13,7 +13,7 @@ class InicioController extends Controller
         $bloque10_1 = app(SeccionController::class)->getSeccionPorTipo(2, 'bloque-10');
         $bloque11_1 = app(SeccionController::class)->getSeccionPorTipo(3, 'bloque-11');
 
-        $bloque8_1 = app(SeccionController::class)->getSeccionPorTipo(15, 'bloque-8');
+        $bloque8_1 = app(SeccionController::class)->getSeccionPorTipo(4, 'bloque-8');
         $bloque4_1 = app(SeccionController::class)->getSeccionPorTipo(4, 'bloque-4');
         $bloque3_1 = app(SeccionController::class)->getSeccionPorTipo(3, 'bloque-3');
 

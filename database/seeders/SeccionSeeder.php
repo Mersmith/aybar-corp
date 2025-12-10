@@ -90,6 +90,52 @@ class SeccionSeeder extends Seeder
                 ],
                 'activo' => true,
             ],
+            [
+                'nombre' => 'Testimonios - INICIO',
+                'tipo' => 'bloque-8',
+                'contenido' => [
+                    'titulo' => 'CONFÍAN EN AYBAR',
+                    'titulo_descripcion' => '',
+                    'lista' => [
+                        [
+                            'id' => 1,
+                            'imagen' => asset('assets/imagenes/testimonios/testimonio-1.jpg'),
+                            'imagen_seo' => 'Carlos Méndez',
+                            'titulo' => 'Carlos Méndez',
+                            'subtitulo' => 'Inversionista',
+                            'descripcion' => 'Invertí en un terreno con Aybar y quedé muy satisfecho. Cumplieron con todo lo prometido y el valor de mi lote ha aumentado en poco tiempo.',
+
+                        ],
+                        [
+                            'id' => 2,
+                            'imagen' => asset('assets/imagenes/testimonios/testimonio-2.jpg'),
+                            'imagen_seo' => 'Ana Torres',
+                            'titulo' => 'Ana Torres',
+                            'subtitulo' => 'Propietaria en Aybar Village',
+                            'descripcion' => 'Gracias a Aybar pude adquirir mi primer lote con todas las facilidades. El proceso fue claro y rápido, y hoy ya estoy construyendo mi casa.',
+
+                        ],
+                        [
+                            'id' => 3,
+                            'imagen' => asset('assets/imagenes/testimonios/testimonio-3.jpg'),
+                            'imagen_seo' => 'Jorge Salazar',
+                            'titulo' => 'Jorge Salazar',
+                            'subtitulo' => 'Joven profesional',
+                            'descripcion' => 'Aybar me brindó la confianza que buscaba para comprar mi terreno. Las facilidades de pago fueron perfectas para empezar a invertir.',
+                        ],
+                        [
+                            'id' => 4,
+                            'imagen' => asset('assets/imagenes/testimonios/testimonio-4.jpg'),
+                            'imagen_seo' => 'Lucía Rojas',
+                            'titulo' => 'Lucía Rojas',
+                            'subtitulo' => 'Cliente en Aybar Park',
+                            'descripcion' => 'El equipo de Aybar me asesoró en todo momento. Encontré el lote ideal para mi familia, en una zona segura y con excelente proyección.',
+                        ],
+                    ],
+                ],
+
+                'activo' => true,
+            ],
             /*[
                 'nombre' => 'Presentación - Inicio',
                 'tipo' => 'bloque-2',
@@ -563,52 +609,6 @@ class SeccionSeeder extends Seeder
                     'subtitulo' => 'Terrenos <span>seguros</span>, LEGALES y con excelente ubicación para ti y tu familia.',
                     'subtitulo_descripcion' => 'Terrenos <span>seguros</span>, LEGALES y con excelente ubicación para ti y tu familia.',
                 ],
-                'activo' => true,
-            ],
-            [
-                'nombre' => 'Testimonios - Landing Libro',
-                'tipo' => 'bloque-8',
-                'contenido' => [
-                    'titulo' => 'Testimonios de <span>Clientes Satisfechos</span>',
-                    'titulo_descripcion' => 'Historias reales de personas que confiaron en Aybar para hacer realidad el sueño de su <span>terreno propio.</span>',
-                    'lista' => [
-                        [
-                            'id' => 1,
-                            'imagen' => asset('assets/imagenes/testimonios/testimonio-1.jpg'),
-                            'imagen_seo' => 'Carlos Méndez',
-                            'titulo' => 'Carlos Méndez',
-                            'subtitulo' => 'Inversionista',
-                            'descripcion' => 'Invertí en un terreno con Aybar y quedé muy satisfecho. Cumplieron con todo lo prometido y el valor de mi lote ha aumentado en poco tiempo.',
-
-                        ],
-                        [
-                            'id' => 2,
-                            'imagen' => asset('assets/imagenes/testimonios/testimonio-2.jpg'),
-                            'imagen_seo' => 'Ana Torres',
-                            'titulo' => 'Ana Torres',
-                            'subtitulo' => 'Propietaria en Aybar Village',
-                            'descripcion' => 'Gracias a Aybar pude adquirir mi primer lote con todas las facilidades. El proceso fue claro y rápido, y hoy ya estoy construyendo mi casa.',
-
-                        ],
-                        [
-                            'id' => 3,
-                            'imagen' => asset('assets/imagenes/testimonios/testimonio-3.jpg'),
-                            'imagen_seo' => 'Jorge Salazar',
-                            'titulo' => 'Jorge Salazar',
-                            'subtitulo' => 'Joven profesional',
-                            'descripcion' => 'Aybar me brindó la confianza que buscaba para comprar mi terreno. Las facilidades de pago fueron perfectas para empezar a invertir.',
-                        ],
-                        [
-                            'id' => 4,
-                            'imagen' => asset('assets/imagenes/testimonios/testimonio-4.jpg'),
-                            'imagen_seo' => 'Lucía Rojas',
-                            'titulo' => 'Lucía Rojas',
-                            'subtitulo' => 'Cliente en Aybar Park',
-                            'descripcion' => 'El equipo de Aybar me asesoró en todo momento. Encontré el lote ideal para mi familia, en una zona segura y con excelente proyección.',
-                        ],
-                    ],
-                ],
-
                 'activo' => true,
             ],
             [

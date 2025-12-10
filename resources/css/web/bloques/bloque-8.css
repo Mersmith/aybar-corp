@@ -51,6 +51,7 @@
     display: block;
     margin: 0 auto 15px auto;
     max-width: 450px;
+    border-radius: 10px;
 }
 
 .bloque_8 .testimonio_datos {
@@ -58,18 +59,42 @@
     max-width: 800px;
 }
 
-.bloque_8 .testimonio_datos blockquote {
-    font-size: 100px;
-    line-height: 0;
-    margin: 0;
-    padding: 0;
-    color: #ccc;
+.bloque_8 .contenedor_opinion {
+    background-color: var(--color-verde);
+    padding: 40px;
+    border-radius: 20px;
+    color: var(--color-blanco);
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.bloque_8 .contenedor_opinion::after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 40px;
+    width: 0;
+    height: 0;
+    border-left: 25px solid var(--color-verde);
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    transform: rotate(0deg);
+    border-radius: 6px;
+}
+
+.bloque_8 .testimonio_datos .icono_comilla {
+    font-size: 80px;
+    line-height: 0.5;
+    color: var(--color-blanco);
+    font-weight: bold;
+    display: block;
 }
 
 .bloque_8 .testimonio_comentario {
-    font-size: 22px;
-    line-height: 1.4;
-    margin: 15px 0 20px 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--color-blanco);
 }
 
 .bloque_8 .testimonio_nombre {
