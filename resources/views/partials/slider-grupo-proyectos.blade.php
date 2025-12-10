@@ -28,7 +28,7 @@
                 delay: 3500,
                 disableOnInteraction: false,
             },
-            loop: true,
+            /*loop: {{ count($p_elemento['proyectos']) > 1 ? 'true' : 'false' }},*/
             grabCursor: true,
 
             breakpoints: {

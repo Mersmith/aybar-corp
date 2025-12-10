@@ -26,18 +26,17 @@ $idSwiper = $p_elemento->id ?? 'default';
                 <div class="contenedor_card">
                     @if (!empty($item['iframe']))
                     <div class="youtube_wrapper">
-                        {!! $item['iframe'] !!}
+                        {!! str_replace('<iframe', '<iframe loading="lazy"' , $item['iframe']) !!} </div>
+                            @endif
                     </div>
-                    @endif
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
-</div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
     new Swiper('.SwiperSliderBloque10-{{ $idSwiper }}', {
         slidesPerView: 3,
         spaceBetween: 20,
@@ -51,6 +50,6 @@ $idSwiper = $p_elemento->id ?? 'default';
         }
     });
 });
-</script>
-@endif
-@endif
+    </script>
+    @endif
+    @endif
