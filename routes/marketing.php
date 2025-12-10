@@ -75,6 +75,10 @@ use App\Livewire\Marketing\Seccion\SeccionBloqueDiezTodoLivewire;
 use App\Livewire\Marketing\Seccion\SeccionBloqueDiezCrearLivewire;
 use App\Livewire\Marketing\Seccion\SeccionBloqueDiezEditarLivewire;
 
+use App\Livewire\Marketing\Seccion\SeccionBloqueOnceTodoLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueOnceCrearLivewire;
+use App\Livewire\Marketing\Seccion\SeccionBloqueOnceEditarLivewire;
+
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('tipo-formulario')->name('tipo-formulario.vista.')->group(function () {
@@ -159,5 +163,8 @@ Route::prefix('seccion')->name('seccion.')->group(function () {
     Route::get('/bloque-diez', SeccionBloqueDiezTodoLivewire::class)->name('bloque-diez.vista.todo');
     Route::get('/bloque-diez/crear', SeccionBloqueDiezCrearLivewire::class)->name('bloque-diez.vista.crear');
     Route::get('/bloque-diez/editar/{id}', SeccionBloqueDiezEditarLivewire::class)->name('bloque-diez.vista.editar');
+    Route::get('/bloque-once', SeccionBloqueOnceTodoLivewire::class)->name('bloque-once.vista.todo');
+    Route::get('/bloque-once/crear', SeccionBloqueOnceCrearLivewire::class)->name('bloque-once.vista.crear');
+    Route::get('/bloque-once/editar/{id}', SeccionBloqueOnceEditarLivewire::class)->name('bloque-once.vista.editar');
 
 });

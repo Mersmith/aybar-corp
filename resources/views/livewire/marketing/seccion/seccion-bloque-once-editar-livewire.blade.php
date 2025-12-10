@@ -1,18 +1,22 @@
-@section('tituloPagina', 'Crear bloque 10')
+@section('tituloPagina', 'Editar bloque 11')
 @section('anchoPantalla', '100%')
 
-<div x-data="dataBloque10Crear()" class="g_gap_pagina">
+<div x-data="dataBloque11Editar()" class="g_gap_pagina">
 
     <!-- CABECERA -->
     <div class="g_panel cabecera_titulo_pagina">
-        <h2>Crear bloque 10</h2>
+        <h2>Editar bloque 11</h2>
 
         <div class="cabecera_titulo_botones">
-            <a href="{{ route('admin.seccion.bloque-diez.vista.todo') }}" class="g_boton g_boton_light">
+            <a href="{{ route('admin.seccion.bloque-once.vista.todo') }}" class="g_boton g_boton_light">
                 Inicio <i class="fa-solid fa-house"></i>
             </a>
 
-            <a href="{{ route('admin.seccion.bloque-diez.vista.todo') }}" class="g_boton g_boton_darkt">
+            <button type="button" class="g_boton g_boton_danger" onclick="alertaEliminarBloque11()">
+                Eliminar <i class="fa-solid fa-trash-can"></i>
+            </button>
+
+            <a href="{{ route('admin.seccion.bloque-once.vista.todo') }}" class="g_boton g_boton_darkt">
                 <i class="fa-solid fa-arrow-left"></i> Regresar
             </a>
         </div>
@@ -69,7 +73,7 @@
                     </div>
 
                     <!-- LISTA -->
-                    <div x-sort="handleBloque10Crear" class="g_gap_pagina">
+                    <div x-sort="handleBloque11Editar" class="g_gap_pagina">
                         @foreach ($lista as $index => $item)
                             <div class="g_panel tabla_caja" x-sort:item="{{ $item['id'] }}">
                                 <div class="cabecera">
@@ -88,14 +92,20 @@
                                 </div>
 
                                 <div x-show="itemsVisibility[{{ $index }}]" x-transition>
+
                                     <div class="g_fila">
                                         <div class="g_margin_bottom_10">
-                                            <label>Video frame</label>
-                                            <textarea wire:model="lista.{{ $index }}.iframe" rows="5" @pointerdown.stop @mousedown.stop
-                                                @touchstart.stop draggable="false"></textarea>
-                                            @error('lista.' . $index . '.iframe')
-                                                <p class="mensaje_error">{{ $message }}</p>
-                                            @enderror
+                                            <label>Url Imagen</label>
+                                            <input type="text" wire:model="lista.{{ $index }}.imagen"
+                                                @pointerdown.stop @mousedown.stop @touchstart.stop draggable="false">
+                                        </div>
+                                    </div>
+
+                                    <div class="g_fila">
+                                        <div class="g_margin_bottom_10">
+                                            <label>Título</label>
+                                            <input type="text" wire:model="lista.{{ $index }}.titulo"
+                                                @pointerdown.stop @mousedown.stop @touchstart.stop draggable="false">
                                         </div>
                                     </div>
 
@@ -128,18 +138,18 @@
         <div class="g_margin_top_20">
             <div class="formulario_botones">
                 <button type="submit" class="guardar" wire:loading.attr="disabled" wire:target="store">
-                    <span wire:loading.remove wire:target="store">Crear</span>
-                    <span wire:loading wire:target="store">Guardando...</span>
+                    <span wire:loading.remove wire:target="store">Actualizar</span>
+                    <span wire:loading wire:target="store">Actualizando...</span>
                 </button>
 
-                <a href="{{ route('admin.seccion.bloque-diez.vista.todo') }}" class="cancelar">Cancelar</a>
+                <a href="{{ route('admin.seccion.bloque-once.vista.todo') }}" class="cancelar">Cancelar</a>
             </div>
         </div>
 
     </form>
 
     <script>
-        function dataBloque10Crear() {
+        function dataBloque11Editar() {
             return {
                 globalVisible: true,
                 itemsVisibility: Array(@js(count($lista))).fill(true),
@@ -155,13 +165,36 @@
                     this.itemsVisibility = Array(this.itemsVisibility.length).fill(this.globalVisible);
                 },
 
-                handleBloque10Crear(item, position) {
-                    Livewire.dispatch('handleBloque10CrearOn', {
+                handleBloque11Editar(item, position) {
+                    Livewire.dispatch('handleBloque11EditarOn', {
                         item,
                         position
                     });
                 }
             }
+        }
+
+        function alertaEliminarBloque11() {
+            Swal.fire({
+                title: '¿Quieres eliminar?',
+                text: "No podrás recuperarlo.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '¡Sí, eliminar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.dispatch('eliminarSeccion11On');
+
+                    Swal.fire(
+                        '¡Eliminado!',
+                        'Eliminaste correctamente.',
+                        'success'
+                    )
+                }
+            });
         }
     </script>
 

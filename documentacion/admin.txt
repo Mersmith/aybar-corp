@@ -52,6 +52,10 @@ php artisan make:livewire Marketing/Seccion/SeccionBloqueDiezTodoLivewire
 php artisan make:livewire Marketing/Seccion/SeccionBloqueDiezCrearLivewire
 php artisan make:livewire Marketing/Seccion/SeccionBloqueDiezEditarLivewire
 
+php artisan make:livewire Marketing/Seccion/SeccionBloqueOnceTodoLivewire
+php artisan make:livewire Marketing/Seccion/SeccionBloqueOnceCrearLivewire
+php artisan make:livewire Marketing/Seccion/SeccionBloqueOnceEditarLivewire
+
 php artisan make:livewire Admin/Pagina/PaginaTodoLivewire
 php artisan make:livewire Admin/Pagina/PaginaCrearLivewire
 php artisan make:livewire Admin/Pagina/PaginaEditarLivewire

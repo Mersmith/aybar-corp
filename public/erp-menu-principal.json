@@ -919,6 +919,14 @@
                         "url": "/admin/seccion/bloque-diez",
                         "nivel": 3,
                         "submenus": []
+                    },
+                    {
+                        "id": 122,
+                        "nombre": "Bloque 11",
+                        "ruta": "admin.seccion.bloque-once.vista.todo",
+                        "url": "/admin/seccion/bloque-once",
+                        "nivel": 3,
+                        "submenus": []
                     }
                 ]
             }

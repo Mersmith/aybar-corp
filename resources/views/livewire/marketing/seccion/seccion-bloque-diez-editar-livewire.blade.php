@@ -102,6 +102,13 @@
                                             @enderror
                                         </div>
                                     </div>
+
+                                    <div class="g_margin_bottom_10">
+                                        <button type="button" wire:click="eliminarItem({{ $index }})"
+                                            class="boton_eliminar">
+                                            <i class="fa-solid fa-xmark"></i> Eliminar
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
