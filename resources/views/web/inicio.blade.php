@@ -23,7 +23,7 @@
 </div>
 
 <div class="g_centrar_pagina">
-    <div class="g_pading_pagina">
+    <div class="g_pading_pagina g_fondo_blanco">
         <div class="g_gap_pagina g_margin_top_40 g_margin_bottom_40">
             @include('bloques.bloque-11', ['p_elemento' => $bloque11_1])
         </div>

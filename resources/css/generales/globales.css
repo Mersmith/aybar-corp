@@ -49,6 +49,11 @@
     gap: 70px;
 }
 
+.g_fondo_blanco {
+    background: var(--color-blanco);
+    border-radius: var(--borde-radius);
+}
+
 @media (max-width: 768px) {
     .g_pading_pagina {
         padding: 10px;
