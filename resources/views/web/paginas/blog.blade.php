@@ -7,7 +7,7 @@
 <div class="g_centrar_pagina">
     <div class="g_pading_pagina">
 
-        <div class="r_contenedor_columna">
+        <div class="g_gap_pagina">
             @include('partials.titulo-encabezado', [
             'titulo' => 'Blog',
             'color' => 'color_1',
