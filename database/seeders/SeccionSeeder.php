@@ -59,6 +59,37 @@ class SeccionSeeder extends Seeder
                 ],
                 'activo' => true,
             ],
+            [
+                'nombre' => 'Cuadricula - Inicio',
+                'tipo' => 'bloque-11',
+                'contenido' => [
+                    'titulo' => '¿POR QUÉ INVERTIR <br><span> CON NOSOTROS?</span>',
+                    'titulo_descripcion' => '',
+                    'lista' => [
+                        [
+                            'id' => 1,
+                            'imagen' => asset('assets/imagenes/invertir/imagen-1.svg'),
+                            'titulo' => 'INVERSIÓN <br> SEGURA',
+                        ],
+                        [
+                            'id' => 2,
+                            'imagen' => asset('assets/imagenes/invertir/imagen-2.svg'),
+                            'titulo' => 'RENTABILIDAD <br> A LARGO PLAZO',
+                        ],
+                        [
+                            'id' => 3,
+                            'imagen' => asset('assets/imagenes/invertir/imagen-3.svg'),
+                            'titulo' => 'PATRIMONIO PARA <br> TU FAMILIA',
+                        ],
+                        [
+                            'id' => 4,
+                            'imagen' => asset('assets/imagenes/invertir/imagen-4.svg'),
+                            'titulo' => 'ALTA <br> REVALORIZACIÓN',
+                        ],
+                    ],
+                ],
+                'activo' => true,
+            ],
             /*[
                 'nombre' => 'Presentación - Inicio',
                 'tipo' => 'bloque-2',
