@@ -14,10 +14,18 @@
     height: 3px;
     background-color: var(--color-amarillo);
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     bottom: 0;
     border-radius: 2px;
+}
+
+.r_titulo_1.center::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.r_titulo_1.left::after {
+    left: 0%;
+    transform: translateX(-0%);
 }
 
 .r_titulo_1.color_1 {

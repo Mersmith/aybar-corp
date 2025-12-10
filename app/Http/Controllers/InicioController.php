@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comunicado;
+use App\Models\Blog;
 use App\Models\GrupoProyecto;
 
 class InicioController extends Controller
@@ -20,18 +20,18 @@ class InicioController extends Controller
         //dd($bloque10_1);
 
         $proyectos = $this->getGrupoProyectos();
-        $posts = $this->getComunicados();
+        $posts = $this->getBlogs();
 
         return view('web.inicio', compact('bloque1_1', 'bloque10_1', 'bloque11_1', 'bloque3_1', 'bloque8_1', 'posts', 'proyectos', 'bloque4_1',));
     }
 
-    public function getComunicados()
+    public function getBlogs()
     {
         $consulta_id = 1;
 
-        $titulo = 'Comunicados';
+        $titulo = 'Blog';
 
-        $data = Comunicado::where('activo', true)->latest()->take(6)->get();
+        $data = Blog::where('activo', true)->latest()->take(6)->get();
 
         return [
             'id' => $consulta_id,
