@@ -10,6 +10,8 @@
     <div class="g_pading_pagina">
         <div class="g_gap_pagina g_margin_top_40 g_margin_bottom_40">
 
+            @include('bloques.bloque-10', ['p_elemento' => $bloque10_1])
+
             @include('partials.titulo-encabezado', [
             'titulo' => 'Nuestros proyectos',
             'alineacion' => 'left',

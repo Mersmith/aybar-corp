@@ -62,36 +62,36 @@
 
                     <tbody>
                         @foreach ($cronograma as $item)
-                            <tr>
-                                <td>{{ $item['cuota'] }}</td>
-                                <td>{{ $item['fec_vencimiento'] }}</td>
-                                <td>S/ {{ number_format($item['monto'], 2) }}</td>
-                                <td>S/ {{ number_format($item['amortizacion'], 2) }}</td>
-                                <td>S/ {{ number_format($item['saldo'], 2) }}</td>
-                                <td>{{ $item['estado'] }}</td>
-                                <td>
-                                    @if ($item['estado'] == 'PG PAGADA')
-                                        <span class="g_boton g_boton_empresa_primario">
-                                            <i class="fa-solid fa-circle-check"></i>
-                                            Comprobado
-                                        </span>
-                                    @else
-                                        @if ($item['comprobantes_count'] > 0)
-                                            <span class="g_boton g_boton_darkt">
-                                                <i class="fa-solid fa-image"></i>
-                                                Subiste({{ $item['comprobantes_count'] }})
-                                            </span>
-                                        @else
-                                            <button wire:click="seleccionarCuota({{ json_encode($item) }})"
-                                                class="g_boton g_boton_empresa_secundario">
-                                                <i class="fas fa-upload"></i> Subir evidencia
-                                            </button>
-                                        @endif
-                                    @endif
-                                </td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                        <tr>
+                            <td>{{ $item['cuota'] }}</td>
+                            <td>{{ $item['fec_vencimiento'] }}</td>
+                            <td>S/ {{ number_format($item['monto'], 2) }}</td>
+                            <td>S/ {{ number_format($item['amortizacion'], 2) }}</td>
+                            <td>S/ {{ number_format($item['saldo'], 2) }}</td>
+                            <td>{{ $item['estado'] }}</td>
+                            <td>
+                                @if ($item['estado'] == 'PG PAGADA')
+                                <span class="g_boton g_boton_empresa_primario">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    Comprobado
+                                </span>
+                                @else
+                                @if ($item['comprobantes_count'] > 0)
+                                <span class="g_boton g_boton_darkt">
+                                    <i class="fa-solid fa-image"></i>
+                                    En validación({{ $item['comprobantes_count'] }})
+                                </span>
+                                @else
+                                <button wire:click="seleccionarCuota({{ json_encode($item) }})"
+                                    class="g_boton g_boton_empresa_secundario">
+                                    <i class="fas fa-upload"></i> Subir evidencia
+                                </button>
+                                @endif
+                                @endif
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -100,16 +100,17 @@
     </div>
 
     @if ($cuota)
-        <div class="g_modal">
-            <div class="modal_contenedor">
-                <div class="modal_cerrar">
-                    <button wire:click="cerrarModalEvidenciaPago"><i class="fa-solid fa-xmark"></i></button>
-                </div>
+    <div class="g_modal">
+        <div class="modal_contenedor">
+            <div class="modal_cerrar">
+                <button wire:click="cerrarModalEvidenciaPago"><i class="fa-solid fa-xmark"></i></button>
+            </div>
 
-                <div class="modal_cuerpo">
-                    @livewire('cliente.open-ai.procesar-imagen-livewire', ['cuota' => $cuota, 'lote' => $lote], key('cuota_' . $cuota['codigo']))
-                </div>
+            <div class="modal_cuerpo">
+                @livewire('cliente.open-ai.procesar-imagen-livewire', ['cuota' => $cuota, 'lote' => $lote], key('cuota_'
+                . $cuota['codigo']))
             </div>
         </div>
+    </div>
     @endif
 </div>

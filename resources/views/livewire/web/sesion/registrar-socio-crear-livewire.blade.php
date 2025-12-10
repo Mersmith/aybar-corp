@@ -22,7 +22,7 @@
             <!-- Logo -->
             <div class="login_formulario_logo">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('assets/imagen/logo.png') }}" alt="" />
+                    <img src="{{ asset('assets/imagen/logo-2.png') }}" alt="">
                 </a>
             </div>
 
@@ -30,12 +30,12 @@
             <p class="descripcion_formulario">Regístrate para continuar.</p>
 
             @if ($errors->any())
-                <div class="g_alerta_error">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <div>
-                        <strong>Por favor corrige los siguientes errores:</strong>
-                    </div>
+            <div class="g_alerta_error">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <strong>Por favor corrige los siguientes errores:</strong>
                 </div>
+            </div>
             @endif
 
             <form wire:submit.prevent="registrar" class="g_formulario">
@@ -44,7 +44,7 @@
                     <label>Correo electrónico</label>
                     <input type="email" wire:model="email" required>
                     @error('email')
-                        <div class="error">{{ $message }}</div>
+                    <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -52,7 +52,7 @@
                     <label>Contraseña</label>
                     <input type="password" wire:model="password" required>
                     @error('password')
-                        <div class="error">{{ $message }}</div>
+                    <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
 

@@ -4,13 +4,13 @@
         <i class="fa-solid fa-chevron-right"></i>
     </a>
 
-    <a href="{{ route('cliente.direccion') }}" class="">
-        <span><i class="fa-solid fa-map-location"></i> Direcciones</span>
+    <a href="{{ route('cliente.lote') }}" class="">
+        <span><i class="fa-solid fa-border-all"></i> Mis Proyectos</span>
         <i class="fa-solid fa-chevron-right"></i>
     </a>
 
-    <a href="{{ route('cliente.lote') }}" class="">
-        <span><i class="fa-solid fa-border-all"></i> Mis Lotes</span>
+    <a href="{{ route('cliente.direccion') }}" class="">
+        <span><i class="fa-solid fa-map-location"></i> Direcciones</span>
         <i class="fa-solid fa-chevron-right"></i>
     </a>
 

@@ -19,7 +19,7 @@
 
             <div class="login_formulario_logo">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('assets/imagen/logo.png') }}" alt="" />
+                    <img src="{{ asset('assets/imagen/logo-2.png') }}" alt="">
                 </a>
             </div>
 
@@ -28,60 +28,65 @@
 
             @if (!$cliente_encontrado)
 
-                @if (session('error'))
-                    <div class="g_alerta_error">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        <div>{{ session('error') }}</div>
-                    </div>
-                @endif
+            @if (session('error'))
+            <div class="g_alerta_error">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>{{ session('error') }}</div>
+            </div>
+            @endif
 
-                <div class="g_formulario">
-                    <div class="form_grupo">
-                        <label>Ingresa tu DNI</label>
-                        <input type="text" wire:model="dni" x-on:input="$el.value = $el.value.replace(/[^0-9]/g, '')"
-                            class="form-control">
-                        @error('dni')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <button wire:click="buscarCliente">Validar DNI</button>
+            <div class="formulario_flex formulario">
+                <div class="g_margin_top_20">
+                    <label>Ingresa tu DNI</label>
+                    <input type="text" wire:model="dni" x-on:input="$el.value = $el.value.replace(/[^0-9]/g, '')"
+                        class="form-control">
+                    @error('dni')
+                    <div class="mensaje_error">{{ $message }}</div>
+                    @enderror
                 </div>
+
+                <div class="g_margin_top_20 formulario_botones centrar">
+                    <button wire:click="buscarCliente" class="guardar">Validar DNI</button>
+                </div>
+            </div>
             @endif
 
             @if ($cliente_encontrado)
-                @if (session('status'))
-                    <div class="g_alerta_succes">
-                        <i class="fa-solid fa-circle-check"></i>
-                        {{ session('status') }}
-                    </div>
-                @endif
+            @if (session('status'))
+            <div class="g_alerta_succes">
+                <i class="fa-solid fa-circle-check"></i>
+                {{ session('status') }}
+            </div>
+            @endif
 
-                <form wire:submit.prevent="registrar" class="g_formulario">
+            <form wire:submit.prevent="registrar" class="formulario_flex formulario">
 
-                    <div class="form_grupo">
-                        <label>Correo electrónico</label>
-                        <input type="email" wire:model="email" required>
-                        @error('email')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
-                    </div>
+                <div class="g_margin_top_20">
+                    <label>Correo electrónico</label>
+                    <input type="email" wire:model="email" required>
+                    @error('email')
+                    <div class="mensaje_error">{{ $message }}</div>
+                    @enderror
+                </div>
 
-                    <div class="form_grupo">
-                        <label>Contraseña</label>
-                        <input type="password" wire:model="password" required>
-                        @error('password')
-                            <div class="error">{{ $message }}</div>
-                        @enderror
-                    </div>
+                <div class="g_margin_top_20">
+                    <label>Contraseña</label>
+                    <input type="password" wire:model="password" required>
+                    @error('password')
+                    <div class="mensaje_error">{{ $message }}</div>
+                    @enderror
+                </div>
 
-                    <div class="form_grupo">
-                        <label>Repetir contraseña</label>
-                        <input type="password" wire:model="password_confirmation" required>
-                    </div>
+                <div class="g_margin_top_20">
+                    <label>Repetir contraseña</label>
+                    <input type="password" wire:model="password_confirmation" required>
+                </div>
 
-                    <button type="submit">Crear cuenta</button>
-                </form>
+                <div class="g_margin_top_20 formulario_botones centrar">
+                    <button type="submit" class="guardar">Crear cuenta</button>
+                </div>
+
+            </form>
             @endif
 
         </div>

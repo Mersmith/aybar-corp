@@ -70,7 +70,7 @@
     <div class="contenedor_nav_links" :class="{ 'estilo_abierto_contenedor_nav_links': estadoNavAbierto }">
         <div class="contenedor_logo">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('assets/imagen/logo.png') }}"
+                <img src="{{ asset('assets/imagen/logo-2.png') }}"
                     alt="">
             </a>
         </div>
