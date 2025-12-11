@@ -6,13 +6,13 @@
         <div class="swiper-wrapper">
             @foreach ($p_elemento['proyectos'] as $post)
             <div class="swiper-slide">
-                <div class="post_imagen_contenedor">
+                <div class="proyecto_card_contenedor">
                     <img src="{{ $post->imagen }}">
                     <div>
                         <p class="titulo">{{ $post->titulo }}</p>
                         <p class="subtitulo">{{ $post->subtitulo }}</p>
                     </div>
-                    <a href="" class="g_boton_personalizado amarillo">VISITAR PROYECTO</a>
+                    <a href="{{ route('grupo-proyecto.show', $post->slug) }}" class="g_boton_personalizado amarillo">VISITAR PROYECTO</a>
                 </div>
             </div>
             @endforeach

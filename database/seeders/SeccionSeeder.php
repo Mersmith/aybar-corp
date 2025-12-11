@@ -256,6 +256,42 @@ class SeccionSeeder extends Seeder
                 ],
                 'activo' => true,
             ],
+            [ //9
+                'nombre' => 'Banner - PROYECTOS',
+                'tipo' => 'bloque-5',
+                'contenido' => [
+                    'boton' => [
+                        'link' => '',
+                        'icono' => '',
+                        'texto' => '',
+                        'fondo_color' => '',
+                        'texto_color' => '',
+                    ],
+                    'imagen' => asset('assets/imagenes/banner/banner-2.jpg'),
+                    'titulo' => 'PROYECTOS',
+                    'subtitulo' => '',
+                    'imagen_seo' => '',
+                ],
+                'activo' => true,
+            ],
+            [ //10
+                'nombre' => 'Banner - BLOG',
+                'tipo' => 'bloque-5',
+                'contenido' => [
+                    'boton' => [
+                        'link' => '',
+                        'icono' => '',
+                        'texto' => '',
+                        'fondo_color' => '',
+                        'texto_color' => '',
+                    ],
+                    'imagen' => asset('assets/imagenes/banner/banner-3.jpg'),
+                    'titulo' => 'BLOG',
+                    'subtitulo' => '',
+                    'imagen_seo' => '',
+                ],
+                'activo' => true,
+            ],
             /*[
                 'nombre' => 'Slider - Landing Libro',
                 'tipo' => 'bloque-1',

@@ -31,7 +31,7 @@ class PaginaSeeder extends Seeder
             [
                 'tipo' => 'personalizado',
                 'titulo' => 'Proyectos',
-                'slug' => 'proyectos',
+                'slug' => 'grupo-proyecto',
                 'contenido' => [],
                 'activo' => true,
             ],

@@ -29,8 +29,8 @@ class MenuSeeder extends Seeder
 
         $proyectos = Menu::create([
             'nombre' => 'PROYECTOS',
-            'slug' => 'proyectos',
-            'url' => '/proyectos',
+            'slug' => 'grupo-proyecto',
+            'url' => '/grupo-proyecto',
             'orden' => 3,
         ]);
 

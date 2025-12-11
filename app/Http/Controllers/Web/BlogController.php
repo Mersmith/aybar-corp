@@ -10,8 +10,10 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Blog::where('activo', true)->latest()->paginate(6);
-        return view('web.paginas.blog', compact('posts'));
+        $bloque5_1 = app(SeccionController::class)->getSeccionPorTipo(10, 'bloque-5');
+
+        $posts = Blog::where('activo', true)->latest()->paginate(8);
+        return view('web.paginas.blog', compact('posts', 'bloque5_1'));
     }
 
     public function show($slug)

@@ -648,6 +648,14 @@
                         "url": "/admin/comprobante-pago",
                         "nivel": 3,
                         "submenus": []
+                    },
+                    {
+                        "id": 113,
+                        "nombre": "Stock",
+                        "ruta": "admin.comprobante-pago.vista.todo",
+                        "url": "/admin/comprobante-pago",
+                        "nivel": 3,
+                        "submenus": []
                     }
                 ]
             }
