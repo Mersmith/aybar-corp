@@ -3,8 +3,8 @@
 @section('titulo', 'Libro de Reclamaciones')
 
 @section('contenido')
-    <div class="r_centrar_pagina">
-        <div class="r_pading_pagina r_gap_pagina">
+    <div class="g_centrar_pagina">
+        <div class="r_pading_pagina g_gap_pagina">
 
             <div class="r_contenedor_columna">
                 @include('partials.titulo-encabezado', [

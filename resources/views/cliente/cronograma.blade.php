@@ -3,9 +3,9 @@
 @section('titulo', 'Lotes cliente')
 
 @section('contenidoCliente')
-    <div class="r_centrar_pagina">
-        <div class="r_pading_pagina">
-            <div class="r_gap_pagina r_margin_top_40 r_margin_bottom_40">
+    <div class="g_centrar_pagina">
+        <div class="g_pading_pagina">
+            <div class="g_gap_pagina g_margin_top_40 g_margin_bottom_40">
                 <div class="cronograma_contenedor">
 
                     <h2 class="titulo">CRONOGRAMA DE PAGOS COBRANZAS</h2>

@@ -6,22 +6,22 @@
 
     @include('bloques.bloque-1', ['p_elemento' => $bloque1_1])
 
-    <div class="r_centrar_pagina">
+    <div class="g_centrar_pagina">
         <div class="r_pading_pagina">
-            <div class="r_gap_pagina">
+            <div class="g_pading_paginas">
                 @include('bloques.bloque-2', ['p_elemento' => $bloque2_1])
             </div>
         </div>
     </div>
 
 
-    <div class="r_margin_top_40">
+    <div class="g_margin_top_40">
         @include('bloques.bloque-4', ['p_elemento' => $bloque4_1])
     </div>
 
-    <div class="r_centrar_pagina">
+    <div class="g_centrar_pagina">
         <div class="r_pading_pagina">
-            <div class="r_gap_pagina">
+            <div class="g_pading_paginas">
 
                 <div class="landing_grid">
                     <!-- INFORMACIÓN -->
@@ -109,15 +109,15 @@
         </div>
     </div>
 
-    <div class="r_centrar_pagina">
-        <div class="r_pading_pagina r_gap_pagina">
+    <div class="g_centrar_pagina">
+        <div class="r_pading_pagina g_gap_pagina">
             <div class="r_contenedor_columna">
                 @include('bloques.bloque-2', ['p_elemento' => $bloque2_2])
             </div>
         </div>
     </div>
 
-    <div class="r_margin_top_40">
+    <div class="g_margin_top_40">
         @include('bloques.bloque-4', ['p_elemento' => $bloque4_2])
     </div>
 @endsection

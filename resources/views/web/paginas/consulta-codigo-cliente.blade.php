@@ -4,8 +4,8 @@
 
 @section('contenido')
 
-<div class="r_centrar_pagina">
-    <div class="r_pading_pagina">
+<div class="g_centrar_pagina">
+    <div class="g_pading_pagina">
         <div class="consulta_codigo_cliente">
             <div class="card_consulta">
                 <div class="card_consulta_cabecera">

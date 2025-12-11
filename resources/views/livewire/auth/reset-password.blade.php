@@ -30,7 +30,7 @@
 
                 <p class="descripcion_formulario">Ingrese su nueva contraseña para continuar.</p>
 
-                <div class="r_gap_pagina r_margin_top_40">
+                <div class="g_gap_pagina g_margin_top_40">
 
                     @if (session('status'))
                         <div class="g_alerta_succes">

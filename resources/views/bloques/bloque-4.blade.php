@@ -27,7 +27,7 @@ $boton_link = $boton['link'];
     @endif
 
     <div class="cuerpo">
-        <div class="r_centrar_pagina" @if (!empty($align)) style="text-align: {{ $align }};" @endif>
+        <div class="g_centrar_pagina" @if (!empty($align)) style="text-align: {{ $align }};" @endif>
             @if (!empty($titulo))
             @include('partials.titulo-encabezado', [
             'titulo' => $titulo,

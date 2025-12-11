@@ -31,7 +31,7 @@
 
                 <p class="descripcion_formulario">Le hemos enviado un enlace para validar su cuenta.</p>
 
-                <div class="r_gap_pagina r_margin_top_40">
+                <div class="g_gap_pagina g_margin_top_40">
                     @if (session('status') == 'verification-link-sent')
                         <div class="g_alerta_succes">
                             <i class="fa-solid fa-circle-check"></i>

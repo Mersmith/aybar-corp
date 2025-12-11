@@ -110,7 +110,7 @@
 
                     <li class="menu_item"><a href="/contacto"
                             class="boton_personalizado boton_personalizado_amarillo_v2">CONTÁCTANOS</a></li>
-                    <li class="menu_item"><a href="/contacto"
+                    <li class="menu_item"><a href="/consulta-codigo-cliente"
                             class="boton_personalizado boton_personalizado_amarillo_v2">CONSULTA TU CÓDIGO</a></li>
                 </ul>
             </nav>

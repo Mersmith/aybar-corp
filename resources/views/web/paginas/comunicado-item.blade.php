@@ -78,7 +78,7 @@
                         @endphp
                         @if (!empty($lista) && is_array($lista))
 
-                            <div class="documentos_adjuntos r_margin_top_40">
+                            <div class="documentos_adjuntos g_margin_top_40">
                                 <h2><strong class="r_negrita">Documentos adjuntos:</strong></h2>
                                 @foreach ($lista as $item)
                                     @if (!empty($item['link']))
