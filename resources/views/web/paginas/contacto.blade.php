@@ -37,70 +37,7 @@
 
                 <!-- FORMULARIO -->
                 <div class="contacto_formulario">
-                    @if (session('success'))
-                    <div class="g_alerta_succes">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <div>{{ session('success') }}</div>
-                    </div>
-                    @endif
-
-                    @if ($errors->any())
-                    <div class="g_alerta_error">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        <div>
-                            <strong>Por favor corrige los siguientes errores:</strong>
-                        </div>
-                    </div>
-                    @endif
-
-                    <form action="{{ route('contacto.enviar') }}" method="POST" class="formulario_flex formulario">
-                        @csrf
-
-                        <div class="g_margin_top_20">
-                            <label for="nombre">Nombres</label>
-                            <input type="text" name="nombre" placeholder="" value="{{ old('nombre') }}" required>
-                            @error('nombre')
-                            <div class="mensaje_error">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="g_margin_top_20">
-                            <label for="email">Correo</label>
-                            <input type="email" name="email" placeholder="" value="{{ old('email') }}" required>
-                            @error('email')
-                            <div class="mensaje_error">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="g_margin_top_20">
-                            <label for="telefono">Celular</label>
-                            <input type="text" name="telefono" placeholder="" value="{{ old('telefono') }}">
-                            @error('telefono')
-                            <div class="mensaje_error">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="g_margin_top_20">
-                            <label for="asunto">Asunto</label>
-                            <input type="text" name="asunto" placeholder="" value="{{ old('asunto') }}">
-                            @error('asunto')
-                            <div class="mensaje_error">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="g_margin_top_20">
-                            <label for="asunto">Detalle</label>
-                            <textarea name="mensaje" placeholder="" required rows="5">{{ old('mensaje') }}</textarea>
-                            @error('mensaje')
-                            <div class="mensaje_error">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-                        <div class="g_margin_top_20 formulario_botones centrar">
-                            <button type="submit" class="guardar"><i class="fa-solid fa-paper-plane"></i>
-                                Enviar</button>
-                        </div>
-                    </form>
+                    @livewire('web.contacto.formulario-contacto-livewire')
                 </div>
             </div>
         </div>

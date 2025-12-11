@@ -49,7 +49,6 @@ Route::get('/comunicado', [ComunicadoController::class, 'index'])->name('comunic
 Route::get('/comunicado/{slug}', [ComunicadoController::class, 'show'])->name('comunicado.show'); //pagina personalizada
 
 Route::get('/contacto', [ContactoController::class, 'index'])->name('contacto.index'); //pagina personalizada
-Route::post('/contacto/enviar', [ContactoController::class, 'enviar'])->name('contacto.enviar');
 
 Route::get('/libro-de-reclamaciones', [LibroReclamacionController::class, 'index'])->name('reclamaciones.index'); //pagina personalizada
 Route::post('/libro-de-reclamaciones/enviar', [LibroReclamacionController::class, 'enviar'])->name('reclamaciones.enviar');

@@ -16,10 +16,13 @@ class FormularioPaginaContacto extends Model
         'nombre',
         'apellido',
         'email',
+        'dni',
         'telefono',
         'asunto',
         'mensaje',
         'leido',
+        'politica_uno',
+        'politica_dos',
         'estado',
     ];
 

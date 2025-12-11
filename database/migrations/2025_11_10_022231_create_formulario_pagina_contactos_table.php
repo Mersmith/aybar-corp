@@ -19,10 +19,13 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('apellido')->nullable();
             $table->string('email')->nullable();
+            $table->string('dni')->nullable();
             $table->string('telefono')->nullable();
             $table->string('asunto')->nullable();
             $table->text('mensaje')->nullable();
             $table->boolean('leido')->default(false);
+            $table->boolean('politica_uno')->default(false)->comment('Tratamiento de datos personales');
+            $table->boolean('politica_dos')->default(false)->comment('Politicas comerciales');
             $table->enum('estado', ['nuevo', 'revision', 'resuelto', 'cerrado'])->default('nuevo');
 
             $table->timestamps();
