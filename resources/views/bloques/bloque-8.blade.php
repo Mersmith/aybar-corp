@@ -62,7 +62,7 @@
                     slidesPerView: 1,
                     slidesPerGroup: 1,
                     spaceBetween: 20,
-                    autoplay: {{ $slidesCount > 1 ? '{ delay: 3500, disableOnInteraction: false }' : 'false' }},
+                    autoplay: {{ $slidesCount > 1 ? '{ delay: 5500, disableOnInteraction: false }' : 'false' }},
                     loop: {{ $slidesCount > 1 ? 'true' : 'false' }},
                     grabCursor: true,
                 });

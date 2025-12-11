@@ -135,6 +135,18 @@
     color: var(--color-blanco);
 }
 
+.boton_personalizado_blanco_v2 {
+    background: var(--color-plomo);
+    border: 1px solid var(--color-gris);
+    color: var(--color-verde);
+}
+
+.boton_personalizado_blanco_v2:hover {
+    background: var(--color-amarillo);
+    border: 1px solid var(--color-amarillo);
+    color: var(--color-verde);
+}
+
 .boton_personalizado_amarillo {
     background: var(--color-amarillo);
     border: 1px solid var(--color-amarillo);
@@ -145,6 +157,18 @@
     background: var(--color-verde);
     border: 1px solid var(--color-amarillo);
     color: var(--color-blanco);
+}
+
+.boton_personalizado_amarillo_v2 {
+    background: var(--color-amarillo);
+    border: 1px solid var(--color-amarillo);
+    color: var(--color-verde);
+}
+
+.boton_personalizado_amarillo_v2:hover {
+    background: var(--color-blanco);
+    border: 1px solid var(--color-amarillo);
+    color: var(--color-verde);
 }
 
 /* Icono desplegable */

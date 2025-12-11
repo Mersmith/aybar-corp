@@ -67,22 +67,22 @@
 
                     @guest
                     <li class="menu_item">
-                        <a href="/ingresar" class="boton_personalizado boton_personalizado_blanco">INGRESAR</a>
+                        <a href="/ingresar" class="boton_personalizado boton_personalizado_blanco_v2">INGRESAR</a>
                     </li>
                     @else
                     @if (auth()->user()->role === 'cliente')
                     <li class="menu_item">
-                        <a href="{{ route('cliente.home') }}" class="boton_personalizado boton_personalizado_blanco">MI
+                        <a href="{{ route('cliente.home') }}" class="boton_personalizado boton_personalizado_blanco_v2">MI
                             CUENTA</a>
                     </li>
 
                     <li class="menu_item menu_cliente">
                         <a href="{{ route('cliente.home') }}"
-                            class="boton_personalizado boton_personalizado_blanco">DIRECCION</a>
+                            class="boton_personalizado boton_personalizado_blanco_v2">DIRECCION</a>
                     </li>
 
                     <li class="menu_item menu_cliente">
-                        <a href="{{ route('cliente.lote') }}" class="boton_personalizado boton_personalizado_blanco">MIS
+                        <a href="{{ route('cliente.lote') }}" class="boton_personalizado boton_personalizado_blanco_v2">MIS
                             LOTES</a>
                     </li>
 
@@ -97,11 +97,11 @@
                     @elseif (auth()->user()->role === 'admin')
                     <li class="menu_item">
                         <a href="{{ route('admin.home') }}"
-                            class="boton_personalizado boton_personalizado_blanco">BACKOFFICE</a>
+                            class="boton_personalizado boton_personalizado_blanco_v2">BACKOFFICE</a>
                     </li>
                     @elseif (auth()->user()->role === 'socio')
                     <li class="menu_item">
-                        <a href="{{ route('socio.home') }}" class="boton_personalizado boton_personalizado_blanco">MI
+                        <a href="{{ route('socio.home') }}" class="boton_personalizado boton_personalizado_blanco_v2">MI
                             PERFIL</a>
                     </li>
                     @endif
@@ -109,9 +109,9 @@
                     @endguest
 
                     <li class="menu_item"><a href="/contacto"
-                            class="boton_personalizado boton_personalizado_verde">CONTÁCTANOS</a></li>
+                            class="boton_personalizado boton_personalizado_amarillo_v2">CONTÁCTANOS</a></li>
                     <li class="menu_item"><a href="/contacto"
-                            class="boton_personalizado boton_personalizado_amarillo">REFIERE AQUÍ</a></li>
+                            class="boton_personalizado boton_personalizado_amarillo_v2">CONSULTA TU CÓDIGO</a></li>
                 </ul>
             </nav>
 

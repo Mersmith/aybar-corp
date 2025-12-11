@@ -51,7 +51,10 @@
 
 .g_fondo_blanco {
     background: var(--color-blanco);
-    border-radius: var(--borde-radius);
+}
+
+.g_fondo_verde {
+    background: var(--color-verde);
 }
 
 @media (max-width: 768px) {

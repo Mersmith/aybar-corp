@@ -12,7 +12,7 @@ $lista = $p['lista'] ?? [];
 'titulo' => $titulo,
 'descripcion' => $titulo_descripcion,
 'alineacion' => 'center',
-'color' => 'color_1',
+'color' => 'color_2',
 ])
 
 @if (!empty($lista) && is_array($lista))

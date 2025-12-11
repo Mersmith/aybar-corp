@@ -42,7 +42,7 @@ $idSwiper = $p_elemento->id ?? 'default';
         spaceBetween: 20,
         grabCursor: true,
         loop: {{ $slidesCount > 1 ? 'true' : 'false' }},
-        autoplay: {{ $slidesCount > 1 ? '{ delay: 3500, disableOnInteraction: false }' : 'false' }},
+        autoplay: {{ $slidesCount > 1 ? '{ delay: 5500, disableOnInteraction: false }' : 'false' }},
         breakpoints: {
             1024: { slidesPerView: 3, spaceBetween: 20 },
             768: { slidesPerView: 2, spaceBetween: 20 },

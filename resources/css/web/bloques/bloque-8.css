@@ -51,7 +51,7 @@
     display: block;
     margin: 0 auto 15px auto;
     max-width: 450px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .bloque_8 .testimonio_datos {
@@ -83,9 +83,9 @@
 }
 
 .bloque_8 .testimonio_datos .icono_comilla {
-    font-size: 80px;
+    font-size: 90px;
     line-height: 0.5;
-    color: var(--color-blanco);
+    color: var(--color-amarillo);
     font-weight: bold;
     display: block;
 }
