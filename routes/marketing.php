@@ -2,7 +2,7 @@
 
 use App\Livewire\Marketing\Imagen\ImagenTodoLivewire;
 use App\Livewire\Marketing\Archivo\ArchivoTodoLivewire;
-use App\Http\Controllers\ImagenController;
+use App\Http\Controllers\Admin\ImagenController;
 
 use App\Livewire\Marketing\Blog\BlogTodoLivewire;
 use App\Livewire\Marketing\Blog\BlogCrearLivewire;

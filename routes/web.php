@@ -1,18 +1,18 @@
 <?php
 
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Web\InicioController;
+use App\Http\Controllers\Web\NosotrosController;
+use App\Http\Controllers\Web\BlogController;
+use App\Http\Controllers\Web\LoginController;
+use App\Http\Controllers\Web\ContactoController;
+use App\Http\Controllers\Web\PaginaController;
+use App\Http\Controllers\Web\LibroReclamacionController;
 use App\Http\Controllers\ComunicadoController;
-use App\Http\Controllers\ConsultaCodigoClienteController;
+use App\Http\Controllers\Web\ConsultaCodigoClienteController;
 use App\Http\Controllers\FormularioLandingController;
-use App\Http\Controllers\FormularioLibroReclamacionController;
-use App\Http\Controllers\FormularioPaginaContactoController;
-use App\Http\Controllers\InicioController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\NosotrosController;
-use App\Http\Controllers\PaginaController;
 use App\Livewire\Web\Sesion\RegistrarClienteCrearLivewire;
 use App\Livewire\Web\Sesion\RegistrarSocioCrearLivewire;
-use App\Http\Controllers\VerificationController;
+use App\Http\Controllers\Web\VerificationController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [InicioController::class, 'index'])->name('home'); //pagina personalizada //ok
@@ -48,10 +48,10 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show'); 
 Route::get('/comunicado', [ComunicadoController::class, 'index'])->name('comunicado.index'); //pagina personalizada
 Route::get('/comunicado/{slug}', [ComunicadoController::class, 'show'])->name('comunicado.show'); //pagina personalizada
 
-Route::get('/contacto', [FormularioPaginaContactoController::class, 'index'])->name('contacto.index'); //pagina personalizada
-Route::post('/contacto/enviar', [FormularioPaginaContactoController::class, 'enviar'])->name('contacto.enviar');
+Route::get('/contacto', [ContactoController::class, 'index'])->name('contacto.index'); //pagina personalizada
+Route::post('/contacto/enviar', [ContactoController::class, 'enviar'])->name('contacto.enviar');
 
-Route::get('/libro-de-reclamaciones', [FormularioLibroReclamacionController::class, 'index'])->name('reclamaciones.index'); //pagina personalizada
-Route::post('/libro-de-reclamaciones/enviar', [FormularioLibroReclamacionController::class, 'enviar'])->name('reclamaciones.enviar');
+Route::get('/libro-de-reclamaciones', [LibroReclamacionController::class, 'index'])->name('reclamaciones.index'); //pagina personalizada
+Route::post('/libro-de-reclamaciones/enviar', [LibroReclamacionController::class, 'enviar'])->name('reclamaciones.enviar');
 
 Route::get('/{slug?}', [PaginaController::class, 'show'])->name('pagina.mostrar');

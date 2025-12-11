@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
+
+use App\Http\Controllers\Controller;
 
 use App\Models\FormularioLibroReclamacion;
 use Illuminate\Http\Request;
 
-class FormularioLibroReclamacionController extends Controller
+class LibroReclamacionController extends Controller
 {
     public function index()
     {
