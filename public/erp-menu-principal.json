@@ -6,6 +6,7 @@
         "url": "#",
         "icono": "fa-solid fa-circle-user",
         "nivel": 1,
+        "roles": ["super-admin"],
         "submenus": [
             {
                 "id": 41,
@@ -14,6 +15,7 @@
                 "url": "/admin/perfil",
                 "icono": "fa-solid fa-user-tie",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": []
             }
         ]
@@ -25,6 +27,7 @@
         "url": "#",
         "icono": "fa-solid fa-city",
         "nivel": 1,
+        "roles": ["super-admin"],
         "submenus": [
             {
                 "id": 39,
@@ -33,6 +36,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-archway",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -40,6 +44,7 @@
                         "ruta": "admin.unidad-negocio.vista.todo",
                         "url": "/admin/unidad-negocio",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -48,6 +53,7 @@
                         "ruta": "admin.unidad-negocio.vista.crear",
                         "url": "/admin/unidad-negocio/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -59,6 +65,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-map-location-dot",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -66,6 +73,7 @@
                         "ruta": "admin.sede.vista.todo",
                         "url": "/admin/sede",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -74,6 +82,7 @@
                         "ruta": "admin.sede.vista.crear",
                         "url": "/admin/sede/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -85,6 +94,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-shapes",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -92,6 +102,7 @@
                         "ruta": "admin.area.vista.todo",
                         "url": "/admin/area",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -100,6 +111,7 @@
                         "ruta": "admin.area.vista.crear",
                         "url": "/admin/area/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -113,6 +125,7 @@
         "url": "#",
         "icono": "fa-solid fa-users-cog",
         "nivel": 1,
+        "roles": ["super-admin"],
         "submenus": [
             {
                 "id": 50,
@@ -121,6 +134,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-user-shield",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -128,6 +142,7 @@
                         "ruta": "admin.rol.vista.todo",
                         "url": "/admin/rol",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -136,6 +151,7 @@
                         "ruta": "admin.rol.vista.crear",
                         "url": "/admin/rol/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -147,6 +163,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-user-cog",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -154,6 +171,7 @@
                         "ruta": "admin.permiso.vista.todo",
                         "url": "/admin/permiso",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -162,6 +180,7 @@
                         "ruta": "admin.permiso.vista.crear",
                         "url": "/admin/permiso/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -173,6 +192,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-user-tie",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -180,6 +200,7 @@
                         "ruta": "admin.usuario.vista.todo",
                         "url": "/admin/usuario",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -188,6 +209,7 @@
                         "ruta": "admin.usuario.vista.crear",
                         "url": "/admin/usuario/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -199,6 +221,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-users",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -206,6 +229,7 @@
                         "ruta": "admin.cliente.vista.todo",
                         "url": "/admin/cliente",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -214,6 +238,7 @@
                         "ruta": "admin.cliente.vista.crear",
                         "url": "/admin/cliente/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -227,6 +252,7 @@
         "url": "#",
         "icono": "fa-solid fa-photo-film",
         "nivel": 1,
+        "roles": ["super-admin"],
         "submenus": [
             {
                 "id": 41,
@@ -235,6 +261,7 @@
                 "url": "/admin/imagen",
                 "icono": "fa-regular fa-image",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": []
             },
             {
@@ -244,6 +271,7 @@
                 "url": "/admin/archivo",
                 "icono": "fa-solid fa-file-lines text-gray-600",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": []
             }
         ]
@@ -255,6 +283,7 @@
         "url": "#",
         "icono": "fa-solid fa-calendar-days",
         "nivel": 1,
+        "roles": ["super-admin"],
         "submenus": [
             {
                 "id": 44,
@@ -263,6 +292,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-lightbulb",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -270,6 +300,7 @@
                         "ruta": "admin.motivo-cita.vista.todo",
                         "url": "/admin/motivo-cita",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -278,6 +309,7 @@
                         "ruta": "admin.motivo-cita.vista.crear",
                         "url": "/admin/motivo-cita/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -289,6 +321,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-lock-open",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -296,6 +329,7 @@
                         "ruta": "admin.estado-cita.vista.todo",
                         "url": "/admin/estado-cita",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -304,6 +338,7 @@
                         "ruta": "admin.estado-cita.vista.crear",
                         "url": "/admin/estado-cita/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -315,6 +350,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-calendar",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -322,6 +358,7 @@
                         "ruta": "admin.cita.vista.todo",
                         "url": "/admin/cita",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -330,6 +367,7 @@
                         "ruta": "admin.cita.vista.crear",
                         "url": "/admin/cita/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -341,6 +379,7 @@
                 "url": "/admin/cita/calendario",
                 "icono": "fa-solid fa-calendar-check",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": []
             },
             {
@@ -350,6 +389,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-chart-line",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -357,6 +397,7 @@
                         "ruta": "admin.reporte-cita.vista.todo",
                         "url": "/admin/reporte-cita",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -370,6 +411,7 @@
         "url": "#",
         "icono": "fa-solid fa-headset",
         "nivel": 1,
+        "roles": ["super-admin"],
         "submenus": [
             {
                 "id": 42,
@@ -378,6 +420,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-tag",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -385,6 +428,7 @@
                         "ruta": "admin.tipo-solicitud.vista.todo",
                         "url": "/admin/tipo-solicitud",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -393,6 +437,7 @@
                         "ruta": "admin.tipo-solicitud.vista.crear",
                         "url": "/admin/tipo-solicitud/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -404,6 +449,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-bolt",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -411,6 +457,7 @@
                         "ruta": "admin.prioridad-ticket.vista.todo",
                         "url": "/admin/prioridad-ticket",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -419,6 +466,7 @@
                         "ruta": "admin.prioridad-ticket.vista.crear",
                         "url": "/admin/prioridad-ticket/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -430,6 +478,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-lock-open",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -437,6 +486,7 @@
                         "ruta": "admin.estado-ticket.vista.todo",
                         "url": "/admin/estado-ticket",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -445,6 +495,7 @@
                         "ruta": "admin.estado-ticket.vista.crear",
                         "url": "/admin/estado-ticket/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -456,6 +507,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-bullhorn",
                 "nivel": 2,
+                 "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -463,6 +515,7 @@
                         "ruta": "admin.canal.vista.todo",
                         "url": "/admin/canal",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -471,6 +524,7 @@
                         "ruta": "admin.canal.vista.crear",
                         "url": "/admin/canal/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -482,6 +536,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-clipboard-check",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -489,6 +544,7 @@
                         "ruta": "admin.ticket.vista.todo",
                         "url": "/admin/ticket",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -497,6 +553,7 @@
                         "ruta": "admin.ticket.vista.crear",
                         "url": "/admin/ticket/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -508,6 +565,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-chart-line",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -515,6 +573,7 @@
                         "ruta": "admin.reporte-ticket.vista.todo",
                         "url": "/admin/reporte-ticket",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -528,6 +587,7 @@
         "url": "#",
         "icono": "fa-solid fa-map",
         "nivel": 1,
+        "roles": ["super-admin"],
         "submenus": [
             {
                 "id": 42,
@@ -536,6 +596,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-shapes",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -543,6 +604,7 @@
                         "ruta": "admin.proyecto.vista.todo",
                         "url": "/admin/proyecto",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -551,6 +613,7 @@
                         "ruta": "admin.proyecto.vista.crear",
                         "url": "/admin/proyecto/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -562,6 +625,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-shapes",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -569,6 +633,7 @@
                         "ruta": "admin.lote.vista.todo",
                         "url": "/admin/lote",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -577,6 +642,7 @@
                         "ruta": "admin.lote.vista.crear",
                         "url": "/admin/lote/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -588,6 +654,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-shapes",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -595,6 +662,7 @@
                         "ruta": "admin.separacion-lote.vista.todo",
                         "url": "/admin/separacion-lote",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -603,6 +671,7 @@
                         "ruta": "admin.separacion-lote.vista.crear",
                         "url": "/admin/separacion-lote/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -614,6 +683,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-lock-open",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -621,6 +691,7 @@
                         "ruta": "admin.estado-comprobante-pago.vista.todo",
                         "url": "/admin/estado-comprobante-pago",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -629,6 +700,7 @@
                         "ruta": "admin.estado-comprobante-pago.vista.crear",
                         "url": "/admin/estado-comprobante-pago/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -640,6 +712,7 @@
                 "url": "#",
                 "icono": "fa-regular fa-image",
                 "nivel": 2,
+                "roles": ["super-admin", "supervisor gestor"],
                 "submenus": [
                     {
                         "id": 111,
@@ -647,6 +720,7 @@
                         "ruta": "admin.comprobante-pago.vista.todo",
                         "url": "/admin/comprobante-pago",
                         "nivel": 3,
+                        "roles": ["super-admin", "supervisor gestor"],
                         "submenus": []
                     },
                     {
@@ -655,6 +729,7 @@
                         "ruta": "admin.comprobante-pago.vista.todo",
                         "url": "/admin/comprobante-pago",
                         "nivel": 3,
+                        "roles": ["super-admin", "supervisor gestor"],
                         "submenus": []
                     }
                 ]
@@ -668,6 +743,7 @@
         "url": "#",
         "icono": "fa-solid fa-globe",
         "nivel": 1,
+        "roles": ["super-admin"],
         "submenus": [
             {
                 "id": 50,
@@ -676,6 +752,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-file-lines",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -683,6 +760,7 @@
                         "ruta": "admin.pagina.vista.todo",
                         "url": "/admin/pagina",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -691,6 +769,7 @@
                         "ruta": "admin.pagina.vista.crear",
                         "url": "/admin/pagina/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -702,6 +781,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-bars",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -709,6 +789,7 @@
                         "ruta": "admin.menu.vista.todo",
                         "url": "/admin/menu",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -717,6 +798,7 @@
                         "ruta": "admin.menu.vista.crear",
                         "url": "/admin/menu/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -728,6 +810,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-blog",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -735,6 +818,7 @@
                         "ruta": "admin.blog.vista.todo",
                         "url": "/admin/blog",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -743,6 +827,7 @@
                         "ruta": "admin.blog.vista.crear",
                         "url": "/admin/blog/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -754,6 +839,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-bullhorn",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -761,6 +847,7 @@
                         "ruta": "admin.comunicado.vista.todo",
                         "url": "/admin/comunicado",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -769,6 +856,7 @@
                         "ruta": "admin.comunicado.vista.crear",
                         "url": "/admin/comunicado/crear",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -780,6 +868,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-shapes",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 43,
@@ -787,6 +876,7 @@
                         "ruta": "#",
                         "url": "#",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": [
                             {
                                 "id": 111,
@@ -794,6 +884,7 @@
                                 "ruta": "admin.tipo-formulario.vista.todo",
                                 "url": "/admin/tipo-formulario",
                                 "nivel": 4,
+                                "roles": ["super-admin"],
                                 "submenus": []
                             },
                             {
@@ -802,6 +893,7 @@
                                 "ruta": "admin.tipo-formulario.vista.crear",
                                 "url": "/admin/tipo-formulario/crear",
                                 "nivel": 4,
+                                "roles": ["super-admin"],
                                 "submenus": []
                             }
                         ]
@@ -812,6 +904,7 @@
                         "ruta": "admin.formulario-pagina-contacto.vista.todo",
                         "url": "/admin/formulario-pagina-contacto",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -820,6 +913,7 @@
                         "ruta": "admin.formulario-libro-reclamacion.vista.todo",
                         "url": "/admin/formulario-libro-reclamacion",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -828,6 +922,7 @@
                         "ruta": "admin.formulario-landing.vista.todo",
                         "url": "/admin/formulario-landing",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]
@@ -839,6 +934,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-file-code",
                 "nivel": 2,
+                "roles": ["super-admin"],
                 "submenus": [
                     {
                         "id": 111,
@@ -846,6 +942,7 @@
                         "ruta": "admin.seccion.vista.todo",
                         "url": "/admin/seccion",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -854,6 +951,7 @@
                         "ruta": "admin.seccion.bloque-uno.vista.todo",
                         "url": "/admin/seccion/bloque-uno",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -862,6 +960,7 @@
                         "ruta": "admin.seccion.bloque-dos.vista.todo",
                         "url": "/admin/seccion/bloque-dos",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -870,6 +969,7 @@
                         "ruta": "admin.seccion.bloque-tres.vista.todo",
                         "url": "/admin/seccion/bloque-tres",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -878,6 +978,7 @@
                         "ruta": "admin.seccion.bloque-cuatro.vista.todo",
                         "url": "/admin/seccion/bloque-cuatro",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -886,6 +987,7 @@
                         "ruta": "admin.seccion.bloque-cinco.vista.todo",
                         "url": "/admin/seccion/bloque-cinco",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -894,6 +996,7 @@
                         "ruta": "admin.seccion.bloque-seis.vista.todo",
                         "url": "/admin/seccion/bloque-seis",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -902,6 +1005,7 @@
                         "ruta": "admin.seccion.bloque-siete.vista.todo",
                         "url": "/admin/seccion/bloque-siete",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -910,6 +1014,7 @@
                         "ruta": "admin.seccion.bloque-ocho.vista.todo",
                         "url": "/admin/seccion/bloque-ocho",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -918,6 +1023,7 @@
                         "ruta": "admin.seccion.bloque-nueve.vista.todo",
                         "url": "/admin/seccion/bloque-nueve",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -926,6 +1032,7 @@
                         "ruta": "admin.seccion.bloque-diez.vista.todo",
                         "url": "/admin/seccion/bloque-diez",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     },
                     {
@@ -934,6 +1041,7 @@
                         "ruta": "admin.seccion.bloque-once.vista.todo",
                         "url": "/admin/seccion/bloque-once",
                         "nivel": 3,
+                        "roles": ["super-admin"],
                         "submenus": []
                     }
                 ]

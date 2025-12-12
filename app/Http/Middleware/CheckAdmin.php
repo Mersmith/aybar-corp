@@ -16,11 +16,10 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->rol == 'admin') {
+        if (Auth::check() && Auth::user()->rol === 'admin') {
             return $next($request);
         }
 
-        // Puedes redirigir o abortar con 403
         abort(403, 'No tienes permiso para acceder a esta área.');
     }
 }

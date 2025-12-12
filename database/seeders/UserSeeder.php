@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
 
         for ($i = 1; $i <= 8; $i++) {
             $gestor = User::factory()->create([
-                'name' => "Supervisor Gestor $i",
+                'name' => "Gestor $i",
                 'email' => "gestor$i@example.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'admin',

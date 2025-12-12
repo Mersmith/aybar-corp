@@ -14,6 +14,9 @@ class InicioLivewire extends Component
 
     public $areasUsuario = [];
 
+    public $roles = [];
+    public $rolesConPermisos = [];
+
     public function mount()
     {
         $this->usuario = auth()->user();
@@ -24,6 +27,15 @@ class InicioLivewire extends Component
             ->areas()
             ->with(['tipos']) // pivot y tipos
             ->get();
+
+        $this->roles = $this->usuario->roles;
+
+        $this->rolesConPermisos = $this->usuario->roles->map(function ($rol) {
+            return [
+                'nombre' => $rol->name,
+                'permisos' => $rol->permissions->pluck('name'),
+            ];
+        });
     }
 
     public function actualizarDatos()

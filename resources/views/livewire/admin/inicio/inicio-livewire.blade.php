@@ -82,6 +82,41 @@
 
                 </div>
                 @endif
+
+                @if (count($rolesConPermisos))
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Roles y permisos</h4>
+
+                    <table class="tabla_eliminar">
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th>Rol</th>
+                                <th>Permisos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($rolesConPermisos as $index => $rol)
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ ucfirst($rol['nombre']) }}</td>
+                                <td>
+                                    @if ($rol['permisos']->count())
+                                    <div class="g_celda_wrap">
+                                        @foreach ($rol['permisos'] as $permiso)
+                                        <span class="g_badge">{{ $permiso }}</span>
+                                        @endforeach
+                                    </div>
+                                    @else
+                                    <span>—</span>
+                                    @endif
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                @endif
             </div>
         </div>
     </div>

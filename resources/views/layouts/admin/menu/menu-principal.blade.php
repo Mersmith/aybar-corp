@@ -9,6 +9,16 @@
     $seleccionadoNivel_3 = null;
     $seleccionadoNivel_4 = null;
 
+    // Obtener el rol del usuario autenticado
+    $userRoles = auth()->user()->getRoleNames();
+
+    // Filtrar el menú por roles
+    $menuPrincipal = $menuPrincipal->filter(function ($menuItem) use ($userRoles) {
+        // Comprobar si el usuario tiene alguno de los roles requeridos para este ítem del menú
+        return collect($menuItem['roles'])->intersect($userRoles)->isNotEmpty();
+    });
+
+    // Procedimiento para verificar el ítem seleccionado basado en la ruta actual
     foreach ($menuPrincipal as $dataNivel_1) {
         if ($dataNivel_1['url'] === $currentRoute) {
             $seleccionadoNivel_1 = $dataNivel_1['id'];
@@ -39,6 +49,7 @@
         }
     }
 @endphp
+
 
 <!--CONTENEDOR ASIDE-->
 <aside class="contenedor_aside" :class="{ 'estilo_abierto_contenedor_aside': estadoAsideAbierto }"

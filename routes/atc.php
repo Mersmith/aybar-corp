@@ -120,12 +120,15 @@ Route::prefix('reporte-cita')->name('reporte-cita.vista.')->group(function () {
 });
 
 Route::prefix('estado-comprobante-pago')->name('estado-comprobante-pago.vista.')->group(function () {
-    Route::get('/', EstadoComprobantePagoTodoLivewire::class)->name('todo')->middleware('role:super-admin|supervisor gestor');
-    Route::get('/crear', EstadoComprobantePagoCrearLivewire::class)->name('crear')->middleware('role:super-admin|supervisor gestor');;
-    Route::get('/editar/{id}', EstadoComprobantePagoEditarLivewire::class)->name('editar')->middleware('role:super-admin|supervisor gestor');;
+    Route::get('/', EstadoComprobantePagoTodoLivewire::class)->name('todo');
+    Route::get('/crear', EstadoComprobantePagoCrearLivewire::class)->name('crear');
+    Route::get('/editar/{id}', EstadoComprobantePagoEditarLivewire::class)->name('editar');
 });
 
-Route::prefix('comprobante-pago')->name('comprobante-pago.vista.')->group(function () {
-    Route::get('/', ComprobantePagoTodoLivewire::class)->name('todo');
-    Route::get('/editar/{id}', ComprobantePagoEditarLivewire::class)->name('editar');
-});
+Route::prefix('comprobante-pago')
+    ->name('comprobante-pago.vista.')
+    ->middleware(['role:super-admin|supervisor gestor'])
+    ->group(function () {
+        Route::get('/', ComprobantePagoTodoLivewire::class)->name('todo');
+        Route::get('/editar/{id}', ComprobantePagoEditarLivewire::class)->name('editar');
+    });
