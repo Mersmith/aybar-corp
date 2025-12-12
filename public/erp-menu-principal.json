@@ -15,7 +15,7 @@
                 "url": "/admin/perfil",
                 "icono": "fa-solid fa-user-tie",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor gestor", "gestor"],
                 "submenus": []
             }
         ]

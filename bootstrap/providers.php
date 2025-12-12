@@ -5,4 +5,5 @@ return [
     App\Providers\FortifyServiceProvider::class,
     App\Providers\VoltServiceProvider::class,
     App\Providers\LayoutWebServiceProvider::class,
+    App\Providers\LayoutAdminServiceProvider::class,
 ];
