@@ -23,6 +23,27 @@ class RolesYPermisosSeeder extends Seeder
             'evidencia-pago-editar',
             'evidencia-pago-eliminar',
             'evidencia-pago-validar',
+            'tipo-solicitud-ver',
+            'tipo-solicitud-crear',
+            'tipo-solicitud-editar',
+            'tipo-solicitud-eliminar',
+            'prioridad-ticket-ver',
+            'prioridad-ticket-crear',
+            'prioridad-ticket-editar',
+            'prioridad-ticket-eliminar',
+            'estado-ticket-ver',
+            'estado-ticket-crear',
+            'estado-ticket-editar',
+            'estado-ticket-eliminar',
+            'canal-ver',
+            'canal-crear',
+            'canal-editar',
+            'canal-eliminar',
+            'ticket-ver',
+            'ticket-crear',
+            'ticket-editar',
+            'ticket-eliminar',
+            'ticket-reporte-ver',
         ];
 
         foreach ($permisos as $permiso) {
@@ -36,6 +57,8 @@ class RolesYPermisosSeeder extends Seeder
             'super-admin',
             'supervisor gestor',
             'gestor',
+            'supervisor atc',
+            'atc',
             'cliente',
             'socio',
         ];
@@ -48,6 +71,8 @@ class RolesYPermisosSeeder extends Seeder
         $superAdmin = Role::findByName('super-admin');
         $supervisorGestor = Role::findByName('supervisor gestor');
         $gestor = Role::findByName('gestor');
+        $supervisorAtc = Role::findByName('supervisor atc');
+        $atc = Role::findByName('atc');
         $cliente = Role::findByName('cliente');
         $socio = Role::findByName('socio');
 
@@ -61,9 +86,6 @@ class RolesYPermisosSeeder extends Seeder
             'estado-evidencia-pago-crear',
             'estado-evidencia-pago-editar',
             'estado-evidencia-pago-eliminar',
-            'evidencia-pago-ver',
-            'evidencia-pago-crear',
-            'evidencia-pago-editar',
             'evidencia-pago-eliminar',
             'evidencia-pago-validar',
         ]);
@@ -72,6 +94,33 @@ class RolesYPermisosSeeder extends Seeder
             'evidencia-pago-ver',
             'evidencia-pago-crear',
             'evidencia-pago-editar',
+        ]);
+
+        $supervisorAtc->givePermissionTo([
+            'tipo-solicitud-ver',
+            'tipo-solicitud-crear',
+            'tipo-solicitud-editar',
+            'tipo-solicitud-eliminar',
+            'prioridad-ticket-ver',
+            'prioridad-ticket-crear',
+            'prioridad-ticket-editar',
+            'prioridad-ticket-eliminar',
+            'estado-ticket-ver',
+            'estado-ticket-crear',
+            'estado-ticket-editar',
+            'estado-ticket-eliminar',
+            'canal-ver',
+            'canal-crear',
+            'canal-editar',
+            'canal-eliminar',
+        ]);
+
+        $atc->givePermissionTo([
+            'ticket-ver',
+            'ticket-crear',
+            'ticket-editar',
+            'ticket-eliminar',
+            'ticket-reporte-ver',
         ]);
     }
 }

@@ -411,7 +411,7 @@
         "url": "#",
         "icono": "fa-solid fa-headset",
         "nivel": 1,
-        "roles": ["super-admin"],
+        "roles": ["super-admin", "supervisor atc", "atc"],
         "submenus": [
             {
                 "id": 42,
@@ -420,7 +420,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-tag",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -428,7 +428,7 @@
                         "ruta": "admin.tipo-solicitud.vista.todo",
                         "url": "/admin/tipo-solicitud",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     },
                     {
@@ -437,7 +437,7 @@
                         "ruta": "admin.tipo-solicitud.vista.crear",
                         "url": "/admin/tipo-solicitud/crear",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     }
                 ]
@@ -449,7 +449,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-bolt",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -457,7 +457,7 @@
                         "ruta": "admin.prioridad-ticket.vista.todo",
                         "url": "/admin/prioridad-ticket",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     },
                     {
@@ -466,7 +466,7 @@
                         "ruta": "admin.prioridad-ticket.vista.crear",
                         "url": "/admin/prioridad-ticket/crear",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     }
                 ]
@@ -478,7 +478,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-lock-open",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -486,7 +486,7 @@
                         "ruta": "admin.estado-ticket.vista.todo",
                         "url": "/admin/estado-ticket",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     },
                     {
@@ -495,7 +495,7 @@
                         "ruta": "admin.estado-ticket.vista.crear",
                         "url": "/admin/estado-ticket/crear",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     }
                 ]
@@ -507,7 +507,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-bullhorn",
                 "nivel": 2,
-                 "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -515,7 +515,7 @@
                         "ruta": "admin.canal.vista.todo",
                         "url": "/admin/canal",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     },
                     {
@@ -524,7 +524,7 @@
                         "ruta": "admin.canal.vista.crear",
                         "url": "/admin/canal/crear",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     }
                 ]
@@ -536,7 +536,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-clipboard-check",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc", "atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -544,7 +544,7 @@
                         "ruta": "admin.ticket.vista.todo",
                         "url": "/admin/ticket",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc", "atc"],
                         "submenus": []
                     },
                     {
@@ -553,7 +553,7 @@
                         "ruta": "admin.ticket.vista.crear",
                         "url": "/admin/ticket/crear",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc", "atc"],
                         "submenus": []
                     }
                 ]
@@ -565,7 +565,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-chart-line",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc", "atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -573,7 +573,7 @@
                         "ruta": "admin.reporte-ticket.vista.todo",
                         "url": "/admin/reporte-ticket",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc", "atc"],
                         "submenus": []
                     }
                 ]

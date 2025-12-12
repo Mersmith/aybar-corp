@@ -61,40 +61,58 @@ Route::prefix('area')->name('area.vista.')->group(function () {
     Route::get('/solicitud/{id}', AreaSolicitudLivewire::class)->name('solicitud');
 });
 
-Route::prefix('tipo-solicitud')->name('tipo-solicitud.vista.')->group(function () {
-    Route::get('/', TipoSolicitudTodoLivewire::class)->name('todo');
-    Route::get('/crear', TipoSolicitudCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', TipoSolicitudEditarLivewire::class)->name('editar');
-});
+Route::prefix('tipo-solicitud')
+    ->name('tipo-solicitud.vista.')
+    ->middleware(['role:super-admin|supervisor atc'])
+    ->group(function () {
+        Route::get('/', TipoSolicitudTodoLivewire::class)->name('todo');
+        Route::get('/crear', TipoSolicitudCrearLivewire::class)->name('crear');
+        Route::get('/editar/{id}', TipoSolicitudEditarLivewire::class)->name('editar');
+    });
 
-Route::prefix('estado-ticket')->name('estado-ticket.vista.')->group(function () {
-    Route::get('/', EstadoTicketTodoLivewire::class)->name('todo');
-    Route::get('/crear', EstadoTicketCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', EstadoTicketEditarLivewire::class)->name('editar');
-});
+Route::prefix('estado-ticket')
+    ->name('estado-ticket.vista.')
+    ->middleware(['role:super-admin|supervisor atc'])
+    ->group(function () {
+        Route::get('/', EstadoTicketTodoLivewire::class)->name('todo');
+        Route::get('/crear', EstadoTicketCrearLivewire::class)->name('crear');
+        Route::get('/editar/{id}', EstadoTicketEditarLivewire::class)->name('editar');
+    });
 
-Route::prefix('prioridad-ticket')->name('prioridad-ticket.vista.')->group(function () {
-    Route::get('/', PrioridadTicketTodoLivewire::class)->name('todo');
-    Route::get('/crear', PrioridadTicketCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', PrioridadTicketEditarLivewire::class)->name('editar');
-});
+Route::prefix('prioridad-ticket')
+    ->name('prioridad-ticket.vista.')
+    ->middleware(['role:super-admin|supervisor atc'])
+    ->group(function () {
+        Route::get('/', PrioridadTicketTodoLivewire::class)->name('todo');
+        Route::get('/crear', PrioridadTicketCrearLivewire::class)->name('crear');
+        Route::get('/editar/{id}', PrioridadTicketEditarLivewire::class)->name('editar');
+    });
 
-Route::prefix('canal')->name('canal.vista.')->group(function () {
-    Route::get('/', CanalTodoLivewire::class)->name('todo');
-    Route::get('/crear', CanalCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', CanalEditarLivewire::class)->name('editar');
-});
+Route::prefix('canal')
+    ->name('canal.vista.')
+    ->middleware(['role:super-admin|supervisor atc'])
+    ->group(function () {
+        Route::get('/', CanalTodoLivewire::class)->name('todo');
+        Route::get('/crear', CanalCrearLivewire::class)->name('crear');
+        Route::get('/editar/{id}', CanalEditarLivewire::class)->name('editar');
+    });
 
-Route::prefix('ticket')->name('ticket.vista.')->group(function () {
-    Route::get('/', TicketTodoLivewire::class)->name('todo');
-    Route::get('/crear', TicketCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', TicketEditarLivewire::class)->name('editar');
-    Route::get('/derivado/{id}', TicketDerivadoLivewire::class)->name('derivado');
-});
+Route::prefix('ticket')
+    ->name('ticket.vista.')
+    ->middleware(['role:super-admin|supervisor atc|atc'])
+    ->group(function () {
+        Route::get('/', TicketTodoLivewire::class)->name('todo');
+        Route::get('/crear', TicketCrearLivewire::class)->name('crear');
+        Route::get('/editar/{id}', TicketEditarLivewire::class)->name('editar');
+        Route::get('/derivado/{id}', TicketDerivadoLivewire::class)->name('derivado');
+    });
 
-Route::prefix('reporte-ticket')->name('reporte-ticket.vista.')->group(function () {
-    Route::get('/', ReporteLivewire::class)->name('todo');
-});
+Route::prefix('reporte-ticket')
+    ->name('reporte-ticket.vista.')
+    ->middleware(['role:super-admin|supervisor atc|atc'])
+    ->group(function () {
+        Route::get('/', ReporteLivewire::class)->name('todo');
+    });
 
 Route::prefix('motivo-cita')->name('motivo-cita.vista.')->group(function () {
     Route::get('/', MotivoCitaTodoLivewire::class)->name('todo');
