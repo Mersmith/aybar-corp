@@ -14,19 +14,21 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $user_super_admin = User::create([
-            'name' => "Super Admin",
-            'email' => "super@admin.com",
-            'password' => Hash::make('123456'),
-            'rol' => 'admin',
-        ]);
+        for ($i = 1; $i <= 2; $i++) {
+            $user_super_admin = User::factory()->create([
+                'name' => "Super Admin $i",
+                'email' => "super_admin$i@aybarcorp.com",
+                'password' => Hash::make('123456'),
+                'rol' => 'admin',
+            ]);
 
-        $user_super_admin->assignRole('super-admin');
+            $user_super_admin->assignRole('super-admin');
+        }
 
         for ($i = 1; $i <= 2; $i++) {
             $supervisor_gestor = User::factory()->create([
                 'name' => "Supervisor Gestor $i",
-                'email' => "supervisor_gestor$i@example.com",
+                'email' => "supervisor_gestor$i@aybarcorp.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'admin',
             ]);
@@ -37,7 +39,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 8; $i++) {
             $gestor = User::factory()->create([
                 'name' => "Gestor $i",
-                'email' => "gestor$i@example.com",
+                'email' => "gestor$i@aybarcorp.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'admin',
             ]);
@@ -48,7 +50,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 2; $i++) {
             $cliente = User::create([
                 'name' => "Cliente $i",
-                'email' => "cliente$i@example.com",
+                'email' => "cliente$i@aybarcorp.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'cliente',
             ]);
@@ -66,7 +68,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 2; $i++) {
             $socio = User::create([
                 'name' => "Socio $i",
-                'email' => "socio$i@example.com",
+                'email' => "socio$i@aybarcorp.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'socio',
             ]);

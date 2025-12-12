@@ -14,6 +14,10 @@ class RolesYPermisosSeeder extends Seeder
         // 1. LISTA DE PERMISOS DEL SISTEMA
         // ----------------------------------------
         $permisos = [
+            'estado-evidencia-ver',
+            'estado-evidencia-crear',
+            'estado-evidencia-editar',
+            'estado-evidencia-eliminar',
             'evidencia-ver',
             'evidencia-crear',
             'evidencia-editar',
@@ -52,6 +56,10 @@ class RolesYPermisosSeeder extends Seeder
         $superAdmin->syncPermissions(Permission::all());
 
         $supervisorGestor->givePermissionTo([
+            'estado-evidencia-ver',
+            'estado-evidencia-crear',
+            'estado-evidencia-editar',
+            'estado-evidencia-eliminar',
             'evidencia-ver',
             'evidencia-crear',
             'evidencia-editar',

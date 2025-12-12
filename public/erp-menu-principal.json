@@ -6,7 +6,7 @@
         "url": "#",
         "icono": "fa-solid fa-circle-user",
         "nivel": 1,
-        "roles": ["super-admin"],
+        "roles": ["super-admin", "supervisor gestor", "gestor"],
         "submenus": [
             {
                 "id": 41,
@@ -587,7 +587,7 @@
         "url": "#",
         "icono": "fa-solid fa-map",
         "nivel": 1,
-        "roles": ["super-admin"],
+        "roles": ["super-admin", "supervisor gestor", "gestor"],
         "submenus": [
             {
                 "id": 42,
@@ -683,7 +683,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-lock-open",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor gestor"],
                 "submenus": [
                     {
                         "id": 111,
@@ -691,7 +691,7 @@
                         "ruta": "admin.estado-comprobante-pago.vista.todo",
                         "url": "/admin/estado-comprobante-pago",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor gestor"],
                         "submenus": []
                     },
                     {
@@ -700,7 +700,7 @@
                         "ruta": "admin.estado-comprobante-pago.vista.crear",
                         "url": "/admin/estado-comprobante-pago/crear",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor gestor"],
                         "submenus": []
                     }
                 ]
@@ -712,7 +712,7 @@
                 "url": "#",
                 "icono": "fa-regular fa-image",
                 "nivel": 2,
-                "roles": ["super-admin", "supervisor gestor"],
+                "roles": ["super-admin", "supervisor gestor", "gestor"],
                 "submenus": [
                     {
                         "id": 111,
@@ -720,7 +720,7 @@
                         "ruta": "admin.comprobante-pago.vista.todo",
                         "url": "/admin/comprobante-pago",
                         "nivel": 3,
-                        "roles": ["super-admin", "supervisor gestor"],
+                        "roles": ["super-admin", "supervisor gestor", "gestor"],
                         "submenus": []
                     },
                     {
@@ -729,7 +729,7 @@
                         "ruta": "admin.comprobante-pago.vista.todo",
                         "url": "/admin/comprobante-pago",
                         "nivel": 3,
-                        "roles": ["super-admin", "supervisor gestor"],
+                        "roles": ["super-admin", "supervisor gestor", "gestor"],
                         "submenus": []
                     }
                 ]

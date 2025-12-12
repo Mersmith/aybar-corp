@@ -60,23 +60,32 @@ Route::prefix('sede')->name('sede.vista.')->group(function () {
     Route::get('/editar/{id}', SedeEditarLivewire::class)->name('editar');
 });
 
-Route::prefix('proyecto')->name('proyecto.vista.')->group(function () {
-    Route::get('/', ProyectoTodoLivewire::class)->name('todo');
-    Route::get('/crear', ProyectoCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', ProyectoEditarLivewire::class)->name('editar');
-});
+Route::prefix('proyecto')
+    ->name('proyecto.vista.')
+    ->middleware(['role:super-admin'])
+    ->group(function () {
+        Route::get('/', ProyectoTodoLivewire::class)->name('todo');
+        Route::get('/crear', ProyectoCrearLivewire::class)->name('crear');
+        Route::get('/editar/{id}', ProyectoEditarLivewire::class)->name('editar');
+    });
 
-Route::prefix('lote')->name('lote.vista.')->group(function () {
-    Route::get('/', LoteTodoLivewire::class)->name('todo');
-    Route::get('/crear', LoteCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', LoteEditarLivewire::class)->name('editar');
-});
+Route::prefix('lote')
+    ->name('lote.vista.')
+    ->middleware(['role:super-admin'])
+    ->group(function () {
+        Route::get('/', LoteTodoLivewire::class)->name('todo');
+        Route::get('/crear', LoteCrearLivewire::class)->name('crear');
+        Route::get('/editar/{id}', LoteEditarLivewire::class)->name('editar');
+    });
 
-Route::prefix('separacion-lote')->name('separacion-lote.vista.')->group(function () {
-    Route::get('/', SeparacionLoteTodoLivewire::class)->name('todo');
-    Route::get('/crear', SeparacionLoteCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', SeparacionLoteEditarLivewire::class)->name('editar');
-});
+Route::prefix('separacion-lote')
+    ->name('separacion-lote.vista.')
+    ->middleware(['role:super-admin'])
+    ->group(function () {
+        Route::get('/', SeparacionLoteTodoLivewire::class)->name('todo');
+        Route::get('/crear', SeparacionLoteCrearLivewire::class)->name('crear');
+        Route::get('/editar/{id}', SeparacionLoteEditarLivewire::class)->name('editar');
+    });
 
 require __DIR__ . '/spatie.php';
 require __DIR__ . '/marketing.php';
