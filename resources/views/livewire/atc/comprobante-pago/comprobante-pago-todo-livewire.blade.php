@@ -64,8 +64,8 @@
                         @foreach ($evidencias as $index => $item)
                         <tr>
                             <td> {{ $index + 1 }} </td>
-                            <td class="g_resumir">{{ $item->razon_social }}</td>
-                            <td class="g_resumir">{{ $item->proyecto }}</td>
+                            <td class="g_resumir">{{ $item->unidadNegocio->nombre  }}</td>
+                            <td class="g_resumir">{{ $item->proyecto->nombre }}</td>
                             <td class="g_resumir">{{ $item->manzana }}</td>
                             <td class="g_resumir">{{ $item->lote }}</td>
                             <td class="g_resumir">{{ $item->numero_cuota }}</td>

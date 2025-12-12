@@ -24,4 +24,9 @@ class UnidadNegocio extends Model
             ->withPivot(['codigo', 'id_empresa'])
             ->withTimestamps();
     }
+
+    public function comprobantes()
+    {
+        return $this->hasMany(ComprobantePago::class);
+    }
 }

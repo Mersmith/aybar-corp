@@ -45,4 +45,9 @@ class Proyecto extends Model
     {
         return $this->hasMany(Lote::class);
     }
+
+    public function comprobantes()
+    {
+        return $this->hasMany(ComprobantePago::class);
+    }
 }

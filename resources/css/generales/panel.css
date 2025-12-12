@@ -17,6 +17,13 @@
     text-align: center;
 }
 
+.g_panel_parrafo {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--color-negro);
+    font-weight: 600;
+}
+
 @media (max-width: 768px) {
     .g_panel {
         padding: 10px;

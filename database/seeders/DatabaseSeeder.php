@@ -17,9 +17,6 @@ class DatabaseSeeder extends Seeder
             RolesYPermisosSeeder::class,
             UserSeeder::class,
 
-            EstadoComprobantePagoSeeder::class,
-            ComprobantePagoSeeder::class,
-
             UnidadNegocioSeeder::class,
             GrupoProyectoSeeder::class,
             //SedeSeeder::class,
@@ -51,12 +48,15 @@ class DatabaseSeeder extends Seeder
             //ReprogramacionSeeder::class,
             //ReprogramacionGeneralSeeder::class,
 
+            EstadoComprobantePagoSeeder::class,
+            ComprobantePagoSeeder::class,
+
             //ImagenSeeder::class,
             //ArchivoSeeder::class,
-            PaginaSeeder::class,
-            MenuSeeder::class,
-            SeccionSeeder::class,
-            BlogSeeder::class,
+            //PaginaSeeder::class,
+            //MenuSeeder::class,
+            //SeccionSeeder::class,
+            //BlogSeeder::class,
             //ComunicadoSeeder::class,
             //TipoFormularioSeeder::class,
             //FormularioPaginaContactoSeeder::class,

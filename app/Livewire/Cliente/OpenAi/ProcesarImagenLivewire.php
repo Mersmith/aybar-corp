@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Cliente\OpenAi;
 
+use App\Models\ComprobantePago;
+use App\Models\Proyecto;
+use App\Models\UnidadNegocio;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Models\ComprobantePago;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 use OpenAI;
 
 class ProcesarImagenLivewire extends Component
@@ -20,10 +22,45 @@ class ProcesarImagenLivewire extends Component
     public $datos = [];
     public $procesando = false;
 
+    public $empresas, $unidad_negocio_id = '';
+    public $proyectos = [], $proyecto_id = '';
+
+    protected function rules()
+    {
+        return [
+            'imagen' => 'required|image|max:4096',
+            'unidad_negocio_id' => 'required',
+            'proyecto_id' => 'required',
+        ];
+    }
+
+    protected $validationAttributes = [
+        'unidad_negocio_id' => 'Razón Social',
+        'proyecto_id' => 'Proyecto',
+    ];
+
     public function mount($cuota, $lote)
     {
         $this->cuota = $cuota;
         $this->lote = $lote;
+
+        $this->empresas = UnidadNegocio::all();
+    }
+
+    public function updatedUnidadNegocioId($value)
+    {
+        $this->proyecto_id = '';
+
+        if ($value) {
+            $this->loadProyectos();
+        }
+    }
+
+    public function loadProyectos()
+    {
+        if (!is_null($this->unidad_negocio_id)) {
+            $this->proyectos = Proyecto::where('unidad_negocio_id', $this->unidad_negocio_id)->get();
+        }
     }
 
     public function procesarImagen()
@@ -124,9 +161,7 @@ NO agregues explicación ni texto adicional. Solo JSON.",
 
     public function guardar()
     {
-        $this->validate([
-            'imagen' => 'required|image|max:4096',
-        ]);
+        $this->validate();
 
         // Guardar archivo
         $ruta = $this->imagen->store('evidencias', 'public');
@@ -142,6 +177,8 @@ NO agregues explicación ni texto adicional. Solo JSON.",
 
         ComprobantePago::create([
             'cronograma_id' => null,
+            'unidad_negocio_id' => $this->unidad_negocio_id,
+            'proyecto_id' => $this->proyecto_id,
             'path' => $ruta,
             'url' => $url,
             'extension' => $extension,
@@ -151,8 +188,10 @@ NO agregues explicación ni texto adicional. Solo JSON.",
             'fecha' => $fecha,
             'cliente_id' => Auth::user()->cliente->id,
 
+            'codigo_cliente' => $this->lote["id_cliente"] ?? null,
             'razon_social' => $this->lote["razon_social"] ?? null,
-            'proyecto' => $this->lote["descripcion"] ?? null,
+            'nombre_proyecto' => $this->lote["descripcion"] ?? null,
+            'etapa' => $this->lote["id_etapa"] ?? null,
             'manzana' => $this->lote["id_manzana"] ?? null,
             'lote' => $this->lote["id_lote"] ?? null,
             'codigo_cuota' => $this->cuota["codigo"] ?? null,
@@ -160,7 +199,7 @@ NO agregues explicación ni texto adicional. Solo JSON.",
         ]);
 
         session()->flash('success', 'Comprobante guardado correctamente 👍');
-        $this->reset(['imagen', 'datos']);
+        $this->reset(['imagen', 'datos', 'unidad_negocio_id', 'proyecto_id']);
 
         //$this->dispatch('cerrarModalEvidenciaPagoOn');
         $this->dispatch('actualizarCronograma');

@@ -32,7 +32,7 @@ class CronogramaVerLivewire extends Component
     public function loadComprobantesYActualizarCronograma()
     {
         $this->comprobantes = ComprobantePago::where('razon_social', $this->lote['razon_social'])
-            ->where('proyecto', $this->lote['descripcion'])
+            ->where('nombre_proyecto', $this->lote['descripcion'])
             ->where('manzana', $this->lote['id_manzana'])
             ->where('lote', $this->lote['id_lote'])
             ->get();

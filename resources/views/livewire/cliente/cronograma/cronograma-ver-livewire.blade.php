@@ -106,6 +106,10 @@
                 <button wire:click="cerrarModalEvidenciaPago"><i class="fa-solid fa-xmark"></i></button>
             </div>
 
+            <div class="modal_titulo g_panel_titulo">
+                <h2>Subir evidencia de pago</h2>
+            </div>
+
             <div class="modal_cuerpo">
                 @livewire('cliente.open-ai.procesar-imagen-livewire', ['cuota' => $cuota, 'lote' => $lote], key('cuota_'
                 . $cuota['codigo']))

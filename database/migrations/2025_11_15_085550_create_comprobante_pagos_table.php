@@ -19,6 +19,14 @@ return new class extends Migration
                 ->constrained('cronograma_pagos')
                 ->nullOnDelete();
 
+            $table->foreignId('unidad_negocio_id')
+                ->constrained('unidad_negocios')
+                ->cascadeOnDelete();
+
+            $table->foreignId('proyecto_id')
+                ->constrained('proyectos')
+                ->cascadeOnDelete();
+
             $table->string('path');
             $table->string('url');
             $table->string('extension');
@@ -41,8 +49,10 @@ return new class extends Migration
                 ->constrained('users')
                 ->nullOnDelete();
 
+            $table->string('codigo_cliente')->nullable();
             $table->string('razon_social')->nullable();
-            $table->string('proyecto')->nullable();
+            $table->string('nombre_proyecto')->nullable();
+            $table->string('etapa')->nullable();
             $table->string('manzana')->nullable();
             $table->string('lote')->nullable();
             $table->string('codigo_cuota')->nullable();

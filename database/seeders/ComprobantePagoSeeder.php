@@ -43,6 +43,8 @@ class ComprobantePagoSeeder extends Seeder
         foreach (range(1, 30) as $i) {
             ComprobantePago::create([
                 'cronograma_id'     => null,
+                'unidad_negocio_id'     => rand(1, 3),
+                'proyecto_id'     => rand(1, 10),
                 'path'              => $storagePath,
                 'url'               => $url,
                 'extension'         => 'jpg',

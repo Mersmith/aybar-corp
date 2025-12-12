@@ -13,6 +13,8 @@ class ComprobantePago extends Model
 
     protected $fillable = [
         'cronograma_id',
+        'unidad_negocio_id',
+        'proyecto_id',
         'path',
         'url',
         'extension',
@@ -25,8 +27,10 @@ class ComprobantePago extends Model
         'cliente_id',
         'usuario_valida_id',
         'fecha_validacion',
+        'codigo_cliente',
         'razon_social',
-        'proyecto',
+        'nombre_proyecto',
+        'etapa',
         'manzana',
         'lote',
         'codigo_cuota',
@@ -37,6 +41,16 @@ class ComprobantePago extends Model
         'fecha_validacion' => 'datetime',
         'monto' => 'decimal:2',
     ];
+
+    public function unidadNegocio()
+    {
+        return $this->belongsTo(UnidadNegocio::class);
+    }
+
+    public function proyecto()
+    {
+        return $this->belongsTo(Proyecto::class);
+    }
 
     public function cronograma()
     {

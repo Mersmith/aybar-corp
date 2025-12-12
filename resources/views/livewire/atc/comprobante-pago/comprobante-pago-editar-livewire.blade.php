@@ -48,7 +48,7 @@
 
                         <div class="g_margin_bottom_10 g_columna_4">
                             <label>Proyecto</label>
-                            <input type="text" disabled value="{{ $comprobante->proyecto ?? 'Sin asignar' }}">
+                            <input type="text" disabled value="{{ $comprobante->nombre_proyecto ?? 'Sin asignar' }}">
                         </div>
 
                         <div class="g_margin_bottom_10 g_columna_4">

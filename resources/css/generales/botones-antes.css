@@ -18,6 +18,10 @@
     color: var(--color-blanco);
 }
 
+.g_boton_personalizado.verde:disabled  {
+    color: var(--color-verde) !important;
+}
+
 .g_boton_personalizado:hover {
     filter: brightness(1.1);
 }
