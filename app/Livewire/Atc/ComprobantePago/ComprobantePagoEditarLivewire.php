@@ -3,24 +3,32 @@
 namespace App\Livewire\Atc\ComprobantePago;
 
 use App\Models\ComprobantePago;
+use App\Models\Proyecto;
+use App\Models\UnidadNegocio;
 use App\Models\EstadoComprobantePago;
 use Livewire\Attributes\Layout;
-use Livewire\Attributes\On;
 use Livewire\Component;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 #[Layout('layouts.admin.layout-admin')]
 class ComprobantePagoEditarLivewire extends Component
 {
+    use AuthorizesRequests;
     public $comprobante;
     public $estados, $estado_id = '';
 
     public $observacion;
+
+    public $empresas, $unidad_negocio_id = '';
+    public $proyectos = [], $proyecto_id = '';
 
     protected function rules()
     {
         return [
             'estado_id' => 'required',
             'observacion' => 'required',
+            'unidad_negocio_id' => 'required',
+            'proyecto_id' => 'required',
         ];
     }
 
@@ -29,8 +37,28 @@ class ComprobantePagoEditarLivewire extends Component
         $this->comprobante = ComprobantePago::findOrFail($id);
         $this->estado_id = $this->comprobante->estado_comprobante_pago_id;
         $this->observacion = $this->comprobante->observacion;
+        $this->unidad_negocio_id = $this->comprobante->unidad_negocio_id;
+        $this->proyecto_id = $this->comprobante->proyecto_id;
 
         $this->estados = EstadoComprobantePago::all();
+        $this->empresas = UnidadNegocio::all();
+        $this->loadProyectos();
+    }
+
+    public function updatedUnidadNegocioId($value)
+    {
+        $this->proyecto_id = '';
+
+        if ($value) {
+            $this->loadProyectos();
+        }
+    }
+
+    public function loadProyectos()
+    {
+        if (!is_null($this->unidad_negocio_id)) {
+            $this->proyectos = Proyecto::where('unidad_negocio_id', $this->unidad_negocio_id)->get();
+        }
     }
 
     public function store()
@@ -40,9 +68,21 @@ class ComprobantePagoEditarLivewire extends Component
         $this->comprobante->update([
             'estado_comprobante_pago_id' => $this->estado_id,
             'observacion' => $this->observacion,
-
+            'unidad_negocio_id' => $this->unidad_negocio_id,
+            'proyecto_id' => $this->proyecto_id,
         ]);
 
+        $this->dispatch('alertaLivewire', "Actualizado");
+    }
+
+    public function validar()
+    {
+        $this->authorize('evidencia-pago-validar');
+        $this->comprobante->update([
+            'usuario_valida_id' => auth()->id(),
+            'fecha_validacion' => now(),
+        ]);
+        $this->comprobante->refresh();
         $this->dispatch('alertaLivewire', "Actualizado");
     }
 

@@ -48,6 +48,7 @@ return new class extends Migration
                 ->nullable()
                 ->constrained('users')
                 ->nullOnDelete();
+            $table->dateTime('fecha_validacion')->nullable();
 
             $table->string('codigo_cliente')->nullable();
             $table->string('razon_social')->nullable();

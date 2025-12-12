@@ -24,13 +24,18 @@
                     <h4 class="g_panel_titulo">General</h4>
 
                     <div class="g_fila">
-                        <div class="g_margin_bottom_10 g_columna_6">
+                        <div class="g_margin_bottom_10 g_columna_4">
                             <label>Cliente</label>
                             <input type="text" disabled
                                 value="{{ $comprobante->cliente->user->name ?? 'Sin asignar' }}">
                         </div>
 
-                        <div class="g_margin_bottom_10 g_columna_6">
+                        <div class="g_margin_bottom_10 g_columna_4">
+                            <label>DNI</label>
+                            <input type="text" disabled value="{{ $comprobante->cliente->dni ?? 'Sin asignar' }}">
+                        </div>
+
+                        <div class="g_margin_bottom_10 g_columna_4">
                             <label>Fecha subida</label>
                             <input type="text" disabled value="{{ $comprobante->created_at ?? 'Sin asignar' }}">
                         </div>
@@ -38,45 +43,51 @@
                 </div>
 
                 <div class="g_panel">
-                    <h4 class="g_panel_titulo">Proyecto</h4>
+                    <h4 class="g_panel_titulo">Datos que ingreso el cliente</h4>
 
                     <div class="g_fila">
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_3">
                             <label>Razón social</label>
                             <input type="text" disabled value="{{ $comprobante->razon_social ?? 'Sin asignar' }}">
                         </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_3">
                             <label>Proyecto</label>
                             <input type="text" disabled value="{{ $comprobante->nombre_proyecto ?? 'Sin asignar' }}">
                         </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_3">
+                            <label>Etapa</label>
+                            <input type="text" disabled value="{{ $comprobante->etapa ?? 'Sin asignar' }}">
+                        </div>
+
+                        <div class="g_margin_bottom_10 g_columna_3">
                             <label>Manzana</label>
                             <input type="text" disabled value="{{ $comprobante->manzana ?? 'Sin asignar' }}">
                         </div>
                     </div>
 
                     <div class="g_fila">
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_3">
+                            <label>Codigo cliente</label>
+                            <input type="text" disabled value="{{ $comprobante->codigo_cliente ?? 'Sin asignar' }}">
+                        </div>
+
+                        <div class="g_margin_bottom_10 g_columna_3">
                             <label>Lote</label>
                             <input type="text" disabled value="{{ $comprobante->lote ?? 'Sin asignar' }}">
                         </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_3">
                             <label>Codigo cuota</label>
                             <input type="text" disabled value="{{ $comprobante->codigo_cuota ?? 'Sin asignar' }}">
                         </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_3">
                             <label>N° cuota</label>
                             <input type="text" disabled value="{{ $comprobante->numero_cuota ?? 'Sin asignar' }}">
                         </div>
                     </div>
-                </div>
-
-                <div class="g_panel">
-                    <h4 class="g_panel_titulo">Open AI</h4>
 
                     <div class="g_fila">
                         <div class="g_margin_bottom_10 g_columna_3">
@@ -101,8 +112,40 @@
                     </div>
                 </div>
 
+
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">Detalle</h4>
+
+                    <div class="g_fila">
+                        <div class="g_margin_bottom_20 g_columna_6">
+                            <label for="unidad_negocio_id">Razón Social <span class="obligatorio"><i
+                                        class="fa-solid fa-asterisk"></i></span></label>
+                            <select wire:model.live="unidad_negocio_id" id="unidad_negocio_id" name="unidad_negocio_id">
+                                <option value="" disabled>Selecciona</option>
+                                @foreach ($empresas as $empresa)
+                                <option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
+                                @endforeach
+                            </select>
+                            @error('unidad_negocio_id')
+                            <span class="mensaje_error">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="g_margin_bottom_20 g_columna_6">
+                            <label for="proyecto_id">Proyecto <span class="obligatorio"><i
+                                        class="fa-solid fa-asterisk"></i></span></label>
+                            <select wire:model.live="proyecto_id" id="proyecto_id" name="proyecto_id">
+                                <option value="" disabled>Selecciona</option>
+                                @foreach ($proyectos as $proyecto)
+                                <option value="{{ $proyecto->id }}">{{ $proyecto->nombre }}</option>
+                                @endforeach
+                            </select>
+                            @error('proyecto_id')
+                            <span class="mensaje_error">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+
                     <div class="g_fila">
                         <div class="g_columna_12">
                             <label for="observacion">Observación <span class="obligatorio"><i
@@ -154,6 +197,30 @@
                     <span>Sin imagen</span>
                     @endif
 
+                </div>
+
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Validar evidencia pago</h4>
+
+                    <div class="g_margin_bottom_10">
+                        <label>Fecha validación</label>
+                        <input type="text" disabled
+                            value="{{ $comprobante->fecha_validacion ? $comprobante->fecha_validacion->format('d/m/Y H:i') : 'Falta validar' }}">
+                    </div>
+
+                    @can('evidencia-pago-validar')
+                    @if (!$comprobante->fecha_validacion)
+                    <div class="g_margin_bottom_10">
+                        <div class="formulario_botones">
+                            <button wire:click="validar" class="guardar" wire:loading.attr="disabled"
+                                wire:target="validar">
+                                <span wire:loading.remove wire:target="validar">Actualizar</span>
+                                <span wire:loading wire:target="validar">Actualizando...</span>
+                            </button>
+                        </div>
+                    </div>
+                    @endif
+                    @endcan
                 </div>
             </div>
         </div>

@@ -14,14 +14,15 @@ class RolesYPermisosSeeder extends Seeder
         // 1. LISTA DE PERMISOS DEL SISTEMA
         // ----------------------------------------
         $permisos = [
-            'estado-evidencia-ver',
-            'estado-evidencia-crear',
-            'estado-evidencia-editar',
-            'estado-evidencia-eliminar',
-            'evidencia-ver',
-            'evidencia-crear',
-            'evidencia-editar',
-            'evidencia-eliminar',
+            'estado-evidencia-pago-ver',
+            'estado-evidencia-pago-crear',
+            'estado-evidencia-pago-editar',
+            'estado-evidencia-pago-eliminar',
+            'evidencia-pago-ver',
+            'evidencia-pago-crear',
+            'evidencia-pago-editar',
+            'evidencia-pago-eliminar',
+            'evidencia-pago-validar',
         ];
 
         foreach ($permisos as $permiso) {
@@ -56,20 +57,21 @@ class RolesYPermisosSeeder extends Seeder
         $superAdmin->syncPermissions(Permission::all());
 
         $supervisorGestor->givePermissionTo([
-            'estado-evidencia-ver',
-            'estado-evidencia-crear',
-            'estado-evidencia-editar',
-            'estado-evidencia-eliminar',
-            'evidencia-ver',
-            'evidencia-crear',
-            'evidencia-editar',
-            'evidencia-eliminar',
+            'estado-evidencia-pago-ver',
+            'estado-evidencia-pago-crear',
+            'estado-evidencia-pago-editar',
+            'estado-evidencia-pago-eliminar',
+            'evidencia-pago-ver',
+            'evidencia-pago-crear',
+            'evidencia-pago-editar',
+            'evidencia-pago-eliminar',
+            'evidencia-pago-validar',
         ]);
 
         $gestor->givePermissionTo([
-            'evidencia-ver',
-            'evidencia-crear',
-            'evidencia-editar',
+            'evidencia-pago-ver',
+            'evidencia-pago-crear',
+            'evidencia-pago-editar',
         ]);
     }
 }
