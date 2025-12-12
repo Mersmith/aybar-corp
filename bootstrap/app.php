@@ -19,13 +19,13 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->group(base_path('routes/api.php'));
 
             //Route::middleware(['web'])
-            Route::middleware(['web', 'check.admin'])
+            Route::middleware(['web', 'auth', 'check.admin'])
                 ->prefix('admin')
                 ->name('admin.')
                 ->group(base_path('routes/admin.php'));
 
-            //Route::middleware(['web', 'verified', 'check.cliente'])
-            Route::middleware(['web', 'check.cliente'])
+            //Route::middleware(['web', 'verified', 'auth', 'check.cliente'])
+            Route::middleware(['web', 'auth', 'check.cliente'])
                 ->prefix('cliente')
                 ->name('cliente.')
                 ->group(base_path('routes/cliente.php'));

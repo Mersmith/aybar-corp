@@ -28,9 +28,9 @@ class LayoutAdminServiceProvider extends ServiceProvider
 
                     $submenusFiltrados = $filtrarMenu($item['submenus']);
 
-                    $tienePermiso = collect($item['roles'])
-                        ->intersect($userRoles)
-                        ->isNotEmpty();
+                    $tienePermiso = empty($item['roles'])
+                        ? true  // si el arreglo está vacío, es público
+                        : collect($item['roles'])->intersect($userRoles)->isNotEmpty();
 
                     if ($tienePermiso || !empty($submenusFiltrados)) {
                         $item['submenus'] = $submenusFiltrados;

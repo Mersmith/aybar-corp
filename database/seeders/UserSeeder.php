@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         for ($i = 1; $i <= 2; $i++) {
-            $user_super_admin = User::factory()->create([
+            $user_super_admin = User::create([
                 'name' => "Super Admin $i",
                 'email' => "super_admin$i@aybarcorp.com",
                 'password' => Hash::make('123456'),
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
         }
 
         for ($i = 1; $i <= 2; $i++) {
-            $supervisor_gestor = User::factory()->create([
+            $supervisor_gestor = User::create([
                 'name' => "Supervisor Gestor $i",
                 'email' => "supervisor_gestor$i@aybarcorp.com",
                 'password' => Hash::make('123456'),
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
         }
 
         for ($i = 1; $i <= 8; $i++) {
-            $gestor = User::factory()->create([
+            $gestor = User::create([
                 'name' => "Gestor $i",
                 'email' => "gestor$i@aybarcorp.com",
                 'password' => Hash::make('123456'),

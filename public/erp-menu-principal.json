@@ -6,7 +6,7 @@
         "url": "#",
         "icono": "fa-solid fa-circle-user",
         "nivel": 1,
-        "roles": ["super-admin", "supervisor gestor", "gestor"],
+        "roles": [],
         "submenus": [
             {
                 "id": 41,
@@ -15,7 +15,7 @@
                 "url": "/admin/perfil",
                 "icono": "fa-solid fa-user-tie",
                 "nivel": 2,
-                "roles": ["super-admin", "supervisor gestor", "gestor"],
+                "roles": [],
                 "submenus": []
             }
         ]
