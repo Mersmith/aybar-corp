@@ -32,7 +32,7 @@ class ClienteTodoLivewire extends Component
     public function render()
     {
         $items = User::query()
-            ->where('role', 'cliente')
+            ->where('rol', 'cliente')
             ->leftJoin('clientes', 'clientes.user_id', '=', 'users.id')
             ->where(function ($q) {
                 $q->where('users.name', 'like', '%' . $this->buscar . '%')

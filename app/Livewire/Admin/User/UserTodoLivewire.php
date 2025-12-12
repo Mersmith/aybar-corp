@@ -31,7 +31,7 @@ class UserTodoLivewire extends Component
 
     public function render()
     {
-        $items = User::where('role', 'admin')
+        $items = User::where('rol', 'admin')
             ->where('name', 'like', '%' . $this->buscar . '%')
             ->orderBy('created_at', 'desc')
             ->paginate($this->perPage);

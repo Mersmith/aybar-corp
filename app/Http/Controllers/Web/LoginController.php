@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
     public function indexIngresarCliente()
     {
-        if (Auth::check() && Auth::user()->role === 'cliente') {
+        if (Auth::check() && Auth::user()->rol === 'cliente') {
             return redirect()->route('cliente.home');
         }
 
@@ -48,7 +48,7 @@ class LoginController extends Controller
         // Intentar login con recordar
         if (Auth::attempt($request->only('email', 'password'), $remember)) {
 
-            if (Auth::user()->role === 'cliente') {
+            if (Auth::user()->rol === 'cliente') {
                 return redirect()->route('cliente.home');
             }
 
@@ -74,7 +74,7 @@ class LoginController extends Controller
 
     public function indexIngresarSocio()
     {
-        if (Auth::check() && Auth::user()->role === 'socio') {
+        if (Auth::check() && Auth::user()->rol === 'socio') {
             return redirect()->route('socio.home');
         }
 
@@ -106,7 +106,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($request->only('email', 'password'), $remember)) {
 
-            if (Auth::user()->role === 'socio') {
+            if (Auth::user()->rol === 'socio') {
                 return redirect()->route('socio.home');
             }
 
@@ -132,7 +132,7 @@ class LoginController extends Controller
 
     public function indexIngresarAdmin()
     {
-        if (Auth::check() && Auth::user()->role === 'admin') {
+        if (Auth::check() && Auth::user()->rol === 'admin') {
             return redirect()->route('admin.home');
         }
 
@@ -163,7 +163,7 @@ class LoginController extends Controller
         $remember = $request->has('recordarme');
 
         if (Auth::attempt($request->only('email', 'password'), $remember)) {
-            if (Auth::user()->role === 'admin') {
+            if (Auth::user()->rol === 'admin') {
                 return redirect()->route('admin.home');
             }
 

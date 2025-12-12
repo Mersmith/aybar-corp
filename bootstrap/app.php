@@ -18,8 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware(['web'])
-            //Route::middleware(['web', 'check.admin'])
+            //Route::middleware(['web'])
+            Route::middleware(['web', 'check.admin'])
                 ->prefix('admin')
                 ->name('admin.')
                 ->group(base_path('routes/admin.php'));
@@ -41,6 +41,11 @@ return Application::configure(basePath: dirname(__DIR__))
             'check.admin' => CheckAdmin::class,
             'check.cliente' => CheckCliente::class,
             'check.socio' => CheckSocio::class,
+
+            // AGREGAR MIDDLEWARE DE SPATIE
+            'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+            'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+            'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

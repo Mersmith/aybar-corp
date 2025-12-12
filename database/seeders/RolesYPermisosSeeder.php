@@ -14,13 +14,10 @@ class RolesYPermisosSeeder extends Seeder
         // 1. LISTA DE PERMISOS DEL SISTEMA
         // ----------------------------------------
         $permisos = [
-            'ver dashboard',
-            'gestionar usuarios',
-            'gestionar clientes',
-            'gestionar socios',
-            'gestionar marketing',
-            'gestionar legal',
-            'gestionar callcenter',
+            'evidencia-ver',
+            'evidencia-crear',
+            'evidencia-editar',
+            'evidencia-eliminar',
         ];
 
         foreach ($permisos as $permiso) {
@@ -31,13 +28,11 @@ class RolesYPermisosSeeder extends Seeder
         // 2. CREAR ROLES
         // ----------------------------------------
         $roles = [
-            'super-admin',  // Tendrá todos los permisos
-            'admin',
+            'super-admin',
+            'supervisor gestor',
+            'gestor',
             'cliente',
             'socio',
-            'call center',
-            'marketing',
-            'legal',
         ];
 
         foreach ($roles as $rol) {
@@ -46,57 +41,27 @@ class RolesYPermisosSeeder extends Seeder
 
         // Obtener instancias
         $superAdmin = Role::findByName('super-admin');
-        $admin = Role::findByName('admin');
+        $supervisorGestor = Role::findByName('supervisor gestor');
+        $gestor = Role::findByName('gestor');
         $cliente = Role::findByName('cliente');
         $socio = Role::findByName('socio');
-        $callcenter = Role::findByName('call center');
-        $marketing = Role::findByName('marketing');
-        $legal = Role::findByName('legal');
 
         // ----------------------------------------
         // 3. ASIGNACIÓN DE PERMISOS POR ROL
         // ----------------------------------------
-
-        // SUPER ADMIN → todos los permisos automáticamente
         $superAdmin->syncPermissions(Permission::all());
 
-        // ADMIN
-        $admin->givePermissionTo([
-            'ver dashboard',
-            'gestionar usuarios',
-            'gestionar clientes',
-            'gestionar socios',
-            'gestionar callcenter',
-            'gestionar marketing',
-            'gestionar legal',
+        $supervisorGestor->givePermissionTo([
+            'evidencia-ver',
+            'evidencia-crear',
+            'evidencia-editar',
+            'evidencia-eliminar',
         ]);
 
-        // CLIENTE
-        $cliente->givePermissionTo([
-            'ver dashboard',
-        ]);
-
-        // SOCIO
-        $socio->givePermissionTo([
-            'ver dashboard',
-        ]);
-
-        // CALL CENTER
-        $callcenter->givePermissionTo([
-            'gestionar callcenter',
-            'ver dashboard',
-        ]);
-
-        // MARKETING
-        $marketing->givePermissionTo([
-            'gestionar marketing',
-            'ver dashboard',
-        ]);
-
-        // LEGAL
-        $legal->givePermissionTo([
-            'gestionar legal',
-            'ver dashboard',
+        $gestor->givePermissionTo([
+            'evidencia-ver',
+            'evidencia-crear',
+            'evidencia-editar',
         ]);
     }
 }

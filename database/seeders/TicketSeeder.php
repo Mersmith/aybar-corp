@@ -14,8 +14,8 @@ class TicketSeeder extends Seeder
 {
     public function run(): void
     {
-        $clientes = User::where('role', 'cliente')->pluck('id')->toArray();
-        $admins   = User::where('role', 'admin')->pluck('id')->toArray();
+        $clientes = User::where('rol', 'cliente')->pluck('id')->toArray();
+        $admins   = User::where('rol', 'admin')->pluck('id')->toArray();
 
         $areas = Area::pluck('id')->toArray();
         $canales = Canal::pluck('id')->toArray();

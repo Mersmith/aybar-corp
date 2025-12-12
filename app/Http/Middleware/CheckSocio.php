@@ -16,7 +16,7 @@ class CheckSocio
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role == 'socio') {
+        if (Auth::check() && Auth::user()->rol == 'socio') {
             return $next($request);
         }
 

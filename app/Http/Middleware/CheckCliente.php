@@ -16,7 +16,7 @@ class CheckCliente
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role == 'cliente') {
+        if (Auth::check() && Auth::user()->rol == 'cliente') {
             return $next($request);
         }
 

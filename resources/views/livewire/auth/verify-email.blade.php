@@ -58,7 +58,7 @@
                     </form>
 
                     {{--@php
-                        $logoutRoute = match (auth()->user()->role) {
+                        $logoutRoute = match (auth()->user()->rol) {
                             'admin' => route('logout.admin'),
                             'socio' => route('logout.socio'),
                             'cliente' => route('logout.cliente'),

@@ -62,7 +62,7 @@
                             <td>{{ $items->firstItem() + $index }}</td>
                             <td class="g_resaltar">{{ $item->name }}</td>
                             <td class="g_resaltar">{{ $item->email }}</td>
-                            <td class="g_resaltar">{{ $item->role }}</td>
+                            <td class="g_resaltar">{{ $item->rol }}</td>
                             <td class="g_resaltar">{{ $item->created_at }}</td>
                             <td>
                                 <span class="g_estado {{ $item->activo ? 'g_activo' : 'g_desactivado' }}"><i

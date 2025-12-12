@@ -18,7 +18,7 @@ class CreateNewUser implements CreatesNewUsers
      *
      * @param  array<string, string>  $input
      */
-    public function create(array $input, $role = 'cliente')
+    public function create(array $input, $rol = 'cliente')
     {
         validator($input, [
             'name' => ['required', 'string', 'max:255'],
@@ -30,7 +30,7 @@ class CreateNewUser implements CreatesNewUsers
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-            'role' => $role, // el rol se define según la ruta
+            'rol' => $rol, // el rol se define según la ruta
         ]);
     }
 }

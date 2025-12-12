@@ -13,7 +13,7 @@ class UserCrearLivewire extends Component
     public $name;
     public $email;
     public $password;
-    public $role = 'cliente';
+    public $rol = 'cliente';
 
     public $activo = false;
 
@@ -23,7 +23,7 @@ class UserCrearLivewire extends Component
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
-            'role' => 'required|in:admin,cliente',
+            'rol' => 'required|in:admin,cliente',
         ];
     }
 
@@ -35,7 +35,7 @@ class UserCrearLivewire extends Component
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            'role' => $this->role,
+            'rol' => $this->rol,
             'activo' => $this->activo,
         ]);
 

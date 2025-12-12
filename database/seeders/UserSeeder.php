@@ -18,20 +18,31 @@ class UserSeeder extends Seeder
             'name' => "Super Admin",
             'email' => "super@admin.com",
             'password' => Hash::make('123456'),
-            'role' => 'admin',
+            'rol' => 'admin',
         ]);
 
         $user_super_admin->assignRole('super-admin');
 
         for ($i = 1; $i <= 2; $i++) {
-            $admin = User::factory()->create([
-                'name' => "Admin $i",
-                'email' => "admin$i@example.com",
+            $supervisor_gestor = User::factory()->create([
+                'name' => "Supervisor Gestor $i",
+                'email' => "supervisor_gestor$i@example.com",
                 'password' => Hash::make('123456'),
-                'role' => 'admin',
+                'rol' => 'admin',
             ]);
 
-            $admin->assignRole('admin');
+            $supervisor_gestor->assignRole('supervisor gestor');
+        }
+
+        for ($i = 1; $i <= 8; $i++) {
+            $gestor = User::factory()->create([
+                'name' => "Supervisor Gestor $i",
+                'email' => "gestor$i@example.com",
+                'password' => Hash::make('123456'),
+                'rol' => 'admin',
+            ]);
+
+            $gestor->assignRole('gestor');
         }
 
         for ($i = 1; $i <= 2; $i++) {
@@ -39,7 +50,7 @@ class UserSeeder extends Seeder
                 'name' => "Cliente $i",
                 'email' => "cliente$i@example.com",
                 'password' => Hash::make('123456'),
-                'role' => 'cliente',
+                'rol' => 'cliente',
             ]);
 
             $cliente->assignRole('cliente');
@@ -57,7 +68,7 @@ class UserSeeder extends Seeder
                 'name' => "Socio $i",
                 'email' => "socio$i@example.com",
                 'password' => Hash::make('123456'),
-                'role' => 'socio',
+                'rol' => 'socio',
             ]);
 
             $socio->assignRole('socio');

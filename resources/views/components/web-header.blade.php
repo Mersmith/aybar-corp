@@ -70,7 +70,7 @@
                         <a href="/ingresar" class="boton_personalizado boton_personalizado_blanco_v2">INGRESAR</a>
                     </li>
                     @else
-                    @if (auth()->user()->role === 'cliente')
+                    @if (auth()->user()->rol === 'cliente')
                     <li class="menu_item">
                         <a href="{{ route('cliente.home') }}" class="boton_personalizado boton_personalizado_blanco_v2">MI
                             CUENTA</a>
@@ -94,12 +94,12 @@
                             </button>
                         </form>
                     </li>
-                    @elseif (auth()->user()->role === 'admin')
+                    @elseif (auth()->user()->rol === 'admin')
                     <li class="menu_item">
                         <a href="{{ route('admin.home') }}"
                             class="boton_personalizado boton_personalizado_blanco_v2">BACKOFFICE</a>
                     </li>
-                    @elseif (auth()->user()->role === 'socio')
+                    @elseif (auth()->user()->rol === 'socio')
                     <li class="menu_item">
                         <a href="{{ route('socio.home') }}" class="boton_personalizado boton_personalizado_blanco_v2">MI
                             PERFIL</a>

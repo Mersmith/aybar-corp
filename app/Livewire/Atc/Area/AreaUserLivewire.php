@@ -55,13 +55,13 @@ class AreaUserLivewire extends Component
         $idsAgregados = $this->area->usuarios->pluck('id');
 
         $usuariosAgregados = User::whereIn('id', $idsAgregados)
-            ->where('role', 'admin')
+            ->where('rol', 'admin')
             ->where('name', 'like', '%' . $this->searchAgregados . '%')
             ->orderBy('name')
             ->get();
 
         $usuariosDisponibles = User::whereNotIn('id', $idsAgregados)
-            ->where('role', 'admin')
+            ->where('rol', 'admin')
             ->where('name', 'like', '%' . $this->searchDisponibles . '%')
             ->orderBy('name')
             ->paginate(20, ['*'], 'pageDisponibles');

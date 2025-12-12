@@ -38,7 +38,7 @@ class CitaTodoLivewire extends Component
         $this->sedes = Sede::all();
         $this->estados = EstadoCita::all();
         $this->motivos = MotivoCita::all();
-        $this->usuarios_admin = User::where('role', 'admin')->get();
+        $this->usuarios_admin = User::where('rol', 'admin')->get();
     }
 
     public function resetFiltros()

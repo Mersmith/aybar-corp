@@ -1,88 +1,88 @@
 @extends('layouts.web.layout-web')
 
 @section('contenido')
-<div class="contenedor_login">
-    <div class="contenedor_login_imagen">
-        <!--IMAGEN-->
-        <img src="{{ asset('assets/imagenes/nosotros/nosotros-2.jpg') }}" alt="" />
-        <!--TEXTO-->
-        <div>
-            <h2>"Sorteamos cada mes miles de productos"</h2>
-            <h3>Nickol Sinchi </h3>
-            <p>Propietaria de Aybar Las</p>
+    <div class="contenedor_login">
+        <div class="contenedor_login_imagen">
+            <!--IMAGEN-->
+            <img src="{{ asset('assets/imagenes/nosotros/nosotros-2.jpg') }}" alt="" />
+            <!--TEXTO-->
+            <div>
+                <h2>"Sorteamos cada mes miles de productos"</h2>
+                <h3>Nickol Sinchi </h3>
+                <p>Propietaria de Aybar Las</p>
+            </div>
         </div>
-    </div>
 
-    <div class="contenedor_login_formulario">
-        <!--FORMULARIO CENTRAR-->
-        <div class="login_formulario_centrar">
+        <div class="contenedor_login_formulario">
+            <!--FORMULARIO CENTRAR-->
+            <div class="login_formulario_centrar">
 
-            <div class="login_formulario_arriba">
-                <span>No tienes una cuenta?</span>
-                <a href="{{ route('registrar.cliente') }}">Registrarme</a>
-            </div>
-
-            <!--LOGO-->
-            <div class="login_formulario_logo">
-                <a href="{{ route('home') }}">
-                    <img src="{{ asset('assets/imagen/logo-2.png') }}" alt="">
-                </a>
-            </div>
-
-            <!--TITULO-->
-            <h1 class="titulo_formulario">¡HOLA! BIENVENIDO DE NUEVO </h1>
-
-            <!--PÁRRAFO-->
-            <p class="descripcion_formulario">Inicie sesión con los datos que ingresó durante su registro.
-            </p>
-
-            @if ($errors->any())
-            <div class="g_alerta_error">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <div>
-                    <strong>Por favor corrige los siguientes errores:</strong>
-                </div>
-            </div>
-            @endif
-
-            <form action="{{ route('ingresar.cliente') }}" method="POST" class="formulario_flex formulario">
-                @csrf
-
-                <div class="g_margin_top_20">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" name="email" id="email" value="{{ old('email') }}" required autofocus>
-                    @error('email')
-                    <div class="mensaje_error">{{ $message }}</div>
-                    @enderror
+                <div class="login_formulario_arriba">
+                    <span>No tienes una cuenta?</span>
+                    <a href="{{ route('registrar.cliente') }}">Registrarme</a>
                 </div>
 
-                <div class="g_margin_top_20">
-                    <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" required>
-                    @error('password')
-                    <div class="mensaje_error">{{ $message }}</div>
-                    @enderror
+                <!--LOGO-->
+                <div class="login_formulario_logo">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ asset('assets/imagen/logo-2.png') }}" alt="">
+                    </a>
                 </div>
 
-                <div class="g_margin_top_20">
-                    <label for="recordarme">
-                        <input type="checkbox" name="recordarme" id="recordarme" />
-                        Recordarme
-                    </label>
-                </div>
+                <!--TITULO-->
+                <h1 class="titulo_formulario">¡HOLA! BIENVENIDO DE NUEVO </h1>
 
-                <div class="g_margin_top_20 formulario_botones centrar">
-                    <button type="submit" class="guardar">
-                        Ingresar
-                    </button>
-                </div>
+                <!--PÁRRAFO-->
+                <p class="descripcion_formulario">Inicie sesión con los datos que ingresó durante su registro.
+                </p>
 
-                @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="recuperar_clave">¿Olvidaste tu
-                    contraseña?</a>
+                @if ($errors->any())
+                    <div class="g_alerta_error">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div>
+                            <strong>Por favor corrige los siguientes errores:</strong>
+                        </div>
+                    </div>
                 @endif
-            </form>
+
+                <form action="{{ route('ingresar.cliente') }}" method="POST" class="formulario_flex formulario">
+                    @csrf
+
+                    <div class="g_margin_top_20">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" name="email" id="email" value="{{ old('email') }}" required autofocus>
+                        @error('email')
+                            <div class="mensaje_error">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="g_margin_top_20">
+                        <label for="password">Contraseña</label>
+                        <input type="password" name="password" id="password" required>
+                        @error('password')
+                            <div class="mensaje_error">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="g_margin_top_20">
+                        <label for="recordarme">
+                            <input type="checkbox" name="recordarme" id="recordarme" />
+                            Recordarme
+                        </label>
+                    </div>
+
+                    <div class="g_margin_top_20 formulario_botones centrar">
+                        <button type="submit" class="guardar">
+                            Ingresar
+                        </button>
+                    </div>
+
+                    @if (Route::has('password.request'))
+                        <a href="{{ route('password.request') }}" class="recuperar_clave">¿Olvidaste tu
+                            contraseña?</a>
+                    @endif
+                </form>
+            </div>
         </div>
     </div>
-</div>
 @endsection

@@ -15,7 +15,7 @@ class AreaUserSeeder extends Seeder
         $areas = Area::pluck('id')->toArray();
 
         // Obtener solo usuarios admin
-        $admins = User::where('role', 'admin')->pluck('id')->toArray();
+        $admins = User::where('rol', 'admin')->pluck('id')->toArray();
 
         foreach ($admins as $adminId) {
             // Elegir entre 1 y 3 áreas aleatorias

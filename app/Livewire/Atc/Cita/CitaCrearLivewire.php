@@ -53,7 +53,7 @@ class CitaCrearLivewire extends Component
         $this->sedes = Sede::all();
         $this->motivos = MotivoCita::all();
         $this->estados = EstadoCita::all();
-        $this->usuarios_admin = User::where('role', 'admin')->get();
+        $this->usuarios_admin = User::where('rol', 'admin')->get();
     }
 
     public function seleccionarCliente($id)
@@ -86,7 +86,7 @@ class CitaCrearLivewire extends Component
 
     public function render()
     {
-        $this->usuarios_cliente = User::where('role', 'cliente')
+        $this->usuarios_cliente = User::where('rol', 'cliente')
             ->where(function ($q) {
                 $q->where('name', 'like', '%' . $this->buscar_cliente . '%')
                     ->orWhere('email', 'like', '%' . $this->buscar_cliente . '%');

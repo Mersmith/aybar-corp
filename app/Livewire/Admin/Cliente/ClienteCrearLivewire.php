@@ -61,7 +61,7 @@ class ClienteCrearLivewire extends Component
             'name' => $this->cliente_encontrado['apellidos_nombres'],
             'email' => $this->email,
             'password' => Hash::make($tempPassword),
-            'role' => 'cliente',
+            'rol' => 'cliente',
             'activo' => true,
         ]);
 

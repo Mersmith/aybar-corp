@@ -120,9 +120,9 @@ Route::prefix('reporte-cita')->name('reporte-cita.vista.')->group(function () {
 });
 
 Route::prefix('estado-comprobante-pago')->name('estado-comprobante-pago.vista.')->group(function () {
-    Route::get('/', EstadoComprobantePagoTodoLivewire::class)->name('todo');
-    Route::get('/crear', EstadoComprobantePagoCrearLivewire::class)->name('crear');
-    Route::get('/editar/{id}', EstadoComprobantePagoEditarLivewire::class)->name('editar');
+    Route::get('/', EstadoComprobantePagoTodoLivewire::class)->name('todo')->middleware('role:super-admin|supervisor gestor');
+    Route::get('/crear', EstadoComprobantePagoCrearLivewire::class)->name('crear')->middleware('role:super-admin|supervisor gestor');;
+    Route::get('/editar/{id}', EstadoComprobantePagoEditarLivewire::class)->name('editar')->middleware('role:super-admin|supervisor gestor');;
 });
 
 Route::prefix('comprobante-pago')->name('comprobante-pago.vista.')->group(function () {

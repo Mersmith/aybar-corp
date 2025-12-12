@@ -20,9 +20,19 @@ class RegistrarClienteCrearLivewire extends Component
     public $password;
     public $password_confirmation;
 
+    public $politica_uno = false;
+    public $politica_dos = false;
+
     protected $rules = [
         'email' => 'required|email|unique:users,email',
         'password' => 'required|min:6|confirmed',
+        'politica_uno' => 'accepted',
+        'politica_dos' => 'accepted',
+    ];
+
+    protected $messages = [
+        'politica_uno.accepted' => 'Debes aceptar la política de privacidad.',
+        'politica_dos.accepted' => 'Debes aceptar los términos y condiciones.',
     ];
 
     public function buscarCliente()
@@ -69,7 +79,7 @@ class RegistrarClienteCrearLivewire extends Component
             'name' => $this->cliente_encontrado['apellidos_nombres'] ?? $this->email,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            'role' => 'cliente',
+            'rol' => 'cliente',
         ]);
 
         Cliente::create([

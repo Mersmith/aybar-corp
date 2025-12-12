@@ -12,8 +12,8 @@ class CitaSeeder extends Seeder
 {
     public function run(): void
     {
-        $admin = User::where('role', 'admin')->first();
-        $clientes = User::where('role', 'cliente')->get();
+        $admin = User::where('rol', 'admin')->first();
+        $clientes = User::where('rol', 'cliente')->get();
         $sedes = Sede::all();
         $motivos = MotivoCita::where('activo', true)->get();
 

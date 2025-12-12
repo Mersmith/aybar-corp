@@ -48,12 +48,12 @@
                     </div>
 
                     <div>
-                        <label for="role">Rol</label>
-                        <select id="role" wire:model.live="role">
+                        <label for="rol">Rol</label>
+                        <select id="rol" wire:model.live="rol">
                             <option value="cliente">Cliente</option>
                             <option value="admin">Administrador</option>
                         </select>
-                        @error('role')
+                        @error('rol')
                             <p class="mensaje_error">{{ $message }}</p>
                         @enderror
                     </div>

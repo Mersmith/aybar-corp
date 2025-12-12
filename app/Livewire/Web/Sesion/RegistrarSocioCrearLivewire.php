@@ -28,7 +28,7 @@ class RegistrarSocioCrearLivewire extends Component
             'name' => $this->email,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            'role' => 'socio',
+            'rol' => 'socio',
         ]);
 
         Auth::login($user);

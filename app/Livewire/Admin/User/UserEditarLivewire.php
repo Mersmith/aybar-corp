@@ -17,7 +17,7 @@ class UserEditarLivewire extends Component
     public $name;
     public $email;
     public $password;
-    public $role = 'admin';
+    public $rol = 'admin';
 
     public $roles;
     public $selectedRoles = [];
@@ -30,7 +30,7 @@ class UserEditarLivewire extends Component
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $this->user->id,
             'password' => 'required|min:6',
-            'role' => 'required|in:admin,cliente',
+            'rol' => 'required|in:admin,cliente',
         ];
     }
 
@@ -44,7 +44,7 @@ class UserEditarLivewire extends Component
         $this->name = $this->user->name;
         $this->email = $this->user->email;
         $this->password = $this->user->password;
-        $this->role = $this->user->role;
+        $this->rol = $this->user->rol;
         $this->activo = $this->user->activo;
 
     }
@@ -57,7 +57,7 @@ class UserEditarLivewire extends Component
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
-            'role' => $this->role,
+            'rol' => $this->rol,
             'activo' => $this->activo,
         ]);
 
