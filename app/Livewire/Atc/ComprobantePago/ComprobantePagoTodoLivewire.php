@@ -4,6 +4,8 @@ namespace App\Livewire\Atc\ComprobantePago;
 
 use App\Models\ComprobantePago;
 use App\Models\EstadoComprobantePago;
+use App\Models\Proyecto;
+use App\Models\UnidadNegocio;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -13,13 +15,16 @@ class ComprobantePagoTodoLivewire extends Component
 {
     use WithPagination;
     public $buscar = '';
-    public $estado_id = '';
     public $perPage = 20;
-    public $estados;
+    public $estados, $estado_id = '';
+    public $empresas, $unidad_negocio_id = '';
+    public $proyectos, $proyecto_id = '';
 
     public function mount()
     {
         $this->estados = EstadoComprobantePago::all();
+        $this->empresas = UnidadNegocio::all();
+        $this->proyectos = Proyecto::all();
     }
 
     public function updatingBuscar()
@@ -32,10 +37,22 @@ class ComprobantePagoTodoLivewire extends Component
         $this->resetPage();
     }
 
+    public function updatingUnidadNegocioId()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingProyectoId()
+    {
+        $this->resetPage();
+    }
+
     public function resetFiltros()
     {
         $this->reset([
             'estado_id',
+            'unidad_negocio_id',
+            'proyecto_id',
             'buscar',
         ]);
 
@@ -61,6 +78,8 @@ class ComprobantePagoTodoLivewire extends Component
             ->when($this->estado_id, function ($q) {
                 $q->where('estado_comprobante_pago_id', $this->estado_id);
             })
+            ->when($this->unidad_negocio_id, fn($q) => $q->where('unidad_negocio_id', $this->unidad_negocio_id))
+            ->when($this->proyecto_id, fn($q) => $q->where('proyecto_id', $this->proyecto_id))
             ->orderBy('created_at', 'desc')
             ->paginate($this->perPage);
 

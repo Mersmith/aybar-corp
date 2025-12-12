@@ -33,6 +33,26 @@
                         @endforeach
                     </select>
                 </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Razón Social </label>
+                    <select wire:model.live="unidad_negocio_id">
+                        <option value="">TODOS</option>
+                        @foreach ($empresas as $empresa)
+                        <option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="g_margin_bottom_10 g_columna_2">
+                    <label>Proyecto </label>
+                    <select wire:model.live="proyecto_id">
+                        <option value="">TODOS</option>
+                        @foreach ($proyectos as $proyecto)
+                        <option value="{{ $proyecto->id }}">{{ $proyecto->nombre }}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -64,7 +84,7 @@
                         @foreach ($evidencias as $index => $item)
                         <tr>
                             <td> {{ $index + 1 }} </td>
-                            <td class="g_resumir">{{ $item->unidadNegocio->nombre  }}</td>
+                            <td class="g_resumir">{{ $item->unidadNegocio->nombre }}</td>
                             <td class="g_resumir">{{ $item->proyecto->nombre }}</td>
                             <td class="g_resumir">{{ $item->manzana }}</td>
                             <td class="g_resumir">{{ $item->lote }}</td>
