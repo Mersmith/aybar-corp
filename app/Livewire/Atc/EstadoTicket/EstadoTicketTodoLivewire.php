@@ -21,10 +21,10 @@ class EstadoTicketTodoLivewire extends Component
 
     public function render()
     {
-        $estados = EstadoTicket::where('nombre', 'like', '%' . $this->buscar . '%')
+        $items = EstadoTicket::where('nombre', 'like', '%' . $this->buscar . '%')
             ->orderBy('created_at', 'desc')
             ->paginate($this->perPage);
 
-        return view('livewire.atc.estado-ticket.estado-ticket-todo-livewire', compact('estados'));
+        return view('livewire.atc.estado-ticket.estado-ticket-todo-livewire', compact('items'));
     }
 }

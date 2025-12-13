@@ -23,6 +23,7 @@ class RolesYPermisosSeeder extends Seeder
             'evidencia-pago-editar',
             'evidencia-pago-eliminar',
             'evidencia-pago-validar',
+            /* */
             'tipo-solicitud-ver',
             'tipo-solicitud-crear',
             'tipo-solicitud-editar',
@@ -43,7 +44,23 @@ class RolesYPermisosSeeder extends Seeder
             'ticket-crear',
             'ticket-editar',
             'ticket-eliminar',
+            'ticket-derivar-ver',
             'ticket-reporte-ver',
+            /* */
+            'motivo-cita-ver',
+            'motivo-cita-crear',
+            'motivo-cita-editar',
+            'motivo-cita-eliminar',
+            'estado-cita-ver',
+            'estado-cita-crear',
+            'estado-cita-editar',
+            'estado-cita-eliminar',
+            'cita-ver',
+            'cita-crear',
+            'cita-editar',
+            'cita-eliminar',
+            'calendario-ver',
+            'cita-reporte-ver',
         ];
 
         foreach ($permisos as $permiso) {
@@ -113,6 +130,22 @@ class RolesYPermisosSeeder extends Seeder
             'canal-crear',
             'canal-editar',
             'canal-eliminar',
+            'ticket-reporte-ver',
+            /* */
+            'motivo-cita-ver',
+            'motivo-cita-crear',
+            'motivo-cita-editar',
+            'motivo-cita-eliminar',
+            'estado-cita-ver',
+            'estado-cita-crear',
+            'estado-cita-editar',
+            'estado-cita-eliminar',
+            'cita-ver',
+            'cita-crear',
+            'cita-editar',
+            'cita-eliminar',
+            'calendario-ver',
+            'cita-reporte-ver',
         ]);
 
         $atc->givePermissionTo([
@@ -120,7 +153,12 @@ class RolesYPermisosSeeder extends Seeder
             'ticket-crear',
             'ticket-editar',
             'ticket-eliminar',
-            'ticket-reporte-ver',
+            /* */
+            'cita-ver',
+            'cita-crear',
+            'cita-editar',
+            'cita-eliminar',
+            'calendario-ver',
         ]);
     }
 }

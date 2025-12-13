@@ -22,7 +22,7 @@ class EstadoTicketCrearLivewire extends Component
         ];
     }
 
-    public function crearEstadoTicket()
+    public function store()
     {
         $this->validate();
 

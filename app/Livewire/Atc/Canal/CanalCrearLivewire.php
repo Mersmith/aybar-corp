@@ -20,7 +20,7 @@ class CanalCrearLivewire extends Component
         ];
     }
 
-    public function crearCanal()
+    public function store()
     {
         $this->validate();
 

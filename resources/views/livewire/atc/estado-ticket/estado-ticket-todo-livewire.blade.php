@@ -1,7 +1,5 @@
 @section('tituloPagina', 'Estados ticket')
 
-@section('anchoPantalla', '100%')
-
 <div class="g_gap_pagina">
     <div class="g_panel cabecera_titulo_pagina">
         <h2>Estados ticket</h2>
@@ -40,9 +38,9 @@
                         </tr>
                     </thead>
 
-                    @if ($estados->count())
+                    @if ($items->count())
                     <tbody>
-                        @foreach ($estados as $index => $item)
+                        @foreach ($items as $index => $item)
                         <tr>
                             <td> {{ $index + 1 }} </td>
                             <td class="g_resaltar">{{ $item->nombre }}</td>
@@ -75,15 +73,15 @@
             </div>
         </div>
 
-        @if ($estados->hasPages())
+        @if ($items->hasPages())
         <div class="g_paginacion">
-            {{ $estados->links('vendor.pagination.default-livewire') }}
+            {{ $items->links('vendor.pagination.default-livewire') }}
         </div>
         @endif
 
-        @if ($estados->count() == 0)
+        @if ($items->count() == 0)
         <div class="g_vacio">
-            <p>No hay estados disponibles.</p>
+            <p>No hay items disponibles.</p>
             <i class="fa-regular fa-face-grin-wink"></i>
         </div>
         @endif

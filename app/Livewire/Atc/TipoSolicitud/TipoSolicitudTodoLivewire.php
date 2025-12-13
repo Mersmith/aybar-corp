@@ -21,10 +21,10 @@ class TipoSolicitudTodoLivewire extends Component
 
     public function render()
     {
-        $solicitudes = TipoSolicitud::where('nombre', 'like', '%' . $this->buscar . '%')
+        $items = TipoSolicitud::where('nombre', 'like', '%' . $this->buscar . '%')
             ->orderBy('created_at', 'desc')
             ->paginate($this->perPage);
 
-        return view('livewire.atc.tipo-solicitud.tipo-solicitud-todo-livewire', compact('solicitudes'));
+        return view('livewire.atc.tipo-solicitud.tipo-solicitud-todo-livewire', compact('items'));
     }
 }

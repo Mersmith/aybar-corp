@@ -44,7 +44,7 @@ class TicketTodoLivewire extends Component
         $this->areas = Area::all();
         $this->solicitudes = TipoSolicitud::all();
         $this->canales = Canal::all();
-        $this->usuarios_admin = User::where('rol', 'admin')->get();
+        $this->usuarios_admin = User::role(['atc', 'supervisor atc'])->get();
         $this->prioridades = PrioridadTicket::all();
         $this->admin = Auth::check() ? Auth::id() : '';
         $this->fecha_inicio = now()->toDateString(); // "2025-11-26"

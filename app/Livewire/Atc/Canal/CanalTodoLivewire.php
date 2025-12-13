@@ -21,10 +21,10 @@ class CanalTodoLivewire extends Component
 
     public function render()
     {
-        $canales = Canal::where('nombre', 'like', '%' . $this->buscar . '%')
-        ->orderBy('created_at', 'desc')
-        ->paginate($this->perPage);
+        $items = Canal::where('nombre', 'like', '%' . $this->buscar . '%')
+            ->orderBy('created_at', 'desc')
+            ->paginate($this->perPage);
 
-        return view('livewire.atc.canal.canal-todo-livewire', compact('canales'));
+        return view('livewire.atc.canal.canal-todo-livewire', compact('items'));
     }
 }

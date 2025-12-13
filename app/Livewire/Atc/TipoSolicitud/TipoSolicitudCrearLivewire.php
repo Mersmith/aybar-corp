@@ -20,7 +20,7 @@ class TipoSolicitudCrearLivewire extends Component
         ];
     }
 
-    public function crearTipoSolicitud()
+    public function store()
     {
         $this->validate();
 

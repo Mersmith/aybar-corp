@@ -26,7 +26,12 @@
 }
 
 .header_layout_pagina .contenedor_profile .contenedor_texto p {
+    font-size: 15px;
     font-weight: 600;
+}
+
+.header_layout_pagina .contenedor_profile .contenedor_texto span {
+    font-size: 13px;
 }
 
 .header_layout_pagina .contenedor_profile img {

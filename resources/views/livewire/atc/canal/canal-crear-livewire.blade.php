@@ -24,7 +24,7 @@
                                     class="fa-solid fa-asterisk"></i></span></label>
                         <input type="text" id="nombre" wire:model.live="nombre" required>
                         @error('nombre')
-                            <p class="mensaje_error">{{ $message }}</p>
+                        <p class="mensaje_error">{{ $message }}</p>
                         @enderror
                     </div>
                 </div>
@@ -45,7 +45,7 @@
         <!-- BOTONES -->
         <div class="g_margin_top_20">
             <div class="formulario_botones">
-                <button wire:click="crearCanal" class="guardar" wire:loading.attr="disabled">Guardar</button>
+                <button wire:click="store" class="guardar" wire:loading.attr="disabled">Guardar</button>
                 <a href="{{ route('admin.canal.vista.todo') }}" class="cancelar">Cancelar</a>
             </div>
         </div>

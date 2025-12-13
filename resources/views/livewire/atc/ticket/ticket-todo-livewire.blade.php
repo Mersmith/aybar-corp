@@ -23,7 +23,7 @@
         <div class="formulario">
             <div class="g_fila">
                 <div class="g_margin_bottom_10 g_columna_2">
-                    <label>DNI/Nombres</label>
+                    <label>Cliente/DNI/Nombres</label>
                     <input type="text" wire:model.live.debounce.1300ms="buscar" id="buscar" name="buscar">
                 </div>
 

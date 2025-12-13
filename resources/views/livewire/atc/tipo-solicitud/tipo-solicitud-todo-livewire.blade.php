@@ -36,9 +36,9 @@
                         </tr>
                     </thead>
 
-                    @if ($solicitudes->count())
+                    @if ($items->count())
                     <tbody>
-                        @foreach ($solicitudes as $index => $item)
+                        @foreach ($items as $index => $item)
                         <tr>
                             <td> {{ $index + 1 }} </td>
                             <td class="g_resaltar">{{ $item->nombre }}</td>
@@ -62,15 +62,15 @@
             </div>
         </div>
 
-        @if ($solicitudes->hasPages())
+        @if ($items->hasPages())
         <div class="g_paginacion">
-            {{ $solicitudes->links('vendor.pagination.default-livewire') }}
+            {{ $items->links('vendor.pagination.default-livewire') }}
         </div>
         @endif
 
-        @if ($solicitudes->count() == 0)
+        @if ($items->count() == 0)
         <div class="g_vacio">
-            <p>No hay solicitudes disponibles.</p>
+            <p>No hay items disponibles.</p>
             <i class="fa-regular fa-face-grin-wink"></i>
         </div>
         @endif

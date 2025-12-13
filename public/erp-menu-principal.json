@@ -283,7 +283,7 @@
         "url": "#",
         "icono": "fa-solid fa-calendar-days",
         "nivel": 1,
-        "roles": ["super-admin"],
+        "roles": ["super-admin", "supervisor atc", "atc"],
         "submenus": [
             {
                 "id": 44,
@@ -292,7 +292,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-lightbulb",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -321,7 +321,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-lock-open",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -350,7 +350,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-calendar",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc", "atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -358,7 +358,7 @@
                         "ruta": "admin.cita.vista.todo",
                         "url": "/admin/cita",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc", "atc"],
                         "submenus": []
                     },
                     {
@@ -367,7 +367,7 @@
                         "ruta": "admin.cita.vista.crear",
                         "url": "/admin/cita/crear",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc", "atc"],
                         "submenus": []
                     }
                 ]
@@ -379,7 +379,7 @@
                 "url": "/admin/cita/calendario",
                 "icono": "fa-solid fa-calendar-check",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc", "atc"],
                 "submenus": []
             },
             {
@@ -389,7 +389,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-chart-line",
                 "nivel": 2,
-                "roles": ["super-admin"],
+                "roles": ["super-admin", "supervisor atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -397,7 +397,7 @@
                         "ruta": "admin.reporte-cita.vista.todo",
                         "url": "/admin/reporte-cita",
                         "nivel": 3,
-                        "roles": ["super-admin"],
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     }
                 ]
