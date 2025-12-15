@@ -50,6 +50,7 @@ use App\Livewire\Atc\EstadoComprobantePago\EstadoComprobantePagoEditarLivewire;
 
 use App\Livewire\Atc\ComprobantePago\ComprobantePagoTodoLivewire;
 use App\Livewire\Atc\ComprobantePago\ComprobantePagoEditarLivewire;
+use App\Livewire\Atc\ComprobantePago\ImportarComprobanteAntiguoLivewire;
 
 use Illuminate\Support\Facades\Route;
 
@@ -164,4 +165,5 @@ Route::prefix('comprobante-pago')
     ->group(function () {
         Route::get('/', ComprobantePagoTodoLivewire::class)->name('todo');
         Route::get('/editar/{id}', ComprobantePagoEditarLivewire::class)->name('editar');
+        Route::get('/importar-antiguo', ImportarComprobanteAntiguoLivewire::class)->name('importar-antiguo');
     });

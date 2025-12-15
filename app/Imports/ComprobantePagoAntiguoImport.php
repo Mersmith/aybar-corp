@@ -17,7 +17,7 @@ class ComprobantePagoAntiguoImport implements ToCollection, WithHeadingRow
         foreach ($rows as $row) {
 
             // Evita filas vacías
-            if (empty($row['imagen'])) {
+            if (empty($row['imagen_url'])) {
                 continue;
             }
 

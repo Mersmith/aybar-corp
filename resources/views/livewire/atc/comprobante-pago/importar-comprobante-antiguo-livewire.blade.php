@@ -1,3 +1,7 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
+    <form wire:submit.prevent="importar">
+        <input type="file" wire:model="archivo">
+        <button type="submit">Importar Excel</button>
+    </form>
+
 </div>

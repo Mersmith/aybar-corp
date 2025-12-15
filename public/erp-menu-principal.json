@@ -731,6 +731,15 @@
                         "nivel": 3,
                         "roles": ["super-admin", "supervisor gestor", "gestor"],
                         "submenus": []
+                    },
+                    {
+                        "id": 114,
+                        "nombre": "Importar",
+                        "ruta": "admin.comprobante-pago.vista.importar-antiguo",
+                        "url": "/admin/comprobante-pago/importar-antiguo",
+                        "nivel": 3,
+                        "roles": ["super-admin", "supervisor gestor", "gestor"],
+                        "submenus": []
                     }
                 ]
             }
