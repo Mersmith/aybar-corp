@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('cliente_id')->constrained('users');
             $table->foreignId('area_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('tipo_solicitud_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('sub_tipo_solicitud_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('canal_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('estado_ticket_id')->default(1)->constrained('estado_tickets')->cascadeOnDelete();
             $table->foreignId('prioridad_ticket_id')->default(3)->constrained('prioridad_tickets')->cascadeOnDelete();

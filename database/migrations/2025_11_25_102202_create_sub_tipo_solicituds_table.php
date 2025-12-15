@@ -11,12 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_solicituds', function (Blueprint $table) {
+        Schema::create('sub_tipo_solicituds', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('tipo_solicitud_id')
+                ->constrained('tipo_solicituds')
+                ->cascadeOnDelete();
+
             $table->string('nombre');
-            $table->integer('tiempo_solucion')->nullable(); // tiempo por defecto (en horas)
-            $table->boolean('activo')->default(false);
+            $table->integer('tiempo_solucion')->nullable(); // si es null, hereda del tipo
+            $table->boolean('activo')->default(true);
 
             $table->timestamps();
             $table->softDeletes();
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tipo_solicituds');
+        Schema::dropIfExists('sub_tipo_solicituds');
     }
 };

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('profile_photo_path')->nullable();
 
             $table->enum('rol', ['admin', 'cliente', 'socio'])->default('cliente');
+            $table->boolean('politica_uno')->default(false)->comment('Tratamiento de datos personales');
+            $table->boolean('politica_dos')->default(false)->comment('Politicas comerciales');
             $table->boolean('activo')->default(false);
             $table->rememberToken();
             $table->timestamps();

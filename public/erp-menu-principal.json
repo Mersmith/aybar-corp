@@ -277,136 +277,8 @@
         ]
     },
     {
-        "id": 12,
-        "nombre": "12",
-        "ruta": "#",
-        "url": "#",
-        "icono": "fa-solid fa-calendar-days",
-        "nivel": 1,
-        "roles": ["super-admin", "supervisor atc", "atc"],
-        "submenus": [
-            {
-                "id": 44,
-                "nombre": "Motivos cita",
-                "ruta": "#",
-                "url": "#",
-                "icono": "fa-solid fa-lightbulb",
-                "nivel": 2,
-                "roles": ["super-admin", "supervisor atc"],
-                "submenus": [
-                    {
-                        "id": 111,
-                        "nombre": "Todo",
-                        "ruta": "admin.motivo-cita.vista.todo",
-                        "url": "/admin/motivo-cita",
-                        "nivel": 3,
-                        "roles": ["super-admin"],
-                        "submenus": []
-                    },
-                    {
-                        "id": 112,
-                        "nombre": "Crear",
-                        "ruta": "admin.motivo-cita.vista.crear",
-                        "url": "/admin/motivo-cita/crear",
-                        "nivel": 3,
-                        "roles": ["super-admin"],
-                        "submenus": []
-                    }
-                ]
-            },
-            {
-                "id": 45,
-                "nombre": "Estados cita",
-                "ruta": "#",
-                "url": "#",
-                "icono": "fa-solid fa-lock-open",
-                "nivel": 2,
-                "roles": ["super-admin", "supervisor atc"],
-                "submenus": [
-                    {
-                        "id": 111,
-                        "nombre": "Todo",
-                        "ruta": "admin.estado-cita.vista.todo",
-                        "url": "/admin/estado-cita",
-                        "nivel": 3,
-                        "roles": ["super-admin"],
-                        "submenus": []
-                    },
-                    {
-                        "id": 112,
-                        "nombre": "Crear",
-                        "ruta": "admin.estado-cita.vista.crear",
-                        "url": "/admin/estado-cita/crear",
-                        "nivel": 3,
-                        "roles": ["super-admin"],
-                        "submenus": []
-                    }
-                ]
-            },
-            {
-                "id": 46,
-                "nombre": "Cita",
-                "ruta": "#",
-                "url": "#",
-                "icono": "fa-solid fa-calendar",
-                "nivel": 2,
-                "roles": ["super-admin", "supervisor atc", "atc"],
-                "submenus": [
-                    {
-                        "id": 111,
-                        "nombre": "Todo",
-                        "ruta": "admin.cita.vista.todo",
-                        "url": "/admin/cita",
-                        "nivel": 3,
-                        "roles": ["super-admin", "supervisor atc", "atc"],
-                        "submenus": []
-                    },
-                    {
-                        "id": 112,
-                        "nombre": "Crear",
-                        "ruta": "admin.cita.vista.crear",
-                        "url": "/admin/cita/crear",
-                        "nivel": 3,
-                        "roles": ["super-admin", "supervisor atc", "atc"],
-                        "submenus": []
-                    }
-                ]
-            },
-            {
-                "id": 47,
-                "nombre": "Calendario",
-                "ruta": "admin.cita.vista.calendario",
-                "url": "/admin/cita/calendario",
-                "icono": "fa-solid fa-calendar-check",
-                "nivel": 2,
-                "roles": ["super-admin", "supervisor atc", "atc"],
-                "submenus": []
-            },
-            {
-                "id": 48,
-                "nombre": "Reporte",
-                "ruta": "#",
-                "url": "#",
-                "icono": "fa-solid fa-chart-line",
-                "nivel": 2,
-                "roles": ["super-admin", "supervisor atc"],
-                "submenus": [
-                    {
-                        "id": 111,
-                        "nombre": "Todo",
-                        "ruta": "admin.reporte-cita.vista.todo",
-                        "url": "/admin/reporte-cita",
-                        "nivel": 3,
-                        "roles": ["super-admin", "supervisor atc"],
-                        "submenus": []
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": 10,
-        "nombre": "10",
+        "id": 14,
+        "nombre": "14",
         "ruta": "#",
         "url": "#",
         "icono": "fa-solid fa-headset",
@@ -565,7 +437,7 @@
                 "url": "#",
                 "icono": "fa-solid fa-chart-line",
                 "nivel": 2,
-                "roles": ["super-admin", "supervisor atc", "atc"],
+                "roles": ["super-admin", "supervisor atc"],
                 "submenus": [
                     {
                         "id": 111,
@@ -573,7 +445,135 @@
                         "ruta": "admin.reporte-ticket.vista.todo",
                         "url": "/admin/reporte-ticket",
                         "nivel": 3,
+                        "roles": ["super-admin", "supervisor atc"],
+                        "submenus": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "nombre": "12",
+        "ruta": "#",
+        "url": "#",
+        "icono": "fa-solid fa-calendar-days",
+        "nivel": 1,
+        "roles": ["super-admin", "supervisor atc", "atc"],
+        "submenus": [
+            {
+                "id": 44,
+                "nombre": "Motivos cita",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-lightbulb",
+                "nivel": 2,
+                "roles": ["super-admin", "supervisor atc"],
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.motivo-cita.vista.todo",
+                        "url": "/admin/motivo-cita",
+                        "nivel": 3,
+                        "roles": ["super-admin"],
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.motivo-cita.vista.crear",
+                        "url": "/admin/motivo-cita/crear",
+                        "nivel": 3,
+                        "roles": ["super-admin"],
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 45,
+                "nombre": "Estados cita",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-lock-open",
+                "nivel": 2,
+                "roles": ["super-admin", "supervisor atc"],
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.estado-cita.vista.todo",
+                        "url": "/admin/estado-cita",
+                        "nivel": 3,
+                        "roles": ["super-admin"],
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.estado-cita.vista.crear",
+                        "url": "/admin/estado-cita/crear",
+                        "nivel": 3,
+                        "roles": ["super-admin"],
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 46,
+                "nombre": "Cita",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-calendar",
+                "nivel": 2,
+                "roles": ["super-admin", "supervisor atc", "atc"],
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.cita.vista.todo",
+                        "url": "/admin/cita",
+                        "nivel": 3,
                         "roles": ["super-admin", "supervisor atc", "atc"],
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.cita.vista.crear",
+                        "url": "/admin/cita/crear",
+                        "nivel": 3,
+                        "roles": ["super-admin", "supervisor atc", "atc"],
+                        "submenus": []
+                    }
+                ]
+            },
+            {
+                "id": 47,
+                "nombre": "Calendario",
+                "ruta": "admin.cita.vista.calendario",
+                "url": "/admin/cita/calendario",
+                "icono": "fa-solid fa-calendar-check",
+                "nivel": 2,
+                "roles": ["super-admin", "supervisor atc", "atc"],
+                "submenus": []
+            },
+            {
+                "id": 48,
+                "nombre": "Reporte",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-chart-line",
+                "nivel": 2,
+                "roles": ["super-admin", "supervisor atc"],
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.reporte-cita.vista.todo",
+                        "url": "/admin/reporte-cita",
+                        "nivel": 3,
+                        "roles": ["super-admin", "supervisor atc"],
                         "submenus": []
                     }
                 ]

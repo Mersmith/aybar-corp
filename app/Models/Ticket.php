@@ -15,8 +15,10 @@ class Ticket extends Model
         'cliente_id',
         'area_id',
         'tipo_solicitud_id',
+        'sub_tipo_solicitud_id',
         'canal_id',
         'estado_ticket_id',
+        'prioridad_ticket_id',
         'usuario_asignado_id',
         'asunto_inicial',
         'descripcion_inicial',
@@ -47,7 +49,12 @@ class Ticket extends Model
 
     public function tipoSolicitud()
     {
-        return $this->belongsTo(TipoSolicitud::class);
+        return $this->belongsTo(TipoSolicitud::class, 'tipo_solicitud_id');
+    }
+
+    public function subTipoSolicitud()
+    {
+        return $this->belongsTo(SubTipoSolicitud::class, 'sub_tipo_solicitud_id');
     }
 
     public function canal()

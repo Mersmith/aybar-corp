@@ -52,7 +52,7 @@
                                 }">
 
                                 <a @click.stop="toogleNivel_2($event, {{ $n2['id'] }})" @if (!count($n2['submenus']))
-                                    href="{{ route($n2['ruta']) }}" @endif>
+                                    href="{{ $n2['ruta'] !== '#' ? route($n2['ruta']) : '#' }}" @endif>
                                     <i class="{{ $n2['icono'] }}"></i>
                                     {{ $n2['nombre'] }}
                                 </a>
@@ -71,9 +71,9 @@
                                     <span class="contenedor_a" data-id="{{ $n3['id'] }}"
                                         :class="{'sidebar_item_seleccionado': seleccionadoNivel_3 === Number($el.dataset.id)}">
 
-
                                         <a @click.stop="toogleNivel_3($event, {{ $n3['id'] }})"
-                                            @if(!count($n3['submenus'])) href="{{ route($n3['ruta']) }}" @endif>
+                                            @if(!count($n3['submenus']))
+                                            href="{{ $n3['ruta'] !== '#' ? route($n3['ruta']) : '#' }}" @endif>
 
                                             <span class="punto_item">
                                                 <i class="fa-solid fa-circle"></i>

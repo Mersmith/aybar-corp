@@ -35,8 +35,6 @@ php artisan make:model PagoCuota -mfsc
 php artisan make:model Reprogramacion -mfsc
 php artisan make:model ReprogramacionGeneral -mfsc
 php artisan make:model Direccion -mfsc
-php artisan make:model EstadoComprobantePago -mfsc
-php artisan make:model ComprobantePago -mfsc
 
 php artisan vendor:publish --tag=laravel-pagination
 

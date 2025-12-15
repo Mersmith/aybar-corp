@@ -35,12 +35,13 @@ class DatabaseSeeder extends Seeder
             AreaSeeder::class,
             AreaUserSeeder::class,
             TipoSolicitudSeeder::class,
+            SubTipoSolicitudSeeder::class,
             AreaTipoSolicitudSeeder::class,
             TicketSeeder::class,
             TicketHistorialSeeder::class,
             TicketDerivadoSeeder::class,
 
-            //ProyectoSeeder::class,
+            ProyectoSeeder::class,
             //LoteSeeder::class,
             //VentaSeeder::class,
             //CronogramaPagoSeeder::class,
@@ -48,8 +49,8 @@ class DatabaseSeeder extends Seeder
             //ReprogramacionSeeder::class,
             //ReprogramacionGeneralSeeder::class,
 
-            //EstadoComprobantePagoSeeder::class,
-            //ComprobantePagoSeeder::class,
+            EstadoComprobantePagoSeeder::class,
+            ComprobantePagoSeeder::class,
 
             //ImagenSeeder::class,
             //ArchivoSeeder::class,

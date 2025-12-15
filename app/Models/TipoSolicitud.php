@@ -11,7 +11,7 @@ class TipoSolicitud extends Model
     /** @use HasFactory<\Database\Factories\TipoSolicitudFactory> */
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['nombre', 'activo'];
+    protected $fillable = ['nombre', 'tiempo_solucion', 'activo'];
 
     public function areas()
     {
@@ -21,5 +21,10 @@ class TipoSolicitud extends Model
     public function tickets()
     {
         return $this->hasMany(Ticket::class);
+    }
+
+    public function subTipos()
+    {
+        return $this->hasMany(SubTipoSolicitud::class);
     }
 }
