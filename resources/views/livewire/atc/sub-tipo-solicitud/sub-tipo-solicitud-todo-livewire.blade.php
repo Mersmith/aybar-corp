@@ -1,14 +1,14 @@
-@section('tituloPagina', 'Tipo solicitud')
+@section('tituloPagina', 'Sub tipo solicitud')
 
 <div class="g_gap_pagina">
     <div class="g_panel cabecera_titulo_pagina">
-        <h2>Tipo solicitud</h2>
+        <h2>Sub tipo solicitud</h2>
 
         <div class="cabecera_titulo_botones">
-            <a href="{{ route('admin.tipo-solicitud.vista.todo') }}" class="g_boton g_boton_light">
+            <a href="{{ route('admin.sub-tipo-solicitud.vista.todo') }}" class="g_boton g_boton_light">
                 Inicio <i class="fa-solid fa-house"></i></a>
 
-            <a href="{{ route('admin.tipo-solicitud.vista.crear') }}" class="g_boton g_boton_primary">
+            <a href="{{ route('admin.sub-tipo-solicitud.vista.crear') }}" class="g_boton g_boton_primary">
                 Crear <i class="fa-solid fa-square-plus"></i></a>
         </div>
     </div>
@@ -31,6 +31,7 @@
                         <tr>
                             <th>Nº</th>
                             <th>Nombre</th>
+                            <th>Padre</th>
                             <th>Tiempo(hrs.)</th>
                             <th>Activo</th>
                             <th></th>
@@ -43,6 +44,7 @@
                         <tr>
                             <td> {{ $index + 1 }} </td>
                             <td class="g_resaltar">{{ $item->nombre }}</td>
+                            <td class="g_resaltar">{{ $item->tipoSolicitud->nombre }}</td>
                             <td class="g_resaltar">{{ $item->tiempo_solucion }}</td>
                             <td>
                                 <span class="g_estado {{ $item->activo ? 'g_activo' : 'g_desactivado' }}"><i
@@ -51,7 +53,7 @@
                             </td>
 
                             <td class="centrar_iconos">
-                                <a href="{{ route('admin.tipo-solicitud.vista.editar', $item->id) }}"
+                                <a href="{{ route('admin.sub-tipo-solicitud.vista.editar', $item->id) }}"
                                     class="g_accion_editar">
                                     <span><i class="fa-solid fa-pencil"></i></span>
                                 </a>

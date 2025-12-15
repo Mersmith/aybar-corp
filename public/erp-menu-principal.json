@@ -315,6 +315,35 @@
                 ]
             },
             {
+                "id": 41,
+                "nombre": "Sub tipo solicitud",
+                "ruta": "#",
+                "url": "#",
+                "icono": "fa-solid fa-indent",
+                "nivel": 2,
+                "roles": ["super-admin", "supervisor atc"],
+                "submenus": [
+                    {
+                        "id": 111,
+                        "nombre": "Todo",
+                        "ruta": "admin.sub-tipo-solicitud.vista.todo",
+                        "url": "/admin/sub-tipo-solicitud",
+                        "nivel": 3,
+                        "roles": ["super-admin", "supervisor atc"],
+                        "submenus": []
+                    },
+                    {
+                        "id": 112,
+                        "nombre": "Crear",
+                        "ruta": "admin.sub-tipo-solicitud.vista.crear",
+                        "url": "/admin/sub-tipo-solicitud/crear",
+                        "nivel": 3,
+                        "roles": ["super-admin", "supervisor atc"],
+                        "submenus": []
+                    }
+                ]
+            },
+            {
                 "id": 43,
                 "nombre": "Prioridad ticket",
                 "ruta": "#",

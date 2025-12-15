@@ -58,6 +58,10 @@ php artisan make:livewire Atc/TipoSolicitud/TipoSolicitudTodoLivewire
 php artisan make:livewire Atc/TipoSolicitud/TipoSolicitudCrearLivewire
 php artisan make:livewire Atc/TipoSolicitud/TipoSolicitudEditarLivewire
 
+php artisan make:livewire Atc/SubTipoSolicitud/SubTipoSolicitudTodoLivewire
+php artisan make:livewire Atc/SubTipoSolicitud/SubTipoSolicitudCrearLivewire
+php artisan make:livewire Atc/SubTipoSolicitud/SubTipoSolicitudEditarLivewire
+
 php artisan make:livewire Atc/EstadoTicket/EstadoTicketTodoLivewire
 php artisan make:livewire Atc/EstadoTicket/EstadoTicketCrearLivewire
 php artisan make:livewire Atc/EstadoTicket/EstadoTicketEditarLivewire

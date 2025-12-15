@@ -10,6 +10,10 @@ use App\Livewire\Atc\TipoSolicitud\TipoSolicitudTodoLivewire;
 use App\Livewire\Atc\TipoSolicitud\TipoSolicitudCrearLivewire;
 use App\Livewire\Atc\TipoSolicitud\TipoSolicitudEditarLivewire;
 
+use App\Livewire\Atc\SubTipoSolicitud\SubTipoSolicitudTodoLivewire;
+use App\Livewire\Atc\SubTipoSolicitud\SubTipoSolicitudCrearLivewire;
+use App\Livewire\Atc\SubTipoSolicitud\SubTipoSolicitudEditarLivewire;
+
 use App\Livewire\Atc\EstadoTicket\EstadoTicketTodoLivewire;
 use App\Livewire\Atc\EstadoTicket\EstadoTicketCrearLivewire;
 use App\Livewire\Atc\EstadoTicket\EstadoTicketEditarLivewire;
@@ -69,6 +73,15 @@ Route::prefix('tipo-solicitud')
         Route::get('/', TipoSolicitudTodoLivewire::class)->name('todo');
         Route::get('/crear', TipoSolicitudCrearLivewire::class)->name('crear');
         Route::get('/editar/{id}', TipoSolicitudEditarLivewire::class)->name('editar');
+    });
+
+Route::prefix('sub-tipo-solicitud')
+    ->name('sub-tipo-solicitud.vista.')
+    ->middleware(['role:super-admin|supervisor atc'])
+    ->group(function () {
+        Route::get('/', SubTipoSolicitudTodoLivewire::class)->name('todo');
+        Route::get('/crear', SubTipoSolicitudCrearLivewire::class)->name('crear');
+        Route::get('/editar/{id}', SubTipoSolicitudEditarLivewire::class)->name('editar');
     });
 
 Route::prefix('estado-ticket')
