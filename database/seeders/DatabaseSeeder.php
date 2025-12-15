@@ -17,8 +17,8 @@ class DatabaseSeeder extends Seeder
             RolesYPermisosSeeder::class,
             UserSeeder::class,
 
-            //UnidadNegocioSeeder::class,
-            //GrupoProyectoSeeder::class,
+            UnidadNegocioSeeder::class,
+            GrupoProyectoSeeder::class,
             //SedeSeeder::class,
             //MotivoCitaSeeder::class,
             //EstadoCitaSeeder::class,
@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             //TicketHistorialSeeder::class,
             //TicketDerivadoSeeder::class,
 
-            //ProyectoSeeder::class,
+            ProyectoSeeder::class,
             //LoteSeeder::class,
             //VentaSeeder::class,
             //CronogramaPagoSeeder::class,
@@ -54,12 +54,12 @@ class DatabaseSeeder extends Seeder
 
             //ImagenSeeder::class,
             //ArchivoSeeder::class,
-            //PaginaSeeder::class,
-            //MenuSeeder::class,
-            //SeccionSeeder::class,
+            PaginaSeeder::class,
+            MenuSeeder::class,
+            SeccionSeeder::class,
             //BlogSeeder::class,
             //ComunicadoSeeder::class,
-            TipoFormularioSeeder::class,
+            //TipoFormularioSeeder::class,
             //FormularioPaginaContactoSeeder::class,
             //FormularioLibroReclamacionSeeder::class,
         ]);

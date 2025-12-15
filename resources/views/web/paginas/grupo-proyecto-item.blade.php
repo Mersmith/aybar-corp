@@ -9,21 +9,22 @@
 
         <div class="g_gap_pagina">
             @include('partials.titulo-encabezado', [
-                'titulo' => $grupo_proyecto->nombre,
-                'color' => 'color_1',
-                'alineacion' => 'center',
+            'titulo' => $grupo_proyecto->nombre,
+            'color' => 'color_1',
+            'alineacion' => 'center',
             ])
 
             <div class="partials_contenedor_grid_post">
                 <div class="grid_post">
                     @foreach ($items as $item)
-                        <div class="proyecto_card_contenedor">
-                            <img src="{{ $item->imagen }}">
-                            <div>
-                                <p class="subtitulo">{{ $item->nombre }}</p>
-                            </div>
-                            <a href="{{ route('proyecto.show', $item->slug) }}" class="g_boton_personalizado amarillo">VISITAR PROYECTO</a>
+                    <div class="proyecto_card_contenedor">
+                        <img src="{{ $item->imagen }}">
+                        <div>
+                            <p class="subtitulo">{{ $item->nombre }}</p>
                         </div>
+                        {{--<a href="{{ route('proyecto.show', $item->slug) }}"
+                            class="g_boton_personalizado amarillo">VISITAR PROYECTO</a>--}}
+                    </div>
                     @endforeach
                 </div>
 
