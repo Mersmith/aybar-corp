@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 
 use App\Models\FormularioLibroReclamacion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\LibroReclamacionMail;
 
 class LibroReclamacionController extends Controller
 {
@@ -35,7 +37,8 @@ class LibroReclamacionController extends Controller
             'conformidad' => 'accepted',
         ], [
             'nombre.required' => 'El nombre es obligatorio.',
-            'conformidad.accepted' => 'Debe aceptar los términos para enviar el reclamo.', 'nombre.max' => 'El nombre no debe ser largo.',
+            'conformidad.accepted' => 'Debe aceptar los términos para enviar el reclamo.',
+            'nombre.max' => 'El nombre no debe ser largo.',
             'apellido_paterno.required' => 'El apellido paterno es obligatorio.',
             'apellido_materno.required' => 'El apellido materno es obligatorio.',
             'domicilio.required' => 'El domicilio es obligatorio.',
@@ -63,6 +66,10 @@ class LibroReclamacionController extends Controller
             'pedido' => $request->pedido,
             'conformidad' => $request->has('conformidad'),
         ]);
+
+        Mail::mailer('reclamacion')
+            ->to($formulario->email)
+            ->send(new LibroReclamacionMail($formulario));
 
         return redirect()
             ->back()

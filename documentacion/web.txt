@@ -4,3 +4,5 @@ php artisan make:livewire Web/Sesion/RegistrarClienteCrearLivewire
 php artisan make:livewire Web/Sesion/RegistrarSocioCrearLivewire
 
 php artisan make:livewire Web/Contacto/FormularioContactoLivewire
+
+php artisan make:mail LibroReclamacionMail
