@@ -17,7 +17,7 @@
                     <article>
 
                         <!-- Título -->
-                        <h1 class="titulo">{{ $post->titulo }}</h1>
+                        {{--<h1 class="titulo">{{ $post->titulo }}</h1>
 
                         <!-- AUTOR -->
                         <a class="contenedor_autor" href=" ">
@@ -32,7 +32,7 @@
                                 <p> Nombre </p>
                                 <span> Cargo</span>
                             </div>
-                        </a>
+                        </a>--}}
 
                         <!-- FECHA -->
                         <div class="fecha">

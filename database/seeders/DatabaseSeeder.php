@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
             PaginaSeeder::class,
             MenuSeeder::class,
             SeccionSeeder::class,
-            //BlogSeeder::class,
+            BlogSeeder::class,
             //ComunicadoSeeder::class,
             //TipoFormularioSeeder::class,
             //FormularioPaginaContactoSeeder::class,
