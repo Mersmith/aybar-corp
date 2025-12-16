@@ -46,11 +46,41 @@ class ProyectoFactory extends Factory
                 'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
                 'texto' => 'Terrenos desde 160 m2.',
             ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
+                'texto' => 'A 10 min. del Óvalo de Cieneguilla',
+            ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
+                'texto' => 'Terrenos desde 160 m2.',
+            ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
+                'texto' => 'A 10 min. del Óvalo de Cieneguilla',
+            ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
+                'texto' => 'Terrenos desde 160 m2.',
+            ],
         ];
 
         $imagen_mapa = asset('assets/imagenes/mapa/mapa-1.png');
 
         $ofrecemos = [
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
+                'texto' => 'A 10 min. del Óvalo de Cieneguilla',
+            ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
+                'texto' => 'Terrenos desde 160 m2.',
+            ],
             [
                 'id' => uniqid(),
                 'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
@@ -68,9 +98,57 @@ class ProyectoFactory extends Factory
                 'id' => uniqid(),
                 'imagen' => asset('assets/imagen/default.jpg'),
             ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagen/default.jpg'),
+            ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagen/default.jpg'),
+            ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagen/default.jpg'),
+            ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagen/default.jpg'),
+            ],
+            [
+                'id' => uniqid(),
+                'imagen' => asset('assets/imagen/default.jpg'),
+            ],
         ];
 
         $videos_youtube = [
+            [
+                'id' => uniqid(),
+                'iframe' => '<iframe width="560" height="315"
+                src="https://www.youtube.com/embed/rdxrSIrZISE"
+                title="YouTube video player" frameborder="0"
+                allowfullscreen></iframe>',
+            ],
+            [
+                'id' => uniqid(),
+                'iframe' => '<iframe width="560" height="315"
+                src="https://www.youtube.com/embed/rdxrSIrZISE"
+                title="YouTube video player" frameborder="0"
+                allowfullscreen></iframe>',
+            ],
+            [
+                'id' => uniqid(),
+                'iframe' => '<iframe width="560" height="315"
+                src="https://www.youtube.com/embed/rdxrSIrZISE"
+                title="YouTube video player" frameborder="0"
+                allowfullscreen></iframe>',
+            ],
+            [
+                'id' => uniqid(),
+                'iframe' => '<iframe width="560" height="315"
+                src="https://www.youtube.com/embed/rdxrSIrZISE"
+                title="YouTube video player" frameborder="0"
+                allowfullscreen></iframe>',
+            ],
             [
                 'id' => uniqid(),
                 'iframe' => '<iframe width="560" height="315"

@@ -1,144 +1,138 @@
 @extends('layouts.web.layout-web')
 
-@section('titulo', $proyecto->nombre ?: '')
+@section('titulo', $post->meta_title ?: '')
 
-@php
-    $secciones = $proyecto->secciones ?? [];
-@endphp
+@section('descripcion', $post->meta_description ?: '')
+
+@section('imagen', $post->meta_image ? url($post->meta_image) : asset('assets/imagen/default.jpg'))
 
 @section('contenido')
     <div class="g_centrar_pagina">
         <div class="g_pading_pagina">
 
-            @if (!empty($secciones['banner_imagen']))
-                <section class="banner">
-                    <img src="{{ $secciones['banner_imagen'] }}" alt="{{ $proyecto->nombre }}">
-                </section>
-            @endif
+            <div class="pagina_post_grid">
 
-            @if (!empty($secciones['banner_youtube']))
-                <div class="video">
-                    {!! $secciones['banner_youtube'] !!}
+                <!-- COLUMNA 1: Post principal -->
+                <div class="grid_1">
+                    <article>
+
+                        <!-- Título -->
+                        <h1 class="titulo">{{ $post->titulo }}</h1>
+
+                        <!-- AUTOR -->
+                        <a class="contenedor_autor" href=" ">
+
+                            <div class="imagen">
+
+                                <img src="{{ asset('assets/imagen/default.jpg') }}">
+
+                            </div>
+
+                            <div class="datos">
+                                <p> Nombre </p>
+                                <span> Cargo</span>
+                            </div>
+                        </a>
+
+                        <!-- FECHA -->
+                        <div class="fecha">
+                            <i class="fa-solid fa-clock"></i>
+                            @php
+                                use Carbon\Carbon;
+                                setlocale(LC_TIME, 'es_ES.UTF-8'); // Establece español
+                                $fecha = Carbon::parse($post->created_at)->translatedFormat('d M Y');
+                            @endphp
+
+                            <span>{{ $fecha }}</span>
+                        </div>
+                        @php
+                            // Reemplaza todos los <oembed> por <iframe>
+                            $contenido = preg_replace_callback(
+                                '/<oembed url="([^" ]+)">
+                                <\/oembed>/i',
+                                function ($matches) {
+                                    $url = $matches[1];
+                                    // Extraer el ID del video de YouTube
+                                    if (preg_match('/(?:v=|\/)([a-zA-Z0-9_-]{11})/', $url, $id)) {
+                                        $videoId = $id[1];
+                                        return '<iframe width="560" height="315" src="https://www.youtube.com/embed/' .
+                                            $videoId .
+                                            '" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>';
+                                    }
+                                    return '';
+                                },
+                                $post->contenido,
+                            );
+                        @endphp
+
+                        <div class="g_ck_editor">
+                            {!! $contenido !!}
+                        </div>
+
+                        @php
+                            $p = $post->documento;
+
+                            $lista = $p['lista'] ?? [];
+                        @endphp
+                        @if (!empty($lista) && is_array($lista))
+
+                            <div class="documentos_adjuntos g_margin_top_40">
+                                <h2><strong class="r_negrita">Documentos adjuntos:</strong></h2>
+                                @foreach ($lista as $item)
+                                    @if (!empty($item['link']))
+                                        <a href="{{ $item['link'] }}" target="_blank"
+                                            style="background: {{ $item['texto_color'] }}; color: {{ $item['boton_color'] }}">
+                                            <i class="fa-solid fa-link"></i> {{ $item['texto'] }}
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        @endif
+
+                    </article>
+
+                    @include('partials.compartir-redes', [
+                        'url' => url()->current(),
+                        'title' => $post->meta_title ?? '',
+                        'description' => $post->meta_description ?? '',
+                        'image' => $post->meta_image ? url($post->meta_image) : asset('assets/imagen/default.jpg'),
+                    ])
                 </div>
-            @endif
 
+                <!-- COLUMNA 2: Sidebar o contenido adicional -->
+                <div class="grid_2">
+                    @if ($otrosPosts->count())
+                        <div class="contenedor_lista_post">
+                            @foreach ($otrosPosts as $post)
+                                <a href="{{ route('blog.show', $post->slug) }}">
+                                    <div class="post_card_contenedor">
+                                        <img src="{{ $post->imagen }}">
+                                        <div class="post_datos">
+                                            <div class="fecha">
+                                                <b>{{ $post->created_at->format('d') }}</b>
+                                                <p>{{ $post->created_at->format('M') }}</p>
+                                                <p>{{ $post->created_at->format('Y') }}</p>
+                                            </div>
+                                            <div class="datos">
+                                                <p class="titulo">{{ $post->meta_title }}</p>
+                                                <p class="descripcion">{{ $post->meta_description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
 
-            @if (!empty($secciones['precio']) && (!empty($secciones['precio']['texto']) || !empty($secciones['precio']['monto'])))
-                <section class="precio">
-                    @if (!empty($secciones['precio']['texto']))
-                        <p>{{ $secciones['precio']['texto'] }}</p>
+                        <!-- links de paginación -->
+                        <div class="g_paginacion g_margin_bottom_40">
+                            {{ $otrosPosts->links('vendor.pagination.default') }}
+                        </div>
                     @endif
+                </div>
 
-                    @if (!empty($secciones['precio']['monto']))
-                        <strong>{{ $secciones['precio']['monto'] }}</strong>
-                    @endif
-                </section>
-            @endif
-
-            @if (!empty($secciones['aviso']) && (!empty($secciones['aviso']['texto_1']) || !empty($secciones['aviso']['texto_2'])))
-                <section class="aviso">
-                    @if (!empty($secciones['aviso']['texto_1']))
-                        <p>{{ $secciones['aviso']['texto_1'] }}</p>
-                    @endif
-
-                    @if (!empty($secciones['aviso']['texto_2']))
-                        <strong>{{ $secciones['aviso']['texto_2'] }}</strong>
-                    @endif
-                </section>
-            @endif
-
-            @if (!empty($secciones['iconos']) && count($secciones['iconos']) > 0)
-                <section class="iconos">
-                    <div class="iconos_grid">
-                        @foreach ($secciones['iconos'] as $icono)
-                            @if (!empty($icono['imagen']) || !empty($icono['texto']))
-                                <div class="icono_item">
-                                    @if (!empty($icono['imagen']))
-                                        <img src="{{ $icono['imagen'] }}" alt="">
-                                    @endif
-
-                                    @if (!empty($icono['texto']))
-                                        <p>{{ $icono['texto'] }}</p>
-                                    @endif
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-                </section>
-            @endif
-
-            @if (!empty($secciones['imagen_mapa']))
-                <section class="banner">
-                    <img src="{{ $secciones['imagen_mapa'] }}" alt="{{ $proyecto->nombre }}">
-                </section>
-            @endif
-
-            @if (!empty($secciones['ofrecemos']) && count($secciones['ofrecemos']) > 0)
-                <section class="iconos">
-                    <div class="iconos_grid">
-                        @foreach ($secciones['ofrecemos'] as $ofrece)
-                            @if (!empty($ofrece['imagen']) || !empty($ofrece['texto']))
-                                <div class="icono_item">
-                                    @if (!empty($ofrece['imagen']))
-                                        <img src="{{ $ofrece['imagen'] }}" alt="">
-                                    @endif
-
-                                    @if (!empty($ofrece['texto']))
-                                        <p>{{ $ofrece['texto'] }}</p>
-                                    @endif
-                                </div>
-                            @endif
-                        @endforeach
-                    </div>
-                </section>
-            @endif
-
-            @if (!empty($secciones['galeria']) && count($secciones['galeria']) > 0)
-                <section class="galeria">
-                    @foreach ($secciones['galeria'] as $item)
-                        @if (!empty($item['imagen']))
-                            <img src="{{ $item['imagen'] }}" alt="">
-                        @endif
-                    @endforeach
-                </section>
-            @endif
-
-            @if (!empty($secciones['videos_youtube']))
-                <section class="videos">
-                    @foreach ($secciones['videos_youtube'] as $video)
-                        @if (!empty($video['iframe']))
-                            <div class="video">
-                                {!! $video['iframe'] !!}
-                            </div>
-                        @endif
-                    @endforeach
-                </section>
-            @endif
-
-
-            @if (!empty($secciones['turismo']) && count($secciones['turismo']) > 0)
-                <section class="turismo">
-                    @foreach ($secciones['turismo'] as $item)
-                        @if (!empty($item['imagen']) || !empty($item['titulo']) || !empty($item['descripcion']))
-                            <div class="turismo_item">
-                                @if (!empty($item['imagen']))
-                                    <img src="{{ $item['imagen'] }}" alt="">
-                                @endif
-
-                                @if (!empty($item['titulo']))
-                                    <h3>{{ $item['titulo'] }}</h3>
-                                @endif
-
-                                @if (!empty($item['descripcion']))
-                                    <p>{{ $item['descripcion'] }}</p>
-                                @endif
-                            </div>
-                        @endif
-                    @endforeach
-                </section>
-            @endif
-
-
+            </div>
         </div>
     </div>
 @endsection

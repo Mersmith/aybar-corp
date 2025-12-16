@@ -12,6 +12,6 @@ class ProyectoController extends Controller
     {
         $proyecto = Proyecto::where('slug', $slug)->where('activo', true)->firstOrFail();
 
-        return view('web.paginas.blog-item', compact('proyecto'));
+        return view('web.paginas.proyecto-item', compact('proyecto'));
     }
 }

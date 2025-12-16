@@ -27,6 +27,8 @@
 @import "./partials/visualizador-pdf.css";
 @import "./partials/formulario-imagen.css";
 @import "./partials/confia.css";
+@import "./partials/slider-galeria.css";
+@import "./partials/slider-videos.css";
 
 @import "./bloques/bloque-1.css";
 @import "./bloques/bloque-2.css";
@@ -47,5 +49,6 @@
 @import "./paginas/posts.css";
 @import "./paginas/post.css";
 @import "./paginas/landing.css";
+@import "./paginas/proyecto.css";
 
 @import "./../cliente/cliente.css";
