@@ -22,8 +22,8 @@
                         <div>
                             <p class="subtitulo">{{ $item->nombre }}</p>
                         </div>
-                        {{--<a href="{{ route('proyecto.show', $item->slug) }}"
-                            class="g_boton_personalizado amarillo">VISITAR PROYECTO</a>--}}
+                        <a href="{{ route('proyecto.show', $item->slug) }}"
+                            class="g_boton_personalizado amarillo">VISITAR PROYECTO</a>
                     </div>
                     @endforeach
                 </div>

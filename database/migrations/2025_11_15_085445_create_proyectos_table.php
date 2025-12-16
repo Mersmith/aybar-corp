@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('nombre')->unique();
             $table->string('slug')->unique();
             $table->longText('contenido')->nullable();
+            $table->json('secciones')->nullable();
             $table->string('imagen')->nullable();
             $table->dateTime('publicado_en')->nullable();
             $table->boolean('activo')->default(false);

@@ -23,7 +23,8 @@ use App\Livewire\Admin\Sede\{
 use App\Livewire\Admin\Proyecto\{
     ProyectoTodoLivewire,
     ProyectoCrearLivewire,
-    ProyectoEditarLivewire
+    ProyectoEditarLivewire,
+    ProyectoSeccionLivewire
 };
 
 use App\Livewire\Admin\Lote\{
@@ -67,6 +68,7 @@ Route::prefix('proyecto')
         Route::get('/', ProyectoTodoLivewire::class)->name('todo');
         Route::get('/crear', ProyectoCrearLivewire::class)->name('crear');
         Route::get('/editar/{id}', ProyectoEditarLivewire::class)->name('editar');
+        Route::get('/seccion/{id}', ProyectoSeccionLivewire::class)->name('seccion');
     });
 
 Route::prefix('lote')

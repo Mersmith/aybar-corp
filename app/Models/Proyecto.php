@@ -17,6 +17,7 @@ class Proyecto extends Model
         'nombre',
         'slug',
         'contenido',
+        'secciones',
         'imagen',
         'publicado_en',
         'activo',
@@ -29,6 +30,7 @@ class Proyecto extends Model
 
     protected $casts = [
         'documento' => 'array',
+        'secciones' => 'array',
     ];
 
     public function unidadNegocio()

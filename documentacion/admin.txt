@@ -100,6 +100,7 @@ php artisan make:livewire Admin/UnidadNegocio/UnidadNegocioEditarLivewire
 php artisan make:livewire Admin/Proyecto/ProyectoTodoLivewire
 php artisan make:livewire Admin/Proyecto/ProyectoCrearLivewire
 php artisan make:livewire Admin/Proyecto/ProyectoEditarLivewire
+php artisan make:livewire Admin/Proyecto/ProyectoSeccionLivewire
 
 php artisan make:livewire Admin/Lote/LoteTodoLivewire
 php artisan make:livewire Admin/Lote/LoteCrearLivewire
