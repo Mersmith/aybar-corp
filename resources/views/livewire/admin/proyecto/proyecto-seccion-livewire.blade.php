@@ -20,7 +20,7 @@
     <form wire:submit.prevent="store" class="formulario g_gap_pagina">
 
         <div class="g_fila">
-            <div class="g_columna_4 g_gap_pagina">
+            <div class="g_columna_3 g_gap_pagina">
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">Banner</h4>
 
@@ -31,12 +31,12 @@
 
                     <div class="">
                         <label for="">Youtube banner</label>
-                        <input type="text" wire:model="banner_youtube" placeholder="">
+                        <textarea wire:model="banner_youtube" placeholder=""></textarea>
                     </div>
                 </div>
             </div>
 
-            <div class="g_columna_4 g_gap_pagina">
+            <div class="g_columna_3 g_gap_pagina">
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">Precio</h4>
 
@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <div class="g_columna_4 g_gap_pagina">
+            <div class="g_columna_3 g_gap_pagina">
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">Aviso</h4>
 
@@ -64,6 +64,17 @@
                     <div class="">
                         <label for="">Texto 2</label>
                         <input type="text" wire:model="aviso.texto_2" placeholder="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="g_columna_3 g_gap_pagina">
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Mapa</h4>
+
+                    <div class="g_margin_bottom_10">
+                        <label for="">Imagen mapa</label>
+                        <input type="text" wire:model="imagen_mapa" placeholder="">
                     </div>
                 </div>
             </div>
@@ -154,7 +165,50 @@
         </div>
 
         <div class="g_fila">
-            <div class="g_columna_12">
+            <div class="g_columna_6 g_gap_pagina">
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Ofrecemos</h4>
+
+                    <div class="formulario_botones g_margin_bottom_10">
+                        <button type="button" wire:click="addOfrecemos" class="agregar">
+                            <i class="fa-solid fa-plus"></i> Agregar item
+                        </button>
+                    </div>
+
+                    <table class="tabla_eliminar">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Texto</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach ($ofrecemos as $index => $ofrece)
+                                <tr wire:key="ofrece-{{ $ofrece['id'] }}">
+                                    <td>
+                                        <input type="text" wire:model="ofrecemos.{{ $index }}.imagen"
+                                            placeholder="">
+                                    </td>
+                                    <td>
+                                        <input type="text" wire:model="ofrecemos.{{ $index }}.texto"
+                                            placeholder="">
+                                    </td>
+                                    <td>
+                                        <button type="button" wire:click="removeOfrecemos('{{ $ofrece['id'] }}')"
+                                            class="boton_eliminar">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="g_columna_6">
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">Videos YouTube</h4>
 
@@ -195,7 +249,7 @@
 
         <div class="g_panel">
             <h4 class="g_panel_titulo">
-                Items
+                Turismo
                 <button type="button" @click="toggleAll()">
                     <span x-show="globalVisible"><i class="fa-solid fa-angle-up"></i></span>
                     <span x-show="!globalVisible"><i class="fa-solid fa-angle-down"></i></span>
