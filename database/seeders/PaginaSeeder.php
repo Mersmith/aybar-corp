@@ -43,6 +43,13 @@ class PaginaSeeder extends Seeder
                 'activo' => true,
             ],
             [
+                'tipo' => 'personalizado',
+                'titulo' => 'Contáctanos',
+                'slug' => 'contacto',
+                'contenido' => [],
+                'activo' => true,
+            ],
+            [
                 'tipo' => 'secciones',
                 'titulo' => 'Terminos y Condiciones',
                 'slug' => 'terminos-y-condiciones',

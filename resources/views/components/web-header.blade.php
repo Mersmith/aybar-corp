@@ -5,9 +5,9 @@
     x-effect="document.body.classList.toggle('no-scroll', menuAbierto)">
 
     <!-- Banner -->
-    {{--<div class="web_header_banner" :class="{ 'oculto': ocultarBanner }">
+    {{-- <div class="web_header_banner" :class="{ 'oculto': ocultarBanner }">
         @include('components.web-header-banner')
-    </div>--}}
+    </div> --}}
 
     <!-- Header -->
     <header class="web_header">
@@ -37,79 +37,81 @@
 
                 <ul class="menu_principal">
                     @foreach ($menus as $menu)
-                    <li class="menu_item {{ $menu->children->count() ? 'tiene_hijos' : '' }}"
-                        :class="{ 'submenu_abierto': submenu === {{ $menu->id }} }">
-                        @if ($menu->children->count())
-                        <button type="button" class="nav_link toggle_submenu"
-                            @click="submenu = submenu === {{ $menu->id }} ? null : {{ $menu->id }}">
-                            {{ $menu->nombre }}
-                            <i class="fa-solid fa-chevron-down icono_flecha"></i>
-                        </button>
-                        <ul class="submenu" x-show="submenu === {{ $menu->id }}" x-collapse>
-                            @foreach ($menu->children as $child)
-                            <li>
-                                <i class="fa-solid fa-circle fa-2xs"></i>
-                                <a href="{{ $child->url ? url($child->url) : '#' }}" @click="menuAbierto = false">
-                                    {{ $child->nombre }}
+                        <li class="menu_item {{ $menu->children->count() ? 'tiene_hijos' : '' }}"
+                            :class="{ 'submenu_abierto': submenu === {{ $menu->id }} }">
+                            @if ($menu->children->count())
+                                <button type="button" class="nav_link toggle_submenu"
+                                    @click="submenu = submenu === {{ $menu->id }} ? null : {{ $menu->id }}">
+                                    {{ $menu->nombre }}
+                                    <i class="fa-solid fa-chevron-down icono_flecha"></i>
+                                </button>
+                                <ul class="submenu" x-show="submenu === {{ $menu->id }}" x-collapse>
+                                    @foreach ($menu->children as $child)
+                                        <li>
+                                            <i class="fa-solid fa-circle fa-2xs"></i>
+                                            <a href="{{ $child->url ? url($child->url) : '#' }}"
+                                                @click="menuAbierto = false">
+                                                {{ $child->nombre }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <a href="{{ $menu->url ? url($menu->url) : '#' }}" class="nav_link"
+                                    @click="menuAbierto = false">
+                                    {{ $menu->nombre }}
                                 </a>
-                            </li>
-                            @endforeach
-                        </ul>
-                        @else
-                        <a href="{{ $menu->url ? url($menu->url) : '#' }}" class="nav_link"
-                            @click="menuAbierto = false">
-                            {{ $menu->nombre }}
-                        </a>
-                        @endif
-                    </li>
+                            @endif
+                        </li>
                     @endforeach
 
 
                     @guest
-                    <li class="menu_item">
-                        <a href="/ingresar" class="boton_personalizado boton_personalizado_blanco_v2">INGRESAR</a>
-                    </li>
+                        <li class="menu_item">
+                            <a href="/ingresar" class="boton_personalizado boton_personalizado_blanco_v2">INGRESAR</a>
+                        </li>
                     @else
-                    @if (auth()->user()->rol === 'cliente')
-                    <li class="menu_item">
-                        <a href="{{ route('cliente.home') }}" class="boton_personalizado boton_personalizado_blanco_v2">MI
-                            CUENTA</a>
-                    </li>
+                        @if (auth()->user()->rol === 'cliente')
+                            <li class="menu_item">
+                                <a href="{{ route('cliente.home') }}"
+                                    class="boton_personalizado boton_personalizado_blanco_v2">MI
+                                    CUENTA</a>
+                            </li>
 
-                    <li class="menu_item menu_cliente">
-                        <a href="{{ route('cliente.home') }}"
-                            class="boton_personalizado boton_personalizado_blanco_v2">DIRECCION</a>
-                    </li>
+                            <li class="menu_item menu_cliente">
+                                <a href="{{ route('cliente.home') }}"
+                                    class="boton_personalizado boton_personalizado_blanco_v2">DIRECCION</a>
+                            </li>
 
-                    <li class="menu_item menu_cliente">
-                        <a href="{{ route('cliente.lote') }}" class="boton_personalizado boton_personalizado_blanco_v2">MIS
-                            LOTES</a>
-                    </li>
+                            <li class="menu_item menu_cliente">
+                                <a href="{{ route('cliente.lote') }}"
+                                    class="boton_personalizado boton_personalizado_blanco_v2">MIS
+                                    LOTES</a>
+                            </li>
 
-                    <li class="menu_item menu_cliente">
-                        <form method="POST" action="{{ route('logout.cliente') }}">
-                            @csrf
-                            <button type="submit" class="boton_personalizado boton_personalizado_negro">
-                                SALIR
-                            </button>
-                        </form>
-                    </li>
-                    @elseif (auth()->user()->rol === 'admin')
-                    <li class="menu_item">
-                        <a href="{{ route('admin.home') }}"
-                            class="boton_personalizado boton_personalizado_blanco_v2">BACKOFFICE</a>
-                    </li>
-                    @elseif (auth()->user()->rol === 'socio')
-                    <li class="menu_item">
-                        <a href="{{ route('socio.home') }}" class="boton_personalizado boton_personalizado_blanco_v2">MI
-                            PERFIL</a>
-                    </li>
-                    @endif
+                            <li class="menu_item menu_cliente">
+                                <form method="POST" action="{{ route('logout.cliente') }}">
+                                    @csrf
+                                    <button type="submit" class="boton_personalizado boton_personalizado_negro">
+                                        SALIR
+                                    </button>
+                                </form>
+                            </li>
+                        @elseif (auth()->user()->rol === 'admin')
+                            <li class="menu_item">
+                                <a href="{{ route('admin.home') }}"
+                                    class="boton_personalizado boton_personalizado_blanco_v2">BACKOFFICE</a>
+                            </li>
+                        @elseif (auth()->user()->rol === 'socio')
+                            <li class="menu_item">
+                                <a href="{{ route('socio.home') }}"
+                                    class="boton_personalizado boton_personalizado_blanco_v2">MI
+                                    PERFIL</a>
+                            </li>
+                        @endif
 
                     @endguest
 
-                    <li class="menu_item"><a href="/contacto"
-                            class="boton_personalizado boton_personalizado_amarillo_v2">CONTÁCTANOS</a></li>
                     <li class="menu_item"><a href="/consulta-codigo-cliente"
                             class="boton_personalizado boton_personalizado_amarillo_v2">CONSULTA TU CÓDIGO</a></li>
                 </ul>

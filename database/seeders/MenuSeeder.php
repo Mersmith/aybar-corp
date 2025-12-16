@@ -73,5 +73,12 @@ class MenuSeeder extends Seeder
             'url' => '/blog',
             'orden' => 4,
         ]);
+
+        $contacto = Menu::create([
+            'nombre' => 'CONTÁCTANOS',
+            'slug' => 'contacto',
+            'url' => '/contacto',
+            'orden' => 5,
+        ]);
     }
 }
