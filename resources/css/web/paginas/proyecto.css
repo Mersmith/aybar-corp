@@ -63,6 +63,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin: 0px auto 0;
+    text-align: center;
 }
 
 .proyecto_grid .proyecto_grid_item {
@@ -78,7 +79,6 @@
     width: 100px;
 }
 
-
 @media (max-width: 768px) {
 
     .proyecto_banner img {
@@ -87,6 +87,11 @@
 
     .proyecto_cabecera {
         grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+
+    .proyecto_grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 

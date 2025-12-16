@@ -43,28 +43,13 @@ class ProyectoFactory extends Factory
             ],
             [
                 'id' => uniqid(),
-                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
+                'imagen' => asset('assets/imagenes/iconos/icono-7.svg'),
                 'texto' => 'Terrenos desde 160 m2.',
             ],
             [
                 'id' => uniqid(),
-                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
-                'texto' => 'A 10 min. del Óvalo de Cieneguilla',
-            ],
-            [
-                'id' => uniqid(),
-                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
-                'texto' => 'Terrenos desde 160 m2.',
-            ],
-            [
-                'id' => uniqid(),
-                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
-                'texto' => 'A 10 min. del Óvalo de Cieneguilla',
-            ],
-            [
-                'id' => uniqid(),
-                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
-                'texto' => 'Terrenos desde 160 m2.',
+                'imagen' => asset('assets/imagenes/iconos/icono-8.svg'),
+                'texto' => 'Más de 1,500 lotes de terreno rústico – Pachacamac',
             ],
         ];
 
@@ -73,95 +58,52 @@ class ProyectoFactory extends Factory
         $ofrecemos = [
             [
                 'id' => uniqid(),
-                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
-                'texto' => 'A 10 min. del Óvalo de Cieneguilla',
+                'imagen' => asset('assets/imagenes/iconos/icono-10.svg'),
+                'texto' => 'Oportunidad de inversión',
             ],
             [
                 'id' => uniqid(),
-                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
-                'texto' => 'Terrenos desde 160 m2.',
+                'imagen' => asset('assets/imagenes/iconos/icono-11.svg'),
+                'texto' => 'Pórtico de ingreso',
             ],
             [
                 'id' => uniqid(),
-                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
-                'texto' => 'A 10 min. del Óvalo de Cieneguilla',
+                'imagen' => asset('assets/imagenes/iconos/icono-12.svg'),
+                'texto' => 'Juegos para niños',
             ],
             [
                 'id' => uniqid(),
-                'imagen' => asset('assets/imagenes/iconos/icono-6.svg'),
-                'texto' => 'Terrenos desde 160 m2.',
+                'imagen' => asset('assets/imagenes/iconos/icono-13.svg'),
+                'texto' => 'Vigilancia 24 horas',
             ],
         ];
 
         $galeria = [
             [
                 'id' => uniqid(),
-                'imagen' => asset('assets/imagen/default.jpg'),
+                'imagen' => asset('assets/imagenes/galeria/imagen-1.png'),
             ],
             [
                 'id' => uniqid(),
-                'imagen' => asset('assets/imagen/default.jpg'),
-            ],
-            [
-                'id' => uniqid(),
-                'imagen' => asset('assets/imagen/default.jpg'),
-            ],
-            [
-                'id' => uniqid(),
-                'imagen' => asset('assets/imagen/default.jpg'),
-            ],
-            [
-                'id' => uniqid(),
-                'imagen' => asset('assets/imagen/default.jpg'),
-            ],
-            [
-                'id' => uniqid(),
-                'imagen' => asset('assets/imagen/default.jpg'),
+                'imagen' => asset('assets/imagenes/galeria/imagen-2.png'),
             ],
         ];
 
         $videos_youtube = [
             [
                 'id' => uniqid(),
-                'iframe' => '<iframe width="560" height="315"
-                src="https://www.youtube.com/embed/rdxrSIrZISE"
-                title="YouTube video player" frameborder="0"
-                allowfullscreen></iframe>',
+                'iframe' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/rdxrSIrZISE?si=TFZsrBZuOMuXO3E0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
             ],
             [
                 'id' => uniqid(),
-                'iframe' => '<iframe width="560" height="315"
-                src="https://www.youtube.com/embed/rdxrSIrZISE"
-                title="YouTube video player" frameborder="0"
-                allowfullscreen></iframe>',
-            ],
-            [
-                'id' => uniqid(),
-                'iframe' => '<iframe width="560" height="315"
-                src="https://www.youtube.com/embed/rdxrSIrZISE"
-                title="YouTube video player" frameborder="0"
-                allowfullscreen></iframe>',
-            ],
-            [
-                'id' => uniqid(),
-                'iframe' => '<iframe width="560" height="315"
-                src="https://www.youtube.com/embed/rdxrSIrZISE"
-                title="YouTube video player" frameborder="0"
-                allowfullscreen></iframe>',
-            ],
-            [
-                'id' => uniqid(),
-                'iframe' => '<iframe width="560" height="315"
-                src="https://www.youtube.com/embed/rdxrSIrZISE"
-                title="YouTube video player" frameborder="0"
-                allowfullscreen></iframe>',
+                'iframe' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/uuw6UDjl0oo?si=mmtpECzEekblsZzc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
             ],
         ];
 
         $turismo = [
             [
                 'id' => uniqid(),
-                'imagen' => asset('assets/imagen/default.jpg'),
+                'imagen' => asset('assets/imagenes/turismo/imagen-1.png'),
                 'titulo' => 'Naturaleza',
                 'descripcion' => 'Zona turística cercana al proyecto',
             ],

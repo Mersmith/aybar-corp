@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_30" data-name="Capa 30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 250">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #07616d;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #f6a42c;
+      }
+
+      .cls-3 {
+        fill: #01424e;
+      }
+
+      .cls-4 {
+        fill: #037982;
+      }
+
+      .cls-5 {
+        fill: #014f59;
+      }
+    </style>
+  </defs>
+  <g>
+    <polygon class="cls-5" points="125 104.23 125 206.15 44.82 171.6 44.82 73.13 125 104.23"/>
+    <polygon class="cls-4" points="125 123.69 125 147.98 44.82 116.75 44.82 92.46 125 123.69"/>
+    <polygon class="cls-4" points="125 161.98 125 186.27 44.82 155.05 44.82 130.75 125 161.98"/>
+  </g>
+  <g>
+    <polygon class="cls-3" points="125 104.23 125 206.15 205.18 171.6 205.18 73.13 125 104.23"/>
+    <polygon class="cls-1" points="125 123.69 125 147.98 205.18 116.75 205.18 92.46 125 123.69"/>
+    <polygon class="cls-1" points="125 161.98 125 186.27 205.18 155.05 205.18 130.75 125 161.98"/>
+  </g>
+  <polygon class="cls-2" points="125.27 104.43 44.82 73.12 125.27 43.85 205.18 73.12 125.27 104.43"/>
+</svg>
