@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Confirmación de correo - Aybar Corp</title>
 </head>
 
-<body style="margin:0; padding:25px; background-color:#02424e; font-family: Arial, sans-serif;">
+<body style="margin:0; padding:25px; font-family: Arial, sans-serif;">
 
     <div style="
         max-width:580px;
@@ -13,14 +14,13 @@
         background:#ffffff;
         border-radius:16px;
         padding:35px;
-        box-shadow:0 6px 18px rgba(0,0,0,0.12);
         color:#333333;
     ">
 
         <!-- LOGO -->
         <div style="text-align:center;">
-            <img src="{{ asset('assets/imagen/logo.png') }}" alt="Aybar Corp"
-                 style="width:160px; margin-bottom:20px;">
+            <img src="https://aybarcorp.com/assets/imagen/logo-2.png" alt="Aybar Corp"
+                style="width:160px; margin-bottom:20px;">
         </div>
 
         <!-- TITULO -->
@@ -37,8 +37,7 @@
 
         <!-- BOTÓN -->
         <div style="text-align:center; margin:30px 0;">
-            <a href="{{ $url }}" target="_blank" rel="noopener"
-               style="
+            <a href="{{ $url }}" target="_blank" rel="noopener" style="
                     background-color:#02424e;
                     color:#ffffff !important;
                     padding:14px 28px;
@@ -65,4 +64,5 @@
     </div>
 
 </body>
+
 </html>

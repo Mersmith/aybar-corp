@@ -60,12 +60,6 @@
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" name="password" required>
 
-                    @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}" class="link-forgot-password">
-                        ¿Olvidaste tu contraseña?
-                    </a>
-                    @endif
-
                     @error('password')
                     <div class="mensaje_error">{{ $message }}</div>
                     @enderror
@@ -83,6 +77,12 @@
                         Ingresar
                     </button>
                 </div>
+
+                @if (Route::has('password.request'))
+                <a href="{{ route('password.request') }}" class="recuperar_clave">
+                    ¿Olvidaste tu contraseña?
+                </a>
+                @endif
             </form>
         </div>
     </div>

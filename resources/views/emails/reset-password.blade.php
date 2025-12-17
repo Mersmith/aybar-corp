@@ -6,11 +6,18 @@
     <title>Restablecer contraseña - Aybar Corp</title>
 </head>
 
-<body style="margin:0; padding:25px; background-color:#02424e; font-family: Arial, sans-serif;">
-    <div
-        style="max-width:580px; margin:0 auto; background:#ffffff; border-radius:16px; padding:35px; box-shadow:0 6px 18px rgba(0,0,0,0.12); color:#333333;">
+<body style="margin:0; padding:25px; font-family: Arial, sans-serif;">
+    <div style="
+        max-width:580px;
+        margin:0 auto;
+        background:#ffffff;
+        border-radius:16px;
+        padding:35px;
+        color:#333333;
+    ">
         <div style="text-align:center;">
-            <img src="{{ asset('assets/imagen/logo.png') }}" alt="Aybar Corp" style="width:160px; margin-bottom:20px;">
+            <img src="https://aybarcorp.com/assets/imagen/logo-2.png" alt="Aybar Corp"
+                style="width:160px; margin-bottom:20px;">
         </div>
 
         <h2 style="color:#02424e; margin-top:0; font-size:24px;">

@@ -24,8 +24,8 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->name('admin.')
                 ->group(base_path('routes/admin.php'));
 
-            //Route::middleware(['web', 'verified', 'auth', 'check.cliente'])
-            Route::middleware(['web', 'auth', 'check.cliente'])
+            Route::middleware(['web', 'verified', 'auth', 'check.cliente'])
+                //Route::middleware(['web', 'auth', 'check.cliente'])
                 ->prefix('cliente')
                 ->name('cliente.')
                 ->group(base_path('routes/cliente.php'));

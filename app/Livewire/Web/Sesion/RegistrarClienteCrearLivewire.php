@@ -27,7 +27,7 @@ class RegistrarClienteCrearLivewire extends Component
         'email' => 'required|email|unique:users,email',
         'password' => 'required|min:6|confirmed',
         'politica_uno' => 'accepted',
-        'politica_dos' => 'accepted',
+        'politica_dos' => 'nullable',
     ];
 
     protected $messages = [
