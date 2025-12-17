@@ -24,10 +24,10 @@ class DatabaseSeeder extends Seeder
             //EstadoCitaSeeder::class,
             //CitaSeeder::class,
 
-            //PaisSeeder::class,
-            //RegionSeeder::class,
-            //ProvinciaSeeder::class,
-            //DistritoSeeder::class,
+            PaisSeeder::class,
+            RegionSeeder::class,
+            ProvinciaSeeder::class,
+            DistritoSeeder::class,
 
             //EstadoTicketSeeder::class,
             //PrioridadTicketSeeder::class,
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             //ReprogramacionSeeder::class,
             //ReprogramacionGeneralSeeder::class,
 
-            //EstadoComprobantePagoSeeder::class,
+            EstadoComprobantePagoSeeder::class,
             //ComprobantePagoSeeder::class,
 
             //ImagenSeeder::class,
