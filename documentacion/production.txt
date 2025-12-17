@@ -27,3 +27,5 @@ public_html/storage
 public_html/storage/app
 **********************EXTENSION PHP**********************
 fileinfo: HABILITAR
+***************EN PRODUCCION ELIMINAR**********************
+public\hot

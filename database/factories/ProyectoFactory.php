@@ -129,12 +129,12 @@ class ProyectoFactory extends Factory
             //'slug' => Str::slug($nombre),
             'contenido' => $contenido,
             'secciones' => $secciones,
-            'imagen' => 'http://127.0.0.1:8000/assets/imagenes/proyectos/proyecto-1.jpg',
+            'imagen' =>  asset('assets/imagenes/proyectos/proyecto-1.jpg'),
             'publicado_en' => now(),
             'activo' => true,
             //'meta_title' => $nombre,
             'meta_description' => $this->faker->sentence(1),
-            'meta_image' => 'http://127.0.0.1:8000/assets/imagen/default.jpg',
+            'meta_image' =>  asset('assets/imagen/default.jpg'),
         ];
     }
 }

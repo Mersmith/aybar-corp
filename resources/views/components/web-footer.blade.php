@@ -1,10 +1,10 @@
 <footer class="web_footer">
     <div class="links_rapido">
-        <a href="">INICIO</a>
-        <a href="">NOSOTROS</a>
-        <a href="">TESTIMONIOS</a>
-        <a href="">BLOG</a>
-        <a href="">CONTACTO</a>
+        <a href="/">INICIO</a>
+        <a href="/nosotros">NOSOTROS</a>
+        <a href="/grupo-proyecto">PROYECTOS</a>
+        <a href="/blog">BLOG</a>
+        <a href="/contacto">CONTACTO</a>
     </div>
 
     <div class="footer_socials">
@@ -19,7 +19,7 @@
         <a href="https://www.instagram.com/aybarcorpoficial/" target="_blank">
             <span><i class="fa-brands fa-instagram"></i></span>
             <p>Instagram</p>
-        </a>        
+        </a>
         <a href="https://www.linkedin.com/company/aybarcorpoficial/" target="_blank">
             <span><i class="fa-brands fa-linkedin-in"></i></span>
             <p>LinkedIn</p>
@@ -61,7 +61,8 @@
                     <a>Av. Javier Prado Este 4457 <br> Santiago de Surco</a>
                     <br>
                     <p>Oficinas Administrativas:</p>
-                    <a>Circunvalación Del Golf Los Incas <br> Av. 134 Patio Panorama, <br> Piso 19. Santiago de Surco.</a>
+                    <a>Circunvalación Del Golf Los Incas <br> Av. 134 Patio Panorama, <br> Piso 19. Santiago de
+                        Surco.</a>
                 </div>
             </div>
         </div>
