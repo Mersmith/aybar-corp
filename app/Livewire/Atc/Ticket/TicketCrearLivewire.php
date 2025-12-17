@@ -106,7 +106,7 @@ class TicketCrearLivewire extends Component
 
     public function buscarCliente()
     {
-        $response = Http::get("https://aybarcorp.com/slin/cliente/{$this->dni}");
+        $response = Http::get("https://aybarcorp.com/api/slin/cliente/{$this->dni}");
 
         if ($response->failed() || empty($response->json())) {
             session()->flash('error', 'Intentelo más tarde, por favor.');
@@ -182,7 +182,7 @@ class TicketCrearLivewire extends Component
             "id_empresa" => $this->razon_social_select['id_empresa'],
         ];
 
-        $response = Http::get("https://aybarcorp.com/slin/lotes", $params);
+        $response = Http::get("https://aybarcorp.com/api/slin/lotes", $params);
 
         if ($response->failed() || empty($response->json())) {
             $this->lotes = [];

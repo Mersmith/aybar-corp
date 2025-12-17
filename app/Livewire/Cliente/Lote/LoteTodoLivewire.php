@@ -22,7 +22,7 @@ class LoteTodoLivewire extends Component
 
     public function mount()
     {
-        $response = Http::get("https://aybarcorp.com/slin/cliente/" . Auth::user()->cliente->dni);
+        $response = Http::get("https://aybarcorp.com/api/slin/cliente/" . Auth::user()->cliente->dni);
 
         if ($response->failed() || empty($response->json())) {
             session()->flash('error', 'Intentelo más tarde, por favor.');
@@ -54,7 +54,7 @@ class LoteTodoLivewire extends Component
             "id_empresa" => $this->razon_social_select['id_empresa'],
         ];
 
-        $response = Http::get("https://aybarcorp.com/slin/lotes", $params);
+        $response = Http::get("https://aybarcorp.com/api/slin/lotes", $params);
 
         if ($response->failed() || empty($response->json())) {
             $this->lotes = [];
@@ -80,7 +80,7 @@ class LoteTodoLivewire extends Component
             "id_lote" => $this->lote_select['id_lote'],
         ];
 
-        $response = Http::get("https://aybarcorp.com/slin/cuotas", $params);
+        $response = Http::get("https://aybarcorp.com/api/slin/cuotas", $params);
 
         if ($response->failed() || empty($response->json())) {
             $this->cronograma = [];

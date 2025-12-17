@@ -18,7 +18,7 @@ class CronogramaController extends Controller
             "id_lote" => $id_lote,
         ];
 
-        $response = Http::get("https://aybarcorp.com/slin/cuotas", $params);
+        $response = Http::get("https://aybarcorp.com/api/slin/cuotas", $params);
 
         if ($response->failed()) {
             return back()->with('error', 'No se pudo conectar con el servidor. Inténtelo más tarde.');

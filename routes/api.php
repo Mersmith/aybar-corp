@@ -16,4 +16,7 @@ Route::middleware('api')->group(function () {
 
     Route::get('/cavali/signer/test', [CavaliSignerController::class, 'test']);
 
+    Route::get('/slin/cliente/{dni}', [SlinController::class, 'getCliente'])->name('slin.cliente');
+    Route::get('/slin/lotes', [SlinController::class, 'getLotes'])->name('slin.lotes');
+    Route::get('/slin/cuotas', [SlinController::class, 'getCuotas'])->name('slin.cuotas');
 });

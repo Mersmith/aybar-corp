@@ -54,7 +54,7 @@ class RegistrarClienteCrearLivewire extends Component
             return;
         }
 
-        $response = Http::get("https://aybarcorp.com/slin/cliente/{$this->dni}");
+        $response = Http::get("https://aybarcorp.com/api/slin/cliente/{$this->dni}");
 
         if ($response->failed() || empty($response->json())) {
             session()->flash('error', 'No se encontró un cliente con este DNI.');
