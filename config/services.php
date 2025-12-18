@@ -43,7 +43,7 @@ return [
 
     'slin' => [
         'user' => env('SLIN_USER'),
-        'pass' => env('SLIN_PASS'),
+        'password' => env('SLIN_PASSWORD'),
         'url' => env('SLIN_URL'),
     ],
 

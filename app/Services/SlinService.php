@@ -6,68 +6,51 @@ use Illuminate\Support\Facades\Http;
 
 class SlinService
 {
-    protected $baseUrl;
-    protected $user;
-    protected $pass;
+    protected string $baseUrl;
+    protected string $user;
+    protected string $password;
 
     public function __construct()
     {
         $this->baseUrl = rtrim(config('services.slin.url'), '/');
         $this->user = config('services.slin.user');
-        $this->pass = config('services.slin.pass');
+        $this->password = config('services.slin.password');
     }
 
-    /**
-     * Cliente por DNI o NIT
-     * GET /clientes/nit/{dni}
-     */
-    public function getClientePorDni(string $dni)
+    public function getClientePorDni(string $dni): ?array
     {
-        return $this->get("/clientes/nit/{$dni}");
+        $response = Http::withBasicAuth($this->user, $this->password)
+            ->timeout(10)
+            ->get("{$this->baseUrl}/clientes/nit/{$dni}");
+
+        return $response->failed() ? null : $response->json();
     }
 
-    /**
-     * Lotes
-     * GET /lotes?id_cliente=X&id_empresa=Y
-     */
-    public function getLotes(string $idCliente, string $idEmpresa)
+    public function getLotes(string $idCliente, string $idEmpresa): ?array
     {
-        return $this->get('/lotes', [
-            'id_cliente' => $idCliente,
-            'id_empresa' => $idEmpresa,
-        ]);
-    }
-
-    /**
-     * Cuotas
-     * GET /cuotas?id_empresa=...&id_cliente=...&id_proyecto=...&id_etapa=...&id_manzana=...&id_lote=...
-     */
-    public function getCuotas(array $params)
-    {
-        return $this->get('/cuotas', $params);
-    }
-
-    /**
-     * Helper general GET con Basic Auth
-     */
-    protected function get(string $endpoint, array $queryParams = [])
-    {
-        $url = "{$this->baseUrl}{$endpoint}";
-
-        $response = Http::withBasicAuth($this->user, $this->pass)
-            ->get($url, $queryParams);
-
-        if ($response->failed()) {
-            logger()->error('Error API SLIN', [
-                'endpoint' => $endpoint,
-                'query'    => $queryParams,
-                'response' => $response->body(),
-                'status'   => $response->status()
+        $response = Http::withBasicAuth($this->user, $this->password)
+            ->timeout(10)
+            ->get("{$this->baseUrl}/lotes", [
+                'id_cliente' => $idCliente,
+                'id_empresa' => $idEmpresa,
             ]);
 
-            return null;
-        }
+        return $response->failed() ? null : $response->json();
+    }
 
-        return $response->json();
+    public function getCuotas(array $params): ?array
+    {
+        $response = Http::withBasicAuth($this->user, $this->password)
+            ->timeout(15)
+            ->get("{$this->baseUrl}/cuotas", [
+                'id_empresa' => $params['id_empresa'],
+                'id_cliente' => $params['id_cliente'],
+                'id_proyecto' => $params['id_proyecto'],
+                'id_etapa' => $params['id_etapa'],
+                'id_manzana' => $params['id_manzana'],
+                'id_lote' => $params['id_lote'],
+            ]);
+
+        return $response->failed() ? null : $response->json();
     }
 }

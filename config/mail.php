@@ -71,6 +71,23 @@ return [
             ],
         ],
 
+        'portal_cliente' => [
+            'transport' => 'smtp',
+            'scheme' => env('MAIL_SCHEME'),
+            'url' => env('MAIL_URL'),
+            'host' => env('MAIL_HOST_PORTAL_CLIENTE', '127.0.0.1'),
+            'port' => env('MAIL_PORT_PORTAL_CLIENTE', 2525),
+            'encryption' => env('MAIL_ENCRYPTION_PORTAL_CLIENTE'),
+            'username' => env('MAIL_USERNAME_PORTAL_CLIENTE'),
+            'password' => env('MAIL_PASSWORD_PORTAL_CLIENTE'),
+            'timeout' => null,
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url((string) env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS_PORTAL_CLIENTE'),
+                'name' => env('MAIL_FROM_NAME'),
+            ],
+        ],
+
         'ses' => [
             'transport' => 'ses',
         ],
