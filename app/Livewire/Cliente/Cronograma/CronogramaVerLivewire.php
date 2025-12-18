@@ -14,11 +14,16 @@ class CronogramaVerLivewire extends Component
 
     public $comprobantes;
 
+    public int $total_pagados = 0;
+
     public function mount($lote, $cronograma)
     {
         $this->lote = $lote;
 
         $this->cronograma = $cronograma;
+        $this->total_pagados = collect($this->cronograma)
+            ->where('estado', 'PAGADO')
+            ->count();
 
         $this->loadComprobantesYActualizarCronograma();
     }

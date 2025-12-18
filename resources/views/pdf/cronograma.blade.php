@@ -61,7 +61,7 @@
             <th>DNI</th>
             <td>{{ $lote['nit'] }}</td>
 
-            <th>ID Recaudo</th>
+            <th>Código pago</th>
             <td>{{ $lote['id_recaudo'] }}</td>
         </tr>
 
@@ -69,8 +69,8 @@
             <th>N° Cuotas</th>
             <td>{{ count($cronograma) }}</td>
 
-            <th>ID Proyecto</th>
-            <td>{{ $lote['id_proyecto'] ?? '---' }}</td>
+            <th>Pagados</th>
+            <td>{{ $total_pagados ?? '---' }}</td>
         </tr>
     </table>
 

@@ -28,7 +28,7 @@
             </button>
 
             <button wire:click="cerrarCronograma" class="g_boton g_boton_darkt">
-                <i class="fa-solid fa-xmark"></i> CERRAR
+                <i class="fa-solid fa-arrow-left"></i> REGRESAR
             </button>
         </div>
 

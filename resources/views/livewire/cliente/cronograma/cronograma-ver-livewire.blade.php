@@ -26,7 +26,7 @@
                         <td class="label">DNI</td>
                         <td class="valor">{{ $lote['nit'] }}</td>
 
-                        <td class="label">ID Recaudo</td>
+                        <td class="label">Código pago</td>
                         <td class="valor">{{ $lote['id_recaudo'] }}</td>
                     </tr>
 
@@ -34,8 +34,8 @@
                         <td class="label">N° Cuotas</td>
                         <td class="valor">{{ $lote['nro_cuotas'] }}</td>
 
-                        <td class="label">ID Proyecto</td>
-                        <td class="valor">{{ $lote['id_proyecto'] }}</td>
+                        <td class="label">Pagados</td>
+                        <td class="valor">{{ $total_pagados }}</td>
                     </tr>
 
                 </table>
@@ -70,7 +70,7 @@
                                 <td>S/ {{ number_format($item['saldo'], 2) }}</td>
                                 <td>{{ $item['estado'] }}</td>
                                 <td>
-                                    @if ($item['estado'] == 'PG PAGADA')
+                                    @if ($item['estado'] == 'PAGADO')
                                         <span class="g_boton g_boton_empresa_primario">
                                             <i class="fa-solid fa-circle-check"></i>
                                             Comprobado

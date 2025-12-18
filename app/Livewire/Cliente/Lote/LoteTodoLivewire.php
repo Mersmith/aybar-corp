@@ -103,7 +103,18 @@ class LoteTodoLivewire extends Component
             return;
         }
 
-        $this->cronograma = $cronograma;
+        $this->cronograma = collect($cronograma)
+            ->map(function ($item) {
+                return [
+                     ...$item,
+                    'estado' => match ($item['estado']) {
+                        'PG PAGADA' => 'PAGADO',
+                        'CR CARTERA' => 'PENDIENTE',
+                        default => 'OBSERVACIÓN',
+                    },
+                ];
+            })
+            ->toArray();
     }
 
     public function cerrarCronograma()
@@ -119,9 +130,14 @@ class LoteTodoLivewire extends Component
             return;
         }
 
+        $total_pagados = collect($this->cronograma)
+            ->where('estado', 'PAGADO')
+            ->count();
+
         $pdf = Pdf::loadView('pdf.cronograma', [
             'lote' => $this->lote_select,
             'cronograma' => $this->cronograma,
+            'total_pagados' => $total_pagados,
         ]);
 
         return response()->streamDownload(
