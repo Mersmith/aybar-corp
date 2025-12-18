@@ -55,8 +55,8 @@
                             <th>Saldo</th>
                             <th>Estado</th>
                             <th>Evidencia</th>
-                            <th>Boleta</th>
-                            <th>Letra</th>
+                            {{--<th>Boleta</th>
+                            <th>Letra</th>--}}
                         </tr>
                     </thead>
 
@@ -95,8 +95,8 @@
                                         @endif
                                     @endif
                                 </td>
-                                <td></td>
-                                <td></td>
+                                {{--<td></td>
+                                <td></td>--}}
                             </tr>
                         @endforeach
                     </tbody>

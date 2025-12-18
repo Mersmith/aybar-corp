@@ -3,9 +3,9 @@
 namespace App\Livewire\Cliente\Direccion;
 
 use App\Models\Direccion;
-use App\Models\Region;
 use App\Models\Distrito;
 use App\Models\Provincia;
+use App\Models\Region;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -14,18 +14,32 @@ class DireccionCrearLivewire extends Component
     public $departamentos;
     public $provincias = [];
     public $distritos = [];
-    public $region_id = null;
-    public $provincia_id = null;
-    public $distrito_id = null;
-    public $recibe_nombres = null;
-    public $recibe_celular = null;
-    public $direccion = null;
-    public $direccion_numero = null;
-    public $codigo_postal = null;
-    public $opcional = null;
-    public $instrucciones = null;
+    public $region_id = '';
+    public $provincia_id = '';
+    public $distrito_id = '';
+    public $recibe_nombres = '';
+    public $recibe_celular = '';
+    public $direccion = '';
+    public $direccion_numero = '';
+    public $codigo_postal = '';
+    public $opcional = '';
+    public $instrucciones = '';
 
     public $origen = '';
+
+    protected function rules()
+    {
+        return [
+            'recibe_nombres' => 'required',
+            'recibe_celular' => 'required',
+            'region_id' => 'required',
+            'provincia_id' => 'required',
+            'distrito_id' => 'required',
+            'direccion' => 'required',
+            'direccion_numero' => 'required',
+            'codigo_postal' => 'required',
+        ];
+    }
 
     public function mount($origen)
     {
@@ -35,6 +49,8 @@ class DireccionCrearLivewire extends Component
 
     public function createDireccion()
     {
+        $this->validate();
+
         $direccion = new Direccion();
         $direccion->user_id = Auth::user()->id;
         $direccion->recibe_nombres = $this->recibe_nombres;

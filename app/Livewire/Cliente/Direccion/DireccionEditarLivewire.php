@@ -11,21 +11,35 @@ use Livewire\Component;
 class DireccionEditarLivewire extends Component
 {
     public $direccion_seleccionada;
-    public $departamentos;
+    public $departamentos = [];
     public $provincias = [];
     public $distritos = [];
-    public $region_id = null;
-    public $provincia_id = null;
-    public $distrito_id = null;
-    public $recibe_nombres = null;
-    public $recibe_celular = null;
-    public $direccion = null;
-    public $direccion_numero = null;
-    public $codigo_postal = null;
-    public $opcional = null;
-    public $instrucciones = null;
+    public $region_id;
+    public $provincia_id;
+    public $distrito_id;
+    public $recibe_nombres;
+    public $recibe_celular;
+    public $direccion;
+    public $direccion_numero;
+    public $codigo_postal;
+    public $opcional;
+    public $instrucciones;
 
     public $origen = '';
+
+    protected function rules()
+    {
+        return [
+            'recibe_nombres' => 'required',
+            'recibe_celular' => 'required',
+            'region_id' => 'required',
+            'provincia_id' => 'required',
+            'distrito_id' => 'required',
+            'direccion' => 'required',
+            'direccion_numero' => 'required',
+            'codigo_postal' => 'required',
+        ];
+    }
 
     public function mount($direccionId, $origen)
     {
@@ -54,6 +68,8 @@ class DireccionEditarLivewire extends Component
 
     public function updateDireccion()
     {
+        $this->validate();
+
         $this->direccion_seleccionada->recibe_nombres = $this->recibe_nombres;
         $this->direccion_seleccionada->recibe_celular = $this->recibe_celular;
         $this->direccion_seleccionada->direccion = $this->direccion;

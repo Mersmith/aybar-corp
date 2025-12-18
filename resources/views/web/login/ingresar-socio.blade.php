@@ -6,11 +6,11 @@
         <!--IMAGEN-->
         <img src="{{ asset('assets/imagenes/nosotros/nosotros-2.jpg') }}" alt="" />
         <!--TEXTO-->
-        <div>
+        {{--<div>
             <h2>"Sorteamos cada mes miles de productos"</h2>
             <h3>Nickol Sinchi </h3>
             <p>Propietaria de Aybar Las</p>
-        </div>
+        </div>--}}
     </div>
 
     <div class="contenedor_login_formulario">

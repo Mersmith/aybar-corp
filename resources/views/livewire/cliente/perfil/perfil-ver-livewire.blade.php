@@ -73,7 +73,7 @@
             </div>
 
             <div class="g_margin_top_20 formulario_botones">
-                <button type="submit" class="guardar">Actualizar</button>
+                <button type="submit" class="guardar">Confirma tus datos</button>
             </div>
         </form>
     </div>
@@ -103,7 +103,7 @@
             </div>
 
             <div class="g_margin_top_20 formulario_botones">
-                <button type="submit" class="guardar">Actualizar</button>
+                <button type="submit" class="guardar">Cambiar contraseña</button>
             </div>
         </form>
     </div>
