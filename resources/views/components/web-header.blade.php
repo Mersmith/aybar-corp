@@ -65,22 +65,20 @@
                         </li>
                     @endforeach
 
+                    <li class="menu_item"><a href="/consulta-codigo-cliente"
+                            class="boton_personalizado boton_personalizado_blanco_v2">CONSULTA TU CÓDIGO</a></li>
 
                     @guest
                         <li class="menu_item">
-                            <a href="/ingresar" class="boton_personalizado boton_personalizado_blanco_v2">INGRESAR</a>
+                            <a href="/ingresar" class="boton_personalizado boton_personalizado_amarillo_v2"><i class="fa-solid fa-user-circle"></i> MI PLATAFORMA
+                                DIGITAL</a>
                         </li>
                     @else
                         @if (auth()->user()->rol === 'cliente')
                             <li class="menu_item">
                                 <a href="{{ route('cliente.home') }}"
-                                    class="boton_personalizado boton_personalizado_blanco_v2">MI
-                                    CUENTA</a>
-                            </li>
-
-                            <li class="menu_item menu_cliente">
-                                <a href="{{ route('cliente.home') }}"
-                                    class="boton_personalizado boton_personalizado_blanco_v2">DIRECCION</a>
+                                    class="boton_personalizado boton_personalizado_amarillo_v2"><i class="fa-solid fa-user-circle"></i> MI
+                                    PLATAFORMA DIGITAL</a>
                             </li>
 
                             <li class="menu_item menu_cliente">
@@ -88,6 +86,11 @@
                                     class="boton_personalizado boton_personalizado_blanco_v2">MIS
                                     LOTES</a>
                             </li>
+
+                            <li class="menu_item menu_cliente">
+                                <a href="{{ route('cliente.direccion') }}"
+                                    class="boton_personalizado boton_personalizado_blanco_v2">DIRECCION</a>
+                            </li>                           
 
                             <li class="menu_item menu_cliente">
                                 <form method="POST" action="{{ route('logout.cliente') }}">
@@ -100,7 +103,7 @@
                         @elseif (auth()->user()->rol === 'admin')
                             <li class="menu_item">
                                 <a href="{{ route('admin.home') }}"
-                                    class="boton_personalizado boton_personalizado_blanco_v2">BACKOFFICE</a>
+                                    class="boton_personalizado boton_personalizado_amarillo_v2">BACKOFFICE</a>
                             </li>
                         @elseif (auth()->user()->rol === 'socio')
                             <li class="menu_item">
@@ -112,8 +115,6 @@
 
                     @endguest
 
-                    <li class="menu_item"><a href="/consulta-codigo-cliente"
-                            class="boton_personalizado boton_personalizado_amarillo_v2">CONSULTA TU CÓDIGO</a></li>
                 </ul>
             </nav>
 

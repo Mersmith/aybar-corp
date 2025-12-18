@@ -25,7 +25,8 @@
     border-collapse: collapse;
 }
 
-.tabla th {
+.tabla th,
+.tabla tfoot td {
     font-weight: 600;
 }
 
