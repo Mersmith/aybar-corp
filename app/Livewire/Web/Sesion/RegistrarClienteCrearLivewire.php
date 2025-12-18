@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Web\Sesion;
 
+use App\Services\SlinService;
 use App\Models\Cliente;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class RegistrarClienteCrearLivewire extends Component
         'politica_dos.accepted' => 'Debes aceptar los términos y condiciones.',
     ];
 
-    public function buscarCliente()
+    public function buscarCliente(SlinService $slinService)
     {
         $this->cliente_encontrado = null;
 
@@ -54,16 +55,18 @@ class RegistrarClienteCrearLivewire extends Component
             return;
         }
 
-        $response = Http::get("https://aybarcorp.com/api/slin/cliente/{$this->dni}");
+        $cliente = app()->environment('local')
+        ? Http::get("https://aybarcorp.com/api/slin/cliente/{$this->dni}")->json()
+        : $slinService->getClientePorDni($this->dni);
 
-        if ($response->failed() || empty($response->json())) {
-            session()->flash('error', 'No se encontró un cliente con este DNI.');
+        if (empty($cliente)) {
+            session()->flash('error', 'Inténtelo más tarde, por favor.');
             return;
         }
 
         session()->flash('status', 'Ahora si puede crear tu cuenta');
 
-        $this->cliente_encontrado = $response->json();
+        $this->cliente_encontrado = $cliente;
     }
 
     public function registrar()

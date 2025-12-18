@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Cliente;
 
+use App\Services\SlinService;
 use App\Models\Cliente;
 use App\Models\UnidadNegocio;
 use App\Models\User;
@@ -21,20 +22,22 @@ class ClienteCrearLivewire extends Component
     public $cliente_encontrado = null;
     public $razones_sociales = [];
 
-    public function buscarCliente()
+    public function buscarCliente(SlinService $slinService)
     {
         $this->validate([
             'dni' => 'required',
         ]);
 
-        $response = Http::get("https://aybarcorp.com/api/slin/cliente/{$this->dni}");
+        $cliente = app()->environment('local')
+        ? Http::get("https://aybarcorp.com/api/slin/cliente/{$this->dni}")->json()
+        : $slinService->getClientePorDni($this->dni);
 
-        if ($response->failed() || empty($response->json())) {
-            session()->flash('error', 'Intentelo más tarde, por favor.');
+        if (empty($cliente)) {
+            session()->flash('error', 'Inténtelo más tarde, por favor.');
             return;
         }
 
-        $this->cliente_encontrado = $response->json();
+        $this->cliente_encontrado = $cliente;
         $this->razones_sociales = $this->cliente_encontrado['empresas'];
 
         $this->existingCliente = Cliente::where('dni', $this->dni)->first();

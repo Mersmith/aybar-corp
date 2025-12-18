@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Cliente\Lote;
 
+use App\Services\SlinService;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -20,20 +21,24 @@ class LoteTodoLivewire extends Component
 
     public $cronograma = [];
 
-    public function mount()
+    public function mount(SlinService $slinService)
     {
-        $response = Http::get("https://aybarcorp.com/api/slin/cliente/" . Auth::user()->cliente->dni);
+        $dni = Auth::user()->cliente->dni;
 
-        if ($response->failed() || empty($response->json())) {
-            session()->flash('error', 'Intentelo más tarde, por favor.');
+        $cliente = app()->environment('local')
+        ? Http::get("https://aybarcorp.com/api/slin/cliente/{$dni}")->json()
+        : $slinService->getClientePorDni($dni);
+
+        if (empty($cliente)) {
+            session()->flash('error', 'Inténtelo más tarde, por favor.');
             return;
         }
 
-        $this->cliente_encontrado = $response->json();
-        $this->razones_sociales = $this->cliente_encontrado['empresas'];
+        $this->cliente_encontrado = $cliente;
+        $this->razones_sociales = $cliente['empresas'] ?? [];
     }
 
-    public function updatedRazonSocialId($value)
+    public function updatedRazonSocialId($value, SlinService $slinService)
     {
         if (empty($value)) {
             $this->razon_social_select = null;
@@ -50,45 +55,55 @@ class LoteTodoLivewire extends Component
         }
 
         $params = [
-            "id_cliente" => $this->razon_social_select['codigo'],
-            "id_empresa" => $this->razon_social_select['id_empresa'],
+            'id_cliente' => $this->razon_social_select['codigo'],
+            'id_empresa' => $this->razon_social_select['id_empresa'],
         ];
 
-        $response = Http::get("https://aybarcorp.com/api/slin/lotes", $params);
+        if (app()->environment('local')) {
+            $response = Http::get('https://aybarcorp.com/api/slin/lotes', $params);
+            $lotes = $response->successful() ? $response->json() : null;
+        } else {
+            $lotes = $slinService->getLotes($params);
+        }
 
-        if ($response->failed() || empty($response->json())) {
+        if (empty($lotes)) {
             $this->lotes = [];
-            session()->flash('error', 'Intentelo más tarde, por favor.');
+            session()->flash('error', 'Inténtelo más tarde, por favor.');
             return;
         }
 
-        $this->lotes = $response->json();
+        $this->lotes = $lotes;
 
         $this->lote_select = null;
     }
 
-    public function seleccionarLote($lote)
+    public function seleccionarLote(array $lote, SlinService $slinService)
     {
         $this->lote_select = $lote;
 
         $params = [
-            "id_empresa" => $this->lote_select['id_empresa'],
-            "id_cliente" => $this->lote_select['id_cliente'],
-            "id_proyecto" => $this->lote_select['id_proyecto'],
-            "id_etapa" => $this->lote_select['id_etapa'],
-            "id_manzana" => $this->lote_select['id_manzana'],
-            "id_lote" => $this->lote_select['id_lote'],
+            'id_empresa' => $this->lote_select['id_empresa'],
+            'id_cliente' => $this->lote_select['id_cliente'],
+            'id_proyecto' => $this->lote_select['id_proyecto'],
+            'id_etapa' => $this->lote_select['id_etapa'],
+            'id_manzana' => $this->lote_select['id_manzana'],
+            'id_lote' => $this->lote_select['id_lote'],
         ];
 
-        $response = Http::get("https://aybarcorp.com/api/slin/cuotas", $params);
+        if (app()->environment('local')) {
+            $response = Http::get('https://aybarcorp.com/api/slin/cuotas', $params);
+            $cronograma = $response->successful() ? $response->json() : null;
+        } else {
+            $cronograma = $slinService->getCuotas($params);
+        }
 
-        if ($response->failed() || empty($response->json())) {
+        if (empty($cronograma)) {
             $this->cronograma = [];
-            session()->flash('error', 'Intentelo más tarde, por favor.');
+            session()->flash('error', 'Inténtelo más tarde, por favor.');
             return;
         }
 
-        $this->cronograma = $response->json();
+        $this->cronograma = $cronograma;
     }
 
     public function cerrarCronograma()
