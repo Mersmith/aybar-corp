@@ -4,6 +4,12 @@
     <div class="layout_cliente">
         <div class="g_centrar_pagina">
 
+            @if (session('bienvenida'))
+                <div class="alert alert-success">
+                    {{ session('bienvenida') }}
+                </div>
+            @endif
+
             <div class="grid_layout_cliente">
                 <aside class="contenedor_nav_links">
                     <div class="g_pading_pagina">
