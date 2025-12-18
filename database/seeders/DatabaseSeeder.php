@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
             SeccionSeeder::class,
             BlogSeeder::class,
             //ComunicadoSeeder::class,
-            //TipoFormularioSeeder::class,
+            TipoFormularioSeeder::class,
             //FormularioPaginaContactoSeeder::class,
             //FormularioLibroReclamacionSeeder::class,
         ]);

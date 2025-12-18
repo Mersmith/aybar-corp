@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('api')->group(function () {
 
+    Route::get('/test-mail', function () {
+        Mail::raw('Correo de prueba SMTP', function ($message) {
+            $message->to('mersmith14@gmail.com')
+                    ->subject('Prueba SMTP Laravel');
+        });
+    
+        return 'Correo enviado';
+    });
+
     Route::get('/symlink', function () {
         Artisan::call('storage:link');
     });

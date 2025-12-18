@@ -34,7 +34,7 @@
                 <!--TABLA CABECERA BUSCAR-->
                 <div class="tabla_cabecera_buscar">
                     <form action="">
-                        <input type="text" id="buscar" name="buscar" placeholder="Buscar...">
+                        <input type="text" id="buscar" name="buscar" wire:model.live.debounce.500ms="buscar" placeholder="Buscar...">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </form>
                 </div>

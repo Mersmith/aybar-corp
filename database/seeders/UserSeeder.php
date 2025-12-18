@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 2; $i++) {
             $user_super_admin = User::create([
                 'name' => "Super Admin $i",
-                'email' => "super_admin$i@aybarcorp.com",
+                'email' => "super_admin$i@aybarplat.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'admin',
             ]);
@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 2; $i++) {
             $supervisor_gestor = User::create([
                 'name' => "Supervisor Gestor $i",
-                'email' => "supervisor_gestor$i@aybarcorp.com",
+                'email' => "supervisor_gestor$i@aybarplat.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'admin',
             ]);
@@ -39,7 +39,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 8; $i++) {
             $gestor = User::create([
                 'name' => "Gestor $i",
-                'email' => "gestor$i@aybarcorp.com",
+                'email' => "gestor$i@aybarplat.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'admin',
             ]);
@@ -50,7 +50,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 2; $i++) {
             $supervisor_atc = User::create([
                 'name' => "Supervisor Atc $i",
-                'email' => "supervisor_atc$i@aybarcorp.com",
+                'email' => "supervisor_atc$i@aybarplat.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'admin',
             ]);
@@ -61,7 +61,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 8; $i++) {
             $atc = User::create([
                 'name' => "Atc $i",
-                'email' => "atc$i@aybarcorp.com",
+                'email' => "atc$i@aybarplat.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'admin',
             ]);
@@ -87,15 +87,15 @@ class UserSeeder extends Seeder
             ]);
         }
 
-        for ($i = 1; $i <= 2; $i++) {
+        /*for ($i = 1; $i <= 2; $i++) {
             $socio = User::create([
                 'name' => "Socio $i",
-                'email' => "socio$i@aybarcorp.com",
+                'email' => "socio$i@aybarplat.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'socio',
             ]);
 
             $socio->assignRole('socio');
-        }
+        }*/
     }
 }
