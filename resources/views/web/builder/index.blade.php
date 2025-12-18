@@ -7,13 +7,13 @@
 @section('meta_description', $pagina->meta_description ?: '')
 
 @section('contenido')
-<div class="g_centrar_pagina">
-    <div class="r_pading_pagina g_gap_pagina">
-        <div class="r_contenedor_columna">
-            @foreach ($bloques as $bloque)
-            @include('bloques.' . $bloque["tipo"], ['p_elemento' => $bloque["seccion"]])
-            @endforeach
+    <div class="g_centrar_pagina">
+        <div class="g_pading_pagina g_gap_pagina">
+            <div class="g_contenedor_columna">
+                @foreach ($bloques as $bloque)
+                    @include('bloques.' . $bloque['tipo'], ['p_elemento' => $bloque['seccion']])
+                @endforeach
+            </div>
         </div>
     </div>
-</div>
 @endsection

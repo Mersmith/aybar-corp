@@ -22,7 +22,7 @@ class FormularioContactoLivewire extends Component
             'telefono'      => 'nullable|regex:/^[0-9]{9}$/',
             'dni'           => 'required|string|min:5',
             'politica_uno'  => 'accepted',
-            'politica_dos'  => 'accepted',
+            'politica_dos'  => 'nullable',
         ];
     }
 

@@ -61,7 +61,8 @@
             <div class="g_margin_top_20">
                 <label>
                     <input type="checkbox" wire:model="politica_uno">
-                    <a href="">He leído y acepto el Tratamiento de mis datos personales.</a>
+                    <span>He leído y acepto el <a href="/tratamiento-de-datos-personales" target="_blank"
+                            rel="noopener noreferrer"> <u>Tratamiento de mis datos personales</u>. </a></span>
                 </label>
                 @error('politica_uno')
                     <p class="mensaje_error">{{ $message }}</p>
@@ -71,7 +72,9 @@
             <div class="g_margin_top_20">
                 <label>
                     <input type="checkbox" wire:model="politica_dos">
-                    <a href="">He leído y acepto la Política para envío de comunicaciones comerciales</a>
+                    <span>He leído y acepto la <a href="/politica-de-comunicaciones-comerciales" target="_blank"
+                            rel="noopener noreferrer"> <u>Política para envío de comunicaciones comerciales</u>.
+                        </a></span>
                 </label>
                 @error('politica_dos')
                     <p class="mensaje_error">{{ $message }}</p>

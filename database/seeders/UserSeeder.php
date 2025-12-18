@@ -72,7 +72,7 @@ class UserSeeder extends Seeder
         for ($i = 1; $i <= 2; $i++) {
             $cliente = User::create([
                 'name' => "Cliente $i",
-                'email' => "cliente$i@aybarcorp.com",
+                'email' => "cliente$i@example.com",
                 'password' => Hash::make('123456'),
                 'rol' => 'cliente',
             ]);

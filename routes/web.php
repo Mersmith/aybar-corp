@@ -8,9 +8,9 @@ use App\Http\Controllers\Web\ProyectoController;
 use App\Http\Controllers\Web\ContactoController;
 use App\Http\Controllers\Web\PaginaController;
 use App\Http\Controllers\Web\LibroReclamacionController;
-use App\Http\Controllers\ComunicadoController;
+use App\Http\Controllers\Web\ComunicadoController;
 use App\Http\Controllers\Web\ConsultaCodigoClienteController;
-use App\Http\Controllers\FormularioLandingController;
+use App\Http\Controllers\Web\FormularioLandingController;
 use Illuminate\Support\Facades\Route;
 require __DIR__ . '/auth.php';
 

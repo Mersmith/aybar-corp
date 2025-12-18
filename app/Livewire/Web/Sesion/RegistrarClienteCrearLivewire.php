@@ -79,6 +79,8 @@ class RegistrarClienteCrearLivewire extends Component
             'name' => $this->cliente_encontrado['apellidos_nombres'] ?? $this->email,
             'email' => $this->email,
             'password' => Hash::make($this->password),
+            'politica_uno' => $this->politica_uno,
+            'politica_dos' => $this->politica_dos,
             'rol' => 'cliente',
         ]);
 
