@@ -192,3 +192,29 @@
 .g_boton_cerrar:hover {
     filter: brightness(1.1);
 }
+
+.g_menu_badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: #fff;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+.g_menu_badge.info {
+    background-color: #2196f3;
+}
+
+.g_menu_badge.success {
+    background-color: #4caf50;
+}
+
+.g_menu_badge.warning {
+    background-color: #ff9800;
+}
+
+.g_menu_badge.danger {
+    background-color: #f44336;
+}

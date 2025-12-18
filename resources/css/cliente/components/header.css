@@ -20,7 +20,8 @@
     cursor: pointer;
 }
 
-.cliente_menu_pricipal a:last-child {
+.cliente_menu_pricipal a:last-child,
+.cliente_menu_pricipal button:last-child  {
     border-bottom: none;
 }
 
@@ -47,4 +48,10 @@
 
 .cliente_menu_pricipal a.active i {
     color: #333;
+}
+
+@media (min-width: 850px) {
+    .mostrar_menu_cliente{
+        display: none;
+    }
 }

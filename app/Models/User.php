@@ -95,4 +95,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $this->notify(new ResetPasswordCustom($token));
     }
+
+    public function necesitaActualizarDatosPersonales(): bool
+    {
+        return empty(optional($this->cliente)->telefono_principal);
+    }
+
+    public function necesitaActualizarDirecciones(): bool
+    {
+        return !$this->direcciones()->exists();
+    }
 }

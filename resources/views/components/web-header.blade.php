@@ -35,7 +35,12 @@
                     </a>
                 </div>
 
-                <ul class="menu_principal">
+                <ul class="menu_principal" x-data="{
+                    openMenuCliente: false,
+                    isDesktop: window.innerWidth >= 850
+                }" x-init="window.addEventListener('resize', () => {
+                    isDesktop = window.innerWidth >= 850
+                })">
                     @foreach ($menus as $menu)
                         <li class="menu_item {{ $menu->children->count() ? 'tiene_hijos' : '' }}"
                             :class="{ 'submenu_abierto': submenu === {{ $menu->id }} }">
@@ -70,36 +75,25 @@
 
                     @guest
                         <li class="menu_item">
-                            <a href="/ingresar" class="boton_personalizado boton_personalizado_amarillo_v2"><i class="fa-solid fa-user-circle"></i> MI PLATAFORMA
+                            <a href="/ingresar" class="boton_personalizado boton_personalizado_amarillo_v2"><i
+                                    class="fa-solid fa-user-circle"></i> MI PLATAFORMA
                                 DIGITAL</a>
                         </li>
                     @else
                         @if (auth()->user()->rol === 'cliente')
                             <li class="menu_item">
                                 <a href="{{ route('cliente.home') }}"
-                                    class="boton_personalizado boton_personalizado_amarillo_v2"><i class="fa-solid fa-user-circle"></i> MI
-                                    PLATAFORMA DIGITAL</a>
+                                    class="boton_personalizado boton_personalizado_amarillo_v2"
+                                    @click.prevent="!isDesktop ? openMenuCliente = !openMenuCliente : window.location.href = '{{ route('cliente.home') }}'">
+                                    <i class="fa-solid fa-user-circle"></i>
+                                    MI PLATAFORMA DIGITAL
+                                </a>
                             </li>
 
-                            <li class="menu_item menu_cliente">
-                                <a href="{{ route('cliente.lote') }}"
-                                    class="boton_personalizado boton_personalizado_blanco_v2">MIS
-                                    LOTES</a>
-                            </li>
-
-                            <li class="menu_item menu_cliente">
-                                <a href="{{ route('cliente.direccion') }}"
-                                    class="boton_personalizado boton_personalizado_blanco_v2">DIRECCION</a>
-                            </li>                           
-
-                            <li class="menu_item menu_cliente">
-                                <form method="POST" action="{{ route('logout.cliente') }}">
-                                    @csrf
-                                    <button type="submit" class="boton_personalizado boton_personalizado_negro">
-                                        SALIR
-                                    </button>
-                                </form>
-                            </li>
+                            <div x-show="openMenuCliente" x-transition @click.outside="open = false" style="display: none;"
+                                class="mostrar_menu_cliente">
+                                @include('layouts.cliente.menu')
+                            </div>
                         @elseif (auth()->user()->rol === 'admin')
                             <li class="menu_item">
                                 <a href="{{ route('admin.home') }}"
