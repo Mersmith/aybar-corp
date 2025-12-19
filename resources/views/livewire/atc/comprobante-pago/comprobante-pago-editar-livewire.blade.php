@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="formulario">
+    <div class="formulario g_gap_pagina">
         <div class="g_fila">
             <div class="g_columna_8 g_gap_pagina">
                 <div class="g_panel">
@@ -112,7 +112,6 @@
                     </div>
                 </div>
 
-
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">Detalle</h4>
 
@@ -142,17 +141,6 @@
                             </select>
                             @error('proyecto_id')
                             <span class="mensaje_error">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="g_fila">
-                        <div class="g_columna_12">
-                            <label for="observacion">Observación <span class="obligatorio"><i
-                                        class="fa-solid fa-asterisk"></i></span></label>
-                            <textarea id="observacion" wire:model.live="observacion" rows="5"></textarea>
-                            @error('observacion')
-                            <p class="mensaje_error">{{ $message }}</p>
                             @enderror
                         </div>
                     </div>
@@ -198,7 +186,45 @@
                     @endif
 
                 </div>
+            </div>
+        </div>
 
+        <div class="formulario_botones">
+            <button wire:click="store" class="guardar" wire:loading.attr="disabled" wire:target="store">
+                <span wire:loading.remove wire:target="store">Actualizar</span>
+                <span wire:loading wire:target="store">Actualizando...</span>
+            </button>
+
+            <a href="{{ route('admin.comprobante-pago.vista.todo') }}" class="cancelar">Cancelar</a>
+        </div>
+
+        <div class="g_fila">
+            <div class="g_columna_8 g_gap_pagina">
+                <div class="g_panel">
+                    <h4 class="g_panel_titulo">Enviar observación por correo</h4>
+
+                    <div class="g_margin_bottom_10">
+                        <label for="observacion">Observación <span class="obligatorio"><i
+                                    class="fa-solid fa-asterisk"></i></span></label>
+                        <textarea id="observacion" wire:model.live="observacion" rows="5"></textarea>
+                        @error('observacion')
+                        <p class="mensaje_error">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="g_margin_bottom_10">
+                        <div class="formulario_botones">
+                            <button wire:click="enviarCorreo" class="guardar" wire:loading.attr="disabled"
+                                wire:target="enviarCorreo">
+                                <span wire:loading.remove wire:target="enviarCorreo">Enviar correo</span>
+                                <span wire:loading wire:target="enviarCorreo">Enviando...</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="g_columna_4 g_gap_pagina g_columna_invertir">
                 <div class="g_panel">
                     <h4 class="g_panel_titulo">Validar evidencia pago</h4>
 
@@ -214,25 +240,14 @@
                         <div class="formulario_botones">
                             <button wire:click="validar" class="guardar" wire:loading.attr="disabled"
                                 wire:target="validar">
-                                <span wire:loading.remove wire:target="validar">Actualizar</span>
-                                <span wire:loading wire:target="validar">Actualizando...</span>
+                                <span wire:loading.remove wire:target="validar">Validar evidencia</span>
+                                <span wire:loading wire:target="validar">Validando...</span>
                             </button>
                         </div>
                     </div>
                     @endif
                     @endcan
                 </div>
-            </div>
-        </div>
-
-        <div class="g_margin_top_20">
-            <div class="formulario_botones">
-                <button wire:click="store" class="guardar" wire:loading.attr="disabled" wire:target="store">
-                    <span wire:loading.remove wire:target="store">Actualizar</span>
-                    <span wire:loading wire:target="store">Actualizando...</span>
-                </button>
-
-                <a href="{{ route('admin.comprobante-pago.vista.todo') }}" class="cancelar">Cancelar</a>
             </div>
         </div>
     </div>

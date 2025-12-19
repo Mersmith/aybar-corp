@@ -26,7 +26,6 @@ class ComprobantePagoEditarLivewire extends Component
     {
         return [
             'estado_id' => 'required',
-            'observacion' => 'required',
             'unidad_negocio_id' => 'required',
             'proyecto_id' => 'required',
         ];
@@ -67,7 +66,6 @@ class ComprobantePagoEditarLivewire extends Component
 
         $this->comprobante->update([
             'estado_comprobante_pago_id' => $this->estado_id,
-            'observacion' => $this->observacion,
             'unidad_negocio_id' => $this->unidad_negocio_id,
             'proyecto_id' => $this->proyecto_id,
         ]);
@@ -83,7 +81,20 @@ class ComprobantePagoEditarLivewire extends Component
             'fecha_validacion' => now(),
         ]);
         $this->comprobante->refresh();
-        $this->dispatch('alertaLivewire', "Actualizado");
+        $this->dispatch('alertaLivewire', "Validado");
+    }
+
+    public function enviarCorreo()
+    {
+        $this->validate([
+            'observacion' => 'required',
+        ]);
+
+        $this->comprobante->update([
+            'observacion' => $this->observacion,
+        ]);
+
+        $this->dispatch('alertaLivewire', "Enviado");
     }
 
     public function render()

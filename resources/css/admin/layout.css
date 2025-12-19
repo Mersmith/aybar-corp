@@ -6,7 +6,8 @@
 .contenedor_layout_pagina {
     margin-left: var(--ancho-sidebar-admin-item);
     transition: margin-left 0.4s ease-in-out;
-    width: 100%;
+    /*width: 100%;*/
+    width: -webkit-fill-available;
 }
 
 .contenido_layout_pagina {
