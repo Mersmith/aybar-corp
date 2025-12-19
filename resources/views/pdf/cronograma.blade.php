@@ -69,7 +69,7 @@
             <th>N° Cuotas</th>
             <td>{{ count($cronograma) }}</td>
 
-            <th>Pagados</th>
+            <th>Cuotas pagadas</th>
             <td>{{ $total_pagados ?? '---' }}</td>
         </tr>
     </table>

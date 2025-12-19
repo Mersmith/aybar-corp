@@ -16,8 +16,9 @@
     <div class="g_panel">
         <div class="g_panel_titulo">
             <h2>
-                {{ $cliente->user && $cliente->user->name
-                ? 'Bienvenido, ' . explode(' ', $cliente->user->name)[0] . '!'
+                {{
+                $cliente->user && $cliente->user->name
+                ? 'Bienvenido, ' . collect(explode(' ', trim($cliente->user->name)))->last() . '!'
                 : 'Mi perfil'
                 }}
             </h2>
