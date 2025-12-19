@@ -27,6 +27,7 @@
     width: 100%;
     z-index: 998;
     transition: transform 0.3s ease;
+    font-size: 15px;
 }
 
 .web_header_contenedor .web_header {
@@ -216,7 +217,7 @@
 }
 
 /* Mostrar submenú */
-.web_header .menu_principal .menu_item.submenu_abierto>.submenu {
+.web_header .menu_principal .menu_item.submenu_abierto > .submenu {
     display: flex;
 }
 
@@ -318,7 +319,7 @@ body.no-scroll {
         border-bottom: 1px solid var(--color-gris);
     }
 
-    .web_header .menu_principal .menu_item.submenu_abierto>.submenu {
+    .web_header .menu_principal .menu_item.submenu_abierto > .submenu {
         display: flex;
     }
 
