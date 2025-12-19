@@ -22,7 +22,7 @@ class EvidenciaPagoObservacionMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Observación de comprobante')
+        return $this->subject('Observación de evidencia de imagen')
             ->view('emails.evidencia-pago-observacion');
     }
 }

@@ -44,14 +44,14 @@
             <div class="item_grid">
                 <i class="fa-regular fa-envelope"></i>
                 <div class="datos">
-                    <a>atencion@aybarcorp.com</a>
+                    <a>adm-response@aybarsac.com</a>
                 </div>
             </div>
             <div class="item_grid">
                 <i class="fa-solid fa-phone"></i>
                 <div class="datos">
                     <!--<a>993 263 371</a>-->
-                    <a>(01) 9049838</a>
+                    <a>(51) 01-9049838</a>
                 </div>
             </div>
             <div class="item_grid">
