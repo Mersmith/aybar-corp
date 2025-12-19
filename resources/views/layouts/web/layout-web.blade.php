@@ -27,17 +27,17 @@
 
 <body class="layout_web">
 
-    @include('components.web-header')
+    @include('layouts.web.web-header')
 
     <main class="layout_web_contenido">
         @include('partials.back-to-top')
         @yield('contenido')
         @if (isset($slot))
-            {{ $slot }}
+        {{ $slot }}
         @endif
     </main>
 
-    @include('components.web-footer')
+    @include('layouts.web.web-footer')
 
     @livewireScripts
 </body>

@@ -11,7 +11,7 @@ class LayoutWebServiceProvider extends ServiceProvider
     public function boot()
     {
         //View::composer('layouts.web.layout-web', function ($view) {
-        View::composer('components.web-header', function ($view) {
+        View::composer('layouts.web.web-header', function ($view) {
             $menus = Menu::whereNull('parent_id')
                 ->where('activo', true)
                 ->with('children')

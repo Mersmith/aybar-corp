@@ -38,15 +38,19 @@
 }
 
 .g_modal .modal_titulo {
-    margin-bottom: 15px;
+    margin: 15px 0px;
 }
 
 .g_modal .modal_cuerpo {
-    margin-bottom: 20px;
+    margin: 20px 0px;
 }
 
 .g_modal .modal_pie {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
+}
+
+[x-cloak] {
+    display: none !important;
 }

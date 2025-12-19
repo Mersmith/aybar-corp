@@ -8,6 +8,10 @@
     display: block;
 }
 
+.r_titulo_1.minimo {
+    font-size: 20px !important;
+}
+
 .r_titulo_1::after {
     content: "";
     width: 50px;
@@ -67,12 +71,25 @@
     line-height: 1.6;
 }
 
+.r_parrafo.justify {
+    text-align: justify;
+}
+
+.r_parrafo.minimo {
+    font-size: 17px !important;
+    line-height: 1.2 !important;
+}
+
 .r_parrafo.color_1 {
     color: var(--color-negro);
 }
 
 .r_parrafo.color_2 {
     color: var(--color-blanco);
+}
+
+.r_parrafo.color_3 {
+    color: var(--color-verde);
 }
 
 .r_parrafo span {

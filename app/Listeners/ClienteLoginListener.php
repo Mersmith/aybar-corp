@@ -13,14 +13,14 @@ class ClienteLoginListener
 
         if (method_exists($user, 'hasRole') && $user->hasRole('cliente')) {
             Session::flash(
-                'bienvenida',
-                '¡Bienvenido a tu plataforma digital!'
+                'bienvenida_cliente',
+                'ESTIMADO CLIENTE'
             );
         }
 
         /*if ($user->rol === 'cliente') {
             Session::flash(
-                'bienvenida',
+                'bienvenida_cliente',
                 '¡Bienvenido a tu plataforma digital!'
             );
         }*/
