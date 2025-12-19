@@ -111,3 +111,5 @@ composer require maatwebsite/excel
 php artisan make:import ComprobantePagoAntiguoImport
 
 php artisan make:livewire Atc/ComprobantePago/ImportarComprobanteAntiguoLivewire
+
+php artisan make:mail EvidenciaPagoObservacionMail

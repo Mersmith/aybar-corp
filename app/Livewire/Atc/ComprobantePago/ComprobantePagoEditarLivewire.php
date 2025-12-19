@@ -7,6 +7,8 @@ use App\Models\Proyecto;
 use App\Models\UnidadNegocio;
 use App\Models\EstadoComprobantePago;
 use Livewire\Attributes\Layout;
+use App\Mail\EvidenciaPagoObservacionMail;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
@@ -93,6 +95,11 @@ class ComprobantePagoEditarLivewire extends Component
         $this->comprobante->update([
             'observacion' => $this->observacion,
         ]);
+
+        $emailDestino = $this->comprobante->cliente->email;
+
+        Mail::to($emailDestino)
+            ->send(new EvidenciaPagoObservacionMail($this->comprobante));
 
         $this->dispatch('alertaLivewire', "Enviado");
     }

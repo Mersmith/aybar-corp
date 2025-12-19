@@ -24,18 +24,23 @@
                     <h4 class="g_panel_titulo">General</h4>
 
                     <div class="g_fila">
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_3">
                             <label>Cliente</label>
                             <input type="text" disabled
                                 value="{{ $comprobante->cliente->user->name ?? 'Sin asignar' }}">
                         </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_3">
                             <label>DNI</label>
                             <input type="text" disabled value="{{ $comprobante->cliente->dni ?? 'Sin asignar' }}">
                         </div>
 
-                        <div class="g_margin_bottom_10 g_columna_4">
+                        <div class="g_margin_bottom_10 g_columna_3">
+                            <label>Email</label>
+                            <input type="text" disabled value="{{ $comprobante->cliente->email ?? 'Sin asignar' }}">
+                        </div>
+
+                        <div class="g_margin_bottom_10 g_columna_3">
                             <label>Fecha subida</label>
                             <input type="text" disabled value="{{ $comprobante->created_at ?? 'Sin asignar' }}">
                         </div>
@@ -216,7 +221,8 @@
                         <div class="formulario_botones">
                             <button wire:click="enviarCorreo" class="guardar" wire:loading.attr="disabled"
                                 wire:target="enviarCorreo">
-                                <span wire:loading.remove wire:target="enviarCorreo">Enviar correo</span>
+                                <span wire:loading.remove wire:target="enviarCorreo"><i
+                                        class="fa-solid fa-paper-plane"></i> Enviar correo</span>
                                 <span wire:loading wire:target="enviarCorreo">Enviando...</span>
                             </button>
                         </div>
