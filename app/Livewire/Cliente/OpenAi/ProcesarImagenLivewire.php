@@ -29,6 +29,10 @@ class ProcesarImagenLivewire extends Component
     {
         return [
             'imagen' => 'required|image|max:4096',
+            'datos.numero' => 'required',
+            'datos.banco' => 'required',
+            'datos.monto' => 'required',
+            'datos.fecha' => 'required',
             'unidad_negocio_id' => 'required',
             'proyecto_id' => 'required',
         ];
@@ -37,6 +41,10 @@ class ProcesarImagenLivewire extends Component
     protected $validationAttributes = [
         'unidad_negocio_id' => 'Razón Social',
         'proyecto_id' => 'Proyecto',
+        'datos.numero' => 'N° operación',
+        'datos.banco' => 'Banco',
+        'datos.monto' => 'Monto',
+        'datos.fecha' => 'Fecha',
     ];
 
     public function mount($cuota, $lote)
@@ -136,6 +144,12 @@ NO agregues explicación ni texto adicional. Solo JSON.",
 
             if (!$data) {
                 session()->flash('error', 'No se pudo extraer la información correctamente.');
+                $this->procesando = false;
+                return;
+            }
+
+            if (!$data['numero_operacion']) {
+                session()->flash('error', 'No se detectaron campos válidos');
                 $this->procesando = false;
                 return;
             }
