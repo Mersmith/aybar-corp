@@ -25,9 +25,9 @@ class LoteTodoLivewire extends Component
     {
         $dni = Auth::user()->cliente->dni;
 
-        $cliente = app()->environment('local')
-        ? Http::get("https://aybarcorp.com/api/slin/cliente/{$dni}")->json()
-        : $slinService->getClientePorDni($dni);
+        $cliente = app()->environment('production')
+            ? Http::get("https://aybarcorp.com/slin/cliente/{$dni}")->json()
+            : $slinService->getClientePorDni($dni);
 
         if (empty($cliente)) {
             session()->flash('error', 'Inténtelo más tarde, por favor.');
@@ -59,8 +59,8 @@ class LoteTodoLivewire extends Component
             'id_empresa' => $this->razon_social_select['id_empresa'],
         ];
 
-        if (app()->environment('local')) {
-            $response = Http::get('https://aybarcorp.com/api/slin/lotes', $params);
+        if (app()->environment('production')) {
+            $response = Http::get('https://aybarcorp.com/slin/lotes', $params);
             $lotes = $response->successful() ? $response->json() : null;
         } else {
             $lotes = $slinService->getLotes($params);
@@ -90,8 +90,8 @@ class LoteTodoLivewire extends Component
             'id_lote' => $this->lote_select['id_lote'],
         ];
 
-        if (app()->environment('local')) {
-            $response = Http::get('https://aybarcorp.com/api/slin/cuotas', $params);
+        if (app()->environment('production')) {
+            $response = Http::get('https://aybarcorp.com/slin/cuotas', $params);
             $cronograma = $response->successful() ? $response->json() : null;
         } else {
             $cronograma = $slinService->getCuotas($params);
@@ -106,7 +106,7 @@ class LoteTodoLivewire extends Component
         $this->cronograma = collect($cronograma)
             ->map(function ($item) {
                 return [
-                     ...$item,
+                    ...$item,
                     'estado' => match ($item['estado']) {
                         'PG PAGADA' => 'PAGADO',
                         'CR CARTERA' => 'PENDIENTE',

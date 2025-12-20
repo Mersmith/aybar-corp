@@ -55,9 +55,9 @@ class RegistrarClienteCrearLivewire extends Component
             return;
         }
 
-        $cliente = app()->environment('local')
-        ? Http::get("https://aybarcorp.com/api/slin/cliente/{$this->dni}")->json()
-        : $slinService->getClientePorDni($this->dni);
+        $cliente = app()->environment('production')
+            ? Http::get("https://aybarcorp.com/slin/cliente/{$this->dni}")->json()
+            : $slinService->getClientePorDni($this->dni);
 
         if (empty($cliente)) {
             session()->flash('error', 'Inténtelo más tarde, por favor.');

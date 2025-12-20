@@ -29,9 +29,10 @@
     <div class="contenedor_nav_links" :class="{ 'estilo_abierto_contenedor_nav_links': estadoNavAbierto }">
 
         <div class="contenedor_logo">
-            <a href="{{ route('home') }}">
-                <img src="{{ asset('assets/imagen/logo-2.png') }}" alt="">
-            </a>
+            {{--<a href="{{ route('home') }}">--}}
+                <a href="">
+                    <img src="{{ asset('assets/imagen/logo-2.png') }}" alt="">
+                </a>
         </div>
 
         <!--SIDEBAR-->

@@ -11,10 +11,14 @@ use App\Http\Controllers\Web\LibroReclamacionController;
 use App\Http\Controllers\Web\ComunicadoController;
 use App\Http\Controllers\Web\ConsultaCodigoClienteController;
 use App\Http\Controllers\Web\FormularioLandingController;
+use App\Http\Controllers\Web\LoginController;
+
 use Illuminate\Support\Facades\Route;
+
 require __DIR__ . '/auth.php';
 
-Route::get('/', [InicioController::class, 'index'])->name('home'); //pagina personalizada //ok
+//Route::get('/', [InicioController::class, 'index'])->name('home'); //pagina personalizada //ok
+Route::get('/', [LoginController::class, 'indexIngresarCliente'])->name('home');
 
 Route::get('/landing', [FormularioLandingController::class, 'index'])->name('landing.index'); //pagina personalizada
 Route::post('/landing/enviar', [FormularioLandingController::class, 'store'])->name('landing.store');

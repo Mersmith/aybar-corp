@@ -13,7 +13,7 @@
     <header class="web_header">
         <div class="web_header_cuerpo">
 
-            <a href="{{ route('home') }}">
+            <a href="https://aybarcorp.com/">
                 <img class="logo" src="{{ asset('assets/imagen/logo.png') }}" alt="Logo">
             </a>
 
@@ -30,7 +30,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
 
-                    <a href="{{ route('home') }}">
+                    <a href="https://aybarcorp.com/">
                         <img class="logo" src="{{ asset('assets/imagen/logo.png') }}" alt="Logo">
                     </a>
                 </div>
@@ -41,7 +41,7 @@
                 }" x-init="window.addEventListener('resize', () => {
                     isDesktop = window.innerWidth >= 850
                 })">
-                    @foreach ($menus as $menu)
+                    {{--@foreach ($menus as $menu)
                     <li class="menu_item {{ $menu->children->count() ? 'tiene_hijos' : '' }}"
                         :class="{ 'submenu_abierto': submenu === {{ $menu->id }} }">
                         @if ($menu->children->count())
@@ -67,15 +67,15 @@
                         </a>
                         @endif
                     </li>
-                    @endforeach
+                    @endforeach--}}
 
-                    <li class="menu_item"><a href="/consulta-codigo-cliente"
-                            class="boton_personalizado boton_personalizado_blanco_v2">CONSULTA TU CÓDIGO</a></li>
+                    <!--<li class="menu_item"><a href="/consulta-codigo-cliente"
+                            class="boton_personalizado boton_personalizado_blanco_v2">CONSULTA TU CÓDIGO</a></li>-->
 
                     @guest
                     <li class="menu_item">
                         <a href="/ingresar" class="boton_personalizado boton_personalizado_amarillo_v2"><i
-                                class="fa-solid fa-user-circle"></i> MI PLATAFORMA
+                                class="fa-solid fa-user-circle"></i> ZONA CLIENTE
                             DIGITAL</a>
                     </li>
                     @else
@@ -85,7 +85,7 @@
                             class="boton_personalizado boton_personalizado_amarillo_v2"
                             @click.prevent="!isDesktop ? openMenuCliente = !openMenuCliente : window.location.href = '{{ route('cliente.home') }}'">
                             <i class="fa-solid fa-user-circle"></i>
-                            MI PLATAFORMA DIGITAL
+                            ZONA CLIENTE
                         </a>
                     </li>
 
