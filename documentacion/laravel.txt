@@ -64,3 +64,5 @@ php artisan make:seeder TipoSolicitudSeeder
 php artisan make:seeder AreaTipoSolicitudSeeder
 
 php artisan make:migration create_cliente_unidad_negocio_table
+
+php artisan vendor:publish --tag=livewire:config
