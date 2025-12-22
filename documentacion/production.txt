@@ -34,3 +34,45 @@ public_html/storage/app
 fileinfo: HABILITAR
 ***************EN PRODUCCION ELIMINAR**********************
 public\hot
+
+*************************************
+
+Route::get('/__debug-scheme', function () {
+    dd(
+        request()->getScheme(),
+        request()->secure(),
+        request()->headers->all()
+    );
+});
+
+*************************************
+app.php
+use Illuminate\Http\Request;
+
+$middleware->trustProxies(
+        '*',
+        Request::HEADER_X_FORWARDED_FOR
+            | Request::HEADER_X_FORWARDED_HOST
+            | Request::HEADER_X_FORWARDED_PORT
+            | Request::HEADER_X_FORWARDED_PROTO
+    );
+*************************************
+AppServiceProvider.php
+use Illuminate\Support\Facades\URL;
+if (app()->environment('production')) {
+        URL::forceScheme('https');
+        URL::forceRootUrl('https://plataforma-digital.aybarcorp.com');
+    }
+*************************************
+.env
+
+SESSION_DOMAIN=.aybarcorp.com
+SESSION_COOKIE=aybar_plataforma_session
+SESSION_SECURE_COOKIE=true
+*************************************
+{{ request()->cookies->has('laravel_session') ? 'OK' : 'NO COOKIE' }}
+*************************************
+composer dump-autoload
+php artisan optimize:clear
+php artisan route:list | grep livewire
+*************************************
