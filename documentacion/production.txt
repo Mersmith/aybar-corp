@@ -76,3 +76,22 @@ composer dump-autoload
 php artisan optimize:clear
 php artisan route:list | grep livewire
 *************************************
+app/Providers/AppServiceProvider.php
+public function boot(): void
+{
+    Livewire::setUpdateRoute(function ($handle) {
+        return Route::post('/livewire/update', $handle)
+            ->middleware('web');
+    });
+
+    Livewire::setScriptRoute(function ($handle) {
+        return Route::get('/livewire/livewire.min.js', $handle)
+            ->middleware('web');
+    });
+
+    Livewire::setPreviewRoute(function ($handle) {
+        return Route::get('/livewire/preview-file/{filename}', $handle)
+            ->middleware('web');
+    });
+}
+*************************************

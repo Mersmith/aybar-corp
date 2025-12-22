@@ -34,6 +34,8 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->prefix('socio')
                 ->name('socio.')
                 ->group(base_path('routes/socio.php'));
+
+            Route::middleware('web')->group(base_path('routes/debug-livewire.php'));
         },
     )
     ->withMiddleware(function (Middleware $middleware): void {
