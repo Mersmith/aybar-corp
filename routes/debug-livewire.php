@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use Livewire\Livewire;
 
 /*
@@ -12,6 +13,21 @@ use Livewire\Livewire;
 | TEST 1: Sesión y cookies
 |--------------------------------------------------------------------------
 */
+
+Route::get('/debug/signed-test', function () {
+    $url = URL::temporarySignedRoute(
+        'livewire.preview-file',
+        now()->addMinutes(5),
+        ['filename' => 'test.png']
+    );
+
+    return [
+        'generated_url' => $url,
+        'current_scheme' => request()->getScheme(),
+        'trusted_proxies' => request()->headers->get('x-forwarded-proto'),
+        'app_url' => config('app.url'),
+    ];
+});
 
 Route::get('/debug/session', function (Request $request) {
 

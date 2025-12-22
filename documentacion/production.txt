@@ -35,6 +35,8 @@ fileinfo: HABILITAR
 ***************EN PRODUCCION ELIMINAR**********************
 public\hot
 
+**************DESACTIVAR EL CDN Y BORRAR CACHE***********************
+Desactivar/VACIAR CACHE
 *************************************
 
 Route::get('/__debug-scheme', function () {
@@ -75,6 +77,7 @@ SESSION_SECURE_COOKIE=true
 composer dump-autoload
 php artisan optimize:clear
 php artisan route:list | grep livewire
+php artisan route:list | grep preview
 *************************************
 app/Providers/AppServiceProvider.php
 public function boot(): void
@@ -94,4 +97,25 @@ public function boot(): void
             ->middleware('web');
     });
 }
+*************************************
+VerifyCsrfToken.php
+<?php
+
+namespace App\Http\Middleware;
+
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as Middleware;
+
+class VerifyCsrfToken extends Middleware
+{
+    protected $except = [
+        'livewire/preview-file/*',
+    ];
+}
+*************************************
+app.php
+->withMiddleware(function (Middleware $middleware): void {
+        $middleware->trustProxies(at: '*');
+        $middleware->web(append: [
+        \App\Http\Middleware\VerifyCsrfToken::class,
+    ]);
 *************************************
